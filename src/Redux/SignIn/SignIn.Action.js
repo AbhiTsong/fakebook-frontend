@@ -1,5 +1,5 @@
 import SignInActionTypes from "./SignInTypes";
-import axios from "axios";
+import axios from "../../axios";
 
 const SignInUserStart = () => {
   return {
@@ -26,7 +26,7 @@ export function SignInUser({ email, password }) {
     dispatch(SignInUserStart());
 
     axios
-      .post("http://localhost:3000/users/login", {
+      .post("/users/login", {
         email,
         password,
       })

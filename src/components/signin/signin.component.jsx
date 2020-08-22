@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../hooks/useFormInput";
 import FormInput from "../../components/sharedComponents/FormInput/FormInput.Component";
@@ -13,12 +14,20 @@ const INITIAL_STATE = { email: "", password: "" };
 
 function SignInComponent(props) {
   const dispatch = useDispatch();
-  const [values, handleValues, clearState] = useForm(INITIAL_STATE);
+  const [values, handleValues, clearState] = useForm({
+    email: "",
+    password: "",
+  });
   const { isShowing, toggle } = useModal();
   const userSelector = useSelector(signInSelector);
 
   // Checking If The Use Is Authenticated And Has Token
   useEffect(() => {
+    let token = JSON.parse(localStorage.getItem("fakeTkn"));
+
+    if (token) {
+      props.history.replace("/home");
+    }
     if (userSelector.length !== 0 && userSelector.data !== null) {
       localStorage.setItem("fakeTkn", JSON.stringify(userSelector.data.token));
       props.history.replace("/home");
@@ -28,7 +37,7 @@ function SignInComponent(props) {
   const handleLogIn = (e) => {
     e.preventDefault();
     dispatch(SignInUser(values));
-    clearState();
+    clearState(INITIAL_STATE);
   };
 
   return (
