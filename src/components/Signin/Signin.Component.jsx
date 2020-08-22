@@ -1,39 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../hooks/useFormInput";
-import FormInput from "../../components/sharedComponents/FormInput/FormInput.Component";
+import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
-import { SignInUser } from "../../Redux/SignIn/SignIn.Action";
-import { signInSelector } from "../../Redux/SignIn/SignIn.Selector";
+import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
+import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
 import Modal from "../sharedComponents/Modals/Model.Component";
-import useModal from "../../hooks/useModal";
+// import useModal from "../../hooks/useModal";
+import { ShowModal } from "../../Redux/Modal/ModalAction";
+import { modalSelector } from "../../Redux/Modal/ModalSelector";
 import "./sign-in.styles.scss";
 
 const INITIAL_STATE = { email: "", password: "" };
 
 function SignInComponent(props) {
+  // console.log("modalSelector --- ", modalSelector);
   const dispatch = useDispatch();
   const [values, handleValues, clearState] = useForm({
     email: "",
     password: "",
   });
-  const { isShowing, toggle } = useModal();
   const userSelector = useSelector(signInSelector);
+  const modalState = useSelector(modalSelector);
 
   // Checking If The Use Is Authenticated And Has Token
   useEffect(() => {
-    let token = JSON.parse(localStorage.getItem("fakeTkn"));
+    // localStorage.clear();
 
-    if (token) {
-      props.history.replace("/home");
-    }
     if (userSelector.length !== 0 && userSelector.data !== null) {
       localStorage.setItem("fakeTkn", JSON.stringify(userSelector.data.token));
       props.history.replace("/home");
+      console.log("This piece of code is runnung .......");
     }
   }, [userSelector, props.history]);
 
+  // Logging Out The User
+  const handleModal = () => {
+    dispatch(ShowModal());
+  };
+
+  // Logging In A New User
   const handleLogIn = (e) => {
     e.preventDefault();
     dispatch(SignInUser(values));
@@ -68,10 +74,12 @@ function SignInComponent(props) {
             <h5>Forgot Password</h5>
             <div className="line" />
           </form>
-          <ButtonComponent buttonClick={toggle}>
+          <ButtonComponent buttonType="button" buttonClick={handleModal}>
             Create A New Account
           </ButtonComponent>
-          <Modal formName="SignUp" isShowing={isShowing} hide={toggle} />
+          {modalState.show && <Modal show={modalState} />}
+          {/* <Modal show={isShowing} /> */}
+          {/* <Modal formName="SignUp" handleClose={isShowing} hide={toggle} /> */}
         </div>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}
       </div>
@@ -79,4 +87,4 @@ function SignInComponent(props) {
   );
 }
 
-export default SignInComponent;
+export default memo(SignInComponent);
