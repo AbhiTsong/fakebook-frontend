@@ -2,11 +2,11 @@ import React from "react";
 import "./FormInput.Styles.scss";
 
 function FormInput(props) {
-  const { type, onChange, placeholder, name } = props;
+  const { type, onChange, placeholder, name, className } = props;
   return (
     <input
       name={name}
-      className="formInput"
+      className={className}
       type={type}
       onChange={onChange}
       placeholder={placeholder}

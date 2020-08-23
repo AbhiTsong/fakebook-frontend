@@ -10,6 +10,25 @@ import ButtonComponent from "../sharedComponents/Button.Component/Button.Compone
 import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
 import { newUserSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
 import { CloseModal } from "../../Redux/Modal/ModalAction";
+import { Range } from "./Utility";
+
+let allMonths = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+let CURRENT_YEAR = new Date().getFullYear();
+let LAST_100_YEAR = CURRENT_YEAR - 100;
 
 function SignUpComponent(props) {
   const dispatch = useDispatch();
@@ -20,46 +39,47 @@ function SignUpComponent(props) {
     lastName: "",
     email: "",
     password: "",
-    date: "",
-    month: "",
-    year: "",
+    date: new Date().getDate(),
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
     gender: "",
   });
 
-  // Checking If The Use Is Authenticated And Has Token
-  // useEffect(() => {
-
-  // }, [newUser]);
-
-  // Function For Handling The Change
+  // Getting All The Last 100 year
+  let YEARS = Range(LAST_100_YEAR, CURRENT_YEAR);
 
   // Function For Submitting The Form
   const handleSignUp = (e) => {
     e.preventDefault();
     console.log(values);
-    dispatch(SignUpUser(values));
+    // dispatch(SignUpUser(values));
     // clearState(INITIAL_STATE);
     // clearState();
   };
+
   return (
-    <div>
-      <form onSubmit={handleSignUp} className="SignInForm">
-        <h4>Sign Up Its Quick And Easy</h4>
+    <div className="SignUpFormContainer">
+      <form onSubmit={handleSignUp} className="SignUpForm">
+        <div className="Form-Name-Sir-Name">
+          <FormInput
+            className="Form-Input-Field"
+            name="firstName"
+            type="text"
+            value={values.firstName}
+            placeholder="First Name"
+            onChange={handleValues}
+          />
+          <FormInput
+            className="Form-Input-Field"
+            name="lastName"
+            type="text"
+            value={values.lastName}
+            placeholder="Surname"
+            onChange={handleValues}
+          />
+        </div>
         <FormInput
-          name="firstName"
-          type="text"
-          value={values.firstName}
-          placeholder="First Name"
-          onChange={handleValues}
-        />
-        <FormInput
-          name="lastName"
-          type="text"
-          value={values.lastName}
-          placeholder="Surname"
-          onChange={handleValues}
-        />
-        <FormInput
+          className="Form-Input-Field"
           name="email"
           type="email"
           value={values.email}
@@ -67,60 +87,99 @@ function SignUpComponent(props) {
           onChange={handleValues}
         />
         <FormInput
+          className="Form-Input-Field"
           name="password"
           type="password"
           value={values.password}
           placeholder="New Password"
           onChange={handleValues}
         />
-        <div>
-          <h6>Date Of Birth</h6>
-          <FormInput
-            name="date"
-            type="day"
+
+        {/* Selecting The Data Of Birth */}
+        <h6 className="DOBTitle">Date Of Birth</h6>
+        <div className="DOBConatiner">
+          {/* Select The Date */}
+          <select
             value={values.date}
-            placeholder="date"
+            name="date"
+            type="date"
+            className="dropdown-content"
             onChange={handleValues}
-          />
-          <FormInput
-            name="month"
-            type="text"
+            // defaultValue={new Date().getDate()}
+          >
+            {[...Array(31).keys()].map((day) => (
+              <option key={day} value={day}>
+                {day}
+              </option>
+            ))}
+          </select>
+
+          {/* Selectin The Month */}
+          <select
             value={values.month}
-            placeholder="month"
+            name="month"
+            type="month"
+            className="dropdown-content"
             onChange={handleValues}
-          />
-          <FormInput
-            name="year"
-            type="number"
+            // defaultValue={new Date().getMonth()}
+          >
+            {allMonths.map((month, idx) => (
+              <option key={month} value={month}>
+                {month}
+              </option>
+            ))}
+          </select>
+
+          {/* Selecting The Year */}
+          <select
             value={values.year}
-            placeholder="year"
+            name="year"
+            type="year"
             onChange={handleValues}
-          />
+            className="dropdown-content"
+            // defaultValue={new Date().getFullYear()}
+          >
+            {YEARS.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
         </div>
-        <div>
-          <h6>Gender</h6>
-          <FormInput
-            name="gender"
-            type="text"
-            value={values.gender}
-            placeholder="Female"
-            onChange={handleValues}
-          />
-          {/* <FormInput
-            name="email"
-            type="email"
-            // value={values.password}
-            placeholder="Male"
-            // onChange={handleValues}
-          />
-          <FormInput
-            name="password"
-            type="password"
-            // value={values.password}
-            placeholder="Custom"
-            // onChange={handleValues}
-          /> */}
+
+        {/* Gender Radio Buttons */}
+        <h6 className="GenderTitle">Gender</h6>
+        <div className="GenderConatiner">
+          <div className="Gender-Content">
+            <label className="Value-Container">
+              Female
+              <input
+                className="Gender-Radio"
+                type="radio"
+                // checked="checked"
+                name="radio"
+              />
+            </label>
+          </div>
+          <div className="Gender-Content">
+            <label className="Value-Container">
+              Male
+              <input className="Gender-Radio" type="radio" name="radio" />
+            </label>
+          </div>
+          <div className="Gender-Content">
+            <label className="Value-Container">
+              Others
+              <input className="Gender-Radio" type="radio" name="radio" />
+            </label>
+          </div>
         </div>
+        <h6 className="Terms-And-Policy">
+          By clicking Sign Up, you agree to our{" "}
+          <span className="Color-Blue">Terms, Data Policy </span> and{" "}
+          <span className="Color-Blue"> Cookie Policy. </span> You may receive
+          SMS notifications from us and can opt out at any time.
+        </h6>
         <ButtonComponent>Sign Up</ButtonComponent>
       </form>
     </div>
