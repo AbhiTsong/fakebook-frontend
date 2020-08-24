@@ -1,12 +1,24 @@
+// React And NPM Imports
 import React from "react";
+import "./hpme.page.styles.scss";
+import { withRouter } from "react-router-dom";
+
+// Component Imports
+import NavBarComponent from "../components/NavBar/NavBar.Component";
+import LeftSideNavBar from "../components/LeftSideNav/LeftSide.NavBar";
+import MainPageCompoent from "../components/MainPage/MainPage.Compoent";
+import RightChatComponent from "../components/RightChat/RightChat.Component";
 import withAuth from "../hoc/withAuth";
-import { withRouter } from 'react-router-dom'
 
 function HomePage(props) {
-  console.log("home props --- ", props);
   return (
-    <div>
-      <h1>This Is The Home Page</h1>
+    <div className="HomePage_Container">
+      <NavBarComponent />
+      <div className="MainHomePageContent">
+        <LeftSideNavBar className="LeftChatComponent"/>
+        <MainPageCompoent />
+        <RightChatComponent />
+      </div>
     </div>
   );
 }

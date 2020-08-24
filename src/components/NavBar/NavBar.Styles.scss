@@ -1,0 +1,31 @@
+.NavBar_Container {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  height: 3rem;
+  background-color: rgb(140, 140, 231);
+  justify-content: space-between;
+  .LogoContainer {
+   display: flex;
+   .LogoContent{
+   }
+  }
+
+  .NavBar_Content {
+   display: flex;
+   justify-content: center;
+    .NavBar {
+      .NavBarUL {
+        list-style: none;
+        text-decoration: none;
+        display: flex;
+        .NavBarLI {
+          padding: 1rem;
+          .active {
+            color: blue;
+          }
+        }
+      }
+    }
+  }
+}

@@ -54,9 +54,10 @@ function SignInComponent(props) {
           <h2>Fakebook helps you connect and share</h2>
           <h2>with people in your life</h2>
         </div>
-        <div className="SignUpFormContainer">
+        <div className="SignInFormContainer">
           <form onSubmit={handleLogIn} className="SignInForm">
             <FormInput
+              className="Form-Input-Field"
               name="email"
               type="email"
               value={values.email}
@@ -64,6 +65,7 @@ function SignInComponent(props) {
               onChange={handleValues}
             />
             <FormInput
+              className="Form-Input-Field"
               name="password"
               type="password"
               value={values.password}
@@ -78,8 +80,6 @@ function SignInComponent(props) {
             Create A New Account
           </ButtonComponent>
           {modalState.show && <Modal show={modalState} />}
-          {/* <Modal show={isShowing} /> */}
-          {/* <Modal formName="SignUp" handleClose={isShowing} hide={toggle} /> */}
         </div>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}
       </div>
