@@ -1,0 +1,15 @@
+.StoryContainer {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border: 1px solid gery;
+  // width: 5rem;
+  height: 10rem;
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+}

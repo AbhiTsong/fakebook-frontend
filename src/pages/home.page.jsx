@@ -1,6 +1,6 @@
 // React And NPM Imports
 import React from "react";
-import "./hpme.page.styles.scss";
+import "./home.page.styles.scss";
 import { withRouter } from "react-router-dom";
 
 // Component Imports
@@ -15,7 +15,7 @@ function HomePage(props) {
     <div className="HomePage_Container">
       <NavBarComponent />
       <div className="MainHomePageContent">
-        <LeftSideNavBar className="LeftChatComponent"/>
+        <LeftSideNavBar />
         <MainPageCompoent />
         <RightChatComponent />
       </div>

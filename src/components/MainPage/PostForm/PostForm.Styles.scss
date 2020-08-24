@@ -1,0 +1,29 @@
+.FormConatiner {
+  height: 8rem;
+  border: 1px solid grey;
+  background-color: white;
+  margin: 1rem;
+  width: 51rem;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+
+  .Image_Input_Container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .UserProfilePic {
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 2.5rem;
+    }
+    .Post_Form {
+      width: 46.5rem;
+      height: 2.2rem;
+      border: none;
+      border-radius: 5rem;
+      background-color: lavender;
+    }
+  }
+}

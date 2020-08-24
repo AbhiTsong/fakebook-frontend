@@ -1,12 +1,17 @@
-import React from 'react'
-import "./MainPage.Styles.scss"
+import React from "react";
+import "./MainPage.Styles.scss";
+
+// Child Compoents Imports
+import StoryComponent from "./Story/Story.Componetnt";
+import PostFormComponent from "./PostForm/PostForm.Component";
 
 function MainPageCompoent() {
- return (
-  <div className="MainPageContainer">
-   <h1>Main Page Container</h1>
-  </div>
- )
+  return (
+    <div className="MainPageContainer">
+      <StoryComponent />
+      <PostFormComponent />
+    </div>
+  );
 }
 
-export default MainPageCompoent
+export default MainPageCompoent;

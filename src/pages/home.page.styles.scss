@@ -1,0 +1,9 @@
+.HomePage_Container {
+  // max-width: 1300px;
+
+  .MainHomePageContent {
+    display: flex;
+    background-color: burlywood;
+    height: calc(100vh - 3rem);
+  }
+}

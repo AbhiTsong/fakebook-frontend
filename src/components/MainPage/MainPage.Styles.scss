@@ -1,4 +1,9 @@
 .MainPageContainer{
+ position: relative;
  background-color: darkgoldenrod;
  width: 60rem;
+ display: flex;
+ flex-direction: column;
+ padding: 3rem 3rem 0;
+ align-items: center;
 }
