@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignUp.Styles.scss";
 // App Files
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
@@ -27,6 +27,8 @@ let allMonths = [
   "Dec",
 ];
 
+const TODAY = new Date();
+
 let CURRENT_YEAR = new Date().getFullYear();
 let LAST_100_YEAR = CURRENT_YEAR - 100;
 
@@ -39,11 +41,18 @@ function SignUpComponent(props) {
     lastName: "",
     email: "",
     password: "",
-    date: new Date().getDate(),
-    month: new Date().getMonth(),
-    year: new Date().getFullYear(),
+    date: TODAY.getDate(),
+    month: TODAY.getMonth(),
+    year: TODAY.getFullYear(),
     gender: "",
   });
+
+  // const [gender, setGender] = useState("");
+
+  // const handleChange = (e) => {
+  //   setGender(e.target.value);
+  //   console.log(e.target.value);
+  // };
 
   // Getting All The Last 100 year
   let YEARS = Range(LAST_100_YEAR, CURRENT_YEAR);
@@ -105,7 +114,6 @@ function SignUpComponent(props) {
             type="date"
             className="dropdown-content"
             onChange={handleValues}
-            // defaultValue={new Date().getDate()}
           >
             {[...Array(31).keys()].map((day) => (
               <option key={day} value={day}>
@@ -121,7 +129,6 @@ function SignUpComponent(props) {
             type="month"
             className="dropdown-content"
             onChange={handleValues}
-            // defaultValue={new Date().getMonth()}
           >
             {allMonths.map((month, idx) => (
               <option key={month} value={month}>
@@ -137,7 +144,6 @@ function SignUpComponent(props) {
             type="year"
             onChange={handleValues}
             className="dropdown-content"
-            // defaultValue={new Date().getFullYear()}
           >
             {YEARS.map((year) => (
               <option key={year} value={year}>
@@ -151,26 +157,42 @@ function SignUpComponent(props) {
         <h6 className="GenderTitle">Gender</h6>
         <div className="GenderConatiner">
           <div className="Gender-Content">
-            <label className="Value-Container">
+            <label htmlFor="female" className="Value-Container">
               Female
-              <input
+              <FormInput
                 className="Gender-Radio"
+                value={values.gender}
                 type="radio"
-                // checked="checked"
-                name="radio"
+                // radioCheck="gender"
+                name="gender"
+                onChange={handleValues}
               />
             </label>
           </div>
           <div className="Gender-Content">
-            <label className="Value-Container">
+            <label htmlFor="male" className="Value-Container">
               Male
-              <input className="Gender-Radio" type="radio" name="radio" />
+              <FormInput
+                className="Gender-Radio"
+                value={values.gender}
+                type="radio"
+                // radioCheck="gender"
+                name="gender"
+                onChange={handleValues}
+              />
             </label>
           </div>
           <div className="Gender-Content">
-            <label className="Value-Container">
+            <label htmlFor="others" className="Value-Container">
               Others
-              <input className="Gender-Radio" type="radio" name="radio" />
+              <FormInput
+                className="Gender-Radio"
+                value={values.gender}
+                type="radio"
+                // radioCheck={values.gender}
+                name="gender"
+                onChange={handleValues}
+              />
             </label>
           </div>
         </div>
