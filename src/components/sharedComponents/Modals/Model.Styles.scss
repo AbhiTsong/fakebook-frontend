@@ -32,6 +32,9 @@
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  &:focus{
+    outline: none;
+  }
 }
 
 /* Add Animation */

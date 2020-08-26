@@ -66,6 +66,7 @@ function SignUpComponent(props) {
     // clearState();
   };
 
+  console.log("Sign Up Component being called")
   return (
     <div className="SignUpFormContainer">
       <form onSubmit={handleSignUp} className="SignUpForm">

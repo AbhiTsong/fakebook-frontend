@@ -2,8 +2,8 @@
   height: 8rem;
   border: 1px solid grey;
   background-color: white;
-  margin: 1rem;
-  width: 51rem;
+  margin: 2rem 0 0;
+  // width: 51rem;
   border: none;
   padding: 0.5rem;
   border-radius: 10px;
@@ -19,11 +19,31 @@
       height: 2.5rem;
     }
     .Post_Form {
-      width: 46.5rem;
+      width: 42rem;
       height: 2.2rem;
       border: none;
       border-radius: 5rem;
       background-color: lavender;
+      padding-left: 1rem;
+      color: transparent;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .FeelingAndVideoContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    padding-top: 1.8rem;
+
+    .Activity_Icons {
+      font-size: 1.5rem;
+
+      .Activity_Text {
+        font-size: 1rem;
+      }
     }
   }
 }

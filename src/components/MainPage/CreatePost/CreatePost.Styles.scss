@@ -1,0 +1,45 @@
+.CreatePostContainer {
+  .UserProfilePic {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 2.5rem;
+  }
+
+  .Post_Text_Area {
+    width: 25rem;
+    height: 10rem;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    resize: none;
+    &:focus {
+      outline-color: none;
+    }
+  }
+
+  .Add_Post_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+    border: 1px solid gray;
+    height: 2.5rem;
+    border-radius: 5px;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: rgb(44, 41, 41);
+  }
+
+  .Post_Button {
+    // display: flex;
+    // border: 1px solid gray;
+    border-radius: 5px;
+    width: 25rem;
+    height: 2rem;
+    // justify-content: center;
+    // text-align: center;
+    // background-color: lavender;
+    // font-weight: bold;
+  }
+}

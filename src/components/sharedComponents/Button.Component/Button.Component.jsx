@@ -2,12 +2,12 @@ import React from "react";
 import "./Button.Styles.scss";
 
 function ButtonComponent(props) {
-  const { children, buttonClick, color, buttonWidth, buttonType } = props;
+  const { buttonClick, children, buttonType } = props;
   return (
     <button
       type={buttonType}
-      className="ButtonStyle"
-      style={{ backgroundColor: { color }, width: { buttonWidth } }}
+      // className="ButtonStyle"
+      // style={{ backgroundColor: { color }, width: { buttonWidth } }}
       onClick={buttonClick}
     >
       {children}

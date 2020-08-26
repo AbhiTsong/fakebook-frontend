@@ -1,10 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Model.Styles.scss";
-import SignUpComponent from "../../SignUp/SignUp.Component";
+
+// Redux Imports
 import { useDispatch } from "react-redux";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 
+// Shared Components
+import HorizontalLine from "../HorizontalLine/HorizontalLine";
+
+// Child Components
+import SignUpComponent from "../../SignUp/SignUp.Component";
+import CreatePostComponent from "../../MainPage/CreatePost/CreatePost.Component";
+
 function Modal(props) {
+  console.log("props", props);
+  const { header1, header2 } = props;
+  console.log("header2, header1", header2, header1);
   const dispatch = useDispatch();
 
   const handleCloseModal = () => {
@@ -18,11 +29,13 @@ function Modal(props) {
           <span className="close" onClick={handleCloseModal}>
             ×
           </span>
-          <h1 className="header-title">{"Sign Up"}</h1>
-          <h5 className="header-sub-title">Its Quick And Easy</h5>
+          <h1 className="header-title">{header1}</h1>
+          {header2 && <h5 className="header-sub-title">{header2}</h5>}
         </div>
+        <HorizontalLine />
         <div className="modal-body">
-          <SignUpComponent />
+          {props.showForm === "SignUp" && <SignUpComponent />}
+          {props.showForm === "AddPost" && <CreatePostComponent />}
         </div>
       </div>
     </div>

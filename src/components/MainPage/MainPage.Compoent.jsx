@@ -8,8 +8,10 @@ import PostFormComponent from "./PostForm/PostForm.Component";
 function MainPageCompoent() {
   return (
     <div className="MainPageContainer">
-      <StoryComponent />
-      <PostFormComponent />
+      <div className="MainPageChildContainer">
+        <StoryComponent />
+        <PostFormComponent />
+      </div>
     </div>
   );
 }

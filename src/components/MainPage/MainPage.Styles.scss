@@ -4,6 +4,11 @@
  width: 60rem;
  display: flex;
  flex-direction: column;
- padding: 3rem 3rem 0;
+ padding-top: 3rem;
  align-items: center;
+ color: gray;
+
+ .MainPageChildContainer{
+  width: 47rem;
+ }
 }
