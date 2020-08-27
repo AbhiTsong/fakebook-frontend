@@ -4,4 +4,4 @@ let newUser = (state) => state.user;
 
 let newUserSelector = createSelector(newUser, (user) => user.newUser);
 
-export  { newUserSelector };
+export { newUserSelector };

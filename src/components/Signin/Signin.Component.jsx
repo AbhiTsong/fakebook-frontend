@@ -28,6 +28,7 @@ function SignInComponent(props) {
     // localStorage.clear();
 
     if (userSelector.length !== 0 && userSelector.data !== null) {
+      
       localStorage.setItem("fakeTkn", JSON.stringify(userSelector.data.token));
       props.history.replace("/home");
     }
@@ -79,7 +80,11 @@ function SignInComponent(props) {
             Create A New Account
           </ButtonComponent>
           {modalState.show && (
-            <Modal header1="Sign Up" header2="Its Quick And Easy" />
+            <Modal
+              showForm="SignUp"
+              header1="Sign Up"
+              header2="Its Quick And Easy"
+            />
           )}
         </div>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}

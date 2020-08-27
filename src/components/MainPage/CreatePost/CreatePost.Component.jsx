@@ -1,13 +1,26 @@
 import React from "react";
 import "./CreatePost.Styles.scss";
 
+// Redux Imports
+import { useDispatch, useSelector } from "react-redux";
+import { CreatePostAction } from "../../../Redux/Post/post.action";
+
+// Custom hook
+import { useForm } from "../../../hooks/useFormInput";
+
 // Shared Compoent
 import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
 import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
 
 function CreatePostComponent() {
-  console.log("Create Post Compoent being Called")
+  const dispatch = useDispatch();
+  const [values, setValues, clearState] = useForm({ description: "" });
+
+  const handleCreatePost = (e) => {
+    e.preventDefault();
+    dispatch(CreatePostAction(values));
+  };
   return (
     <div className="CreatePostContainer">
       <div>
@@ -16,11 +29,11 @@ function CreatePostComponent() {
       <form>
         <textarea
           className="Post_Text_Area"
-          name="firstName"
+          name="description"
           placeholder="What is on your mind, Abhi??"
           type="text"
-          // value={values.firstName}
-          // onChange={handleValues}
+          value={values.description}
+          onChange={setValues}
         />
         <div></div>
         <div className="Add_Post_Container">
@@ -35,8 +48,9 @@ function CreatePostComponent() {
           </span>
         </div>
         <CustomButton
+          buttonType="button"
           className="Post_Button"
-          buttonClick={() => console.log("I got Clicked")}
+          buttonClick={handleCreatePost}
         >
           Post
         </CustomButton>

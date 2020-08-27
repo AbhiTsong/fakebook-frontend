@@ -2,7 +2,7 @@ import SignUpActionTypes from "./SignUp/SignUp.Types";
 import SignInActionTypes from "./SignIn/SignIn.Types";
 
 const INITIAL_STATE = {
-  loading: true,
+  loading: false,
   data: [],
   newUser: [],
   error: "",
@@ -14,6 +14,7 @@ export function authReducer(state = INITIAL_STATE, action) {
     case SignUpActionTypes.SIGN_UP_START:
       return {
         ...state,
+        loading: true,
       };
     case SignInActionTypes.SIGN_IN_SUCCESS:
       return {
