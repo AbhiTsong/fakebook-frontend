@@ -1,7 +1,10 @@
-const CreatePostActionTypes = {
+const PostActionTypes = {
   CREATE_POST_START: "CREATE_POST_START",
   CREATE_POST_SUCCESS: "CREATE_POST_SUCCESS",
   CREATE_POST_FAIL: "CREATE_POST_FAIL",
+  FETCH_POST_START: "FETCH_POST_START",
+  FETCH_POST_SUCCESS: "FETCH_POST_SUCCESS",
+  FETCH_POST_FAIL: "FETCH_POST_FAIL",
 };
 
-export { CreatePostActionTypes };
+export { PostActionTypes };

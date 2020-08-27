@@ -4,7 +4,7 @@ const signInData = (state) => state.user;
 
 const signInSelector = createSelector(
   signInData,
-  (userToken) => userToken.data
+  (userToken) => userToken.user
 );
 
 export { signInSelector };

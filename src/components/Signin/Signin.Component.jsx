@@ -7,6 +7,7 @@ import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
 import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
 import Modal from "../sharedComponents/Modals/Model.Component";
 // import useModal from "../../hooks/useModal";
+import axios from "../../axios"
 import { ShowModal } from "../../Redux/Modal/ModalAction";
 import { modalSelector } from "../../Redux/Modal/ModalSelector";
 import "./sign-in.styles.scss";
@@ -28,8 +29,9 @@ function SignInComponent(props) {
     // localStorage.clear();
 
     if (userSelector.length !== 0 && userSelector.data !== null) {
-      
-      localStorage.setItem("fakeTkn", JSON.stringify(userSelector.data.token));
+      let token = userSelector.data && userSelector.data.token;
+      localStorage.setItem("fakeTkn", JSON.stringify(token));
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
       props.history.replace("/home");
     }
   }, [userSelector, props.history]);

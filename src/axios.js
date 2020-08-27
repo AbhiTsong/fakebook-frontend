@@ -1,16 +1,12 @@
 import axios from "axios";
 import config from "./config/config.json";
-import store from "./Redux/store";
 
-let a = store.getState();
-console.log("Store State", a);
-
-// let AUTH_TOKEN =
+let token = JSON.parse(localStorage.getItem("fakeTkn"));
 
 var instance = axios.create({
   baseURL: config.serverURL,
 });
 
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
 export default instance;

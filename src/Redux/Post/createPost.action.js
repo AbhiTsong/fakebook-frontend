@@ -1,17 +1,17 @@
-import { CreatePostActionTypes } from "./post.types";
+import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 
 // Create Post Action Start
 const CreatePostStart = () => {
   return {
-    type: CreatePostActionTypes.CREATE_POST_START,
+    type: PostActionTypes.CREATE_POST_START,
   };
 };
 
 // Create Post Action Success
 const CreatePostSuccess = (post) => {
   return {
-    type: CreatePostActionTypes.CREATE_POST_SUCCESS,
+    type: PostActionTypes.CREATE_POST_SUCCESS,
     payload: post,
   };
 };
@@ -19,7 +19,7 @@ const CreatePostSuccess = (post) => {
 // Create Post Action Fail
 const CreatePostFail = (error) => {
   return {
-    type: CreatePostActionTypes.CREATE_POST_FAIL,
+    type: PostActionTypes.CREATE_POST_FAIL,
     payload: error,
   };
 };
@@ -33,12 +33,7 @@ function CreatePostAction(props) {
       console.log("Inside try catch block");
       let post = await axios.post("/posts/create", {
         description: props.description,
-      }, {
-        headers: {
-          
-        }
       });
-      console.log("post post ---- ", post);
       dispatch(CreatePostSuccess(post));
     } catch (error) {
       if (error.response) {

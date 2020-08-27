@@ -3,7 +3,7 @@ import SignInActionTypes from "./SignIn/SignIn.Types";
 
 const INITIAL_STATE = {
   loading: false,
-  data: [],
+  user: [],
   newUser: [],
   error: "",
 };
@@ -19,14 +19,14 @@ export function authReducer(state = INITIAL_STATE, action) {
     case SignInActionTypes.SIGN_IN_SUCCESS:
       return {
         loading: false,
-        data: action.payload,
+        user: action.payload,
         error: "",
       };
     case SignUpActionTypes.SIGN_UP_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: [],
+        user: [],
         newUser: action.payload,
         error: "",
       };
@@ -36,7 +36,7 @@ export function authReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
-        data: [],
+        user: [],
         error: action.payload,
       };
 

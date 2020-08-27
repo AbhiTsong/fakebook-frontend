@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CreatePost.Styles.scss";
 
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
-import { CreatePostAction } from "../../../Redux/Post/post.action";
+import { CreatePostAction } from "../../../Redux/Post/createPost.action";
+import { postSelector } from "../../../Redux/Post/post.selector";
+import { CloseModal } from "../../../Redux/Modal/ModalAction";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -15,11 +17,30 @@ import CustomButton from "../../sharedComponents/Button.Component/Button.Compone
 
 function CreatePostComponent() {
   const dispatch = useDispatch();
+  const post = useSelector(postSelector);
   const [values, setValues, clearState] = useForm({ description: "" });
+
+  // Effect for resetting the state after state on unmount
+  useEffect(() => {
+    return () => dispatch(CreatePostAction());
+  }, [dispatch]);
+
+  // Effect for Creating the post
+  useEffect(() => {
+    if (!post.loading && post.isEventCreated === true) {
+      dispatch(CloseModal());
+    }
+  }, [post.loading, dispatch, post.isEventCreated]);
+
+  if (post.loading === true) {
+    return "Loading....";
+  }
 
   const handleCreatePost = (e) => {
     e.preventDefault();
-    dispatch(CreatePostAction(values));
+    if (values.description !== "") {
+      dispatch(CreatePostAction(values));
+    }
   };
   return (
     <div className="CreatePostContainer">
