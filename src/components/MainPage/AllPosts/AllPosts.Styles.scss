@@ -1,0 +1,62 @@
+.All_Post_Container {
+  // height: 50vh;
+  // overflow-y: scroll;
+  color: black;
+  .Single_Post_Container {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    background-color: rgb(151, 205, 241);
+    // padding: 0.5rem;
+
+    .Image_Input_Container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3rem;
+      padding: 0 0.8rem;
+      .UserProfilePic {
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 30px;
+        height: 2rem;
+      }
+      .Name_And_Dots_Container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 0.5rem;
+      }
+    }
+    .Single_Post_Content {
+      text-align: center;
+      .Single_Post_Text {
+        font-size: 1.5rem;
+        height: 15rem;
+        margin: 0;
+        padding: 0.5rem;
+      }
+    }
+    .Comments_Container {
+      padding: 0.5rem;
+      background-color: blanchedalmond;
+      .Reaction_Count {
+        display: flex;
+        padding: 0.5rem 0;
+        .Comment_People {
+         display: flex;
+         width: 100%;
+         padding: 0 0.5rem;
+         justify-content: space-between;
+        }
+       }
+       .Like_Comment_Icons_Container{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0.5rem;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+      }
+    }
+  }
+}

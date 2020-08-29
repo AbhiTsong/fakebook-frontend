@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CreatePostAction } from "../../../Redux/Post/createPost.action";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -22,7 +23,10 @@ function CreatePostComponent() {
 
   // Effect for resetting the state after state on unmount
   useEffect(() => {
-    return () => dispatch(CreatePostAction());
+    return () => {
+      dispatch(fetchAllPosts());
+      dispatch(CreatePostAction());
+    };
   }, [dispatch]);
 
   // Effect for Creating the post

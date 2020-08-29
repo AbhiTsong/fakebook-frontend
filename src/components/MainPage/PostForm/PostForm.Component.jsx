@@ -48,7 +48,7 @@ function PostFormComponent() {
           &#128248; <span className="Activity_Text">Photo/Video</span>
         </span>
         <span className="Activity_Icons" role="img" aria-label="Live Video">
-          O <span className="Activity_Text">Feeling/Activity</span>
+        &#128512; <span className="Activity_Text">Feeling/Activity</span>
         </span>
       </div>
     </div>
