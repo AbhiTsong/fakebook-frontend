@@ -49,7 +49,9 @@ export function SignUpUser({
       });
       dispatch(SignUpUserSuccess(newUser));
     } catch (error) {
-      dispatch(SignUpUserFail(error));
+      if (error.response) {
+        dispatch(SignUpUserFail(error.response.data));
+      }
     }
   };
 }

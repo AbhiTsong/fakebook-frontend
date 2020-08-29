@@ -1,37 +1,38 @@
 import React, { useEffect, memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import "./sign-in.styles.scss";
+
+// Custom Hook
 import { useForm } from "../../hooks/useFormInput";
+
+// Redux Imports
+import { useDispatch, useSelector } from "react-redux";
+import { ShowModal } from "../../Redux/Modal/ModalAction";
+import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
+import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
+import { modalSelector } from "../../Redux/Modal/ModalSelector";
+
+// Shared Component Imports
+import Modal from "../sharedComponents/Modals/Model.Component";
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
-import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
-import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
-import Modal from "../sharedComponents/Modals/Model.Component";
-// import useModal from "../../hooks/useModal";
-import axios from "../../axios"
-import { ShowModal } from "../../Redux/Modal/ModalAction";
-import { modalSelector } from "../../Redux/Modal/ModalSelector";
-import "./sign-in.styles.scss";
+
+// Utility Function
+import {} from "../."
 
 const INITIAL_STATE = { email: "", password: "" };
 
 function SignInComponent(props) {
   // console.log("modalSelector --- ", modalSelector);
   const dispatch = useDispatch();
-  const [values, handleValues, clearState] = useForm({
-    email: "",
-    password: "",
-  });
+  const [values, handleValues, clearState] = useForm(INITIAL_STATE);
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
   // Checking If The Use Is Authenticated And Has Token
   useEffect(() => {
-    // localStorage.clear();
-
     if (userSelector.length !== 0 && userSelector.data !== null) {
       let token = userSelector.data && userSelector.data.token;
       localStorage.setItem("fakeTkn", JSON.stringify(token));
-      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
       props.history.replace("/home");
     }
   }, [userSelector, props.history]);
@@ -40,6 +41,7 @@ function SignInComponent(props) {
   const handleModal = () => {
     dispatch(ShowModal());
   };
+
 
   // Logging In A New User
   const handleLogIn = (e) => {

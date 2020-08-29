@@ -10,7 +10,7 @@ import { postReducer } from "./Post/post.reducer";
 const persitConfig = {
   key: "root",
   storage,
-  whitelist: ["user", "post"],
+  whitelist: ["post", "user"],
 };
 
 const RootReducer = combineReducers({

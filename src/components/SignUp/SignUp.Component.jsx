@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./SignUp.Styles.scss";
+import { withRouter } from "react-router-dom";
 // App Files
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 
-import { withRouter } from "react-router-dom";
-import { useForm } from "../../hooks/useFormInput";
-import { useDispatch, useSelector } from "react-redux";
+// Shared Componenets
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
+import RadioButtonComponent from "../sharedComponents/RadioButton/RadioButton.Component";
+
+// Custom Hook Import
+import { useForm } from "../../hooks/useFormInput";
+
+// Redux Imports
+import { useDispatch, useSelector } from "react-redux";
 import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
 import { newUserSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
 import { CloseModal } from "../../Redux/Modal/ModalAction";
-import { Range } from "./Utility";
 
-let allMonths = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+// Utility Function
+import { validation } from "../../utility/validation";
+import { Range } from "../../utility/range";
+import { allMonths } from "../../utility/allMonths";
 
 const TODAY = new Date();
 
@@ -35,24 +30,29 @@ let LAST_100_YEAR = CURRENT_YEAR - 100;
 function SignUpComponent(props) {
   const dispatch = useDispatch();
   const newUser = useSelector(newUserSelector);
-  // console.log(props)
-  const [values, handleValues, clearState] = useForm({
+
+  console.log("newUser ---- ", newUser.data)
+
+  const INITIAL_STATE = {
     firstName: "",
     lastName: "",
     email: "",
+    gender: "others",
     password: "",
     date: TODAY.getDate(),
-    month: TODAY.getMonth(),
+    month: allMonths[TODAY.getMonth()],
     year: TODAY.getFullYear(),
-    gender: "",
-  });
+  };
 
-  // const [gender, setGender] = useState("");
+  //
+  const [values, handleValues, clearState] = useForm(INITIAL_STATE);
 
-  // const handleChange = (e) => {
-  //   setGender(e.target.value);
-  //   console.log(e.target.value);
-  // };
+  const [gender, setGender] = useState("");
+
+  const handleChange = (e) => {
+    setGender(e.target.value);
+    console.log(e.target.value);
+  };
 
   // Getting All The Last 100 year
   let YEARS = Range(LAST_100_YEAR, CURRENT_YEAR);
@@ -60,13 +60,17 @@ function SignUpComponent(props) {
   // Function For Submitting The Form
   const handleSignUp = (e) => {
     e.preventDefault();
-    console.log(values);
-    // dispatch(SignUpUser(values));
-    // clearState(INITIAL_STATE);
-    // clearState();
+    values.gender = gender;
+    try {
+      // Validating the form data
+      validation(values);
+      dispatch(SignUpUser(values));
+    } catch (error) {
+      alert(error);
+    }
   };
 
-  console.log("Sign Up Component being called")
+  console.log("Sign Up Component being called");
   return (
     <div className="SignUpFormContainer">
       <form onSubmit={handleSignUp} className="SignUpForm">
@@ -160,39 +164,36 @@ function SignUpComponent(props) {
           <div className="Gender-Content">
             <label htmlFor="female" className="Value-Container">
               Female
-              <FormInput
-                className="Gender-Radio"
-                value={values.gender}
+              <RadioButtonComponent
                 type="radio"
-                // radioCheck="gender"
+                value="female"
+                id="female"
+                onChange={handleChange}
                 name="gender"
-                onChange={handleValues}
               />
             </label>
           </div>
           <div className="Gender-Content">
             <label htmlFor="male" className="Value-Container">
               Male
-              <FormInput
-                className="Gender-Radio"
-                value={values.gender}
+              <RadioButtonComponent
                 type="radio"
-                // radioCheck="gender"
+                value="male"
+                id="male"
+                onChange={handleChange}
                 name="gender"
-                onChange={handleValues}
               />
             </label>
           </div>
           <div className="Gender-Content">
             <label htmlFor="others" className="Value-Container">
               Others
-              <FormInput
-                className="Gender-Radio"
-                value={values.gender}
+              <RadioButtonComponent
                 type="radio"
-                // radioCheck={values.gender}
+                value="others"
+                id="others"
+                onChange={handleChange}
                 name="gender"
-                onChange={handleValues}
               />
             </label>
           </div>

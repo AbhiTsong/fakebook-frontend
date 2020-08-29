@@ -36,9 +36,6 @@ function CreatePostAction(props) {
       });
       dispatch(CreatePostSuccess(post));
     } catch (error) {
-      if (error.response) {
-        console.log(error.response.data);
-      }
       dispatch(CreatePostFail(error.response));
     }
   };
