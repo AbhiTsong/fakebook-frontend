@@ -2,7 +2,7 @@ import React from "react";
 import "./FormInput.Styles.scss";
 
 function FormInput(props) {
-  const { type, onChange, placeholder, name, className, radioCheck } = props;
+  const { type, onChange, placeholder, name, className } = props;
   return (
     <input
       name={name}
@@ -10,7 +10,6 @@ function FormInput(props) {
       type={type}
       onChange={onChange}
       placeholder={placeholder}
-      checked={radioCheck}
     />
   );
 }

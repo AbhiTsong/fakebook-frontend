@@ -25,12 +25,19 @@ function fetchPostFail(error) {
 function fetchAllPosts() {
   return async function (dispatch) {
     dispatch(fetchPostStart());
+    console.log("fetch token", localStorage.getItem("fakeTkn"));
     try {
-      let allPosts = await axios.get("/posts");
+      let allPosts = await axios.get("/posts", {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("fakeTkn")
+          )}`,
+        },
+      });
       dispatch(fetchPostSuccess(allPosts));
     } catch (error) {
       if (error.response) {
-        dispatch(fetchPostFail(error.response.message));
+        dispatch(fetchPostFail(error.response.data));
       }
     }
   };

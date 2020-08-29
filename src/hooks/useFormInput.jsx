@@ -3,8 +3,8 @@ import { useState } from "react";
 export const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
 
-  function clearState(a) {
-    setValues(a);
+  function clearState() {
+    setValues(initialValues);
   }
 
   return [

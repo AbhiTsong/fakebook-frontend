@@ -1,3 +1,4 @@
+//////////////////////FunctionFor Generating Range Of Values
 let Range = (start, end) => {
   let startVal = [],
     values = start;

@@ -30,6 +30,9 @@ export function SignInUser({ email, password }) {
       let user = await axios.post("/users/login", {
         email,
         password,
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("fakeTkn")}`,
+        },
       });
 
       dispatch(SignInSuccess(user));
