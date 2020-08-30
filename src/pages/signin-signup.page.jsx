@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect, Switch, Route } from "react-router-dom";
 import SignInComponent from "../components/Signin/Signin.Component";
-import SignUpComponent from "../components/SignUp/SignUp.Component"
 
 function SigninSignupPage(props) {
   const {
@@ -15,7 +14,6 @@ function SigninSignupPage(props) {
         {/* <SignUpComponent/> */}
       <Switch>
         <Route  path={signInPath} component={SignInComponent} />
-        {/* <Route  path={signUpPath} component={SignUpComponent} /> */}
         <Redirect from={path} to={signInPath}/>
       </Switch>
     </div>
