@@ -25,7 +25,6 @@ function fetchPostFail(error) {
 function fetchAllPosts() {
   return async function (dispatch) {
     dispatch(fetchPostStart());
-    console.log("fetch token", localStorage.getItem("fakeTkn"));
     try {
       let allPosts = await axios.get("/posts", {
         headers: {

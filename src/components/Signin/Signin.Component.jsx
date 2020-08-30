@@ -17,7 +17,7 @@ import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 
 // Utility Function
-// import {} from "../."
+import { validation } from "../../utility/validation";
 
 const INITIAL_STATE = { email: "", password: "" };
 
@@ -42,11 +42,15 @@ function SignInComponent(props) {
     dispatch(ShowModal());
   };
 
-
   // Logging In A New User
   const handleLogIn = (e) => {
     e.preventDefault();
-    dispatch(SignInUser(values));
+    try {
+      // validation(values);
+      dispatch(SignInUser(values));
+    } catch (error) {
+      alert(error.message);
+    }
     clearState(INITIAL_STATE);
   };
 

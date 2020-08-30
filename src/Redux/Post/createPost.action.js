@@ -26,7 +26,6 @@ const CreatePostFail = (error) => {
 
 // Create post action creater
 function CreatePostAction(props) {
-  console.log(props);
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {

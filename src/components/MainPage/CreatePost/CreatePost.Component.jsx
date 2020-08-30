@@ -16,33 +16,33 @@ import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
 import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
 
+// Utility Function Imports
+import { countWord } from "../../../utility/wordCount";
+
+// Constants
+let WORD_LIMIT = 300;
+
 function CreatePostComponent() {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
   const [values, setValues, clearState] = useForm({ description: "" });
 
-  // Effect for resetting the state after state on unmount
-  useEffect(() => {
-    return () => {
-      dispatch(fetchAllPosts());
-      dispatch(CreatePostAction());
-    };
-  }, [dispatch]);
-
   // Effect for Creating the post
   useEffect(() => {
     if (!post.loading && post.isEventCreated === true) {
       dispatch(CloseModal());
+      dispatch(fetchAllPosts());
     }
   }, [post.loading, dispatch, post.isEventCreated]);
 
-  if (post.loading === true) {
-    return "Loading....";
-  }
+  // Word Limit And Count
+  let words = countWord(values.description, 500);
+  let numberCount = WORD_LIMIT - words;
 
   const handleCreatePost = (e) => {
     e.preventDefault();
-    if (values.description !== "") {
+    const { description } = values;
+    if (description !== "" || description.length <= 500) {
       dispatch(CreatePostAction(values));
     }
   };
@@ -57,10 +57,11 @@ function CreatePostComponent() {
           name="description"
           placeholder="What is on your mind, Abhi??"
           type="text"
-          value={values.description}
+          value={values.description.split("  ").join(" ")}
           onChange={setValues}
+          maxLength={WORD_LIMIT}
         />
-        <div></div>
+        <h6>Words Left {numberCount}</h6>
         <div className="Add_Post_Container">
           <span>Add to your post</span>
           <span>
@@ -77,7 +78,7 @@ function CreatePostComponent() {
           className="Post_Button"
           buttonClick={handleCreatePost}
         >
-          Post
+          {post.loading ? "Uploading..." : "Post"}
         </CustomButton>
       </form>
     </div>
