@@ -45,5 +45,9 @@
         font-size: 1rem;
       }
     }
+
+    .Activity_Icons_Photo::-webkit-file-upload-button{
+      visibility: hidden;
+    }
   }
 }

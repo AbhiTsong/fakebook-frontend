@@ -2,8 +2,9 @@ import React from "react";
 import "./Model.Styles.scss";
 
 // Redux Imports
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { postSelector } from "../../../Redux/Post/post.selector";
 
 // Shared Components
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
@@ -13,10 +14,11 @@ import SignUpComponent from "../../SignUp/SignUp.Component";
 import CreatePostComponent from "../../MainPage/CreatePost/CreatePost.Component";
 
 function Modal(props) {
-  console.log("props", props);
   const { header1, header2 } = props;
-  console.log("header2, header1", header2, header1);
   const dispatch = useDispatch();
+  let postPath = useSelector(postSelector);
+
+  let path = postPath.photoPath;
 
   const handleCloseModal = () => {
     dispatch(CloseModal());
@@ -35,7 +37,8 @@ function Modal(props) {
         <HorizontalLine />
         <div className="modal-body">
           {props.showForm === "SignUp" && <SignUpComponent />}
-          {props.showForm === "AddPost" && <CreatePostComponent />}
+          {/* {props.render()} */}
+          {props.showForm === "AddPost" && <CreatePostComponent path={path} />}
         </div>
       </div>
     </div>

@@ -4,9 +4,10 @@ import "./CreatePost.Styles.scss";
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
 import { CreatePostAction } from "../../../Redux/Post/createPost.action";
+import { uploadPhoto } from "../../../Redux/Post/createPhoto.action";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
-import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
+import { resetPostAction } from "../../../Redux/Post/resetPost.action";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -22,18 +23,21 @@ import { countWord } from "../../../utility/wordCount";
 // Constants
 let WORD_LIMIT = 300;
 
-function CreatePostComponent() {
+function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
-  const [values, setValues, clearState] = useForm({ description: "" });
+  const [values, setValues] = useForm({ description: "" });
 
   // Effect for Creating the post
   useEffect(() => {
-    if (!post.loading && post.isEventCreated === true) {
+    if (
+      (!post.loading && post.isEventCreated === true) ||
+      post.isPhotoUploaded === true
+    ) {
       dispatch(CloseModal());
-      dispatch(fetchAllPosts());
+      dispatch(resetPostAction());
     }
-  }, [post.loading, dispatch, post.isEventCreated]);
+  }, [post.loading, dispatch, post.isEventCreated, post.isPhotoUploaded]);
 
   // Word Limit And Count
   let words = countWord(values.description, 500);
@@ -42,26 +46,49 @@ function CreatePostComponent() {
   const handleCreatePost = (e) => {
     e.preventDefault();
     const { description } = values;
-    if (description !== "" || description.length <= 500) {
+    if (description !== null || description.length <= 500) {
       dispatch(CreatePostAction(values));
     }
   };
+
+  const handleCreatePhotoPost = (e) => {
+    e.preventDefault();
+    // const { description } = values;
+    let formData = new FormData();
+    formData.append("photo", props.path[1]);
+    dispatch(uploadPhoto(formData));
+  };
+
   return (
     <div className="CreatePostContainer">
       <div>
         <img className="UserProfilePic" src={Logo} alt="Monkey" />
       </div>
       <form>
-        <textarea
-          className="Post_Text_Area"
-          name="description"
-          placeholder="What is on your mind, Abhi??"
-          type="text"
-          value={values.description.split("  ").join(" ")}
-          onChange={setValues}
-          maxLength={WORD_LIMIT}
-        />
-        <h6>Words Left {numberCount}</h6>
+        {props.path ? (
+          <>
+            <FormInput type="text" placeholder="What is on your mind Abhi??" />
+            <img
+              className="Post_Text_Area"
+              src={props.path[0]}
+              alt="File To Upload"
+            />
+          </>
+        ) : (
+          <>
+            {" "}
+            <textarea
+              className="Post_Text_Area"
+              name="description"
+              placeholder="What is on your mind, Abhi??"
+              type="text"
+              value={values.description.split("  ").join(" ")}
+              onChange={setValues}
+              maxLength={WORD_LIMIT}
+            />
+            <h6>Words Left {numberCount}</h6>
+          </>
+        )}
         <div className="Add_Post_Container">
           <span>Add to your post</span>
           <span>
@@ -76,7 +103,7 @@ function CreatePostComponent() {
         <CustomButton
           buttonType="button"
           className="Post_Button"
-          buttonClick={handleCreatePost}
+          buttonClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}
         >
           {post.loading ? "Uploading..." : "Post"}
         </CustomButton>

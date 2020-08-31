@@ -29,7 +29,6 @@ function CreatePostAction(props) {
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
-      console.log("Inside try catch block");
       let post = await axios.post("/posts/create", {
         description: props.description,
       });

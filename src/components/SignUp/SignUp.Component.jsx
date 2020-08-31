@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SignUp.Styles.scss";
 import { withRouter } from "react-router-dom";
 // App Files
@@ -12,10 +12,8 @@ import RadioButtonComponent from "../sharedComponents/RadioButton/RadioButton.Co
 import { useForm } from "../../hooks/useFormInput";
 
 // Redux Imports
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
-import { newUserSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
-import { CloseModal } from "../../Redux/Modal/ModalAction";
 
 // Utility Function
 import { validation } from "../../utility/validation";
@@ -29,9 +27,6 @@ let LAST_100_YEAR = CURRENT_YEAR - 100;
 
 function SignUpComponent(props) {
   const dispatch = useDispatch();
-  const newUser = useSelector(newUserSelector);
-
-  console.log("newUser ---- ", newUser.data)
 
   const INITIAL_STATE = {
     firstName: "",
@@ -45,7 +40,7 @@ function SignUpComponent(props) {
   };
 
   //
-  const [values, handleValues, clearState] = useForm(INITIAL_STATE);
+  const [values, handleValues] = useForm(INITIAL_STATE);
 
   const [gender, setGender] = useState("");
 

@@ -1,0 +1,18 @@
+.Input_Container {
+  position: relative;
+
+  .Text {
+    position: absolute;
+    top: 0;
+    left: 5rem;
+  }
+
+  .Activity_Icons_Photo {
+    opacity: 0;
+  }
+
+  .Activity_Icons_Photo::-webkit-file-upload-button {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

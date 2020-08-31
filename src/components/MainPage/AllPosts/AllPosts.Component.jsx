@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 // Redux Imports
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +14,6 @@ import Share from "../../../Assets/images/share.png";
 function AllPostsComponent() {
   const dispatch = useDispatch();
   let allPost = useSelector(postSelector);
-  let [posts, setPosts] = useState([]);
 
   // console.log("allPostallPostallPostallPost", allPost);
 

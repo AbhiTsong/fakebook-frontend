@@ -1,4 +1,4 @@
-const TODAY = new Date();
+// const TODAY = new Date();
 
 let CURRENT_YEAR = new Date().getFullYear();
 let LAST_100_YEAR = CURRENT_YEAR - 100;
