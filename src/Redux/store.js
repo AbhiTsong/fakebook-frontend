@@ -8,9 +8,14 @@ import thunk from "redux-thunk";
 
 const middleware = [thunk, logger];
 
+const actionSanitizer = (action) =>
+  action.type === "FETCH_POST_SUCCESS" && action.data
+    ? { ...action, data: "<<LONG_BLOB>>" }
+    : action;
+
 const store = createStore(
   RootReducer,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(actionSanitizer, applyMiddleware(...middleware))
 );
 
 const persistor = persistStore(store);

@@ -3,11 +3,14 @@ import "./CreatePost.Styles.scss";
 
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
-import { CreatePostAction } from "../../../Redux/Post/createPost.action";
-import { uploadPhoto } from "../../../Redux/Post/createPhoto.action";
+import {
+  CreatePostAction,
+  CreatePostActionOnlyText,
+} from "../../../Redux/Post/createPost.action";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { resetPostAction } from "../../../Redux/Post/resetPost.action";
+import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -36,6 +39,7 @@ function CreatePostComponent(props) {
     ) {
       dispatch(CloseModal());
       dispatch(resetPostAction());
+      dispatch(fetchAllPosts());
     }
   }, [post.loading, dispatch, post.isEventCreated, post.isPhotoUploaded]);
 
@@ -47,16 +51,17 @@ function CreatePostComponent(props) {
     e.preventDefault();
     const { description } = values;
     if (description !== null || description.length <= 500) {
-      dispatch(CreatePostAction(values));
+      dispatch(CreatePostActionOnlyText(values));
     }
   };
 
   const handleCreatePhotoPost = (e) => {
+    const { description } = values;
     e.preventDefault();
-    // const { description } = values;
     let formData = new FormData();
     formData.append("photo", props.path[1]);
-    dispatch(uploadPhoto(formData));
+    formData.append("description", description);
+    dispatch(CreatePostAction(formData));
   };
 
   return (
@@ -67,12 +72,22 @@ function CreatePostComponent(props) {
       <form>
         {props.path ? (
           <>
-            <FormInput type="text" placeholder="What is on your mind Abhi??" />
-            <img
-              className="Post_Text_Area"
-              src={props.path[0]}
-              alt="File To Upload"
+            <FormInput
+              name="description"
+              placeholder="What is on your mind, Abhi??"
+              type="text"
+              value={values.description.split("  ").join(" ")}
+              onChange={setValues}
+              maxLength={WORD_LIMIT}
+              className="Photo_Description"
             />
+            <div className="Pic_Preview_Container">
+              <img
+                className="Post_Pic"
+                src={props.path[0]}
+                alt="File To Upload"
+              />
+            </div>
           </>
         ) : (
           <>

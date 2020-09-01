@@ -46,7 +46,7 @@ function SignInComponent(props) {
   const handleLogIn = (e) => {
     e.preventDefault();
     try {
-      validation(values);
+      // validation(values);
       dispatch(SignInUser(values));
     } catch (error) {
       alert(error.message);

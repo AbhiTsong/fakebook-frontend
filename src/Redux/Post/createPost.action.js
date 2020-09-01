@@ -26,11 +26,25 @@ const CreatePostFail = (error) => {
 
 // Create post action creater
 function CreatePostAction(props) {
+  console.log(props);
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
-      let post = await axios.post("/posts/create", {
-        description: props.description,
+      let post = await axios.post("/posts/create", props);
+      dispatch(CreatePostSuccess(post));
+    } catch (error) {
+      dispatch(CreatePostFail(error.response));
+    }
+  };
+}
+
+// Create post action (only text)
+function CreatePostActionOnlyText(props) {
+  return async function (dispatch) {
+    dispatch(CreatePostStart());
+    try {
+      let post = await axios.post("/post",{
+        description: props.description
       });
       dispatch(CreatePostSuccess(post));
     } catch (error) {
@@ -39,4 +53,4 @@ function CreatePostAction(props) {
   };
 }
 
-export { CreatePostAction };
+export { CreatePostAction, CreatePostActionOnlyText };

@@ -11,11 +11,12 @@ import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 import Comment from "../../../Assets/images/comments.png";
 import Share from "../../../Assets/images/share.png";
 
+// Utility Function Import
+import { bufferToBase64 } from "../../../utility/bufferToBase64";
+
 function AllPostsComponent() {
   const dispatch = useDispatch();
   let allPost = useSelector(postSelector);
-
-  // console.log("allPostallPostallPostallPost", allPost);
 
   useEffect(() => {
     dispatch(fetchAllPosts());
@@ -26,12 +27,19 @@ function AllPostsComponent() {
     return "Loading...";
   }
 
+  console.log("allPost.allPosts.length --- ",allPost.allPosts)
+
+  if(allPost.allPosts.data === ""){
+      return "No Posts In The DataBase"
+  }
+
   return (
     <div className="All_Post_Container">
       {allPost.allPosts.data &&
         allPost.allPosts.data
           .map((post, idx) => (
             <div key={post + idx} className="Single_Post_Container">
+              {/* Pic Of The Post Creater */}
               <div className="Image_Input_Container">
                 <img
                   className="UserProfilePic"
@@ -44,10 +52,23 @@ function AllPostsComponent() {
                   <h3>...</h3>
                 </div>
               </div>
+              {/* Pic Of The Post Creater */}
               <div className="Single_Post_Content">
-                <div className="Center_Post_Text">
-                  <p className="Single_Post_Text">{post.description}</p>
-                </div>
+                {post.photo !== null ? (
+                  // <div className="Center_Post_Pic">
+                    <img
+                      alt="Post Pic"
+                      className="Single_Post_Photo"
+                      src={`data:image/png;base64,${bufferToBase64(
+                        post.photo.data
+                      )}`}
+                    />
+                  // </div>
+                ) : (
+                  <div className="Center_Post_Text">
+                    <p className="Single_Post_Text">{post.description}</p>
+                  </div>
+                )}
               </div>
               <div className="Comments_Container">
                 <div className="Reaction_Count">
