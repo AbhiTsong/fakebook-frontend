@@ -15,7 +15,7 @@ import { postSelector } from "../../../Redux/Post/post.selector";
 import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
-let createPostInput;
+let createPostInput = "What is on your mind Abhi??";
 // Componetnt Code
 function PostFormComponent() {
   // Redux State Change
@@ -27,13 +27,13 @@ function PostFormComponent() {
     dispatch(ShowModal());
   };
 
-  useEffect(() => {
-    if (!postText.loading && postText.post !== "") {
-      createPostInput = postText.post;
-    } else {
-      createPostInput = "What Is On Your Mind Abhi???";
-    }
-  }, [postText.loading, postText.post]);
+  // useEffect(() => {
+  //   if (!postText.loading && postText.post !== "") {
+  //     createPostInput = postText.post;
+  //   } else {
+  //     createPostInput = "What Is On Your Mind Abhi???";
+  //   }
+  // }, [postText.loading, postText.post]);
 
   return (
     <div className="FormConatiner">

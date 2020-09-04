@@ -17,15 +17,11 @@ import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 import { useForm } from "../../../hooks/useFormInput";
 
 // Shared Compoent
-import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
 import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
-
-// Utility Function Imports
-import { countWord } from "../../../utility/wordCount";
-
-// Constants
-let WORD_LIMIT = 300;
+import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
+import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
+import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";
 
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
@@ -43,10 +39,6 @@ function CreatePostComponent(props) {
       dispatch(fetchAllPosts());
     }
   }, [post.loading, dispatch, post.isEventCreated, post.isPhotoUploaded]);
-
-  // Word Limit And Count
-  let words = countWord(values.description, 500);
-  let numberCount = WORD_LIMIT - words;
 
   // Creating Only Text Post
   const handleCreatePost = (e) => {
@@ -74,50 +66,15 @@ function CreatePostComponent(props) {
       </div>
       <form>
         {props.path ? (
-          <>
-            <FormInput
-              name="description"
-              placeholder="What is on your mind, Abhi??"
-              type="text"
-              value={values.description.split("  ").join(" ")}
-              onChange={setValues}
-              maxLength={WORD_LIMIT}
-              className="Photo_Description"
-            />
-            <div className="Pic_Preview_Container">
-              <img
-                className="Post_Pic"
-                src={props.path[0]}
-                alt="File To Upload"
-              />
-            </div>
-          </>
+          <CreateImagePost {...props} />
         ) : (
-          <>
-            {" "}
-            <textarea
-              className="Post_Text_Area"
-              name="description"
-              placeholder="What is on your mind, Abhi??"
-              type="text"
-              value={values.description.split("  ").join(" ")}
-              onChange={setValues}
-              maxLength={WORD_LIMIT}
-            />
-            <h6>Words Left {numberCount}</h6>
-          </>
+          <CreateTextPost
+            type="text"
+            value={values.description.split("  ").join(" ")}
+            onChange={setValues}
+          />
         )}
-        <div className="Add_Post_Container">
-          <span>Add to your post</span>
-          <span>
-            <i>1</i>
-            <i>2</i>
-            <i>3</i>
-            <i>4</i>
-            <i>5</i>
-            <i>...</i>
-          </span>
-        </div>
+        <CreatePostIcons />
         <CustomButton
           buttonType="button"
           className="Post_Button"
