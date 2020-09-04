@@ -10,13 +10,19 @@ import { postReducer } from "./Post/post.reducer";
 const persitConfig = {
   key: "root",
   storage,
-  whitelist: ["user"],
+  whitelist: [],
+};
+
+const postPersistConfig = {
+  key: "post",
+  storage,
+  blacklist: ["allPosts"],
 };
 
 const RootReducer = combineReducers({
   user: authReducer,
   modal: ModalReducer,
-  post: postReducer,
+  post: persistReducer(postPersistConfig, postReducer),
 });
 
 export default persistReducer(persitConfig, RootReducer);

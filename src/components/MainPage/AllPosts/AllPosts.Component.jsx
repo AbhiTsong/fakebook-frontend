@@ -13,6 +13,7 @@ import Share from "../../../Assets/images/share.png";
 
 // Utility Function Import
 import { bufferToBase64 } from "../../../utility/bufferToBase64";
+import { browserRefresh } from "../../../utility/windowReload";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -27,11 +28,14 @@ function AllPostsComponent() {
     return "Loading...";
   }
 
-  console.log("allPost.allPosts.length --- ",allPost.allPosts)
+  console.log("allPost.allPosts.length --- ", allPost.allPosts);
 
-  if(allPost.allPosts.data === ""){
-      return "No Posts In The DataBase"
+  if (allPost.allPosts.data === "") {
+    return "No Posts In The DataBase";
   }
+
+  // Function For Waring The User If He Refreshses The Browser
+  browserRefresh();
 
   return (
     <div className="All_Post_Container">
@@ -55,7 +59,15 @@ function AllPostsComponent() {
               {/* Pic Of The Post Creater */}
               <div className="Single_Post_Content">
                 {post.photo !== null ? (
-                  // <div className="Center_Post_Pic">
+                  <div className="Center_Post_Pic">
+                    <div
+                      className="Center_Post_Pic"
+                      style={{
+                        backgroundImage: `url(data:image/png;base64,${bufferToBase64(
+                          post.photo.data
+                        )})`,
+                      }}
+                    ></div>
                     <img
                       alt="Post Pic"
                       className="Single_Post_Photo"
@@ -63,7 +75,7 @@ function AllPostsComponent() {
                         post.photo.data
                       )}`}
                     />
-                  // </div>
+                  </div>
                 ) : (
                   <div className="Center_Post_Text">
                     <p className="Single_Post_Text">{post.description}</p>

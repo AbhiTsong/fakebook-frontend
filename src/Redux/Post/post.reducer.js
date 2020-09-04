@@ -78,6 +78,13 @@ function postReducer(state = INITIAL_STATE, action) {
       };
     }
 
+    case PostActionTypes.PERSIST_USER_POST: {
+      return {
+        ...state,
+        post: action.payload,
+      };
+    }
+
     default:
       return state;
   }

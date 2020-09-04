@@ -11,6 +11,7 @@ import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { resetPostAction } from "../../../Redux/Post/resetPost.action";
 import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
+// import { persistUserTextPost } from "../../../Redux/Post/persistedUserPostAction";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -47,6 +48,7 @@ function CreatePostComponent(props) {
   let words = countWord(values.description, 500);
   let numberCount = WORD_LIMIT - words;
 
+  // Creating Only Text Post
   const handleCreatePost = (e) => {
     e.preventDefault();
     const { description } = values;
@@ -55,6 +57,7 @@ function CreatePostComponent(props) {
     }
   };
 
+  // Creating  Photo & Text Post
   const handleCreatePhotoPost = (e) => {
     const { description } = values;
     e.preventDefault();
@@ -127,4 +130,4 @@ function CreatePostComponent(props) {
   );
 }
 
-export default CreatePostComponent;
+export default React.memo(CreatePostComponent);

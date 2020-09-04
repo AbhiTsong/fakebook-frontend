@@ -28,19 +28,31 @@ const FileUploader = () => {
   // Function For Reading the path of the file user wants to upload
   function readURI(e) {
     if (e.target.files && e.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = function (ev) {
-        setURL(ev.target.result);
-      };
-      reader.readAsDataURL(e.target.files[0]);
+      if (e.target.files[0].size > 1048576) {
+        alert(
+          "Current The Website Is Only Accepting File Size Lesser Than 1MB"
+        );
+        setURL(null);
+      } else {
+        let reader = new FileReader();
+        reader.onload = function (ev) {
+          setURL(ev.target.result);
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
     }
   }
   // Handling the file input.
   const handleFileInput = (e) => {
     readURI(e);
     const seleted = e.target.files[0];
-    setFile(seleted);
+    if (seleted.size > 1048576) {
+      return setFile("");
+    }
+    return setFile(seleted);
   };
+
+ 
 
   return (
     <div className="Input_Container">

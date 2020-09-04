@@ -22,7 +22,6 @@ function uploadPhotoFail(error) {
 }
 
 function uploadPhoto(props) {
-  console.log("props ---- ", props);
   return async function (dispatch) {
     dispatch(uploadPhotoStart());
     try {

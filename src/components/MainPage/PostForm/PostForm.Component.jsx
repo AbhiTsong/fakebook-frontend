@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -11,18 +11,29 @@ import Modal from "../../sharedComponents/Modals/Model.Component";
 import FileUploader from "../../sharedComponents/FileUploader/FileUploader.Component";
 
 // Redux Import
+import { postSelector } from "../../../Redux/Post/post.selector";
 import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
+let createPostInput;
 // Componetnt Code
 function PostFormComponent() {
   // Redux State Change
   const modalState = useSelector(modalSelector);
   const dispatch = useDispatch();
+  const postText = useSelector(postSelector);
 
   const handleModal = () => {
     dispatch(ShowModal());
   };
+
+  useEffect(() => {
+    if (!postText.loading && postText.post !== "") {
+      createPostInput = postText.post;
+    } else {
+      createPostInput = "What Is On Your Mind Abhi???";
+    }
+  }, [postText.loading, postText.post]);
 
   return (
     <div className="FormConatiner">
@@ -33,8 +44,7 @@ function PostFormComponent() {
           <input
             className="Post_Form"
             type="text"
-            placeholder="What is on your mind Abhi?"
-            // disabled
+            placeholder={createPostInput}
             onClick={handleModal}
           />
         </form>
