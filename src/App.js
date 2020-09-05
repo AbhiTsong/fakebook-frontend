@@ -3,13 +3,27 @@ import "./App.css";
 import SigninSignupPage from "./pages/signin-signup.page";
 import HomePage from "./pages/home.page.jsx";
 import { Route, Switch, Redirect } from "react-router-dom";
+import UserProfilePage from "./pages/userProfile.page";
+import { currentUser } from "./Redux/Auth/SignIn/SignIn.Selector";
+import { useSelector } from "react-redux";
 
 function App() {
+  let user = useSelector(currentUser);
+
+  console.log("user ---- ",user)
+
   return (
     <div className="App">
       <Switch>
-        <Route path="/home" component={HomePage} />
-        <Route path="/auth" component={SigninSignupPage} />
+        <Route exact path="/home" component={HomePage} />
+        <Route
+          // exact
+          path="/auth"
+          render={() => (user ? <Redirect to="/" /> : <SigninSignupPage />)}
+        />
+        <Route
+        //  exact
+         path="/profile" component={UserProfilePage} />
         <Redirect from="/" to="/home" />
       </Switch>
     </div>

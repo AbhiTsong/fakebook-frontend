@@ -7,4 +7,6 @@ const signInSelector = createSelector(
   (userToken) => userToken.user
 );
 
-export { signInSelector };
+const currentUser = createSelector(signInSelector, (user) => user.data);
+
+export { signInSelector, currentUser };

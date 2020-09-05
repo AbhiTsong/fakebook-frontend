@@ -23,5 +23,5 @@ function HomePage(props) {
   );
 }
 
-export default withAuth(withRouter(HomePage));
 // export default withRouter(HomePage);
+export default withAuth(withRouter(HomePage));

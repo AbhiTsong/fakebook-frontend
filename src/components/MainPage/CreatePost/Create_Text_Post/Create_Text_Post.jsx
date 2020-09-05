@@ -1,8 +1,6 @@
 import React from "react";
 import "./Create_Text_Post.styles.scss";
 
-// Custom Hook
-import { useForm } from "../../../../hooks/useFormInput";
 
 // Utility Inports
 import { countWord } from "../../../../utility/wordCount";

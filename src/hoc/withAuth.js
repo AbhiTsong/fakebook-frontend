@@ -12,7 +12,7 @@ function withAuth(HomeComponent) {
 
     render() {
       if (!this.isAuthenticate()) {
-        return <Redirect to="/auth/signin" />;
+        return <Redirect to="/auth" />;
       }
       return <HomeComponent />;
     }

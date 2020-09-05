@@ -1,4 +1,5 @@
-import React, { useEffect, memo } from "react";
+import React, { useEffect } from "react";
+import {withRouter} from "react-router-dom"
 import "./sign-in.styles.scss";
 
 // Custom Hook
@@ -17,12 +18,11 @@ import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 
 // Utility Function
-import { validation } from "../../utility/validation";
+// import { validation } from "../../utility/validation";
 
 const INITIAL_STATE = { email: "", password: "" };
 
 function SignInComponent(props) {
-  // console.log("modalSelector --- ", modalSelector);
   const dispatch = useDispatch();
   const [values, handleValues, clearState] = useForm(INITIAL_STATE);
   const userSelector = useSelector(signInSelector);
@@ -101,4 +101,4 @@ function SignInComponent(props) {
   );
 }
 
-export default memo(SignInComponent);
+export default withRouter(SignInComponent);

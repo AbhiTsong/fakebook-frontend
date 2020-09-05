@@ -1,0 +1,21 @@
+.UserInfoNotification {
+  display: flex;
+  justify-content: space-evenly;
+  width: 10rem;
+  margin-right: 5rem;
+
+  .User_Nav_Options {
+    // width: ;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 50%;
+
+    .User_Profile_Pic {
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 2.5rem;
+    }
+  }
+}

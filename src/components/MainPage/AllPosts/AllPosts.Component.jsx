@@ -12,7 +12,6 @@ import Comment from "../../../Assets/images/comments.png";
 import Share from "../../../Assets/images/share.png";
 
 // Utility Function Import
-import { bufferToBase64 } from "../../../utility/bufferToBase64";
 import { browserRefresh } from "../../../utility/windowReload";
 
 // Component Imports

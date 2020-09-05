@@ -3,17 +3,34 @@
   margin: 0;
   align-items: center;
   height: 3rem;
-  background-color: rgb(140, 140, 231);
+  background-color: white;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
   .LogoContainer {
-   display: flex;
-   .LogoContent{
-   }
+    display: flex;
+    height: 2rem;
+    text-decoration: none;
+    .LogoContent {
+      width: 1rem;
+      background-color: blue;
+      border: 50%;
+    }
+    .Nav_Search_Container {
+      padding-left: 0.5rem;
+      .Nav_Search{
+        border: none;
+        border-radius: 15px;
+        height: 100%;
+        width: 13rem;
+        background-color: whitesmoke;
+        padding: 0 0.5rem;
+      }
+    }
   }
 
   .NavBar_Content {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     .NavBar {
       .NavBarUL {
         list-style: none;
