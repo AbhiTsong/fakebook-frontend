@@ -1,9 +1,10 @@
 import React from 'react'
+import "./RightChat.styles.scss"
 
 function RightChatComponent() {
  return (
-  <div>
-   <h1>Chat Message</h1>
+  <div className="ChatContainer">
+   {/* <h1>Chat Message</h1> */}
   </div>
  )
 }
