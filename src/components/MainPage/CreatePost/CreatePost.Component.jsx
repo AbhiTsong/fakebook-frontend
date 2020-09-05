@@ -51,11 +51,10 @@ function CreatePostComponent(props) {
 
   // Creating  Photo & Text Post
   const handleCreatePhotoPost = (e) => {
-    const { description } = values;
     e.preventDefault();
     let formData = new FormData();
     formData.append("photo", props.path[1]);
-    formData.append("description", description);
+    formData.append("description", values.description);
     dispatch(CreatePostAction(formData));
   };
 
@@ -66,7 +65,11 @@ function CreatePostComponent(props) {
       </div>
       <form>
         {props.path ? (
-          <CreateImagePost {...props} />
+          <CreateImagePost
+            value={values.description.split("  ").join(" ")}
+            onChange={setValues}
+            {...props}
+          />
         ) : (
           <CreateTextPost
             type="text"
@@ -87,4 +90,4 @@ function CreatePostComponent(props) {
   );
 }
 
-export default React.memo(CreatePostComponent);
+export default CreatePostComponent;

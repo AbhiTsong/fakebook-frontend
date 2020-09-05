@@ -205,4 +205,4 @@ function SignUpComponent(props) {
   );
 }
 
-export default React.memo(withRouter(SignUpComponent));
+export default withRouter(SignUpComponent);

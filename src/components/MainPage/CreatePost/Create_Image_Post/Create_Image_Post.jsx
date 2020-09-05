@@ -1,8 +1,8 @@
 import React from "react";
 import "./Create_Image_Styles.scss";
 
-// Custom Hook Import
-import { useForm } from "../../../../hooks/useFormInput";
+// // Custom Hook Import
+// import { useForm } from "../../../../hooks/useFormInput";
 
 // Custom Component
 import RemoveImage from "./RemoveImage/RemoveImage.Component";
@@ -10,11 +10,10 @@ import RemoveImage from "./RemoveImage/RemoveImage.Component";
 // Shared Componet Import
 import FormInput from "../../../sharedComponents/FormInput/FormInput.Component";
 
-// Utility Import
-import { WORD_LIMIT } from "../utility";
+const WORD_LIMIT = 100;
 
 function CreateImagePost(props) {
-  const [values, setValues] = useForm({ description: "" });
+  let { value, onChange } = props;
 
   return (
     <>
@@ -22,8 +21,8 @@ function CreateImagePost(props) {
         name="description"
         placeholder="What is on your mind, Abhi??"
         type="text"
-        value={values.description.split("  ").join(" ")}
-        onChange={setValues}
+        value={value}
+        onChange={onChange}
         maxLength={WORD_LIMIT}
         className="Photo_Description"
       />
