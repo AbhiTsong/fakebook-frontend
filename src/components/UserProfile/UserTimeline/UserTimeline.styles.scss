@@ -1,0 +1,11 @@
+.TimeLine_Container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+  background-color: rgb(241, 220, 220);
+  margin-top: 0.5rem;
+
+  .TimeLine_Navigation{
+   padding: 0.5rem
+  }
+}
