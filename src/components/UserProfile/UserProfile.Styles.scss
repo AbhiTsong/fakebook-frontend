@@ -10,6 +10,11 @@
    .User_Timeline_Container{
    max-width: 50rem;
    margin: auto;
+   .User_Photos_And_Posts_Container{
+     display: flex;
+     justify-content: space-between;
+     padding-top: 0.8rem;
+   }
     }
   }
 }

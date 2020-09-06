@@ -3,12 +3,12 @@ import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
 // Child Components
-import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
+import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import LOgo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 
 // Shared Components
-import Modal from "../../sharedComponents/Modals/Model.Component";
-import FileUploader from "../../sharedComponents/FileUploader/FileUploader.Component";
+import Modal from "../Modals/Model.Component";
+import FileUploader from "../FileUploader/FileUploader.Component";
 
 // Redux Import
 // import { postSelector } from "../../../Redux/Post/post.selector";
@@ -32,7 +32,7 @@ function PostFormComponent() {
       {/* Image And Input  */}
       <div className="Image_Input_Container">
         <img className="UserProfilePic" src={LOgo} alt="User Pic" />
-        <form>
+        <form className="Post_Form_Container">
           <input
             className="Post_Form"
             type="text"

@@ -11,7 +11,7 @@ import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
 // Child Components
 import SignUpComponent from "../../SignUp/SignUp.Component";
-import CreatePostComponent from "../../MainPage/CreatePost/CreatePost.Component";
+import CreatePostComponent from "../../sharedComponents/CreatePost/CreatePost.Component";
 
 function Modal(props) {
   const { header1, header2 } = props;
