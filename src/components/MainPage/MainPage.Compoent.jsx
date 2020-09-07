@@ -5,7 +5,7 @@ import "./MainPage.Styles.scss";
 // Child Compoents Imports
 import StoryComponent from "./Story/Story.Componetnt";
 import PostFormComponent from "../sharedComponents/PostForm/PostForm.Component";
-// import AllPostsComponent from "./AllPosts/AllPosts.Component";
+import AllPostsComponent from "../sharedComponents/AllPosts/AllPosts.Component";
 
 function MainPageCompoent(props) {
   return (

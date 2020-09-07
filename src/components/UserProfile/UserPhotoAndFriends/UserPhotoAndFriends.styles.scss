@@ -1,4 +1,9 @@
-.User_Created_Photos_Container{
+.User_Created_Photos_Container {
   width: 42%;
-  background-color: hotpink;
+  height: 100%;
+
+  .User_Photo_Sticky{
+    position: sticky;
+    top: 1rem;
+  }
 }

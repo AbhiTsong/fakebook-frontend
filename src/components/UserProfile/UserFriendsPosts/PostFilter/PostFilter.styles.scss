@@ -1,0 +1,22 @@
+.Filter_Container{
+ background-color: white;
+ border-radius: 10px;
+ margin-top: 1rem;
+ .Filter_Title{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  .Title_Text{
+   margin: 0;
+  }
+ }
+ .Filter_View_Options{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+
+  .Filter_Icons{
+   margin: 0;
+  }
+ }
+}
