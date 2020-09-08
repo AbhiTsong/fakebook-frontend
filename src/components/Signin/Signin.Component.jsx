@@ -28,8 +28,11 @@ function SignInComponent(props) {
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
-  // Checking If The Use Is Authenticated And Has Token
+  // Checking If The User Is Authenticated And Has Token
   useEffect(() => {
+
+    console.log("userSelector --- ",userSelector)
+
     if (userSelector.length !== 0 && userSelector.data !== null) {
       let token = userSelector.data && userSelector.data.token;
       localStorage.setItem("fakeTkn", JSON.stringify(token));

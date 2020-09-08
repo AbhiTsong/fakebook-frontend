@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 function App() {
   let user = useSelector(currentUser);
 
-  console.log("user ---- ",user)
+  console.log("user ---- ", user);
 
   return (
     <div className="App">
@@ -19,11 +19,14 @@ function App() {
         <Route
           // exact
           path="/auth"
-          render={() => (user ? <Redirect to="/" /> : <SigninSignupPage />)}
+          // render={() => (user ? <Redirect to="/" /> : <SigninSignupPage />)}
+          render={() => <SigninSignupPage />}
         />
         <Route
-        //  exact
-         path="/profile" component={UserProfilePage} />
+          //  exact
+          path="/profile"
+          component={UserProfilePage}
+        />
         <Redirect from="/" to="/home" />
       </Switch>
     </div>

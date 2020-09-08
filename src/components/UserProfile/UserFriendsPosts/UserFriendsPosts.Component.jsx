@@ -11,7 +11,7 @@ function UserFriendsPost() {
     <div className="Users_Friends_Posts_Container">
       <PostFormComponent />
       <PostFilter />
-      <AllPostsComponent />
+      {/* <AllPostsComponent /> */}
     </div>
   );
 }
