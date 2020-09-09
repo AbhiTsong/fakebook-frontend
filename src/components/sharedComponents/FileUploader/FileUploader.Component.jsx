@@ -20,7 +20,7 @@ const FileUploader = () => {
 
   useEffect(() => {
     if (file !== "" && imgURL !== null) {
-      dispatch(ShowModal());
+      dispatch(ShowModal("CREATE_POST"));
       dispatch(getImagePath([imgURL, file]));
     }
   }, [dispatch, file, imgURL]);
@@ -52,8 +52,6 @@ const FileUploader = () => {
     return setFile(seleted);
   };
 
- 
-
   return (
     <div className="Input_Container">
       <span className="Text" role="img" aria-label="Live Video">
@@ -66,7 +64,8 @@ const FileUploader = () => {
         onChange={handleFileInput}
         className="Activity_Icons_Photo"
       />
-      {modalState.show && <Modal showForm="AddPost" header1="Create Post" />}
+      {modalState.show && <Modal header1="Create Post" />}
+      {/* {modalState.show && <Modal />} */}
     </div>
   );
 };

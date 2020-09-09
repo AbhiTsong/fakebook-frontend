@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -24,7 +24,8 @@ function PostFormComponent() {
   // const postText = useSelector(postSelector);
 
   const handleModal = () => {
-    dispatch(ShowModal());
+    console.log("POsrt for =m create post code running")
+    dispatch(ShowModal("CREATE_POST"));
   };
 
   return (
@@ -40,7 +41,7 @@ function PostFormComponent() {
             onClick={handleModal}
           />
         </form>
-        {modalState.show && <Modal showForm="AddPost" header1="Create Post" />}
+        {modalState.show && <Modal header1="Create Post" />}
       </div>
       <HorizontalLine />
       {/*Opens the modal to create the post */}

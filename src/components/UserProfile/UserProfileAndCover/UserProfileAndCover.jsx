@@ -2,18 +2,45 @@ import React from "react";
 import "./UserProfileAndCover.styles.scss";
 import ProfilePic from "../../../Assets/images/person-2.jpg";
 
-// Components Import
+// Redux Imports
+import { useDispatch, useSelector } from "react-redux";
+import { modalSelector } from "../../../Redux/Modal/ModalSelector";
+import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
+// Shared Components Import
 import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
+import Modal from "../../sharedComponents/Modals/Model.Component";
 
 function UserProfileAndCover() {
+  const dispatch = useDispatch();
+  let modalState = useSelector(modalSelector);
+
+  // Function For Handling Upload Image
+  function handleClick(e) {
+    // e.preventDefault();
+    dispatch(ShowModal("shoe_photos"));
+  }
+
   return (
     <>
       <div className="User_Profile_And_Cover">
         <div className="Change_Cover_Button">
-          <CustomButton>Edit Cover Photo</CustomButton>
+          <CustomButton>
+            <span role="img" aria-label="Camera Icon">
+              &#128247;
+            </span>
+            Edit Cover Photo
+          </CustomButton>
         </div>
         <div className="Profile_Pic_Container">
+          <div onClick={handleClick} role="img" className="Profile_Pic_Camera">
+            {modalState.show && (
+              <Modal showForm="UserPhotos" header1="Upload_Pic" />
+            )}
+            <span role="img" aria-label="Camera Icon">
+              &#128247;
+            </span>
+          </div>
           <img className="Profile_Pic" src={ProfilePic} alt="User Pic" />
         </div>
       </div>

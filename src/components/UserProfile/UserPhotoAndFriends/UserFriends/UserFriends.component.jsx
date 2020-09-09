@@ -10,8 +10,8 @@ function UserFriends() {
         <h5 className="Header">See All</h5>
       </div>
       <div className="User_Friends_Pic_Container">
-        {[...Array(9).keys()].map((pic) => (
-          <div className="Friends_Content">
+        {[...Array(9).keys()].map((pic, index) => (
+          <div key={index + pic} className="Friends_Content">
             <img className="Friends_Profile_Pic" src={Pic} alt="Pic Posts" />
           </div>
         ))}

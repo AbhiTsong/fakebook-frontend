@@ -42,7 +42,7 @@ function SignInComponent(props) {
 
   // Logging Out The User
   const handleModal = () => {
-    dispatch(ShowModal());
+    dispatch(ShowModal("SIGN_UP_USER"));
   };
 
   // Logging In A New User
@@ -91,11 +91,7 @@ function SignInComponent(props) {
             Create A New Account
           </ButtonComponent>
           {modalState.show && (
-            <Modal
-              showForm="SignUp"
-              header1="Sign Up"
-              header2="Its Quick And Easy"
-            />
+            <Modal/>
           )}
         </div>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}

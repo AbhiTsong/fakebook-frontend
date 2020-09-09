@@ -1,8 +1,9 @@
 import { ModalTypes } from "./ModalTypes";
 
-function ShowModal() {
+function ShowModal(modalContent) {
   return {
     type: ModalTypes.SHOW_MODAL,
+    payload: modalContent,
   };
 }
 

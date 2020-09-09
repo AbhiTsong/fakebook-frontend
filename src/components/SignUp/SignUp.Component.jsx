@@ -14,6 +14,7 @@ import { useForm } from "../../hooks/useFormInput";
 // Redux Imports
 import { useDispatch } from "react-redux";
 import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
+import { CloseModal } from "../../Redux/Modal/ModalAction";
 
 // Utility Function
 import { validation } from "../../utility/validation";
@@ -65,142 +66,158 @@ function SignUpComponent(props) {
     }
   };
 
+  const handleCloseModal = () => {
+    dispatch(CloseModal());
+  };
+
   console.log("Sign Up Component being called");
   return (
-    <div className="SignUpFormContainer">
-      <form onSubmit={handleSignUp} className="SignUpForm">
-        <div className="Form-Name-Sir-Name">
-          <FormInput
-            className="Form-Input-Field"
-            name="firstName"
-            type="text"
-            value={values.firstName}
-            placeholder="First Name"
-            onChange={handleValues}
-          />
-          <FormInput
-            className="Form-Input-Field"
-            name="lastName"
-            type="text"
-            value={values.lastName}
-            placeholder="Surname"
-            onChange={handleValues}
-          />
-        </div>
-        <FormInput
-          className="Form-Input-Field"
-          name="email"
-          type="email"
-          value={values.email}
-          placeholder="email address"
-          onChange={handleValues}
-        />
-        <FormInput
-          className="Form-Input-Field"
-          name="password"
-          type="password"
-          value={values.password}
-          placeholder="New Password"
-          onChange={handleValues}
-        />
-
-        {/* Selecting The Data Of Birth */}
-        <h6 className="DOBTitle">Date Of Birth</h6>
-        <div className="DOBConatiner">
-          {/* Select The Date */}
-          <select
-            value={values.date}
-            name="date"
-            type="date"
-            className="dropdown-content"
-            onChange={handleValues}
-          >
-            {[...Array(31).keys()].map((day) => (
-              <option key={day} value={day}>
-                {day}
-              </option>
-            ))}
-          </select>
-
-          {/* Selectin The Month */}
-          <select
-            value={values.month}
-            name="month"
-            type="month"
-            className="dropdown-content"
-            onChange={handleValues}
-          >
-            {allMonths.map((month, idx) => (
-              <option key={month} value={month}>
-                {month}
-              </option>
-            ))}
-          </select>
-
-          {/* Selecting The Year */}
-          <select
-            value={values.year}
-            name="year"
-            type="year"
-            onChange={handleValues}
-            className="dropdown-content"
-          >
-            {YEARS.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
+    <div id="myModal" className="modal">
+      <div className="modal-content" tabIndex={-1}>
+        <div className="modal-header">
+          <span className="close" onClick={handleCloseModal}>
+            ×
+          </span>
+          {/* <h1 className="header-title">{header1}</h1> */}
+          {/* {header2 && <h5 className="header-sub-title">{header2}</h5>} */}
         </div>
 
-        {/* Gender Radio Buttons */}
-        <h6 className="GenderTitle">Gender</h6>
-        <div className="GenderConatiner">
-          <div className="Gender-Content">
-            <label htmlFor="female" className="Value-Container">
-              Female
-              <RadioButtonComponent
-                type="radio"
-                value="female"
-                id="female"
-                onChange={handleChange}
-                name="gender"
+        <div className="SignUpFormContainer">
+          <form onSubmit={handleSignUp} className="SignUpForm">
+            <div className="Form-Name-Sir-Name">
+              <FormInput
+                className="Form-Input-Field"
+                name="firstName"
+                type="text"
+                value={values.firstName}
+                placeholder="First Name"
+                onChange={handleValues}
               />
-            </label>
-          </div>
-          <div className="Gender-Content">
-            <label htmlFor="male" className="Value-Container">
-              Male
-              <RadioButtonComponent
-                type="radio"
-                value="male"
-                id="male"
-                onChange={handleChange}
-                name="gender"
+              <FormInput
+                className="Form-Input-Field"
+                name="lastName"
+                type="text"
+                value={values.lastName}
+                placeholder="Surname"
+                onChange={handleValues}
               />
-            </label>
-          </div>
-          <div className="Gender-Content">
-            <label htmlFor="others" className="Value-Container">
-              Others
-              <RadioButtonComponent
-                type="radio"
-                value="others"
-                id="others"
-                onChange={handleChange}
-                name="gender"
-              />
-            </label>
-          </div>
+            </div>
+            <FormInput
+              className="Form-Input-Field"
+              name="email"
+              type="email"
+              value={values.email}
+              placeholder="email address"
+              onChange={handleValues}
+            />
+            <FormInput
+              className="Form-Input-Field"
+              name="password"
+              type="password"
+              value={values.password}
+              placeholder="New Password"
+              onChange={handleValues}
+            />
+
+            {/* Selecting The Data Of Birth */}
+            <h6 className="DOBTitle">Date Of Birth</h6>
+            <div className="DOBConatiner">
+              {/* Select The Date */}
+              <select
+                value={values.date}
+                name="date"
+                type="date"
+                className="dropdown-content"
+                onChange={handleValues}
+              >
+                {[...Array(31).keys()].map((day) => (
+                  <option key={day} value={day}>
+                    {day}
+                  </option>
+                ))}
+              </select>
+
+              {/* Selectin The Month */}
+              <select
+                value={values.month}
+                name="month"
+                type="month"
+                className="dropdown-content"
+                onChange={handleValues}
+              >
+                {allMonths.map((month, idx) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+
+              {/* Selecting The Year */}
+              <select
+                value={values.year}
+                name="year"
+                type="year"
+                onChange={handleValues}
+                className="dropdown-content"
+              >
+                {YEARS.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Gender Radio Buttons */}
+            <h6 className="GenderTitle">Gender</h6>
+            <div className="GenderConatiner">
+              <div className="Gender-Content">
+                <label htmlFor="female" className="Value-Container">
+                  Female
+                  <RadioButtonComponent
+                    type="radio"
+                    value="female"
+                    id="female"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </label>
+              </div>
+              <div className="Gender-Content">
+                <label htmlFor="male" className="Value-Container">
+                  Male
+                  <RadioButtonComponent
+                    type="radio"
+                    value="male"
+                    id="male"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </label>
+              </div>
+              <div className="Gender-Content">
+                <label htmlFor="others" className="Value-Container">
+                  Others
+                  <RadioButtonComponent
+                    type="radio"
+                    value="others"
+                    id="others"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </label>
+              </div>
+            </div>
+            <h6 className="Terms-And-Policy">
+              By clicking Sign Up, you agree to our{" "}
+              <span className="Color-Blue">Terms, Data Policy </span> and{" "}
+              <span className="Color-Blue"> Cookie Policy. </span> You may
+              receive SMS notifications from us and can opt out at any time.
+            </h6>
+            <ButtonComponent>Sign Up</ButtonComponent>
+          </form>
         </div>
-        <h6 className="Terms-And-Policy">
-          By clicking Sign Up, you agree to our{" "}
-          <span className="Color-Blue">Terms, Data Policy </span> and{" "}
-          <span className="Color-Blue"> Cookie Policy. </span> You may receive
-          SMS notifications from us and can opt out at any time.
-        </h6>
-        <ButtonComponent>Sign Up</ButtonComponent>
-      </form>
+      </div>
     </div>
   );
 }

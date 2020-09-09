@@ -3,7 +3,7 @@ import "./UserPhotoAndFriends.styles.scss";
 
 // Nested Component Import
 import UserIntro from "./UserIntro/UserIntro.Component";
-import UserPhotoPosts from "./UserPhotoPosts/UserPhotoPosts.component";
+import UserPhotoPosts from "../../sharedComponents/UserPhotoPosts/UserPhotoPosts.component";
 import UserFriends from "./UserFriends/UserFriends.component";
 
 // Custom Hook
