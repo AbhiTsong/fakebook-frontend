@@ -24,7 +24,6 @@ function PostFormComponent() {
   // const postText = useSelector(postSelector);
 
   const handleModal = () => {
-    console.log("POsrt for =m create post code running")
     dispatch(ShowModal("CREATE_POST"));
   };
 

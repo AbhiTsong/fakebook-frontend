@@ -18,7 +18,7 @@ function UserProfileAndCover() {
   // Function For Handling Upload Image
   function handleClick(e) {
     // e.preventDefault();
-    dispatch(ShowModal("shoe_photos"));
+    dispatch(ShowModal("SHOW_PHOTO_FORM"));
   }
 
   return (
@@ -34,9 +34,6 @@ function UserProfileAndCover() {
         </div>
         <div className="Profile_Pic_Container">
           <div onClick={handleClick} role="img" className="Profile_Pic_Camera">
-            {modalState.show && (
-              <Modal showForm="UserPhotos" header1="Upload_Pic" />
-            )}
             <span role="img" aria-label="Camera Icon">
               &#128247;
             </span>

@@ -14,20 +14,6 @@ function ModalReducer(state = INITIAL_STATE, action) {
         content: action.payload,
       };
 
-    // case ModalTypes.SHOW_CREATE_POST:
-    //   return {
-    //     ...state,
-    //     show: true,
-    //     content: action.payload,
-    //   };
-
-    // case ModalTypes.SHOW_USER_PHOTOS:
-    //   return {
-    //     ...state,
-    //     show: true,
-    //     content: action.payload,
-    //   };
-
     case ModalTypes.CLOSE_MODAL: {
       return {
         ...state,

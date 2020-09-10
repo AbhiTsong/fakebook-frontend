@@ -22,14 +22,18 @@ import CustomButton from "../../sharedComponents/Button.Component/Button.Compone
 import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
 import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";
+import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
   const [values, setValues] = useForm({ description: "" });
 
+
+  
   // Effect for Creating the post
   useEffect(() => {
+    console.log("This is the post selector yoo",post)
     if (
       (!post.loading && post.isEventCreated === true) ||
       post.isPhotoUploaded === true
@@ -63,6 +67,7 @@ function CreatePostComponent(props) {
       <div>
         <img className="UserProfilePic" src={Logo} alt="Monkey" />
       </div>
+      <CloseModalIcon />
       <form>
         {props.path ? (
           <CreateImagePost

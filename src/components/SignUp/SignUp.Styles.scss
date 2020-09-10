@@ -35,94 +35,113 @@
     outline: none;
   }
 
+  .modal-header {
+    padding: 0.3rem 1rem;
+    margin: 0;
+    height: 4.5rem;
+
+
+
+    .header-title {
+      margin: 0;
+      color: rgb(34, 33, 33);
+    }
+
+    .header-sub-title {
+      margin: 0;
+      padding-top: 0.1rem;
+    }
+  }
+
   .SignUpFormContainer {
     width: 100%;
-    .SignUpForm {
-      position: relative;
-      // height: 15%;
-      // width: 50%;
-      display: flex;
-      flex-direction: column;
-
-      .Form-Name-Sir-Name {
+    .SignUpFormContent {
+      padding: 1rem;
+      .SignUpForm {
+        position: relative;
         display: flex;
-        justify-content: space-between;
-        .Form-Input-Field {
-          width: 11.5rem;
-        }
-      }
-      .Form-Input-Field {
-        height: 1rem;
-        margin-bottom: 0.7rem;
-        border: 1px solid gray;
-        border-radius: 5px;
-        font-size: medium;
-        background-color: lavender;
-        padding: 0.5rem;
-      }
+        flex-direction: column;
 
-      .DOBTitle {
-        margin: 0;
-        margin-bottom: 5px;
-      }
-
-      .DOBConatiner {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.7rem;
-        // flex-direction: column;
-        // .dropdown {
-        .dropdown-content {
-          min-width: 100px;
-          width: 8rem;
-          font-size: medium;
-          padding: 0.5rem;
-          border-radius: 5px;
-          background-color: white;
-        }
-        // }
-      }
-
-      .GenderTitle {
-        margin: 0;
-        margin-bottom: 5px;
-      }
-
-      .GenderConatiner {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-        // flex-direction: column;
-        // .dropdown {
-        .Gender-Content {
+        .Form-Name-Sir-Name {
           display: flex;
           justify-content: space-between;
-          min-width: 100px;
-          width: 7rem;
-          font-size: medium;
-          padding: 0.5rem;
-          border-radius: 5px;
-          background-color: white;
-          border: 1px solid grey;
-          .Value-Container {
-            position: relative;
-            color: black;
-            .Gender-Radio {
-              position: absolute;
-              top: 0;
-              left: 6rem;
-            }
+          .Form-Input-Field {
+            width: 11.5rem;
           }
         }
-        // }
-      }
+        .Form-Input-Field {
+          height: 1rem;
+          margin-bottom: 0.7rem;
+          border: 1px solid gray;
+          border-radius: 5px;
+          font-size: medium;
+          background-color: lavender;
+          padding: 0.5rem;
+        }
 
-      .Terms-And-Policy {
-        margin: 0;
-        font-weight: lighter;
-        margin-bottom: 2rem;
-        .Color-Blue {
-          color: blue;
+        .DOBTitle {
+          margin: 0;
+          margin-bottom: 5px;
+        }
+
+        .DOBConatiner {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.7rem;
+          // flex-direction: column;
+          // .dropdown {
+          .dropdown-content {
+            min-width: 100px;
+            width: 8rem;
+            font-size: medium;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: white;
+          }
+          // }
+        }
+
+        .GenderTitle {
+          margin: 0;
+          margin-bottom: 5px;
+        }
+
+        .GenderConatiner {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          // flex-direction: column;
+          // .dropdown {
+          .Gender-Content {
+            display: flex;
+            justify-content: space-between;
+            min-width: 100px;
+            width: 7rem;
+            font-size: medium;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: white;
+            border: 1px solid grey;
+            .Value-Container {
+              position: relative;
+              color: black;
+              .Gender-Radio {
+                position: absolute;
+                top: 0;
+                left: 6rem;
+              }
+            }
+          }
+          // }
+        }
+
+        .Terms-And-Policy {
+          margin: 0;
+          font-weight: lighter;
+          margin-bottom: 2rem;
+          .Color-Blue {
+            color: blue;
+          }
         }
       }
     }

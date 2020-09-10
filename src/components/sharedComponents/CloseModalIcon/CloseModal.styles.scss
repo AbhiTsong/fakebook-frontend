@@ -1,0 +1,14 @@
+    /* The Close Button */
+    .close {
+     color: rgb(146, 135, 135);
+     float: right;
+     font-size: 3rem;
+     // padding-top: 0.5rem;
+   }
+
+   .close:hover,
+   .close:focus {
+     color: rgba(110, 106, 106, 0.966);
+     text-decoration: none;
+     cursor: pointer;
+   }

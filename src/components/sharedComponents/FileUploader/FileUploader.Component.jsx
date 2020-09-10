@@ -1,22 +1,23 @@
+/* eslint-disable no-unused-expressions */
 // Npm Modul Imports
 import React, { useRef, useState, useEffect } from "react";
 import "./FileUploader.styles.scss";
-import { useDispatch, useSelector } from "react-redux";
-
-// Sared Component
-import Modal from "../Modals/Model.Component";
+import { useDispatch } from "react-redux";
 
 // Redux Import
 import { getImagePath } from "../../../Redux/Post/photoPath.action";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
-import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 
-const FileUploader = () => {
+// // Custom Hook
+// import { readURI } from "../../../utility/readURI";
+
+const FileUploader = (props) => {
+  console.log(props);
   let dispatch = useDispatch();
   const fileInput = useRef(null);
   let [file, setFile] = useState("");
   let [imgURL, setURL] = useState("");
-  const modalState = useSelector(modalSelector);
+  // let [setURL] = useReadURI();
 
   useEffect(() => {
     if (file !== "" && imgURL !== null) {
@@ -46,7 +47,9 @@ const FileUploader = () => {
   const handleFileInput = (e) => {
     readURI(e);
     const seleted = e.target.files[0];
-    if (seleted.size > 1048576) {
+    //
+    seleted === undefined ? setURL(null) : "";
+    if (seleted && seleted.size > 1048576) {
       return setFile("");
     }
     return setFile(seleted);
@@ -64,8 +67,6 @@ const FileUploader = () => {
         onChange={handleFileInput}
         className="Activity_Icons_Photo"
       />
-      {modalState.show && <Modal header1="Create Post" />}
-      {/* {modalState.show && <Modal />} */}
     </div>
   );
 };
