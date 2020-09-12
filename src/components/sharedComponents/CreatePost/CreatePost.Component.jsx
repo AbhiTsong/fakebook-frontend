@@ -33,7 +33,6 @@ function CreatePostComponent(props) {
   
   // Effect for Creating the post
   useEffect(() => {
-    console.log("This is the post selector yoo",post)
     if (
       (!post.loading && post.isEventCreated === true) ||
       post.isPhotoUploaded === true

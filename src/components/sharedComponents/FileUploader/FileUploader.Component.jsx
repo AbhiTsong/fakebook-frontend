@@ -12,12 +12,10 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 // import { readURI } from "../../../utility/readURI";
 
 const FileUploader = (props) => {
-  console.log(props);
   let dispatch = useDispatch();
   const fileInput = useRef(null);
   let [file, setFile] = useState("");
   let [imgURL, setURL] = useState("");
-  // let [setURL] = useReadURI();
 
   useEffect(() => {
     if (file !== "" && imgURL !== null) {

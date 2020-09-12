@@ -17,10 +17,7 @@ function FileUploaderWithCropper() {
   let [imgURL, setURL] = useState("");
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    file ? dispatch(CloseModal()) : ""; //Closing the model before a new componenet is mounted
-
-    if (file !== "" && imgURL !== null) {
+    if (file !== "" && imgURL !== "") {
       dispatch(ShowModal("ADD_NEW_PROFILE_PIC"));
       dispatch(getImagePath([imgURL, file]));
     }
