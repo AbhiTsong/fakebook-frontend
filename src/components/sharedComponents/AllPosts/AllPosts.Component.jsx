@@ -35,7 +35,7 @@ function AllPostsComponent() {
   }
 
   // Function For Waring The User If He Refreshses The Browser
-  browserRefresh();
+  // browserRefresh();
 
   return (
     <div className="All_Post_Container">

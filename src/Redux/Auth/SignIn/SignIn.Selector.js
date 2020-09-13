@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const signInData = (state) => state.user;
+const signInData = (state) => state.auth;
 
 const signInSelector = createSelector(
   signInData,

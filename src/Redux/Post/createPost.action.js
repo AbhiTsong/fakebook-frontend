@@ -24,9 +24,8 @@ const CreatePostFail = (error) => {
   };
 };
 
-// Create post action creater
+// Create post action creater (photo and text)
 function CreatePostAction(props) {
-  console.log("photo post ---- yooo",props);
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
@@ -43,8 +42,8 @@ function CreatePostActionOnlyText(props) {
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
-      let post = await axios.post("/post",{
-        description: props.description
+      let post = await axios.post("/post", {
+        description: props.description,
       });
       dispatch(CreatePostSuccess(post));
     } catch (error) {

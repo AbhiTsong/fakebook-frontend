@@ -9,6 +9,7 @@ const PostActionTypes = {
   RESET_POST: "RESET_POST",
   PERSIST_USER_POST: "PERSIST_USER_POST",
   CLEAR_PHOTO_STATE: "CLEAR_PHOTO_STATE",
+  CLEAR_PHOTO_PATH: "CLEAR_PHOTO_PATH",
 };
 
 export { PostActionTypes };

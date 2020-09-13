@@ -6,11 +6,15 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import UserProfilePage from "./pages/userProfile.page";
 import { currentUser } from "./Redux/Auth/SignIn/SignIn.Selector";
 import { useSelector } from "react-redux";
+// import axios from "./axios";
 
 function App() {
-  let user = useSelector(currentUser);
+  // let user = useSelector(currentUser);
+  // axios.defaults.headers.common[
+  //   "Authorization"
+  // ] = `Bearer ${currentUser.token}`;
 
-  console.log("user ---- ", user);
+  // console.log("user ---- ", user);
 
   return (
     <div className="App">

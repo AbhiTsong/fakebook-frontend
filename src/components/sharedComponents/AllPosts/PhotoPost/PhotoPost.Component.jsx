@@ -11,7 +11,9 @@ function PhotoPost(props) {
 
   return (
     <>
-      {post.description ? <h5 className="Post_Text">{post.description}</h5> : null}
+      {post.description ? (
+        <h5 className="Post_Text">{post.description}</h5>
+      ) : null}
       <div className="Center_Post_Pic">
         <div
           className="Center_Post_Pic_Background"

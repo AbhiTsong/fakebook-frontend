@@ -6,11 +6,13 @@ import storage from "redux-persist/lib/storage";
 import { authReducer } from "./Auth/AuthReducer";
 import { ModalReducer } from "./Modal/ModalReducer";
 import { postReducer } from "./Post/post.reducer";
+import { warningReducer } from "./Warning/Warning.Reducer";
+import {userReducer} from "./User/UserReducer"
 
 const persitConfig = {
   key: "root",
   storage,
-  whitelist: ["user"],
+  whitelist: ["auth", ""],
 };
 
 const postPersistConfig = {
@@ -20,9 +22,11 @@ const postPersistConfig = {
 };
 
 const RootReducer = combineReducers({
-  user: authReducer,
+  auth: authReducer,
+  user: userReducer,
   modal: ModalReducer,
   post: persistReducer(postPersistConfig, postReducer),
+  warning: warningReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

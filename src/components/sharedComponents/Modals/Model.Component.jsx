@@ -2,7 +2,7 @@ import React from "react";
 import "./Model.Styles.scss";
 
 // Redux Imports
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 
@@ -19,7 +19,6 @@ function Modal(props) {
   let modalContent = useSelector(modalSelector);
   let path = postPath.photoPath;
 
-
   return (
     <div className="modal">
       {modalContent.content === "SIGN_UP_USER" && <SignUpComponent />}
@@ -27,7 +26,7 @@ function Modal(props) {
       {modalContent.content === "CREATE_POST" && (
         <CreatePostComponent path={path} />
       )}
-      {modalContent.content === "ADD_NEW_PROFILE_PIC" && <PicCropper path={path} />}
+      {modalContent.content === "ADD_NEW_PROFILE_PIC" && <PicCropper />}
     </div>
   );
 }

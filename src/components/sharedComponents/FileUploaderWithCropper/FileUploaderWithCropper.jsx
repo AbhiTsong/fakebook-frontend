@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
-import { getImagePath } from "../../../Redux/Post/photoPath.action";
+import { getProfilePath } from "../../../Redux/User/userpProfilePathAction";
 
 // Shared Component
 import { ShowModal, CloseModal } from "../../../Redux/Modal/ModalAction";
@@ -19,7 +19,7 @@ function FileUploaderWithCropper() {
   useEffect(() => {
     if (file !== "" && imgURL !== "") {
       dispatch(ShowModal("ADD_NEW_PROFILE_PIC"));
-      dispatch(getImagePath([imgURL, file]));
+      dispatch(getProfilePath([imgURL, file]));
     }
   }, [dispatch, file, imgURL]);
 
@@ -33,10 +33,10 @@ function FileUploaderWithCropper() {
   }
 
   function handleFileInput(e) {
-    readFileSize(e);
-    readURI(e);
+    // eslint-disable-next-line no-unused-expressions
+    readFileSize(e) ? "" : readURI(e);
     const seleted = e.target.files[0];
-    //
+
     // seleted === undefined ? setURL(null) : "";
     if (seleted && seleted.size > 1048576) {
       return setFile("");

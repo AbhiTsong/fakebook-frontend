@@ -92,6 +92,10 @@ function postReducer(state = INITIAL_STATE, action) {
       };
     }
 
+    case PostActionTypes.CLEAR_PHOTO_PATH: {
+      return { ...state, photoPath: "" };
+    }
+
     default:
       return state;
   }

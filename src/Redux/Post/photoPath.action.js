@@ -7,4 +7,10 @@ function getImagePath(path) {
   };
 }
 
-export { getImagePath };
+function clearImagePath() {
+  return {
+    type: PostActionTypes.CLEAR_PHOTO_PATH,
+  };
+}
+
+export { getImagePath, clearImagePath };

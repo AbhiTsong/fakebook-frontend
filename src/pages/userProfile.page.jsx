@@ -6,9 +6,10 @@ import NavBarComponent from "../components/NavBar/NavBar.Component";
 
 // With Auth Hoc
 import withAuth from "../hoc/withAuth";
+import { browserRefresh } from "../utility/windowReload";
 
 function UserProfilePage(props) {
-  console.log("user profile page", props);
+  // browserRefresh();
   return (
     <div>
       <NavBarComponent />

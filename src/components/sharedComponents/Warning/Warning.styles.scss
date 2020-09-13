@@ -1,0 +1,60 @@
+.Warning_Overlay {
+  position: absolute;
+  margin: auto;
+  border: px solid gray;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(160, 142, 142);
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.Warning_Container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition-delay: 0.5s;
+  .Warning_Content {
+    position: absolute;
+    top: 40%;
+    background-color: white;
+    border-radius: 10px;
+    // width: 90%;
+    display: flex;
+    .Warning_Text_Content {
+      padding: 1rem;
+      .Text {
+        margin: 0;
+      }
+    }
+
+    .Warning_Button_Container {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      .Warning_Yes {
+        margin: 0;
+        margin-right: 0.5rem;
+        border: none;
+        border-radius: 3px;
+        outline-color: transparent;
+        &:hover{
+         background-color: rgb(156, 156, 163);
+         color: wheat;
+        }
+      }
+      .Warning_No {
+        margin: 0;
+        background-color: blue;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        outline-color: transparent;
+        &:hover{
+         background-color: transparent;
+         color: grey;
+        }
+      }
+    }
+  }
+}
