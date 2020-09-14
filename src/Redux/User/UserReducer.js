@@ -15,7 +15,6 @@ function userReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: true,
-        
       };
 
     case userActionTypes.CREATE_USER_PROFILE_SUCCESS:
@@ -34,32 +33,6 @@ function userReducer(state = INITIAL_STATE, action) {
         loading: false,
         avatar: "",
         created: false,
-        error: action.payload,
-        profilePath: "",
-      };
-
-    case userActionTypes.FETCH_PROFILE_PIC_START:
-      return {
-        ...state,
-        loading: true,
-      };
-
-    case userActionTypes.FETCH_PROFILE_PIC_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        avatar: "",
-        avatarFromDB: action.payload,
-        error: "",
-        profilePath: "",
-      };
-
-    case userActionTypes.FETCH_USER_PROFILE_FAIL:
-      return {
-        ...state,
-        loading: false,
-        avatarFromDB: "",
-        avatar: "",
         error: action.payload,
         profilePath: "",
       };
