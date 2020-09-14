@@ -12,7 +12,7 @@ import Comment from "../../../Assets/images/comments.png";
 import Share from "../../../Assets/images/share.png";
 
 // Utility Function Import
-import { browserRefresh } from "../../../utility/windowReload";
+// import { browserRefresh } from "../../../utility/windowReload";
 
 // Component Imports
 import PhotoPost from "./PhotoPost/PhotoPost.Component";

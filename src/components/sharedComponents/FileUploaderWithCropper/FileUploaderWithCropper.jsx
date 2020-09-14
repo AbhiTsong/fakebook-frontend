@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 
 // Redux Imports
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getProfilePath } from "../../../Redux/User/userpProfilePathAction";
 
 // Shared Component
-import { ShowModal, CloseModal } from "../../../Redux/Modal/ModalAction";
+import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 // utility import
 import { readFileSize } from "../../../utility/readURI";

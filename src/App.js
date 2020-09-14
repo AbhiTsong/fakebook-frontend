@@ -4,8 +4,8 @@ import SigninSignupPage from "./pages/signin-signup.page";
 import HomePage from "./pages/home.page.jsx";
 import { Route, Switch, Redirect } from "react-router-dom";
 import UserProfilePage from "./pages/userProfile.page";
-import { currentUser } from "./Redux/Auth/SignIn/SignIn.Selector";
-import { useSelector } from "react-redux";
+// import { currentUser } from "./Redux/Auth/SignIn/SignIn.Selector";
+// import { useSelector } from "react-redux";
 // import axios from "./axios";
 
 function App() {
