@@ -1,5 +1,6 @@
 import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
+import { getToken } from "../token";
 
 function createUserAvatar() {
   return {
@@ -26,7 +27,11 @@ function createUserAvatarAction(props) {
   return async function (dispatch) {
     dispatch(createUserAvatar());
     try {
-      await axios.post("/users/me/avatar", props);
+      await axios.post("/users/me/avatar", props, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
       dispatch(createUserAvatarSuccess(props));
     } catch (error) {
       if (error.response) {

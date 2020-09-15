@@ -9,13 +9,6 @@ import UserProfilePage from "./pages/userProfile.page";
 // import axios from "./axios";
 
 function App() {
-  // let user = useSelector(currentUser);
-  // axios.defaults.headers.common[
-  //   "Authorization"
-  // ] = `Bearer ${currentUser.token}`;
-
-  // console.log("user ---- ", user);
-
   return (
     <div className="App">
       <Switch>

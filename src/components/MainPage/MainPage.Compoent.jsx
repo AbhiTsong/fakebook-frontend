@@ -13,7 +13,7 @@ function MainPageCompoent(props) {
       <div className="MainPageChildContainer">
         <StoryComponent />
         <PostFormComponent />
-        {/* <AllPostsComponent /> */}
+        <AllPostsComponent />
       </div>
     </div>
   );

@@ -1,19 +1,21 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import "./ProfileNavigation.styles.scss";
-// import ProfilePic from "../../../Assets/images/IMG-20190106-WA0001.jpg";
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 function ProfileNavigation() {
   return (
     <div className="UserInfoNotification">
-      <Link
-        onClick={() => console.log("I got clicked")}
-        className="User_Nav_Options"
-        to="/profile"
-      >
-        {/* <img className="User_Profile_Pic" src={ProfilePic} alt="Logged_In_User" /> */}
-        Abhi
-      </Link>
+      <div className="User_Profile_And_Name">
+        <div className="User_Nav_Options_Profile">
+          <Link to="/profile">
+            <UserProfilePic />
+          </Link>
+        </div>
+        <Link to="/profile">
+          <h5 className="User_Name">Abhi</h5>
+        </Link>
+      </div>
       <div className="User_Nav_Options">+</div>
       <div className="User_Nav_Options">mess</div>
       <div className="User_Nav_Options">bell</div>

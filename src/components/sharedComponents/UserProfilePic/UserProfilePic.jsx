@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom"
 import "./UserProfile.styles.scss";
-import { withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import config from "../../../config/config.json";
 import Default from "../../../Assets/images/default.png";
@@ -20,7 +20,7 @@ function UserProfilePic(props) {
   }
 
   // IIFE  for checking if the user has uploaded the profile pic
-  (async function () {
+  (async function isProfileFunc() {
     try {
       let data = await axios.get(`/users/${id.user._id}/avatar`);
       if (data) {

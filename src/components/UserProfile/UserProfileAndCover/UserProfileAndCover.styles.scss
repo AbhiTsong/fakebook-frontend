@@ -12,8 +12,26 @@
     bottom: 1rem;
     right: 2rem;
   }
+  .Profile_Pic_Container {
+    position: relative;
+    top: 52%;
+    left: 40%;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: gray;
 
-
+    .Profile_Pic_Camera {
+      position: absolute;
+      bottom: 0;
+      font-style: inherit;
+      right: 0.5rem;
+      border: 0.3rem solid rgb(219, 214, 214);
+      background-color: rgb(240, 227, 227);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
 }
 
 .User_Name_Container {

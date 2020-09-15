@@ -9,6 +9,7 @@ import LOgo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 // Shared Components
 import Modal from "../Modals/Model.Component";
 import FileUploader from "../FileUploader/FileUploader.Component";
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 // Redux Import
 // import { postSelector } from "../../../Redux/Post/post.selector";
@@ -31,7 +32,9 @@ function PostFormComponent() {
     <div className="FormConatiner">
       {/* Image And Input  */}
       <div className="Image_Input_Container">
-        <img className="UserProfilePic" src={LOgo} alt="User Pic" />
+        <div className="Form_Pic_Container">
+          <UserProfilePic />
+        </div>
         <form className="Post_Form_Container">
           <input
             className="Post_Form"

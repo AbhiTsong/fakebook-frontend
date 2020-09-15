@@ -1,6 +1,8 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 
+import { getToken } from "../token";
+
 // Create Post Action Start
 const CreatePostStart = () => {
   return {
@@ -29,10 +31,16 @@ function CreatePostAction(props) {
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
-      let post = await axios.post("/posts/create", props);
+      let post = await axios.post("/posts/create", props, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
       dispatch(CreatePostSuccess(post));
     } catch (error) {
-      dispatch(CreatePostFail(error.response));
+      if (error.response) {
+        dispatch(CreatePostFail(error.response.data));
+      }
     }
   };
 }
@@ -42,8 +50,10 @@ function CreatePostActionOnlyText(props) {
   return async function (dispatch) {
     dispatch(CreatePostStart());
     try {
-      let post = await axios.post("/post", {
-        description: props.description,
+      let post = await axios.post("/post", props, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
       });
       dispatch(CreatePostSuccess(post));
     } catch (error) {

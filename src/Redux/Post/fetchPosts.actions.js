@@ -1,5 +1,6 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
+import { getToken } from "../token";
 
 function fetchPostStart() {
   return {
@@ -28,9 +29,7 @@ function fetchAllPosts() {
     try {
       let allPosts = await axios.get("/posts", {
         headers: {
-          Authorization: `Bearer ${JSON.parse(
-            localStorage.getItem("fakeTkn")
-          )}`,
+          Authorization: `Bearer ${getToken()}`,
         },
       });
       dispatch(fetchPostSuccess(allPosts));

@@ -11,26 +11,25 @@ import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { resetPostAction } from "../../../Redux/Post/resetPost.action";
 import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
+import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
 // import { persistUserTextPost } from "../../../Redux/Post/persistedUserPostAction";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
 
 // Shared Compoent
-import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
 import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
 import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic"
 
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
   const [values, setValues] = useForm({ description: "" });
 
-
-  
   // Effect for Creating the post
   useEffect(() => {
     if (
@@ -63,11 +62,15 @@ function CreatePostComponent(props) {
 
   return (
     <div className="CreatePostContainer">
-      <div>
-        <img className="UserProfilePic" src={Logo} alt="Monkey" />
+      <div className="Create_Post_Title_Container">
+        <h4 className="Title_Text">Create Post</h4>
+        <CloseModalIcon />
       </div>
-      <CloseModalIcon />
-      <form>
+      <HorizontalLine />
+      <div className="Create_Post_Profile_Pic">
+        <UserProfilePic/>
+      </div>
+      <form className="Form_Container">
         {props.path ? (
           <CreateImagePost
             value={values.description.split("  ").join(" ")}

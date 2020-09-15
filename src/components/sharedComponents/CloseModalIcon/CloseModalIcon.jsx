@@ -13,7 +13,7 @@ function CloseModalIcon() {
   };
 
   return (
-    <div>
+    <div className="Close_Button_Container">
       <span className="close" onClick={handleCloseModal}>
         ×
       </span>

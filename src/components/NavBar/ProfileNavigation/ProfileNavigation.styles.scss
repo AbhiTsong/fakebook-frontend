@@ -1,21 +1,28 @@
 .UserInfoNotification {
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   width: 10rem;
   margin-right: 5rem;
 
-  .User_Nav_Options {
-    // width: ;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid gray;
-    border-radius: 50%;
-
-    .User_Profile_Pic {
-      border: 1px solid #ddd;
-      border-radius: 50%;
-      width: 40px;
-      height: 2.5rem;
+  .User_Profile_And_Name {
+    display: flex;
+    justify-content: space-between;
+    .User_Nav_Options_Profile {
+      width: 1.5rem;
+      height: 1.5rem;
+      // border-radius: 50%;
     }
+    .User_Name {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .User_Nav_Options {
+    border-radius: 50%;
+    // width: 40px;
+    // height: 2.5rem;
   }
 }

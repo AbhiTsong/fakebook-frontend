@@ -27,7 +27,7 @@ function CreateTextPost(props) {
         onChange={onChange}
         maxLength={WORD_LIMIT}
       />
-      <h6>Words Left {numberCount}</h6>
+      <h6 className="Words_Left_Container">Words Left {numberCount}</h6>
     </>
   );
 }
