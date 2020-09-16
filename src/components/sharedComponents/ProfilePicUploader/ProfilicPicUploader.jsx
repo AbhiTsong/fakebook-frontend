@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./PicCropper.styles.scss";
+import "./ProfilePicUploader.styles.scss";
 
 // Redux Import
 import { useSelector, useDispatch } from "react-redux";
@@ -10,18 +10,18 @@ import { createUserAvatarAction } from "../../../Redux/User/createProfilePic.Act
 
 // Shared Compoent
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
-import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
+import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import Warning from "../Warning/Warning";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 
-function PicCropper(props) {
+function ProfilePicUploader(props) {
   const dispatch = useDispatch();
   const warningState = useSelector(warningSelector);
   const user = useSelector(userSelector);
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    user.created ? dispatch(CloseModal()) : "";
+      // eslint-disable-next-line no-unused-expressions
+      user.created ? dispatch(CloseModal()) : ""
   }, [dispatch, user.created]);
 
   // Functon For Cancaling adding new profile pic
@@ -51,6 +51,7 @@ function PicCropper(props) {
       <HorizontalLine />
       <div className="Pic_Preview_Container">
         <div className="Pic_Preview_Content">
+          {/* <RemoveImage /> */}
           <img
             className="Post_Pic"
             src={user.profilePath[0]}
@@ -74,4 +75,4 @@ function PicCropper(props) {
   );
 }
 
-export default PicCropper;
+export default ProfilePicUploader;

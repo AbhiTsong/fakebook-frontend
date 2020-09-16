@@ -1,66 +1,69 @@
-// .Pic_Cropper_Container {
-//   position: relative;
-//   justify-content: center;
-//   background-color: #fefefe;
-//   display: flex;
-//   flex-direction: column;
-//   margin: auto;
-//   width: 40rem;
-//   height: 50%;
-//   border-radius: 10px;
-//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-//   -webkit-animation-name: animatetop;
-//   -webkit-animation-duration: 0.4s;
-//   animation-name: animatetop;
-//   animation-duration: 0.4s;
-//   .Header_Content {
-//     margin: auto;
-//   }
+.Pic_Cropper_Container {
+  position: relative;
+  justify-content: center;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 40rem;
+  height: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  .Header_Container {
+    display: flex;
+    .Header_Content {
+      margin: auto;
+    }
+  }
 
-//   .Close_Button_Container {
-//     padding-right: 0.5rem;
-//   }
-//   .Pic_Preview_Container {
-//     // width: 100%;
-//     height: 20rem;
-//     position: relative;
-//     // margin: auto 1rem;
-//     display: flex;
-//     justify-content: center;
+  .Close_Button_Container {
+    padding-right: 0.5rem;
+  }
+  .Pic_Preview_Container {
+    // width: 100%;
+    height: 20rem;
+    position: relative;
+    // margin: auto 1rem;
+    display: flex;
+    justify-content: center;
 
-//     .Pic_Preview_Content {
-//       // padding: 2rem 3rem;
-//       // height: 20rem;
+    .Pic_Preview_Content {
+      // padding: 2rem 3rem;
+      // height: 20rem;
 
-//       .Post_Pic {
-//         display: block;
-//         max-width: 100%;
-//         max-height: 100%;
-//         border-radius: 15px;
-//         margin: auto;
-//       }
-//     }
-//   }
-//   .Footer_Container {
-//     display: flex;
-//     justify-content: flex-end;
-//     padding: 0.5rem 1rem;
-//     .Cancle_Button {
-//       color: blue;
-//       padding: 0.5rem 1rem;
-//       border: none;
-//       background-color: transparent;
-//       outline-color: transparent;
-//       cursor: pointer;
-//     }
-//     .Submit_Button {
-//       padding: 0.5rem 3rem;
-//       background-color: blue;
-//       border-radius: 5px;
-//       border: none;
-//       color: white;
-//       outline-color: transparent;
-//       cursor: pointer;
-//     }
-//   }
-// }
+      .Post_Pic {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 15px;
+        margin: auto;
+      }
+    }
+  }
+  .Footer_Container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    .Cancle_Button {
+      color: blue;
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: transparent;
+      outline-color: transparent;
+      cursor: pointer;
+    }
+    .Submit_Button {
+      padding: 0.5rem 3rem;
+      background-color: blue;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      outline-color: transparent;
+      cursor: pointer;
+    }
+  }
+}

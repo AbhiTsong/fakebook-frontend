@@ -1,0 +1,67 @@
+.New_Cover_Container {
+  position: relative;
+  justify-content: center;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 40rem;
+  height: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+
+  .New_Cover_Title_Container {
+    display: flex;
+    height: 3rem;
+    padding: 0 0.5rem;
+    .Cover_Text {
+      flex: 1 1;
+      text-align: center;
+    }
+  }
+  .Cover_Profile_Pic {
+    display: flex;
+    padding: 0.5rem 0 0 0.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+  .Cover_Form_Container {
+    padding: 0.5rem;
+    height: 100%;
+    .Cover_Pic {
+      width: 100%;
+      margin: 0.5rem 0;
+      position: relative;
+      border-radius: 10px;
+    }
+    .Cover_Footer_Container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.5rem 1rem;
+      .Cover_Cancle_Button {
+        color: blue;
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: transparent;
+        outline-color: transparent;
+        cursor: pointer;
+      }
+      .Cover_Submit_Button {
+        padding: 0.5rem 3rem;
+        background-color: blue;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        outline-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+}

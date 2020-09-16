@@ -1,0 +1,16 @@
+.Cover_Drop_Container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  bottom: -6.1rem;
+  right: 2rem;
+  background-color: white;
+  width: 14rem;
+  height: 6rem;
+  padding: 0.2rem;
+  border-radius: 10px;
+  transition-delay: 0.5s;
+  cursor: pointer;
+  padding: 0.5rem;
+}

@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Child Components
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
-import LOgo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
 
 // Shared Components
 import Modal from "../Modals/Model.Component";

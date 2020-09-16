@@ -10,6 +10,7 @@ import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 import CreatePostComponent from "../../sharedComponents/CreatePost/CreatePost.Component";
 import UserProfilePicSuggest from "../../sharedComponents/UserProfilePicSuggest/UserProfilePicSuggest";
 import PicCropper from "../../sharedComponents/PicCropper/PicCropper";
+import CoverPicPreview from "../CoverPreview/CoverPicPreview";
 
 // Child Components
 import SignUpComponent from "../../SignUp/SignUp.Component";
@@ -27,6 +28,7 @@ function Modal(props) {
         <CreatePostComponent path={path} />
       )}
       {modalContent.content === "ADD_NEW_PROFILE_PIC" && <PicCropper />}
+      {modalContent.content === "CHANGE_USER_COVER" && <CoverPicPreview />}
     </div>
   );
 }
