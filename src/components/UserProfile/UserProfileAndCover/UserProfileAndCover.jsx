@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import "./UserProfileAndCover.styles.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 // Shared Components Import
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 import CoverChangeDropMenu from "../../sharedComponents/CoverChangeDropMenu/CoverChangeDropMenu";
 
+// Redux Import
+import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+
 function UserProfileAndCover() {
   const [showDrop, setShowDrop] = useState(false);
+  let user = useSelector(currentUser);
+
+  console.log("User Selector --- ", user.user.firstName);
   const dispatch = useDispatch();
 
   // Function For Handling Upload Image
@@ -45,7 +51,9 @@ function UserProfileAndCover() {
         </div>
       </div>
       <div className="User_Name_Container">
-        <h1 className="User_Name">Abhi Tsong</h1>
+        <h1 className="User_Name">
+          {user.user.firstName} {user.user.lastName}
+        </h1>
         <h5 className="User_Name">Add Bio</h5>
       </div>
     </>

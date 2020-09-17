@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   loading: false,
   profilePath: "",
   coverPath: "",
+  coverCreated: false,
   cover: "",
   error: "",
 };
@@ -34,7 +35,8 @@ function userReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
-        cover: "",
+        created: true,
+        coverCreated: true,
       };
 
     case userActionTypes.CREATE_USER_PROFILE_FAIL:

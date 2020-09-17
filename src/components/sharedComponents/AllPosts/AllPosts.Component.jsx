@@ -13,6 +13,7 @@ import Share from "../../../Assets/images/share.png";
 
 // Utility Function Import
 // import { browserRefresh } from "../../../utility/windowReload";
+import config from "../../../config/config.json";
 
 // Component Imports
 import PhotoPost from "./PhotoPost/PhotoPost.Component";
@@ -47,19 +48,19 @@ function AllPostsComponent() {
               <div className="Image_Input_Container">
                 <img
                   className="UserProfilePic"
-                  src={Logo}
+                  src={`${config.serverURL}/users/${post.owner}/avatar`}
                   alt="Creator Profile Pic"
                 />
 
                 <div className="Name_And_Dots_Container">
-                  <h6>Creator Name</h6>
+                  <h4 className="Creater_Name">{post.creator}</h4>
                   <h3>...</h3>
                 </div>
               </div>
               {/* Pic Of The Post Creater */}
               <div className="Single_Post_Content">
                 {post.photo !== null ? (
-                  <PhotoPost post={post}/>
+                  <PhotoPost post={post} />
                 ) : (
                   <div className="Center_Post_Text">
                     <p className="Single_Post_Text">{post.description}</p>

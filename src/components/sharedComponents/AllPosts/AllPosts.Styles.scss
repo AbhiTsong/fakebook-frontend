@@ -4,10 +4,10 @@
   // width: 100%;
   color: black;
   .Single_Post_Container {
-    border: 1px solid grey;
-    border-radius: 5px;
     margin: 1.5rem 0;
-    background-color: rgb(151, 205, 241);
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
     width: 100%;
     // height: 30rem;
 
@@ -29,6 +29,10 @@
         justify-content: space-between;
         width: 100%;
         padding: 0 0.5rem;
+
+        .Creater_Name {
+          text-transform: capitalize;
+        }
       }
     }
     .Single_Post_Content {
@@ -54,7 +58,6 @@
     }
     .Comments_Container {
       padding: 0.5rem;
-      background-color: blanchedalmond;
       .Reaction_Count {
         display: flex;
         padding: 0.5rem 0;

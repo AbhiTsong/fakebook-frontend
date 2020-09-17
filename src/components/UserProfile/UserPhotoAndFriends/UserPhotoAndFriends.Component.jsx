@@ -13,7 +13,7 @@ function UserPhotoAndFreiends() {
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
-      let topPos =  window.pageYOffset <= 790;
+      let topPos = window.pageYOffset <= 790;
       if (topPos === false) {
         setScrollPos(false);
       } else {
@@ -23,8 +23,8 @@ function UserPhotoAndFreiends() {
       return () => {
         window.removeEventListener("scroll");
       };
-   })
-  }, [scrollPos]);
+    });
+  }, []);
 
   return (
     <div className="User_Creates_Photos_Container">

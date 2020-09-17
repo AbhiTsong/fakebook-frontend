@@ -1,4 +1,4 @@
-.New_Cover_Container {
+.Cover_Preview_Container {
   position: relative;
   justify-content: center;
   background-color: #fefefe;
@@ -13,55 +13,57 @@
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  .Cover_Preview_Header {
+    display: flex;
+    .Cover_Preview_Content {
+      margin: auto;
+    }
+  }
 
-  .New_Cover_Title_Container {
-    display: flex;
-    height: 3rem;
-    padding: 0 0.5rem;
-    .Cover_Text {
-      flex: 1 1;
-      text-align: center;
-    }
+  .Cover_Preview_Close_Container {
+    padding-right: 0.5rem;
   }
-  .Cover_Profile_Pic {
+  .Cover_Pic_Preview_Container {
+    // width: 100%;
+    height: 20rem;
+    position: relative;
+    // margin: auto 1rem;
     display: flex;
-    padding: 0.5rem 0 0 0.5rem;
     justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-  }
-  .Cover_Form_Container {
-    padding: 0.5rem;
-    height: 100%;
-    .Cover_Pic {
-      width: 100%;
-      margin: 0.5rem 0;
-      position: relative;
-      border-radius: 10px;
+
+    .Cover_Pic_Preview_Content {
+      padding: 0.5rem;
+      // height: 20rem;
+
+      .Cover_Pic {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 15px;
+        margin: auto;
+      }
     }
-    .Cover_Footer_Container {
-      display: flex;
-      justify-content: flex-end;
+  }
+  .Cover_Footer_Container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    .Cover_Cancle_Button {
+      color: blue;
       padding: 0.5rem 1rem;
-      .Cover_Cancle_Button {
-        color: blue;
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: transparent;
-        outline-color: transparent;
-        cursor: pointer;
-      }
-      .Cover_Submit_Button {
-        padding: 0.5rem 3rem;
-        background-color: blue;
-        border-radius: 5px;
-        border: none;
-        color: white;
-        outline-color: transparent;
-        cursor: pointer;
-      }
+      border: none;
+      background-color: transparent;
+      outline-color: transparent;
+      cursor: pointer;
+    }
+    .Cover_Submit_Button {
+      padding: 0.5rem 3rem;
+      background-color: blue;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      outline-color: transparent;
+      cursor: pointer;
     }
   }
 }

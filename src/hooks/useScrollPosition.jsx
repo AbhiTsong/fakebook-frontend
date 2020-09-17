@@ -12,6 +12,9 @@ function useScrollPosition(state, pos) {
         setScrollPosition(true);
       }
     });
+    return () => {
+      // window.removeEventListener("scroll");
+    };
   }, [pos, scrollPos]);
 
   return [scrollPos];

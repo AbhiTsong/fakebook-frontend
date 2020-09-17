@@ -1,5 +1,6 @@
 import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
+import { getToken } from "../token";
 
 function changeCoverStart() {
   return {
@@ -21,11 +22,15 @@ function changeCoverFail(fail) {
   };
 }
 
-function changeCoverAction() {
+function changeCoverAction(props) {
   return async function (dispatch) {
     dispatch(changeCoverStart());
     try {
-      let cover = await axios.post();
+      let cover = await axios.post("/users/me/cover", props, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
       dispatch(changeCoverSuccess(cover));
     } catch (error) {
       if (error.resposne) {

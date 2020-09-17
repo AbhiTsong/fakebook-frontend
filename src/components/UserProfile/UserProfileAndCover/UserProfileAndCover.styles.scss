@@ -1,7 +1,7 @@
 .User_Profile_And_Cover {
   position: relative;
   width: 100%;
-  background-image: url("../../../Assets/images/showcase.jpg");
+  background-image: url("http://localhost:3000/users/5f62f9e724958334a332b21c/cover");
   background-size: cover;
   height: 20rem;
   border-bottom-right-radius: 15px;
@@ -38,6 +38,7 @@
   text-align: center;
   .User_Name {
     margin: 0.5rem 0;
+    text-transform: capitalize;
     &:first-child {
       margin-top: 2rem;
     }
