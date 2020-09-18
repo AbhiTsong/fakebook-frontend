@@ -2,6 +2,9 @@ import React from "react";
 import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
+// Icons Import 
+// import Camera from "../../../Assets/images/camera.png"
+
 // Child Components
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
@@ -9,6 +12,8 @@ import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import Modal from "../Modals/Model.Component";
 import FileUploader from "../FileUploader/FileUploader.Component";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
+
+
 
 // Redux Import
 // import { postSelector } from "../../../Redux/Post/post.selector";

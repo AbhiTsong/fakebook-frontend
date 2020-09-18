@@ -58,76 +58,7 @@
     }
     .Comments_Container {
       padding: 0.5rem;
-      .Reaction_Count {
-        display: flex;
-        padding: 0.5rem 0;
-        .Comment_People {
-          display: flex;
-          width: 100%;
-          padding: 0 0.5rem;
-          justify-content: space-between;
-        }
-      }
-      .Like_Comment_Icons_Container {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 0.5rem;
-        border-top: 1px solid gray;
-        border-bottom: 1px solid gray;
-        .Icon_Container {
-          display: flex;
-          align-items: center;
-          .Comment_Icon {
-            width: 20px;
-            margin-right: 0.5rem;
-          }
-          .Share_Icon {
-            margin-right: 0.5rem;
-            width: 17px;
-          }
-        }
-      }
-      // All comments container
-      .All_Comments_Container {
-        .Individual_Comment_Container {
-          margin: 0.5rem;
-          .Comments_Cotent {
-            display: flex;
 
-            .UserProfilePic {
-              width: 1.5rem;
-              height: 1.5rem;
-              margin-right: 2rem;
-            }
-            .Comment {
-              width: auto;
-              padding: 0.8rem;
-              background-color: lavender;
-              border-radius: 1.2rem;
-              .Person {
-                margin: 0;
-                font-size: 0.8rem;
-                font-weight: bold;
-              }
-              .Person_Comment {
-                margin: 0;
-                font-size: 0.9rem;
-                font-weight: lighter;
-              }
-            }
-          }
-        }
-      }
-      .Add_Comment {
-        display: flex;
-        margin: 0.5rem;
-
-        .LoggedIn_User {
-          width: 1.5rem;
-          height: 1.5rem;
-          margin-right: 2rem;
-        }
-      }
     }
   }
 }

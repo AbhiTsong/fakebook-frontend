@@ -1,0 +1,16 @@
+.Like_Comment_Icons_Container {
+ display: flex;
+ justify-content: space-evenly;
+ padding: 0.5rem;
+ border-top: 1px solid gray;
+ border-bottom: 1px solid gray;
+ .Icon_Container {
+   display: flex;
+   align-items: center;
+   .Icon {
+     margin-right: 0.5rem;
+     width: 17px;
+     cursor: pointer;
+   }
+ }
+}

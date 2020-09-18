@@ -1,0 +1,30 @@
+.All_Comments_Container {
+ .Individual_Comment_Container {
+   margin: 0.5rem;
+   .Comments_Cotent {
+     display: flex;
+
+     .UserProfilePic {
+       width: 1.5rem;
+       height: 1.5rem;
+       margin-right: 2rem;
+     }
+     .Comment {
+       width: auto;
+       padding: 0.8rem;
+       background-color: lavender;
+       border-radius: 1.2rem;
+       .Person {
+         margin: 0;
+         font-size: 0.8rem;
+         font-weight: bold;
+       }
+       .Person_Comment {
+         margin: 0;
+         font-size: 0.9rem;
+         font-weight: lighter;
+       }
+     }
+   }
+ }
+}

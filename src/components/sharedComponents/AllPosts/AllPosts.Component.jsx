@@ -8,8 +8,6 @@ import "./AllPosts.Styles.scss";
 
 // Static Imports
 import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
-import Comment from "../../../Assets/images/comments.png";
-import Share from "../../../Assets/images/share.png";
 
 // Utility Function Import
 // import { browserRefresh } from "../../../utility/windowReload";
@@ -17,6 +15,10 @@ import config from "../../../config/config.json";
 
 // Component Imports
 import PhotoPost from "./PhotoPost/PhotoPost.Component";
+import LikesContainer from "../LikesContainer/LikesContainer";
+import LikeCommentsCount from "../../sharedComponents/LikeCommentsCount/LikeCommentsCount";
+import CommentsContainer from "../../sharedComponents/CommentsContainer/CommentsContainer";
+import AddComment from "../../sharedComponents/AddComment/AddComment";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -68,78 +70,13 @@ function AllPostsComponent() {
                 )}
               </div>
               <div className="Comments_Container">
-                <div className="Reaction_Count">
-                  <span role="img" aria-label="Post Reaction">
-                    &#128525;
-                  </span>
-                  <div className="Comment_People">
-                    <span>Freind 1, Friend 2</span>
-                    <span>9 Comments</span>
-                  </div>
-                </div>
-                <div className="Like_Comment_Icons_Container">
-                  <span role="img" aria-label="Like">
-                    &#128077; Like
-                  </span>
-                  <span className="Icon_Container">
-                    <img
-                      src={Comment}
-                      className="Comment_Icon"
-                      alt="Comment Icon"
-                    />{" "}
-                    Comment
-                  </span>
-                  <span className="Icon_Container">
-                    <img src={Share} className="Share_Icon" alt="Share Icon" />{" "}
-                    Share
-                  </span>
-                </div>
-                <div className="All_Comments_Container">
-                  <p>View 4 more comments</p>
-                  <div className="Individual_Comment_Container">
-                    <div className="Comments_Cotent">
-                      <img
-                        className="UserProfilePic"
-                        src={Logo}
-                        alt="Creator Profile Pic"
-                      />
-                      <div className="Comment">
-                        <p className="Person">Person Name</p>
-                        <p className="Person_Comment">
-                          Yoo This Is Cool Bro.Yoo This Is Cool Bro.Yoo This Is
-                          Cool Bro...
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="Individual_Comment_Container">
-                    <div className="Comments_Cotent">
-                      <img
-                        className="UserProfilePic"
-                        src={Logo}
-                        alt="Creator Profile Pic"
-                      />
-                      <div className="Comment">
-                        <p className="Person">Person Name</p>
-                        <p className="Person_Comment">
-                          Yoo This Is Cool Bro.Yoo This Is Cool Bro.Yoo This Is
-                          Cool Bro...
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="Add_Comment">
-                  <img
-                    className="LoggedIn_User"
-                    src={Logo}
-                    alt="Creator Profile Pic"
-                  />
-                  <input
-                    placeholder="Write A Comment"
-                    className="Comment_Input"
-                  />
-                </div>
+                {/* Likes And Comments Count */}
+                <LikeCommentsCount like={post.like} />
+                {/* Like Comments Container */}
+                <LikesContainer id={post._id} like={post.like} />
+
+                <CommentsContainer />
+                <AddComment id={post._id} />
               </div>
             </div>
           ))
