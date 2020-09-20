@@ -46,6 +46,7 @@ function AllPostsComponent() {
         allPost.allPosts.data
           .map((post, idx) => (
             <div key={post + idx} className="Single_Post_Container">
+            {/* {console.log("Post ---- yooo -- ", post)} */}
               {/* Pic Of The Post Creater */}
               <div className="Image_Input_Container">
                 <img
@@ -75,7 +76,7 @@ function AllPostsComponent() {
                 {/* Like Comments Container */}
                 <LikesContainer id={post._id} like={post.like} />
 
-                <CommentsContainer />
+                <CommentsContainer comments={post.comments} />
                 <AddComment id={post._id} />
               </div>
             </div>

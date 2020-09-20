@@ -46,12 +46,29 @@
     align-self: center;
     padding-top: 1.8rem;
 
-    .Activity_Icons {
-      font-size: 1.5rem;
+    .Icon_And_Text {
+      display: flex;
+      cursor: pointer;
+      .Icon_Conatiner {
+        width: 2rem;
 
-      .Activity_Text {
-        font-size: 0.5rem;
+        .Icon_Content {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
       }
+      .Icon_Text {
+        margin: 0;
+        height: 0rem;
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .Icon_Text_Camera {
+      margin-top: 0.6rem;
+      margin-left: -6rem;
     }
 
     .Activity_Icons_Photo::-webkit-file-upload-button {

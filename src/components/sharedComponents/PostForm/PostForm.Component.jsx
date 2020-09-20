@@ -2,7 +2,7 @@ import React from "react";
 import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
-// Icons Import 
+// Icons Import
 // import Camera from "../../../Assets/images/camera.png"
 
 // Child Components
@@ -13,7 +13,9 @@ import Modal from "../Modals/Model.Component";
 import FileUploader from "../FileUploader/FileUploader.Component";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
-
+// Icom Image Import
+import VideoCamera from "../../../Assets/images/video.png";
+import Smile from "../../../Assets/images/smile.png";
 
 // Redux Import
 // import { postSelector } from "../../../Redux/Post/post.selector";
@@ -52,24 +54,21 @@ function PostFormComponent() {
       <HorizontalLine />
       {/*Opens the modal to create the post */}
       <div className="FeelingAndVideoContainer">
-        <span
-          onClick={handleModal}
-          className="Activity_Icons"
-          role="img"
-          aria-label="Live Video"
-        >
-          &#127909; <span className="Activity_Text">Live Video</span>
+        <span className="Icon_And_Text" onClick={handleModal}>
+          <div className="Icon_Conatiner">
+            <img className="Icon_Content" src={VideoCamera} alt="Video Icon" />
+          </div>
+          <h5 className="Icon_Text">Live Video</h5>
         </span>
         {/* Photo Upload */}
         <FileUploader />
+        <h5 className="Icon_Text_Camera">Photo/Video</h5>
         {/* Opens the modal to create the post */}
-        <span
-          onClick={handleModal}
-          className="Activity_Icons"
-          role="img"
-          aria-label="Live Video"
-        >
-          &#128512; <span className="Activity_Text">Feeling/Activity</span>
+        <span className="Icon_And_Text" onClick={handleModal}>
+          <div className="Icon_Conatiner">
+            <img className="Icon_Content" src={Smile} alt="Smile Icon" />
+          </div>
+          <h5 className="Icon_Text">Feeling</h5>
         </span>
       </div>
     </div>

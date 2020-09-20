@@ -11,6 +11,9 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 // // Custom Hook
 // import { readURI } from "../../../utility/readURI";
 
+// Icon Pic Import 
+import Camera from "../../../Assets/images/camera.png"
+
 const FileUploader = (props) => {
   let dispatch = useDispatch();
   const fileInput = useRef(null);
@@ -55,10 +58,8 @@ const FileUploader = (props) => {
 
   return (
     <div className="Input_Container">
-      <span className="Text" role="img" aria-label="Live Video">
-        &#128248;
-        <span className="Activity_Text">Photo/Video</span>
-      </span>
+     
+     <img className="Icon_Content" src={Camera} alt="Camera"/>
       <input
         type="file"
         ref={fileInput}

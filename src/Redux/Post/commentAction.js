@@ -1,5 +1,6 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
+import { getToken } from "../token";
 
 function addCommentStart() {
   return {
@@ -21,14 +22,26 @@ function addCommentFail(error) {
   };
 }
 
-
-function addCommentAction(){
- return function(dispatch){
-   addCommentStart();
-   try {
-    let comment = axios.patch("/")
-   } catch (error) {
-    
-   }
- }
+function addCommentAction({ comment, id, userId, name }) {
+  return async function (dispatch) {
+    try {
+      dispatch(addCommentStart());
+      let newComment = await axios.post(
+        `/posts/${id}/comment`,
+        { comment, id: userId, name },
+        {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
+      dispatch(addCommentSuccess(newComment));
+    } catch (error) {
+      if (error.response) {
+        dispatch(addCommentFail(error.response.data));
+      }
+    }
+  };
 }
+
+export { addCommentAction };

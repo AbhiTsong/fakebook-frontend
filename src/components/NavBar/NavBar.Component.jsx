@@ -4,12 +4,21 @@ import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import "./NavBar.Styles.scss";
 import ProfileNavigation from "./ProfileNavigation/ProfileNavigation";
 
+// Icon Pic Imports
+import Logo from "../../Assets/images/fakebookBlack.png";
+import Home from "../../Assets/images/home.png";
+import Video from "../../Assets/images/youtube.png";
+import Group from "../../Assets/images/group.png";
+import Box from "../../Assets/images/box.png";
+
 function NavBarComponent() {
   return (
     <div className="NavBar_Container">
       <div className="LogoContainer">
-        <NavLink className="LogoContent" to="/home">
-          f
+        <NavLink to="/home">
+          <div className="Logo_Content">
+            <img src={Logo} className="Fakebook_Logo" alt="Fakebook Logo" />
+          </div>
         </NavLink>
         <div className="Nav_Search_Container">
           <FormInput
@@ -24,18 +33,56 @@ function NavBarComponent() {
           {/* <div> */}
           <ul className="NavBarUL">
             <li className="NavBarLI">
-              <NavLink exact activeClassName="active" to="/home">
-                Home
+              <NavLink
+                exact
+                activeClassName="active"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "red",
+                  backgroundColor: "green",
+                }}
+                to="/home"
+              >
+                <div className="Logo_Content">
+                  <img
+                    src={Home}
+                    className="Fakebook_Logo"
+                    alt="Fakebook Logo"
+                  />
+                </div>
               </NavLink>
             </li>
             <li className="NavBarLI">
               <NavLink activeClassName="active" to="/users">
-                Users
+                <div className="Logo_Content">
+                  <img
+                    src={Video}
+                    className="Fakebook_Logo"
+                    alt="Fakebook Logo"
+                  />
+                </div>
               </NavLink>
             </li>
             <li className="NavBarLI">
               <NavLink activeClassName="active" to="/contact">
-                Contact
+                <div className="Logo_Content">
+                  <img
+                    src={Group}
+                    className="Fakebook_Logo"
+                    alt="Fakebook Logo"
+                  />
+                </div>
+              </NavLink>
+            </li>
+            <li className="NavBarLI">
+              <NavLink activeClassName="active" to="/contact">
+                <div className="Logo_Content">
+                  <img
+                    src={Box}
+                    className="Fakebook_Logo"
+                    alt="Fakebook Logo"
+                  />
+                </div>
               </NavLink>
             </li>
           </ul>

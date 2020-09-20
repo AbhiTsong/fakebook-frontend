@@ -5,7 +5,7 @@ import config from "../../../config/config.json";
 
 // Redux Import
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
-import { updatePostAction } from "../../../Redux/Post/updatePostAction";
+import { addCommentAction } from "../../../Redux/Post/commentAction";
 
 // Shared Components
 import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
@@ -18,13 +18,19 @@ function AddComment({ id }) {
   const [values, handleValues] = useForm({ comment: "" });
 
   let {
-    user: { firstName, _id },
+    user: { firstName, lastName, _id },
   } = useSelector(currentUser);
 
   function handleKeyPress(e) {
     if (e.charCode === 13) {
-      console.log("Yoo key down");
-      dispatch(updatePostAction({ comment: values.comment, id }));
+      dispatch(
+        addCommentAction({
+          comment: values.comment,
+          id,
+          userId: _id,
+          name: `${firstName} ${lastName}`,
+        })
+      );
     }
   }
 
@@ -39,7 +45,7 @@ function AddComment({ id }) {
         name="comment"
         type="text"
         value={values.comment}
-        placeholder={`Add Comments ${firstName}`}
+        placeholder={`Add Comments ${firstName}....`}
         onChange={handleValues}
         className="Comment_Input"
         onKeyPress={handleKeyPress}

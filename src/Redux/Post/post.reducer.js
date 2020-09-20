@@ -7,6 +7,8 @@ const INITIAL_STATE = {
   photoPost: [],
   allPosts: [],
   error: "",
+  like: "",
+  comment: "",
   isEventCreated: false,
   isPhotoUploaded: false,
   // editMode: false,
@@ -17,12 +19,29 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.CREATE_POST_START:
     case PostActionTypes.FETCH_POST_START:
     case PostActionTypes.CREATE_PHOTO_START:
+    case PostActionTypes.COMMENT_START:
+    case PostActionTypes.LIKE_START:
       return {
         ...state,
         loading: true,
         post: [],
         error: "",
       };
+
+    case PostActionTypes.COMMENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        comment: action.payload,
+      };
+
+    case PostActionTypes.LIKE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        like: action.payload,
+      };
+
     case PostActionTypes.FETCH_POST_SUCCESS:
       return {
         ...state,
@@ -51,6 +70,8 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.CREATE_POST_FAIL:
     case PostActionTypes.FETCH_POST_FAIL:
     case PostActionTypes.CREATE_PHOTO_FAIL:
+    case PostActionTypes.COMMENT_FAIL:
+    case PostActionTypes.LIKE_FAIL:
       return {
         ...state,
         loading: false,

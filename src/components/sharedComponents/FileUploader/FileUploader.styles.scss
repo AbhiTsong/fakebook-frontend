@@ -1,14 +1,22 @@
 .Input_Container {
   position: relative;
+  width: 2rem;
 
-  .Text {
-    position: absolute;
-    top: 0;
-    left: 5rem;
+  .Icon_Content {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .Activity_Icons_Photo {
     opacity: 0;
+    width: 10rem;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    cursor: pointer;
   }
 
   .Activity_Icons_Photo::-webkit-file-upload-button {

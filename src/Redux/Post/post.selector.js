@@ -4,4 +4,6 @@ const postData = (state) => state.post;
 
 const postSelector = createSelector(postData, (post) => post);
 
-export { postSelector };
+let commentsSelector = createSelector(postSelector, (post) => post.allPosts.data);
+
+export { postSelector, commentsSelector };

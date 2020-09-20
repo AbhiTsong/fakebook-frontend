@@ -1,0 +1,22 @@
+.Side_Profile_And_Name {
+  display: flex;
+  .Side_Profile_Container {
+    width: 2rem;
+    height: 2rem;
+    // border-radius: 50%;
+    .Side_Nav_Profile {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .User_Name {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+    color: black;
+    font-weight: 500;
+  }
+}

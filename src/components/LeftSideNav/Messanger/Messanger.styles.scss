@@ -1,0 +1,12 @@
+.Messanger_Container {
+  display: flex;
+  .Logo_Container {
+    width: 2rem;
+    margin-right: 0.5rem;
+    .Logo {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
