@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Redux Imports
 import { useSelector, useDispatch } from "react-redux";
@@ -19,9 +19,11 @@ import LikesContainer from "../LikesContainer/LikesContainer";
 import LikeCommentsCount from "../../sharedComponents/LikeCommentsCount/LikeCommentsCount";
 import CommentsContainer from "../../sharedComponents/CommentsContainer/CommentsContainer";
 import AddComment from "../../sharedComponents/AddComment/AddComment";
+import PostEditDrop from "./PostEditDrop/PostEditDrop";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
+  const [showEdit, setShowEdit] = useState(false);
   let allPost = useSelector(postSelector);
 
   useEffect(() => {
@@ -40,14 +42,17 @@ function AllPostsComponent() {
   // Function For Waring The User If He Refreshses The Browser
   // browserRefresh();
 
+  function handleEdit(e) {
+    e.preventDefault();
+    setShowEdit(!showEdit);
+  }
+
   return (
     <div className="All_Post_Container">
       {allPost.allPosts.data &&
         allPost.allPosts.data
           .map((post, idx) => (
             <div key={post + idx} className="Single_Post_Container">
-            {/* {console.log("Post ---- yooo -- ", post)} */}
-              {/* Pic Of The Post Creater */}
               <div className="Image_Input_Container">
                 <img
                   className="UserProfilePic"
@@ -57,7 +62,12 @@ function AllPostsComponent() {
 
                 <div className="Name_And_Dots_Container">
                   <h4 className="Creater_Name">{post.creator}</h4>
-                  <h3>...</h3>
+                  <div className="Edit_Container">
+                    <h3 className="Three_Dots" onClick={handleEdit}>
+                      ...
+                    </h3>
+                    {showEdit && <PostEditDrop />}
+                  </div>
                 </div>
               </div>
               {/* Pic Of The Post Creater */}

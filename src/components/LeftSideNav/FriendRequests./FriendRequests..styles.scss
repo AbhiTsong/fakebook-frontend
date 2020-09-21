@@ -1,15 +1,24 @@
 .Friend_Request_Container {
   display: flex;
+  margin-bottom: 1rem;
   .Friend_Request_Logo {
-    width: 2rem;
+    width: 1.5rem;
     .Request_Logo {
       display: block;
       max-width: 100%;
       max-height: 100%;
     }
   }
-  .Count_Text {
-   text-align: center;
-   
+  .Count_Text_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    .Count_Text {
+      margin: 0;
+      padding-left: 1rem;
+      justify-content: center;
+    }
   }
 }

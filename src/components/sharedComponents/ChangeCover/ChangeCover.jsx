@@ -6,6 +6,9 @@ import { useDispatch } from "react-redux";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 import { getCoverPath } from "../../../Redux/User/getCoverPath";
 
+// Image Icon Import
+import File from "../../../Assets/images/add.png";
+
 function ChangeCover() {
   const dispatch = useDispatch();
   let fileInput = useRef(null);
@@ -48,16 +51,16 @@ function ChangeCover() {
     return setFile(seleted);
   };
   return (
-    <div className="Input_Container">
-      <span className="Text" role="img" aria-label="Live Video">
-        &#128248;
-        <span className="Activity_Text">Photo/Video</span>
-      </span>
+    <div className="Cover_Upload_Container">
+      <div className="Icon_Content">
+        <img src={File} alt="Cover Icon" className="Cover_Upload_Icon" />
+      </div>
+
       <input
         type="file"
         ref={fileInput}
         onChange={handleFileInput}
-        className="Activity_Icons_Photo"
+        className="Cover_File_Input"
       />
     </div>
   );

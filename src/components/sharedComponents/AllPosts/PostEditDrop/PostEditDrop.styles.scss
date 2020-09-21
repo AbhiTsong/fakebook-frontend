@@ -1,0 +1,28 @@
+.Post_Edit_options {
+  position: absolute;
+  background-color: blue;
+  right: 0rem;
+  width: 18rem;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 10px;
+
+  .Icon_Text_Container {
+   display: flex; 
+   align-items: center;
+   margin: 0;
+   .Icon_Content {
+    width: 2rem;
+    margin-bottom: 1rem;
+      .Edit_Icon {
+       display: block;
+       max-width: 100%;
+       max-height: 100%;
+      }
+    }
+    .Edit_Text{
+     margin: 0;
+     padding-left: 1rem;
+    }
+  }
+}

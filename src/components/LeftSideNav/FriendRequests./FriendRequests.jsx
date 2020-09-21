@@ -1,5 +1,5 @@
 import React from "react";
-import "./FriendRequests..styles.scss"
+import "./FriendRequests..styles.scss";
 
 import FriendReqs from "../../../Assets/images/bell.png";
 
@@ -9,7 +9,9 @@ function FriendRequests() {
       <div className="Friend_Request_Logo">
         <img className="Request_Logo" src={FriendReqs} alt="Request Count" />
       </div>
-      <div className="Count_Text">Friends</div>
+      <div className="Count_Text_Container">
+        <h5 className="Count_Text ">Friends</h5>
+      </div>
     </div>
   );
 }

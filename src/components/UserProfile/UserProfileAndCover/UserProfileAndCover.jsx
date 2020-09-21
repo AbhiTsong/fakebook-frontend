@@ -10,6 +10,9 @@ import CoverChangeDropMenu from "../../sharedComponents/CoverChangeDropMenu/Cove
 // Redux Import
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
+// Icon Img
+import Camera from "../../../Assets/images/camera.png";
+
 function UserProfileAndCover() {
   const [showDrop, setShowDrop] = useState(false);
   let user = useSelector(currentUser);
@@ -33,19 +36,27 @@ function UserProfileAndCover() {
     <>
       <div className="User_Profile_And_Cover">
         <div className="Change_Cover_Button">
-          <button onClick={handeCoverDropDown}>
-            <span role="img" aria-label="Camera Icon">
-              &#128247;
-            </span>
+          <button className="Button" onClick={handeCoverDropDown}>
+            <div className="Button_Camera">
+              <img
+                alt="Camera Icon"
+                src={Camera}
+                className="Drop_Down_Camera"
+              />
+            </div>
             Edit Cover Photo
           </button>
         </div>
         {showDrop && <CoverChangeDropMenu />}
         <div className="Profile_Pic_Container">
           <div onClick={handleClick} role="img" className="Profile_Pic_Camera">
-            <span role="img" aria-label="Camera Icon">
-              &#128247;
-            </span>
+            <div className="Profile_Camera_Container">
+              <img
+                src={Camera}
+                className="Profile_Camera_Icon"
+                alt="Camera Icon"
+              />
+            </div>
           </div>
           <UserProfilePic />
         </div>

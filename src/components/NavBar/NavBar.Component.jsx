@@ -53,7 +53,7 @@ function NavBarComponent() {
               </NavLink>
             </li>
             <li className="NavBarLI">
-              <NavLink activeClassName="active" to="/users">
+              <NavLink activeClassName="active" to="/videos">
                 <div className="Logo_Content">
                   <img
                     src={Video}

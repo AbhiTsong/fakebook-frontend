@@ -5,6 +5,9 @@ import "./LeftSideBar.Styles.scss";
 import NavProfilePic from "./NavProfilePic/NavProfilePic";
 import FriendRequests from "./FriendRequests./FriendRequests";
 import Messanger from "./Messanger/Messanger";
+import Groups from "./Groups/Groups";
+import Pages from "./Pages/Pages";
+import Videos from "./Videos/Videos"
 
 function LeftSideNavBar() {
   return (
@@ -12,9 +15,9 @@ function LeftSideNavBar() {
       <NavProfilePic />
       <FriendRequests />
       <Messanger />
-      <div>Groups</div>
-      <div>Pages</div>
-      <div>Videos</div>
+      <Groups />
+      <Pages />
+      <Videos/>
     </div>
   );
 }

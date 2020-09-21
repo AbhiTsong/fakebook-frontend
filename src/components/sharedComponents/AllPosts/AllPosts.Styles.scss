@@ -33,6 +33,13 @@
         .Creater_Name {
           text-transform: capitalize;
         }
+
+        .Edit_Container {
+          position: relative;
+          .Three_Dots {
+            cursor: pointer;
+          }
+        }
       }
     }
     .Single_Post_Content {
@@ -58,7 +65,6 @@
     }
     .Comments_Container {
       padding: 0.5rem;
-
     }
   }
 }

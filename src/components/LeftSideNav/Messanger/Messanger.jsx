@@ -9,7 +9,9 @@ function Messanger() {
       <div className="Logo_Container">
         <img className="Logo" src={Message} alt="Messanger Container" />
       </div>
-      <div>Message</div>
+      <div className="Message_Text_Container">
+        <h5 className="Message_text">Message</h5>
+      </div>
     </div>
   );
 }

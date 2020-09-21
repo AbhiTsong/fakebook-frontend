@@ -11,6 +11,20 @@
     position: absolute;
     bottom: 1rem;
     right: 2rem;
+
+    .Button {
+      display: flex;
+      cursor: pointer;
+      .Button_Camera {
+        width: 1rem;
+        padding-right:0.5rem;
+        .Drop_Down_Camera {
+          display: block;
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+    }
   }
   .Profile_Pic_Container {
     position: relative;
@@ -30,6 +44,14 @@
       background-color: rgb(240, 227, 227);
       border-radius: 50%;
       cursor: pointer;
+      .Profile_Camera_Container {
+        width: 1.5rem;
+        .Profile_Camera_Icon {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
     }
   }
 }

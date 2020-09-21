@@ -1,0 +1,23 @@
+.Groups_Container {
+  display: flex;
+  margin-bottom: 1rem;
+  .Groups_Content {
+   width: 1.5rem;
+
+    .Groups_Icon {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .Group_Text_Container{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0;
+   .Group_Text{
+     margin: 0;
+     padding-left: 1rem;
+   }
+  }
+}
