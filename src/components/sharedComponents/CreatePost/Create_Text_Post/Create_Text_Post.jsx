@@ -1,16 +1,13 @@
 import React from "react";
 import "./Create_Text_Post.styles.scss";
 
-
 // Utility Inports
 import { countWord } from "../../../../utility/wordCount";
 
 const WORD_LIMIT = 300;
 function CreateTextPost(props) {
-  const {value, onChange} = props;
+  const { value, onChange } = props;
   // const [values, setValues] = useForm({ description: "" });
-
-  
 
   // Word Limit And Count
   let words = countWord(value, 500);

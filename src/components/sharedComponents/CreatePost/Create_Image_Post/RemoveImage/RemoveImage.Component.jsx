@@ -3,7 +3,7 @@ import "./RemoveImage.Styles.scss";
 
 // Redux Import
 import { useDispatch } from "react-redux";
-import { clearPhotoState } from "../../../../../Redux/Post/clearPhoto.action";
+import { clearPhotoState } from "../../../../../Redux/Post/clearsState.Actions";
 
 function RemoveImage() {
   const dispatch = useDispatch();

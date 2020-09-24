@@ -11,7 +11,9 @@ const INITIAL_STATE = {
   comment: "",
   isEventCreated: false,
   isPhotoUploaded: false,
-  // editMode: false,
+  currentPostID: "",
+  editPost: [],
+  isPostEdited: false,
 };
 
 function postReducer(state = INITIAL_STATE, action) {
@@ -21,11 +23,21 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.CREATE_PHOTO_START:
     case PostActionTypes.COMMENT_START:
     case PostActionTypes.LIKE_START:
+    case PostActionTypes.FETCH_CURRENT_POST_START:
+    case PostActionTypes.UPDATE_CURRENT_POST_START:
       return {
         ...state,
         loading: true,
         post: [],
         error: "",
+      };
+
+    case PostActionTypes.UPDATE_CURRENT_POST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        editPost: action.payload,
+        isPostEdited: true,
       };
 
     case PostActionTypes.COMMENT_SUCCESS:
@@ -72,6 +84,8 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.CREATE_PHOTO_FAIL:
     case PostActionTypes.COMMENT_FAIL:
     case PostActionTypes.LIKE_FAIL:
+    case PostActionTypes.FETCH_CURRENT_POST_FAIL:
+    case PostActionTypes.UPDATE_CURRENT_POST_FAIL:
       return {
         ...state,
         loading: false,
@@ -99,6 +113,14 @@ function postReducer(state = INITIAL_STATE, action) {
       };
     }
 
+    // Non Network Reducer
+
+    case PostActionTypes.FETCH_CURRENT_POST_ID:
+      return {
+        ...state,
+        currentPostID: action.payload,
+      };
+
     case PostActionTypes.PERSIST_USER_POST: {
       return {
         ...state,
@@ -115,6 +137,14 @@ function postReducer(state = INITIAL_STATE, action) {
 
     case PostActionTypes.CLEAR_PHOTO_PATH: {
       return { ...state, photoPath: "" };
+    }
+
+    case PostActionTypes.CLEAR_UPDATE_PHOTO_STATE: {
+      return {
+        ...state,
+        editPost: [],
+        isPostEdited: false,
+      };
     }
 
     default:

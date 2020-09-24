@@ -66,7 +66,7 @@ function AllPostsComponent() {
                     <h3 className="Three_Dots" onClick={handleEdit}>
                       ...
                     </h3>
-                    {showEdit && <PostEditDrop />}
+                    {showEdit && <PostEditDrop id={post._id} />}
                   </div>
                 </div>
               </div>

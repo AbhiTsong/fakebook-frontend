@@ -11,6 +11,8 @@ import CreatePostComponent from "../../sharedComponents/CreatePost/CreatePost.Co
 import UserProfilePicSuggest from "../../sharedComponents/UserProfilePicSuggest/UserProfilePicSuggest";
 import PicCropper from "../../sharedComponents/PicCropper/PicCropper";
 import CoverPicPreview from "../CoverPreview/CoverPicPreview";
+import EditCurrentPost from "../EditCurrentPost/EditCurrentPost";
+import DeleteCurrentPost from "../DeleteCurrentPost/DeleteCurrentPost";
 
 // Child Components
 import SignUpComponent from "../../SignUp/SignUp.Component";
@@ -29,6 +31,8 @@ function Modal(props) {
       )}
       {modalContent.content === "ADD_NEW_PROFILE_PIC" && <PicCropper />}
       {modalContent.content === "CHANGE_USER_COVER" && <CoverPicPreview />}
+      {modalContent.content === "EDIT_CURRENT_POST" && <EditCurrentPost />}
+      {modalContent.content === "DELETE_CURRENT_POST" && <DeleteCurrentPost />}
     </div>
   );
 }

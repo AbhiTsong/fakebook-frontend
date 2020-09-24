@@ -22,7 +22,11 @@ function AddComment({ id }) {
   } = useSelector(currentUser);
 
   function handleKeyPress(e) {
-    if (e.charCode === 13) {
+    if (e.charCode === 13 && values.comment.length < 3) {
+      alert("You can't add a blank comment");
+    }
+
+    if (values.comment.length > 3 && e.charCode === 13) {
       dispatch(
         addCommentAction({
           comment: values.comment,
@@ -44,7 +48,7 @@ function AddComment({ id }) {
       <FormInput
         name="comment"
         type="text"
-        value={values.comment}
+        value={values.comment.split("  ").join(" ")}
         placeholder={`Add Comments ${firstName}....`}
         onChange={handleValues}
         className="Comment_Input"
