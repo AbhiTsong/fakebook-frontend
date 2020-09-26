@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LikesContainer.styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -14,41 +14,47 @@ import { likeCommentAction } from "../../../Redux/Post/likeAction";
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function LikesContainer({ id, like }) {
-  console.log(" like Container ---  ", like);
+  console.log("like yoo", like);
   const dispatch = useDispatch();
-  const [likeCount, setLikeCount] = useState(like);
+  const [likeCount, setLikeCount] = useState(like + 1);
   // let post = useSelector(postSelector);
+
+  // useEffect(() => {
+  //   setLikeCount(like + 1);
+  // }, []);
 
   let {
     user: { _id },
   } = useSelector(currentUser);
 
-  function handleLike() {
-    setLikeCount((pvSt) => pvSt + 1);
-    dispatch(
-      likeCommentAction({
-        like: likeCount,
-        id,
-        userId: _id,
-      })
-    );
+  function handleLike(e) {
+    setLikeCount((pvCount) => pvCount + 1);
+    console.log("likeCount likeCount ", likeCount);
+
+    if (likeCount > like) {
+      dispatch(
+        likeCommentAction({
+          like: likeCount,
+          id,
+          userId: _id,
+        })
+      );
+    }
+  }
+
+  function handleShare() {
+    alert("This Feture Is Under Going Construction");
   }
 
   return (
     <div className="Like_Comment_Icons_Container">
-      <span className="Icon_Container">
-        <img
-          onClick={handleLike}
-          src={Like}
-          className="Icon"
-          alt="Comment Icon"
-        />{" "}
-        Like
+      <span onClick={handleLike} className="Icon_Container">
+        <img src={Like} className="Icon" alt="Comment Icon" /> Like
       </span>
       <span className="Icon_Container">
         <img src={Comment} className="Icon" alt="Comment Icon" /> Comment
       </span>
-      <span className="Icon_Container">
+      <span onClick={handleShare} className="Icon_Container">
         <img src={Share} className="Icon" alt="Share Icon" /> Share
       </span>
     </div>

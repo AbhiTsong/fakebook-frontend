@@ -19,7 +19,8 @@ import LikesContainer from "../LikesContainer/LikesContainer";
 import LikeCommentsCount from "../../sharedComponents/LikeCommentsCount/LikeCommentsCount";
 import CommentsContainer from "../../sharedComponents/CommentsContainer/CommentsContainer";
 import AddComment from "../../sharedComponents/AddComment/AddComment";
-import PostEditDrop from "./PostEditDrop/PostEditDrop";
+// import PostEditDrop from "./PostEditDrop/PostEditDrop";
+import PostHeader from "./PostHeader/PostHeader";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -42,10 +43,10 @@ function AllPostsComponent() {
   // Function For Waring The User If He Refreshses The Browser
   // browserRefresh();
 
-  function handleEdit(e) {
-    e.preventDefault();
-    setShowEdit(!showEdit);
-  }
+  // function handleEdit(e) {
+  //   e.preventDefault();
+  //   setShowEdit(!showEdit);
+  // }
 
   return (
     <div className="All_Post_Container">
@@ -53,24 +54,7 @@ function AllPostsComponent() {
         allPost.allPosts.data
           .map((post, idx) => (
             <div key={post + idx} className="Single_Post_Container">
-              <div className="Image_Input_Container">
-                <img
-                  className="UserProfilePic"
-                  src={`${config.serverURL}/users/${post.owner}/avatar`}
-                  alt="Creator Profile Pic"
-                />
-
-                <div className="Name_And_Dots_Container">
-                  <h4 className="Creater_Name">{post.creator}</h4>
-                  <div className="Edit_Container">
-                    <h3 className="Three_Dots" onClick={handleEdit}>
-                      ...
-                    </h3>
-                    {showEdit && <PostEditDrop id={post._id} />}
-                  </div>
-                </div>
-              </div>
-              {/* Pic Of The Post Creater */}
+              <PostHeader post={post} />
               <div className="Single_Post_Content">
                 {post.photo !== null ? (
                   <PhotoPost post={post} />
@@ -82,7 +66,7 @@ function AllPostsComponent() {
               </div>
               <div className="Comments_Container">
                 {/* Likes And Comments Count */}
-                <LikeCommentsCount like={post.like} />
+                <LikeCommentsCount like={post.like} comments={post.comments} />
                 {/* Like Comments Container */}
                 <LikesContainer id={post._id} like={post.like} />
 

@@ -7,10 +7,10 @@
  .Icon_Container {
    display: flex;
    align-items: center;
+   cursor: pointer;
    .Icon {
      margin-right: 0.5rem;
      width: 17px;
-     cursor: pointer;
    }
  }
 }

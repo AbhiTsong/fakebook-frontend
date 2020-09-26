@@ -11,7 +11,7 @@ function CommentsContainer({ comments }) {
 
   return (
     <div className="All_Comments_Container">
-      <p>View {comments.length - 1} more comments</p>
+      {comments.length === 0 ? "" : <p>{comments.length} comments</p>}
       {comments.map((comment, idx) => (
         <div key={idx} className="Individual_Comment_Container">
           <div className="Comments_Cotent">

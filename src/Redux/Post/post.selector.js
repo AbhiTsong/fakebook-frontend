@@ -4,26 +4,36 @@ const postData = (state) => state.post;
 
 const postSelector = createSelector(postData, (post) => post);
 
+// Comments Selector
 let commentsSelector = createSelector(
   postSelector,
   (post) => post.allPosts.data
 );
 
+// Post ID Selector
 let currentPostIDSelector = createSelector(
   postSelector,
   (post) => post.currentPostID
 );
 
+// Seleting Array Of Posts
 let allPostsSelector = createSelector(
   postSelector,
   (post) => post.allPosts.data
 );
+
+// Seleting The Edit Drop State
+let editDropSelector = createSelector(
+  postSelector,
+  post => post.showEditDrop
+)
+
+
 export {
   postSelector,
   commentsSelector,
   currentPostIDSelector,
   allPostsSelector,
+  editDropSelector
 };
 
-
-// a = [{a:"a"}, {b:"b"}, {c:"c"}, {d:"d"}, {e:"e"}, {f:"f"}]

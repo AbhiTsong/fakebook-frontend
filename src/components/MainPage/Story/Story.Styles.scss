@@ -5,11 +5,15 @@
   overflow-y: hidden;
   border: 1px solid gery;
   height: 10rem;
-  img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 9rem;
-    height: 15rem;
+  margin-bottom: 1.5rem;
+  .Story_Image_Container {
+    width: 8rem;
+    height: 10rem;
+    margin-right: 0.5rem;
+    .Story_Images {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 }

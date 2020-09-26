@@ -12,4 +12,10 @@ function clearUpdatePostAction() {
   };
 }
 
-export { clearPhotoState, clearUpdatePostAction };
+function clearDeletePostAction() {
+  return {
+    type: PostActionTypes.CLEAR_POST_DELETE_STATE,
+  };
+}
+
+export { clearPhotoState, clearUpdatePostAction, clearDeletePostAction };

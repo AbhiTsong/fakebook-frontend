@@ -14,6 +14,9 @@ const INITIAL_STATE = {
   currentPostID: "",
   editPost: [],
   isPostEdited: false,
+  deletePost: "",
+  isPostDeleted: false,
+  showEditDrop: false,
 };
 
 function postReducer(state = INITIAL_STATE, action) {
@@ -25,11 +28,20 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.LIKE_START:
     case PostActionTypes.FETCH_CURRENT_POST_START:
     case PostActionTypes.UPDATE_CURRENT_POST_START:
+    case PostActionTypes.DELETE_POST_START:
       return {
         ...state,
         loading: true,
         post: [],
         error: "",
+      };
+
+    case PostActionTypes.DELETE_POST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        deletePost: action.payload,
+        isPostDeleted: true,
       };
 
     case PostActionTypes.UPDATE_CURRENT_POST_SUCCESS:
@@ -86,12 +98,16 @@ function postReducer(state = INITIAL_STATE, action) {
     case PostActionTypes.LIKE_FAIL:
     case PostActionTypes.FETCH_CURRENT_POST_FAIL:
     case PostActionTypes.UPDATE_CURRENT_POST_FAIL:
+    case PostActionTypes.DELETE_POST_FAIL:
       return {
         ...state,
         loading: false,
         post: [],
         error: action.payload,
+        editPost: [],
         isEventCreated: false,
+        deletePost: "",
+        isPostDeleted: false,
       };
     case PostActionTypes.PHOTO_PATH: {
       return {
@@ -114,6 +130,19 @@ function postReducer(state = INITIAL_STATE, action) {
     }
 
     // Non Network Reducer
+
+    case PostActionTypes.CLEAR_POST_DELETE_STATE:
+      return {
+        ...state,
+        deletePost: "",
+        isPostDeleted: false,
+      };
+
+    case PostActionTypes.SHOW_POST_EDIT_DROP:
+      return {
+        ...state,
+        showEditDrop: action.payload,
+      };
 
     case PostActionTypes.FETCH_CURRENT_POST_ID:
       return {

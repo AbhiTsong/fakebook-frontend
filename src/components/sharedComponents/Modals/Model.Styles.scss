@@ -4,7 +4,7 @@
   display: flex; /* Stay in place */
   align-items: center;
   justify-content: space-around;
-  z-index: 1; /* Sit on top */
+  z-index: 10; /* Sit on top */
   //   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -39,36 +39,3 @@
   }
 }
 
-// /* The Close Button */
-// .close {
-//   color: rgb(146, 135, 135);
-//   float: right;
-//   font-size: 3rem;
-//   padding-top: 0.5rem;
-// }
-
-// .close:hover,
-// .close:focus {
-//   color: rgba(110, 106, 106, 0.966);
-//   text-decoration: none;
-//   cursor: pointer;
-// }
-
-
-// .modal-body {
-//   position: relative;
-//   display: flex;
-//   padding: 20px 16px;
-// }
-
-// .modal-footer {
-//   padding: 2px 16px;
-//   color: white;
-// }
-// .display-block {
-//   display: block;
-// }
-
-// .display-none {
-//   display: none;
-// }
