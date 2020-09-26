@@ -49,7 +49,7 @@ function PostFormComponent() {
             onClick={handleModal}
           />
         </form>
-        {modalState.show && <Modal header1="Create Post" />}
+        {/* {modalState.show && <Modal header1="Create Post" />} */}
       </div>
       <HorizontalLine />
       {/*Opens the modal to create the post */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 // Redux Imports
 import { useSelector, useDispatch } from "react-redux";
@@ -6,25 +6,16 @@ import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import "./AllPosts.Styles.scss";
 
-// Static Imports
-import Logo from "../../../Assets/images/IMG-20190106-WA0001.jpg";
-
-// Utility Function Import
-// import { browserRefresh } from "../../../utility/windowReload";
-import config from "../../../config/config.json";
-
 // Component Imports
 import PhotoPost from "./PhotoPost/PhotoPost.Component";
 import LikesContainer from "../LikesContainer/LikesContainer";
 import LikeCommentsCount from "../../sharedComponents/LikeCommentsCount/LikeCommentsCount";
 import CommentsContainer from "../../sharedComponents/CommentsContainer/CommentsContainer";
 import AddComment from "../../sharedComponents/AddComment/AddComment";
-// import PostEditDrop from "./PostEditDrop/PostEditDrop";
 import PostHeader from "./PostHeader/PostHeader";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
-  const [showEdit, setShowEdit] = useState(false);
   let allPost = useSelector(postSelector);
 
   useEffect(() => {
@@ -39,14 +30,6 @@ function AllPostsComponent() {
   if (allPost.allPosts.data === "") {
     return "No Posts In The DataBase";
   }
-
-  // Function For Waring The User If He Refreshses The Browser
-  // browserRefresh();
-
-  // function handleEdit(e) {
-  //   e.preventDefault();
-  //   setShowEdit(!showEdit);
-  // }
 
   return (
     <div className="All_Post_Container">

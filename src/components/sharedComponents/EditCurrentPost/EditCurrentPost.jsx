@@ -53,7 +53,7 @@ function EditCurrentPost(props) {
   return (
     <div className="CreatePostContainer">
       <div className="Create_Post_Title_Container">
-        <h4 className="Title_Text">Create Post</h4>
+        <h4 className="Title_Text">Update Post</h4>
         <CloseModalIcon />
       </div>
       <HorizontalLine />

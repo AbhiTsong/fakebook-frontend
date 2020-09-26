@@ -4,7 +4,7 @@
   display: flex; /* Stay in place */
   align-items: center;
   justify-content: space-around;
-  z-index: 10; /* Sit on top */
+  z-index: 100 !important; /* Sit on top */
   //   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;

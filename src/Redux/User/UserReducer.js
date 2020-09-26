@@ -10,15 +10,24 @@ const INITIAL_STATE = {
   coverCreated: false,
   cover: "",
   error: "",
+  allUsers: "",
 };
 
 function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case userActionTypes.CREATE_USER_PROFILE_START:
     case userActionTypes.CHANGE_USER_COVER_START:
+    case userActionTypes.GET_ALL_USERS_START:
       return {
         ...state,
         loading: true,
+      };
+
+    case userActionTypes.GET_ALL_USERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        allUsers: action.payload,
       };
 
     case userActionTypes.CREATE_USER_PROFILE_SUCCESS:
@@ -48,6 +57,13 @@ function userReducer(state = INITIAL_STATE, action) {
         created: false,
         error: action.payload,
         profilePath: "",
+      };
+
+    case userActionTypes.GET_ALL_USERS_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
 
     case userActionTypes.GET_USER_PROFILE_PATH:

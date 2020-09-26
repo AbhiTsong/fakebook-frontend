@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PostHeader.styles.scss";
 import config from "../../../../config/config.json";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Shared Compoenet
 import PostEditDrop from "../PostEditDrop/PostEditDrop";
 
 // Redux Import
-import { showDrop } from "../../../../Redux/Post/editDropAction";
 import { editDropSelector } from "../../../../Redux/Post/post.selector";
 
 function PostHeader({ post }) {
   const showEditDrop = useSelector(editDropSelector);
-  const dispatch = useDispatch();
-  // const [showEdit, setShowEdit] = useState(false);
+  const [showEdit, setShowEdit] = useState(showEditDrop);
 
   function handleEdit(e) {
-    e.preventDefault();
-    dispatch(showDrop(!showEditDrop));
+    setShowEdit(!showEdit);
   }
 
-  console.log("post.creator --- ", post.creator);
   return (
     <div className="Image_Input_Container">
       <img
@@ -35,7 +31,7 @@ function PostHeader({ post }) {
           <h3 className="Three_Dots" onClick={handleEdit}>
             ...
           </h3>
-          {showEditDrop && <PostEditDrop id={post._id} />}
+          {showEdit && <PostEditDrop id={post._id} />}
         </div>
       </div>
     </div>

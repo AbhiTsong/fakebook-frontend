@@ -4,4 +4,6 @@ const userData = (state) => state.user;
 
 const userSelector = createSelector(userData, (user) => user);
 
-export { userSelector };
+const allUsers = createSelector(userSelector, (user) => user.allUsers);
+
+export { userSelector, allUsers };
