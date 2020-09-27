@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignUp.Styles.scss";
 import { withRouter } from "react-router-dom";
 // App Files
@@ -14,37 +14,43 @@ import CloseModalIcon from "../sharedComponents/CloseModalIcon/CloseModalIcon";
 import { useForm } from "../../hooks/useFormInput";
 
 // Redux Imports
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
+import { signUpSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
 
 // Utility Function
 import { validation } from "../../utility/validation";
 import { Range } from "../../utility/range";
 import { allMonths } from "../../utility/allMonths";
+import { CloseModal } from "../../Redux/Modal/ModalAction";
 
 const TODAY = new Date();
 
 let CURRENT_YEAR = new Date().getFullYear();
 let LAST_100_YEAR = CURRENT_YEAR - 100;
 
+const INITIAL_STATE = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  gender: "others",
+  password: "",
+  date: TODAY.getDate(),
+  month: allMonths[TODAY.getMonth()],
+  year: TODAY.getFullYear(),
+};
+
 function SignUpComponent(props) {
   const dispatch = useDispatch();
-
-  const INITIAL_STATE = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "others",
-    password: "",
-    date: TODAY.getDate(),
-    month: allMonths[TODAY.getMonth()],
-    year: TODAY.getFullYear(),
-  };
-
-  //
+  const signUpState = useSelector(signUpSelector);
   const [values, handleValues] = useForm(INITIAL_STATE);
-
   const [gender, setGender] = useState("");
+
+  useEffect(() => {
+    if (!signUpState.loading && signUpState.isSignedUp) {
+      dispatch(CloseModal());
+    }
+  }, [dispatch, signUpState.isSignedUp, signUpState.loading]);
 
   const handleChange = (e) => {
     setGender(e.target.value);

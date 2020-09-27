@@ -9,10 +9,16 @@ import PostEditDrop from "../PostEditDrop/PostEditDrop";
 // Redux Import
 import { editDropSelector } from "../../../../Redux/Post/post.selector";
 
+// Custom Hook
+import useCheckProfilePic from "../../../../hooks/useCheckProfilePic";
+
+// Default Profile Pic
+import Default from "../../../../Assets/images/default.png";
+
 function PostHeader({ post }) {
   const showEditDrop = useSelector(editDropSelector);
   const [showEdit, setShowEdit] = useState(showEditDrop);
-
+  const [isProfilePic] = useCheckProfilePic(post.owner);
   function handleEdit(e) {
     setShowEdit(!showEdit);
   }
@@ -21,7 +27,11 @@ function PostHeader({ post }) {
     <div className="Image_Input_Container">
       <img
         className="UserProfilePic"
-        src={`${config.serverURL}/users/${post.owner}/avatar`}
+        src={
+          !isProfilePic
+            ? Default
+            : `${config.serverURL}/users/${post.owner}/avatar`
+        }
         alt="Creator Profile Pic"
       />
 

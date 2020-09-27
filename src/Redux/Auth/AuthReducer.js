@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   loading: false,
   user: [],
   newUser: [],
+  isSignedUp: false,
   error: "",
 };
 
@@ -28,6 +29,7 @@ export function authReducer(state = INITIAL_STATE, action) {
         loading: false,
         user: [],
         newUser: action.payload,
+        isSignedUp: true,
         error: "",
       };
 

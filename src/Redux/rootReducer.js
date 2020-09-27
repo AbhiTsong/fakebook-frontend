@@ -7,7 +7,8 @@ import { authReducer } from "./Auth/AuthReducer";
 import { ModalReducer } from "./Modal/ModalReducer";
 import { postReducer } from "./Post/post.reducer";
 import { warningReducer } from "./Warning/Warning.Reducer";
-import {userReducer} from "./User/UserReducer"
+import { userReducer } from "./User/UserReducer";
+import { friendsReducer } from "./Friends/friendsReducer";
 
 const persitConfig = {
   key: "root",
@@ -25,6 +26,7 @@ const RootReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   modal: ModalReducer,
+  friends: friendsReducer,
   post: persistReducer(postPersistConfig, postReducer),
   warning: warningReducer,
 });

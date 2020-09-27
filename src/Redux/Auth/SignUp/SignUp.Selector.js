@@ -1,7 +1,12 @@
 import { createSelector } from "reselect";
 
-let newUser = (state) => state.user;
+let newUser = (state) => state.auth;
 
-let newUserSelector = createSelector(newUser, (user) => user.newUser);
+let signUpSelector = createSelector(newUser, (user) => user);
 
-export { newUserSelector };
+let requestSent = createSelector(
+  signUpSelector,
+  (user) => user.user.data.user.friendRequestsSent
+);
+
+export { signUpSelector, requestSent };

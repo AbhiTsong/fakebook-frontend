@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import "./UserProfile.styles.scss";
 import { useSelector } from "react-redux";
 import config from "../../../config/config.json";
@@ -10,34 +10,25 @@ import axios from "../../../axios";
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { userSelector } from "../../../Redux/User/UserSelector";
 
+// Custom Hook
+import useCheckProfilePic from "../../../hooks/useCheckProfilePic";
+
 function UserProfilePic(props) {
-  let [isProfile, setIsProfile] = useState();
   let userPic = useSelector(userSelector);
   let id = useSelector(currentUser);
+  const [isProfilePic] = useCheckProfilePic(id.user._id);
 
   if (!userPic.loading && userPic.created) {
     props.history.go(0);
   }
 
-  // IIFE  for checking if the user has uploaded the profile pic
-  (async function isProfileFunc() {
-    try {
-      let data = await axios.get(`/users/${id.user._id}/avatar`);
-      if (data) {
-        setIsProfile(true);
-      }
-    } catch (error) {
-      if (error.response) {
-        setIsProfile(false);
-      }
-    }
-  })();
-
   return (
     <img
       className="Profile_Pic"
       src={
-        !isProfile ? Default : `${config.serverURL}/users/${id.user._id}/avatar`
+        !isProfilePic
+          ? Default
+          : `${config.serverURL}/users/${id.user._id}/avatar`
       }
       alt="User Pic"
     />

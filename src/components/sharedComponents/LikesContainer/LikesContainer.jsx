@@ -14,7 +14,6 @@ import { likeCommentAction } from "../../../Redux/Post/likeAction";
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function LikesContainer({ id, like }) {
-  console.log("like yoo", like);
   const dispatch = useDispatch();
   const [likeCount, setLikeCount] = useState(like + 1);
   // let post = useSelector(postSelector);
