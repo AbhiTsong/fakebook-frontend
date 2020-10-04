@@ -1,0 +1,53 @@
+.Request_Container {
+  padding: 0.5rem;
+  .Request_Content {
+    display: flex;
+    .Request_Img_Container {
+      width: 3rem;
+      .Request_Img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+      }
+    }
+    .Request_Name {
+      .Request_Name_Text {
+        margin: 0;
+        margin-left: 0.5rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .Request_Button_Container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    .Accept_Request {
+      margin: 0;
+      background-color: blue;
+      border: none;
+      color: white;
+      border-radius: 3px;
+      outline-color: transparent;
+      padding: 0.5rem 1.5rem;
+      &:hover {
+       background-color: transparent;
+       background-color: rgb(89, 89, 243);
+      }
+     }
+     .Delete_Request {
+      margin: 0;
+      margin-left: 0.5rem;
+      border: none;
+      border-radius: 3px;
+      outline-color: transparent;
+      padding: 0.5rem 1.5rem;
+      background-color: rgb(207, 207, 216);
+      &:hover {
+        background-color: rgb(156, 156, 163);
+      }
+    }
+  }
+}

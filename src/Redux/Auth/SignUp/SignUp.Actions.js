@@ -1,5 +1,6 @@
 import SignUpActionTypes from "./SignUp.Types";
 import axios from "../../../axios";
+import { showToster } from "../../toster/toster.action";
 
 const SignUpUserStart = () => {
   return {
@@ -48,9 +49,13 @@ export function SignUpUser({
         gender,
       });
       dispatch(SignUpUserSuccess(newUser));
+      dispatch(
+        showToster("Successfully Signed Up. Please Log In To Get Started")
+      );
     } catch (error) {
       if (error.response) {
         dispatch(SignUpUserFail(error.response.data));
+        dispatch(showToster("Something Went Wrong While Signing Up"));
       }
     }
   };

@@ -1,0 +1,37 @@
+@keyframes topToBottom {
+  from {
+    top: -2rem;
+  }
+
+  to {
+    top: 1rem;
+  }
+}
+
+.Toster_Container {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
+  z-index: 1000;
+  background-color: lightslategray;
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+  height: 1.5rem;
+  align-items: baseline;
+  padding-right: 1rem;
+  animation: 1s topToBottom linear;
+  .Tost_Message {
+    height: 0;
+    margin: 0;
+    color: ghostwhite;
+    font-size: 1rem;
+    .close {
+      margin: 0;
+      color: ghostwhite;
+      height: 0;
+      margin-left: 2rem;
+      cursor: pointer;
+    }
+  }
+}

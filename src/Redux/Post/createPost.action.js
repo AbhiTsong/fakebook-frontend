@@ -1,6 +1,6 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
-
+import { showToster } from "../toster/toster.action";
 import { getToken } from "../token";
 
 // Create Post Action Start
@@ -37,6 +37,7 @@ function CreatePostAction(props) {
         },
       });
       dispatch(CreatePostSuccess(post));
+      dispatch(showToster("Photo Upload Successfully"));
     } catch (error) {
       if (error.response) {
         dispatch(CreatePostFail(error.response.data));
@@ -56,6 +57,7 @@ function CreatePostActionOnlyText(props) {
         },
       });
       dispatch(CreatePostSuccess(post));
+      dispatch(showToster("Post Successfully Created"));
     } catch (error) {
       dispatch(CreatePostFail(error.response));
     }

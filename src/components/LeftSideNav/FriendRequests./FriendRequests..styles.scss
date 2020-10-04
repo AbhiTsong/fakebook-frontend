@@ -1,6 +1,5 @@
 .Friend_Request_Container {
   display: flex;
-  margin-bottom: 1rem;
   .Friend_Request_Logo {
     width: 1.5rem;
     .Request_Logo {
@@ -10,7 +9,7 @@
     }
   }
   .Count_Text_Container {
-    display: flex;
+    // display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
@@ -20,5 +19,22 @@
       padding-left: 1rem;
       justify-content: center;
     }
+  }
+}
+.Request_Count {
+  margin: 0;
+  display: flex;
+  color: blue;
+  margin-top: -0.5rem;
+  margin-left: 2.5rem;
+  margin-bottom: 1rem;
+  .Dot {
+    margin-top: 0.2rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: blue;
+    border-radius: 50%;
+    justify-content: center;
+    margin-right: 0.4rem;
   }
 }

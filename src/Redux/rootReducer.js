@@ -9,6 +9,7 @@ import { postReducer } from "./Post/post.reducer";
 import { warningReducer } from "./Warning/Warning.Reducer";
 import { userReducer } from "./User/UserReducer";
 import { friendsReducer } from "./Friends/friendsReducer";
+import { tosterReducer } from "./toster/toster.reducer";
 
 const persitConfig = {
   key: "root",
@@ -29,6 +30,7 @@ const RootReducer = combineReducers({
   friends: friendsReducer,
   post: persistReducer(postPersistConfig, postReducer),
   warning: warningReducer,
+  tost: tosterReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

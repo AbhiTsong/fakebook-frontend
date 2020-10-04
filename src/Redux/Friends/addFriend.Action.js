@@ -1,6 +1,7 @@
 import { friendTypes } from "./friends.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { showToster } from "../toster/toster.action";
 
 function friendRequestStart() {
   return {
@@ -32,9 +33,11 @@ function sendFriendRequestAction(id) {
         },
       });
       dispatch(friendRequestSuccess(request));
+      dispatch(showToster("Request Sent Successfully"));
     } catch (error) {
       if (error.response) {
         dispatch(friendRequestFail(error.response.data));
+        dispatch(showToster("Error Occured While Sending The Request"));
       }
     }
   };

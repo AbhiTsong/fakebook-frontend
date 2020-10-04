@@ -13,6 +13,7 @@ import LikeCommentsCount from "../../sharedComponents/LikeCommentsCount/LikeComm
 import CommentsContainer from "../../sharedComponents/CommentsContainer/CommentsContainer";
 import AddComment from "../../sharedComponents/AddComment/AddComment";
 import PostHeader from "./PostHeader/PostHeader";
+import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function AllPostsComponent() {
   }, [dispatch]);
 
   if (allPost.loading) {
-    return "Loading...";
+    return [...Array(10).keys()].map(() => <Skeleton />);
   }
 
   if (allPost.allPosts.data === "") {

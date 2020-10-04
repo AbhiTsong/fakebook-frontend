@@ -1,14 +1,22 @@
-import React from 'react'
-import "./RightChat.styles.scss"
+import React from "react";
+import "./RightChat.styles.scss";
 
-// import Messanger from "../sharedComponents/FriendSuggest/FriendSuggest"
+import FriendRequests from "./FriendRequests/FriendRequests";
+import RightChatFriends from "./RightChatFriends/RightChatFriends";
+
+// Redux Imports
 
 function RightChatComponent() {
- return (
-  <div className="ChatContainer">
-   {/* <Messanger/> */}
-  </div>
- )
+  return (
+    <div className="ChatContainer">
+      <FriendRequests />
+      <div className="Contacts_Container_Header">
+        <div style={{ fontWeight: "500" }}>Contacts</div>
+        <div style={{ fontWeight: "900" }}>...</div>
+      </div>
+      <RightChatFriends />
+    </div>
+  );
 }
 
-export default RightChatComponent
+export default RightChatComponent;

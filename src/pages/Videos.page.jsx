@@ -1,9 +1,11 @@
 import React from "react";
+import "./Video.page.styles.scss"
 
 // Nested Compoenents Imports
 import NavBarComponent from "../components/NavBar/NavBar.Component";
 import LeftSideNavBar from "../components/LeftSideNav/LeftSide.NavBar";
 import RightChatComponent from "../components/RightChat/RightChat.Component";
+import Video from "../components/sharedComponents/Video/Video";
 
 function Videos() {
   return (
@@ -11,7 +13,9 @@ function Videos() {
       <NavBarComponent />
       <div className="MainHomePageContent">
         <LeftSideNavBar />
-        <h1>This Page Is Under Construction</h1>
+        <div className="video_containet">
+          <Video />
+        </div>
         <RightChatComponent />
       </div>
     </div>
