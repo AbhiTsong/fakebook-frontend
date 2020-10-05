@@ -14,6 +14,7 @@ import Toster from "./components/sharedComponents/Toster/Toster.jsx";
 function App() {
   const modalState = useSelector(modalSelector);
   const tostState = useSelector(tostSelector);
+
   return (
     <div className="App">
       {modalState.show && <Modal header1="Create Post" />}

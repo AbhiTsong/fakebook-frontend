@@ -25,7 +25,7 @@ function AllPostsComponent() {
   }, [dispatch]);
 
   if (allPost.loading) {
-    return [...Array(10).keys()].map(() => <Skeleton />);
+    return [...Array(10).keys()].map((e, idx) => <Skeleton key={e + idx} />);
   }
 
   if (allPost.allPosts.data === "") {

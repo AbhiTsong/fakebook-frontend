@@ -1,8 +1,4 @@
-import React from "react";
 import { useSelector } from "react-redux";
-
-// import { friendsSelector } from "../../../Redux/Friends/friends.selector";
-
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function FriendRequestCount() {

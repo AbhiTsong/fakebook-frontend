@@ -1,0 +1,105 @@
+.Notification_Header {
+  position: absolute;
+  top: 5rem;
+  right: 1rem;
+  height: 5vh;
+  background-color: white;
+  z-index: 100;
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  .Notification_Header_Text {
+    margin: 0;
+    height: 0;
+  }
+  .Notification_Dots {
+    height: 0;
+    font-weight: bolder;
+    color: gray;
+  }
+}
+
+.Notification_Container {
+  position: absolute;
+  top: 8.5rem;
+  right: 1rem;
+  height: 80vh;
+  background-color: white;
+  padding: 0 1rem;
+  z-index: 100;
+  width: 20rem;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  overflow-y: scroll;
+
+  .Notification_Image_Text_Container {
+    display: flex;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: lavender;
+      border-radius: 15px;
+    }
+    .Notification_Image_Container {
+      display: block;
+      .Profile_Pic {
+        width: 4rem;
+        height: 4rem;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .Notification_Button_Text {
+      width: 13rem;
+      .Description_Continer {
+        .Description_Text {
+          margin: 0;
+          margin-top: 1.5rem;
+          text-transform: capitalize;
+          font-weight: 100;
+          .User_Name {
+            font-weight: bold;
+          }
+        }
+
+        .Time_Container {
+          margin: 0;
+          color: blue;
+        }
+        .Buttons_Container {
+          margin-top: 0.5rem;
+          display: flex;
+          // justify-content: space-evenly;
+          .Accept_Button {
+            padding: 0.2rem 2rem;
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+            outline-color: transparent;
+            border: none;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            &:hover {
+              background-color: rgb(56, 56, 247);
+            }
+          }
+          .Decline_Button {
+            padding: 0.2rem 2rem;
+            border-radius: 5px;
+            background-color: lavender;
+            outline-color: transparent;
+            border: none;
+            cursor: pointer;
+            &:hover {
+              background-color: rgb(192, 192, 202);
+            }
+          }
+        }
+      }
+    }
+  }
+}

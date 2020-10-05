@@ -9,7 +9,9 @@ function RightChatFriends() {
   const users = useSelector(userSelector);
 
   if (users.loading) {
-    return [...Array(10).keys()].map(() => <ContactsSkeleton />);
+    return [...Array(10).keys()].map((e, idx) => (
+      <ContactsSkeleton key={e + idx} />
+    ));
   }
 
   return (
