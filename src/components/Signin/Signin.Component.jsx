@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import "./sign-in.styles.scss";
 
 // Custom Hook
@@ -28,12 +28,15 @@ function SignInComponent(props) {
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
+  // Clearing the local storage on mount
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   // Checking If The User Is Authenticated And Has Token
   useEffect(() => {
-
-    console.log("userSelector --- ",userSelector)
-
     if (userSelector.length !== 0 && userSelector.data !== null) {
+      console.log("This code is running");
       let token = userSelector.data && userSelector.data.token;
       localStorage.setItem("fakeTkn", JSON.stringify(token));
       props.history.replace("/home");
@@ -90,9 +93,7 @@ function SignInComponent(props) {
           <ButtonComponent buttonType="button" buttonClick={handleModal}>
             Create A New Account
           </ButtonComponent>
-          {modalState.show && (
-            <Modal/>
-          )}
+          {modalState.show && <Modal />}
         </div>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}
       </div>

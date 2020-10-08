@@ -23,8 +23,14 @@ const postPersistConfig = {
   blacklist: ["allPosts"],
 };
 
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  blacklist: ["token"],
+};
+
 const RootReducer = combineReducers({
-  auth: authReducer,
+  auth: persistReducer(authPersistConfig, authReducer),
   user: userReducer,
   modal: ModalReducer,
   friends: friendsReducer,

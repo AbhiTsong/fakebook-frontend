@@ -1,5 +1,6 @@
 import React from "react";
 import "./Video.page.styles.scss"
+import withAuth from "../hoc/withAuth"
 
 // Nested Compoenents Imports
 import NavBarComponent from "../components/NavBar/NavBar.Component";
@@ -22,4 +23,4 @@ function Videos() {
   );
 }
 
-export default Videos;
+export default withAuth(Videos);

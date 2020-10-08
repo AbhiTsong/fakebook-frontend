@@ -8,6 +8,7 @@ function withAuth(HomeComponent) {
       if (token) {
         return true;
       }
+      return false;
     }
 
     render() {

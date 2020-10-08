@@ -13,6 +13,7 @@ import PicCropper from "../../sharedComponents/PicCropper/PicCropper";
 import CoverPicPreview from "../CoverPreview/CoverPicPreview";
 import EditCurrentPost from "../EditCurrentPost/EditCurrentPost";
 import DeleteCurrentPost from "../DeleteCurrentPost/DeleteCurrentPost";
+import PleaseAuth from "../PleaseAuth/PleaseAuth";
 
 // Child Components
 import SignUpComponent from "../../SignUp/SignUp.Component";
@@ -33,6 +34,7 @@ function Modal(props) {
       {modalContent.content === "CHANGE_USER_COVER" && <CoverPicPreview />}
       {modalContent.content === "EDIT_CURRENT_POST" && <EditCurrentPost />}
       {modalContent.content === "DELETE_CURRENT_POST" && <DeleteCurrentPost />}
+      {modalContent.content === "PLEASE_AUTH" && <PleaseAuth />}
     </div>
   );
 }

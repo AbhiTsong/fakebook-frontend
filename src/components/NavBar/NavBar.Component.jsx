@@ -30,7 +30,6 @@ function NavBarComponent() {
       </div>
       <div className="NavBar_Content">
         <nav className="NavBar">
-          {/* <div> */}
           <ul className="NavBarUL">
             <li className="NavBarLI">
               <NavLink
@@ -86,7 +85,6 @@ function NavBarComponent() {
               </NavLink>
             </li>
           </ul>
-          {/* </div> */}
         </nav>
       </div>
       <ProfileNavigation />

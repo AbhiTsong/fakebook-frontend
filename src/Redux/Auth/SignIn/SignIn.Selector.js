@@ -9,4 +9,5 @@ const signInSelector = createSelector(
 
 const currentUser = createSelector(signInSelector, (user) => user.data);
 
+
 export { signInSelector, currentUser };

@@ -1,5 +1,6 @@
 import SignInActionTypes from "./SignIn.Types";
 import axios from "../../../axios";
+import { SignOutAction } from "../SignOut/SignOut.Actions";
 
 const SignInStart = () => {
   return {
@@ -34,7 +35,12 @@ export function SignInUser({ email, password }) {
 
       dispatch(SignInSuccess(user));
     } catch (error) {
-      dispatch(SignInUserFail(error.message));
+      if (error.response) {
+        if (error.response.data.Error === "Please Authenticate") {
+          dispatch(SignOutAction());
+        }
+        dispatch(SignInUserFail(error.response.data));
+      }
     }
   };
 }

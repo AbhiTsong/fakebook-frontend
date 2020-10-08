@@ -1,6 +1,8 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
+import { ShowModal } from "../Modal/ModalAction";
 
 function fetchPostStart() {
   return {
@@ -35,6 +37,9 @@ function fetchAllPosts() {
       dispatch(fetchPostSuccess(allPosts));
     } catch (error) {
       if (error.response) {
+        if (error.response.data === "Please Authenticate") {
+          dispatch(ShowModal("PLEASE_AUTH"));
+        }
         dispatch(fetchPostFail(error.response.data));
       }
     }

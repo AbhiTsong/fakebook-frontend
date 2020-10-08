@@ -6,11 +6,9 @@ import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 function FriendRequests() {
   const requests = useSelector(currentUser);
 
-  if (requests.user.friendRequests === undefined) {
+  if (requests === undefined && requests.user.friendRequests === undefined) {
     return null;
   }
-
-  console.log("requests.user.friendRequests", requests.user.friendRequests);
 
   return (
     <div>
