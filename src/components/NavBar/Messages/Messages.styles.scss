@@ -47,58 +47,29 @@
     .Messages_Image_Container {
       display: block;
       .Profile_Pic {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         object-fit: cover;
         border-radius: 50%;
       }
     }
-    .Messages_Button_Text {
-      width: 13rem;
-      .Description_Continer {
-        .Description_Text {
-          margin: 0;
-          margin-top: 1.5rem;
-          text-transform: capitalize;
-          font-weight: 100;
-          .User_Name {
-            font-weight: bold;
-          }
-        }
-
-        .Time_Container {
-          margin: 0;
-          color: blue;
-        }
-        .Buttons_Container {
-          margin-top: 0.5rem;
-          display: flex;
-          // justify-content: space-evenly;
-          .Accept_Button {
-            padding: 0.2rem 2rem;
-            border-radius: 5px;
-            background-color: blue;
-            color: white;
-            outline-color: transparent;
-            border: none;
-            margin-right: 0.5rem;
-            cursor: pointer;
-            &:hover {
-              background-color: rgb(56, 56, 247);
-            }
-          }
-          .Decline_Button {
-            padding: 0.2rem 2rem;
-            border-radius: 5px;
-            background-color: lavender;
-            outline-color: transparent;
-            border: none;
-            cursor: pointer;
-            &:hover {
-              background-color: rgb(192, 192, 202);
-            }
-          }
-        }
+    .Messages_Container_Text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 4rem;
+      width: 14rem;
+      margin-left: 0.8rem;
+      .Messages_Sender {
+        margin: 0;
+      }
+      .Messages_Text {
+        margin: 0;
+        color: blue;
+      }
+      .Time_Container {
+        margin: 0;
+        color: rgb(180, 171, 171);
       }
     }
   }

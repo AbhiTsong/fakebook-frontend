@@ -13,11 +13,13 @@ import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 // Nested Components
 import Notification from "../Notification/Notification";
 import Messages from "../Messages/Messages";
+import SeeProfile from "../SeeProfile/SeeProfile";
 
 function ProfileNavigation() {
   const user = useSelector(currentUser);
   const [showNotification, setShowNotification] = useState(false);
   const [showMessages, setShowMessages] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   const {
     user: { firstName, friendRequests },
@@ -26,11 +28,19 @@ function ProfileNavigation() {
   function handleNotification() {
     setShowNotification(!showNotification);
     setShowMessages(false);
+    setShowProfile(false);
   }
-  
+
   function handleMessage() {
     setShowMessages(!showMessages);
     setShowNotification(false);
+    setShowProfile(false);
+  }
+
+  function handleShowProfile() {
+    setShowProfile(!showProfile);
+    setShowNotification(false);
+    setShowMessages(false);
   }
 
   return (
@@ -64,7 +74,7 @@ function ProfileNavigation() {
             <span className="Bell_Count">{friendRequests.length}</span>
           ) : null}
         </div>
-        <div className="Icon_Container">
+        <div onClick={handleShowProfile} className="Icon_Container">
           <div className="User_Nav_Options_Profile">
             <img className="Nav_Icon" src={down} alt="Message Button" />
           </div>
@@ -72,6 +82,7 @@ function ProfileNavigation() {
       </div>
       {showNotification && <Notification />}
       {showMessages && <Messages />}
+      {showProfile && <SeeProfile user={user} />}
     </>
   );
 }
