@@ -1,18 +1,29 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 import { showToster } from "../../../Redux/toster/toster.action";
 
+// Redux Import
+import { SignoutSelector } from "../../../Redux/Auth/SignOut/signout.selector";
+
 function PleaseAuth(props) {
   const dispatch = useDispatch();
+  const authState = useSelector(SignoutSelector);
+
+  console.log("authStateauthStateauthState --- >>>> ", authState);
+
+  if (authState.loading) {
+    return "Please Wait...";
+  }
+
+  if (!authState.loading && authState.user.length === 0) {
+    props.history.replace("/auth");
+    props.history.go(0);
+  }
 
   // Function for athenticating the user
-
   function handleAuth() {
-    props.history.replace("/auth");
-    dispatch(showToster("Please Authenticate"));
-    props.history.go(0);
     dispatch(SignOutAction());
   }
 

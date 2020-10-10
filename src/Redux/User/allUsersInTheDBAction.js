@@ -2,6 +2,7 @@ import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
 import { ShowModal } from "../Modal/ModalAction";
+import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
 // import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
 
 function getAllUserStart() {
@@ -36,9 +37,6 @@ function getAllUsersAction() {
       dispatch(getAllUserSuccess(users));
     } catch (error) {
       if (error.response) {
-        // if (error.response.data === "Please Authenticate") {
-          dispatch(ShowModal("PLEASE_AUTH"));
-        // }
         dispatch(getAllUsersFail(error.response.data));
       }
     }

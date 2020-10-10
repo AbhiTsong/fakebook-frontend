@@ -37,9 +37,12 @@ function fetchAllPosts() {
       dispatch(fetchPostSuccess(allPosts));
     } catch (error) {
       if (error.response) {
-        if (error.response.data === "Please Authenticate") {
-          dispatch(ShowModal("PLEASE_AUTH"));
-        }
+        // if (error.response.data.Error === "Please Authenticate") {
+          
+        //   dispatch(SignOutAction())
+        //   localStorage.clear();
+          
+        // }
         dispatch(fetchPostFail(error.response.data));
       }
     }

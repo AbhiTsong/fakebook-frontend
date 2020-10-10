@@ -34,11 +34,13 @@ export function SignInUser({ email, password }) {
       });
 
       dispatch(SignInSuccess(user));
+      localStorage.setItem("fakeTkn", JSON.stringify(user.data.token));
     } catch (error) {
       if (error.response) {
-        if (error.response.data.Error === "Please Authenticate") {
-          dispatch(SignOutAction());
-        }
+        // if (error.response.data.Error === "Please Authenticate") {
+        //   dispatch(SignOutAction());
+        //   localStorage.clear();
+        // }
         dispatch(SignInUserFail(error.response.data));
       }
     }

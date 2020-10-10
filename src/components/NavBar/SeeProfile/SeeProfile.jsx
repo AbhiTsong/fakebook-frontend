@@ -53,9 +53,9 @@ function SeeProfile(props) {
 
   // Hnadeleing The Logout Function
   function handleLogout(){
+    dispatch(SignOutAction())
     props.history.replace("/auth");
     props.history.go(0);
-    dispatch(SignOutAction())
   }
 
   return (

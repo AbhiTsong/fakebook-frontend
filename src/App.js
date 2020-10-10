@@ -1,6 +1,6 @@
-import React, {memo} from "react";
+import React, { memo, useEffect } from "react";
 import "./App.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -16,29 +16,43 @@ import Toster from "./components/sharedComponents/Toster/Toster.jsx";
 import { tostSelector } from "./Redux/toster/tostSelectos";
 import { modalSelector } from "./Redux/Modal/ModalSelector";
 import { themeSelector } from "./Redux/theme/theme.selector";
+import { postSelector } from "./Redux/Post/post.selector";
+import { SignOutAction } from "./Redux/Auth/SignOut/SignOut.Actions";
 
 // Theme Imports
 import lightTheme from "./theme/light";
 import darkTheme from "./theme/dark";
 import Container from "./theme/components/container";
+import { getToken } from "./Redux/token";
 
 function App() {
   const modalState = useSelector(modalSelector);
   const tostState = useSelector(tostSelector);
   const themeMode = useSelector(themeSelector);
+  const postState = useSelector(postSelector);
+  const dispatch = useDispatch();
+  
+
+  useEffect(() => {
+    if (postState.error.Error === "Please Authenticate") {
+      dispatch(SignOutAction());
+      localStorage.removeItem("fakeTkn");
+      window.location.reload();
+    }
+  }, [dispatch, postState.error.Error]);
 
   return (
-    <ThemeProvider theme={ themeMode.light ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode.light ? lightTheme : darkTheme}>
       <Container className="App">
         {modalState.show && <Modal header1="Create Post" />}
         {tostState.show && <Toster />}
         <Switch>
           <Route exact path="/home" component={HomePage} />
           <Route
-            // exact
+            exact
             path="/auth"
-            // render={() => (user ? <Redirect to="/" /> : <SigninSignupPage />)}
-            render={() => <SigninSignupPage />}
+            render={() => (getToken() ? <Redirect to="/" /> : <SigninSignupPage />)}
+            // render={() => <SigninSignupPage />}
           />
           <Route exact path="/videos" component={VideosPage} />
           <Route

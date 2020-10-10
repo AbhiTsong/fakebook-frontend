@@ -16,6 +16,7 @@ import { modalSelector } from "../../Redux/Modal/ModalSelector";
 import Modal from "../sharedComponents/Modals/Model.Component";
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
+import { getToken } from "../../Redux/token";
 
 // Utility Function
 // import { validation } from "../../utility/validation";
@@ -28,20 +29,14 @@ function SignInComponent(props) {
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
-  // Clearing the local storage on mount
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
+ 
 
   // Checking If The User Is Authenticated And Has Token
   useEffect(() => {
-    if (userSelector.length !== 0 && userSelector.data !== null) {
-      console.log("This code is running");
-      let token = userSelector.data && userSelector.data.token;
-      localStorage.setItem("fakeTkn", JSON.stringify(token));
+    if (userSelector.length !== 0 && userSelector.data.token && getToken()) {
       props.history.replace("/home");
     }
-  }, [userSelector, props.history]);
+  }, [props.history, userSelector.data, userSelector.length]);
 
   // Logging Out The User
   const handleModal = () => {

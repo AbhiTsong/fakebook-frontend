@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   newUser: [],
   isSignedUp: false,
   error: "",
-  signedIn: true,
+  signedIn: false,
   status: "",
 };
 
@@ -34,6 +34,7 @@ export function authReducer(state = INITIAL_STATE, action) {
       return {
         loading: false,
         user: action.payload,
+        signedIn: true,
         error: "",
       };
     case SignUpActionTypes.SIGN_UP_SUCCESS:

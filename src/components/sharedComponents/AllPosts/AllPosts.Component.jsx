@@ -14,6 +14,7 @@ import CommentsContainer from "../../sharedComponents/CommentsContainer/Comments
 import AddComment from "../../sharedComponents/AddComment/AddComment";
 import PostHeader from "./PostHeader/PostHeader";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
+import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -31,6 +32,8 @@ function AllPostsComponent() {
   if (allPost.allPosts.data === "") {
     return "No Posts In The DataBase";
   }
+
+
 
   return (
     <div className="All_Post_Container">
