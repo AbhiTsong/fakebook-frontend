@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./LeftSideBar.Styles.scss";
 
 // Shared Compoenens
@@ -7,7 +7,7 @@ import FriendRequests from "./FriendRequests./FriendRequests";
 import Messanger from "./Messanger/Messanger";
 import Groups from "./Groups/Groups";
 import Pages from "./Pages/Pages";
-import Videos from "./Videos/Videos"
+import Videos from "./Videos/Videos";
 
 function LeftSideNavBar() {
   return (
@@ -17,9 +17,9 @@ function LeftSideNavBar() {
       <Messanger />
       <Groups />
       <Pages />
-      <Videos/>
+      <Videos />
     </div>
   );
 }
 
-export default LeftSideNavBar;
+export default memo(LeftSideNavBar);

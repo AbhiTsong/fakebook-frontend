@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./ProfileNavigation.styles.scss";
@@ -87,4 +87,4 @@ function ProfileNavigation() {
   );
 }
 
-export default ProfileNavigation;
+export default memo(ProfileNavigation);

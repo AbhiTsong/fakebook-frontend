@@ -2,13 +2,11 @@
   position: absolute;
   top: 5rem;
   right: 1rem;
-  height: 65vh;
   background-color: white;
   z-index: 100;
   width: 20rem;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
 
   .Profile_Settings_Header {
     display: flex;
@@ -28,6 +26,7 @@
       margin-left: 1rem;
       .Profile_Name {
         margin: 0;
+        text-transform: capitalize;
       }
       .Profile_Utility {
         margin: 0;
@@ -38,7 +37,7 @@
     display: flex;
     align-self: center;
     margin: 0.5rem 0;
-
+    cursor: pointer;
     .Feedback_Image_Container {
       width: 2rem;
       height: 2rem;
@@ -64,6 +63,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 1rem 0;
+    cursor: pointer;
     .Settings_Left_Container {
       display: flex;
       align-items: center;

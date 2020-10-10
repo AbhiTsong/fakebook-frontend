@@ -10,11 +10,12 @@ import { warningReducer } from "./Warning/Warning.Reducer";
 import { userReducer } from "./User/UserReducer";
 import { friendsReducer } from "./Friends/friendsReducer";
 import { tosterReducer } from "./toster/toster.reducer";
+import { themeReducer } from "./theme/theme.reducer";
 
 const persitConfig = {
   key: "root",
   storage,
-  whitelist: ["auth", ""],
+  whitelist: ["auth", "theme"],
 };
 
 const postPersistConfig = {
@@ -37,6 +38,7 @@ const RootReducer = combineReducers({
   post: persistReducer(postPersistConfig, postReducer),
   warning: warningReducer,
   tost: tosterReducer,
+  theme: themeReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import "./RightChat.styles.scss";
 
 import FriendRequests from "./FriendRequests/FriendRequests";
@@ -19,4 +19,4 @@ function RightChatComponent() {
   );
 }
 
-export default RightChatComponent;
+export default memo(RightChatComponent);

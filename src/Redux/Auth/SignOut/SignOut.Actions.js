@@ -25,7 +25,7 @@ function SignOutAction() {
   return async function (dispatch) {
     dispatch(SignOutStart());
     try {
-      let user = await axios.post("/users/logout", {
+      let user = await axios.post("/users/logoutAll", {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },

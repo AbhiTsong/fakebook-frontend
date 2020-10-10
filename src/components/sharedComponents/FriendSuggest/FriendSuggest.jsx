@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import "./FriendSuggest.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "react-elastic-carousel";
@@ -15,7 +15,6 @@ import { requestSent } from "../../../Redux/Auth/SignUp/SignUp.Selector";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 
 function FriendSuggest() {
-  const curUser = useSelector(currentUser);
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
   const requestArray = useSelector(requestSent);
@@ -61,4 +60,4 @@ function FriendSuggest() {
   );
 }
 
-export default FriendSuggest;
+export default memo(FriendSuggest);

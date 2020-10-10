@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./PostForm.Styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -75,4 +75,4 @@ function PostFormComponent() {
   );
 }
 
-export default PostFormComponent;
+export default memo(PostFormComponent);
