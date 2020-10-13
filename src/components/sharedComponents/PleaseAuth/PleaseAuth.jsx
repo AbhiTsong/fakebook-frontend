@@ -11,7 +11,6 @@ function PleaseAuth(props) {
   const dispatch = useDispatch();
   const authState = useSelector(SignoutSelector);
 
-  console.log("authStateauthStateauthState --- >>>> ", authState);
 
   if (authState.loading) {
     return "Please Wait...";

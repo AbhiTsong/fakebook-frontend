@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Messages.styles.scss";
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
 import { messageData } from "../../../statics/statics";
 
 function Messages() {
-  const [showSkeleton, setSkeleton] = useState(false);
+  const [showSkeleton, setSkeleton] = useState(true);
 
-  setTimeout(() => {
-    setSkeleton(false);
-  }, 5000);
+  useEffect(() => {
+    let time = setTimeout(() => {
+      setSkeleton(false);
+    }, 5000);
+    return () => {
+      clearTimeout(time);
+    };
+  }, []);
 
   return (
     <>
@@ -19,10 +24,13 @@ function Messages() {
       <div className="Messages_Container">
         {showSkeleton
           ? [...Array(10).keys()].map((e, idx) => (
-              <ContactsSkeleton keys={idx} />
+              <ContactsSkeleton key={idx + e} />
             ))
           : messageData.map((data) => (
-              <div className="Messages_Image_Text_Container">
+              <div
+                key={data.name + data.time}
+                className="Messages_Image_Text_Container"
+              >
                 <div className="Messages_Image_Container">
                   <img
                     className="Profile_Pic"

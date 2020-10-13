@@ -28,7 +28,6 @@ function LikesContainer({ id, like }) {
 
   function handleLike(e) {
     setLikeCount((pvCount) => pvCount + 1);
-    console.log("likeCount likeCount ", likeCount);
 
     if (likeCount > like) {
       dispatch(

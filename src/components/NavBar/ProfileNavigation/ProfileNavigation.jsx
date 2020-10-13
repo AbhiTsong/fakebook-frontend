@@ -1,7 +1,9 @@
 import React, { useState, memo } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import "./ProfileNavigation.styles.scss";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+// Utility Imports
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 import messanger from "../../../Assets/images/messenger.png";
@@ -15,32 +17,46 @@ import Notification from "../Notification/Notification";
 import Messages from "../Messages/Messages";
 import SeeProfile from "../SeeProfile/SeeProfile";
 
+// Redux Imports
+import { messageAction } from "../../../Redux/Message/Message.Action";
+import { notificationAction } from "../../../Redux/Notification/Notification.action";
+import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
+import { noticeSelector } from "../../../Redux/Notification/Notification.selector";
+import { messageSelector } from "../../../Redux/Message/Message.selector";
+import { settingsSelector } from "../../../Redux/ShowSettings/ShowSettings.selector";
+
 function ProfileNavigation() {
+  const dispatch = useDispatch();
   const user = useSelector(currentUser);
-  const [showNotification, setShowNotification] = useState(false);
-  const [showMessages, setShowMessages] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
+  const notice = useSelector(noticeSelector);
+  const message = useSelector(messageSelector);
+  const [messageState, setMessage] = useState(true);
+  const [noticeState, setNotice] = useState(true);
+  const [settingsState, setSettings] = useState(false);
 
   const {
     user: { firstName, friendRequests },
   } = user;
 
   function handleNotification() {
-    setShowNotification(!showNotification);
-    setShowMessages(false);
-    setShowProfile(false);
+    setNotice(!noticeState);
+    dispatch(notificationAction(noticeState));
+    dispatch(messageAction(false));
+    setSettings(false);
   }
 
   function handleMessage() {
-    setShowMessages(!showMessages);
-    setShowNotification(false);
-    setShowProfile(false);
+    setMessage(!messageState);
+    dispatch(messageAction(messageState));
+    dispatch(notificationAction(false));
+    setSettings(false);
   }
 
   function handleShowProfile() {
-    setShowProfile(!showProfile);
-    setShowNotification(false);
-    setShowMessages(false);
+    setSettings(!settingsState);
+    // dispatch(settingsAction(settingsState));
+    dispatch(notificationAction(false));
+    dispatch(messageAction(false));
   }
 
   return (
@@ -80,9 +96,9 @@ function ProfileNavigation() {
           </div>
         </div>
       </div>
-      {showNotification && <Notification />}
-      {showMessages && <Messages />}
-      {showProfile && <SeeProfile user={user} />}
+      {settingsState && <SeeProfile user={user} />}
+      {notice.showNotification && <Notification />}
+      {message.showMessage && <Messages />}
     </>
   );
 }

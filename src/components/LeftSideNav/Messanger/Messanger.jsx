@@ -1,11 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux"
 import "./Messanger.styles.scss";
 
 import Message from "../../../Assets/images/messenger.png";
+import { messageAction } from "../../../Redux/Message/Message.Action";
+import { notificationAction } from "../../../Redux/Notification/Notification.action";
+import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 
 function Messanger() {
+  const dispatch = useDispatch();
+  function handleMessage() {
+    dispatch(messageAction(true));
+    dispatch(notificationAction(false));
+    dispatch(settingsAction(false));
+  }
   return (
-    <div className="Messanger_Container">
+    <div onClick={handleMessage} className="Messanger_Container">
       <div className="Logo_Container">
         <img className="Logo" src={Message} alt="Messanger Container" />
       </div>

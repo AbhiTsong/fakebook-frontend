@@ -25,7 +25,6 @@ function FormsComponent() {
   // Function For Submitting The Form
   const handleLogIn = (e) => {
     e.preventDefault();
-    console.log(values);
     clearState(INITIAL_STATE);
     // dispatch(SignInUser(values));
     // clearState();

@@ -1,0 +1,44 @@
+.Friend_Request_All_Container {
+  position: relative;
+  justify-content: center;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 13rem;
+  width: 40rem;
+  height: 36rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+
+  .Friend_Request_Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    .Friend_Header_Text {
+      margin: 0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .Friend_Request_All {
+    overflow-y: scroll;
+    height: 31rem;
+    padding: 0.5rem;
+    margin-left: 7rem;
+    .Friend_Request_Indi {
+      display: flex;
+      margin: 0.5rem;
+      width: 19rem;
+      padding: 0.5rem;
+      &:hover{
+        background-color: lavender;
+        border-radius: 5px;
+      }
+    }
+  }
+}

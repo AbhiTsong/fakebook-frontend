@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import {store} from "../Redux/store"
+import { store } from "../Redux/store";
 
 function withAuth(HomeComponent) {
-  const state = store.getState();
-
-  console.log("store store", state)
   class MixedComponent extends Component {
     isAuthenticate() {
       const token = JSON.parse(localStorage.getItem("fakeTkn"));

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SeeProfile.styles.scss";
-import useCheckProfilePic from "../../../hooks/useCheckProfilePic";
 import config from "../../../config/config.json";
 import { Link, withRouter } from "react-router-dom";
 
@@ -11,6 +10,7 @@ import { selectTheme } from "../../../Redux/theme/theme.action";
 
 // Shared Components
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
+import { SignoutSelector } from "../../../Redux/Auth/SignOut/signout.selector";
 
 // Image Import
 import Default from "../../../Assets/images/default.png";
@@ -24,12 +24,12 @@ import Logout from "../../../Assets/images/logout.png";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
 function SeeProfile(props) {
-  console.log("The log out code",props)
   const [theme, setTheme] = useState(false);
+  const signOutState = useSelector(SignoutSelector);
+
   const {
-    user: { _id, firstName, lastName },
+    user: { _id, firstName, lastName, hasAvatar },
   } = props.user;
-  const [isProfilePic] = useCheckProfilePic(_id);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -52,11 +52,15 @@ function SeeProfile(props) {
   }
 
   // Hnadeleing The Logout Function
-  function handleLogout(){
-    dispatch(SignOutAction())
-    props.history.replace("/auth");
-    props.history.go(0);
+  function handleLogout() {
+    dispatch(SignOutAction());
+    // props.history.replace("/auth");
+    // props.history.go(0);
   }
+
+  // if (signOutState.loading) {
+  //   return "Loading....";
+  // }
 
   return (
     <div className="Profile_Settings_Container">
@@ -67,9 +71,7 @@ function SeeProfile(props) {
               alt="Logged In User"
               className="Profie_Pic"
               src={
-                !isProfilePic
-                  ? Default
-                  : `${config.serverURL}/users/${_id}/avatar`
+                hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default
               }
             />
           </div>
@@ -147,4 +149,4 @@ function SeeProfile(props) {
   );
 }
 
-export default withRouter(SeeProfile);
+export default withRouter(React.memo(SeeProfile));

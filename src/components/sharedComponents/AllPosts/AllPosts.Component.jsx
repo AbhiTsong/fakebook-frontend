@@ -23,7 +23,7 @@ function AllPostsComponent() {
   useEffect(() => {
     dispatch(fetchAllPosts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, []);
 
   if (allPost.loading) {
     return [...Array(10).keys()].map((e, idx) => <Skeleton key={e + idx} />);

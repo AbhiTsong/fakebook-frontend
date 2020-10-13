@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   friendRequest: "",
   isRequestSent: false,
   requestReceived: "",
+  requestAccepted: false,
+  requestAcceptResp: "",
   error: "",
 };
 
@@ -15,6 +17,19 @@ function friendsReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: true,
+      };
+
+    case friendTypes.ACCEPT_REQUEST_RECEIVED_START:
+      return {
+        ...state,
+        requestAccepted: false,
+      };
+
+    case friendTypes.ACCEPT_REQUEST_RECEIVED_SUCCESS:
+      return {
+        ...state,
+        requestAccepted: true,
+        requestAcceptResp: action.payload,
       };
 
     case friendTypes.FIND_REQUEST_RECEIVED_SUCCESS: {
@@ -31,6 +46,14 @@ function friendsReducer(state = INITIAL_STATE, action) {
         loading: false,
         friendRequest: action.payload,
         isRequestSent: true,
+      };
+
+    case friendTypes.ACCEPT_REQUEST_RECEIVED_FAIL:
+      return {
+        ...state,
+        requestAccepted: false,
+        requestAcceptResp: "",
+        error: action.payload,
       };
 
     case friendTypes.SEND_FRIEND_REQUEST_FAIL:

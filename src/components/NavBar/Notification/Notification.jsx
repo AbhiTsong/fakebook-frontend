@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Notification.styles.scss";
 import { useDispatch } from "react-redux";
 import { staticData } from "../../../statics/statics";
@@ -11,9 +11,15 @@ import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
 function Notification() {
   const [showSkeleton, setSkeleton] = useState(true);
   const dispatch = useDispatch();
-  setTimeout(() => {
-    setSkeleton(false);
-  }, 5000);
+
+  useEffect(() => {
+    let time = setTimeout(() => {
+      setSkeleton(false);
+    }, 5000);
+    return () => {
+      clearTimeout(time);
+    };
+  }, []);
 
   function handleDispatch() {
     dispatch(
@@ -35,7 +41,10 @@ function Notification() {
               <ContactsSkeleton key={e + idx} />
             ))
           : staticData.map((data) => (
-              <div className="Notification_Image_Text_Container">
+              <div
+                key={data.name + data.time}
+                className="Notification_Image_Text_Container"
+              >
                 <div className="Notification_Image_Container">
                   <img
                     className="Profile_Pic"

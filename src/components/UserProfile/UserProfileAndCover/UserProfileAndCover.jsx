@@ -17,7 +17,6 @@ function UserProfileAndCover() {
   const [showDrop, setShowDrop] = useState(false);
   let user = useSelector(currentUser);
 
-  console.log("User Selector --- ", user.user.firstName);
   const dispatch = useDispatch();
 
   // Function For Handling Upload Image

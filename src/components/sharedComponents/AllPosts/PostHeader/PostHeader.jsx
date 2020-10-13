@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./PostHeader.styles.scss";
 import config from "../../../../config/config.json";
 import { useSelector } from "react-redux";
+import axios from "../../../../axios";
 
 // Shared Compoenet
 import PostEditDrop from "../PostEditDrop/PostEditDrop";
@@ -9,16 +10,12 @@ import PostEditDrop from "../PostEditDrop/PostEditDrop";
 // Redux Import
 import { editDropSelector } from "../../../../Redux/Post/post.selector";
 
-// Custom Hook
-import useCheckProfilePic from "../../../../hooks/useCheckProfilePic";
-
 // Default Profile Pic
 import Default from "../../../../Assets/images/default.png";
 
 function PostHeader({ post }) {
   const showEditDrop = useSelector(editDropSelector);
   const [showEdit, setShowEdit] = useState(showEditDrop);
-  const [isProfilePic] = useCheckProfilePic(post.owner);
   function handleEdit(e) {
     setShowEdit(!showEdit);
   }
@@ -28,9 +25,9 @@ function PostHeader({ post }) {
       <img
         className="UserProfilePic"
         src={
-          !isProfilePic
-            ? Default
-            : `${config.serverURL}/users/${post.owner}/avatar`
+          post.hasAvatar
+            ? `${config.serverURL}/users/${post.owner}/avatar`
+            : Default
         }
         alt="Creator Profile Pic"
       />

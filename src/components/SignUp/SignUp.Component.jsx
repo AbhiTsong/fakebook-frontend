@@ -54,7 +54,6 @@ function SignUpComponent(props) {
 
   const handleChange = (e) => {
     setGender(e.target.value);
-    console.log(e.target.value);
   };
 
   // Getting All The Last 100 year

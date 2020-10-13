@@ -6,16 +6,16 @@ import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 function FriendRequests() {
   const requests = useSelector(currentUser);
 
-  if (requests === undefined && requests.user.friendRequests === undefined) {
-    return null;
+  if (requests.user.friendRequests.length === 0) {
+    return "";
+  } else {
+    return (
+      <div>
+        <h5>Friend Requests</h5>
+        <UserRequestImage userImg={requests.user.friendRequests} />
+      </div>
+    );
   }
-
-  return (
-    <div>
-      <h5>Friend Requests</h5>
-      <UserRequestImage userImg={requests.user.friendRequests} />
-    </div>
-  );
 }
 
 export default FriendRequests;

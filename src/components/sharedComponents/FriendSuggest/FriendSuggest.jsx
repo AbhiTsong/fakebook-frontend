@@ -6,24 +6,22 @@ import Carousel from "react-elastic-carousel";
 // Redux Import
 import { getAllUsersAction } from "../../../Redux/User/allUsersInTheDBAction";
 import { userSelector } from "../../../Redux/User/UserSelector";
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Shared Components
 import FriendSuggestImage from "./FriendSuggestImage/FriendSuggestImage";
 import FriendSuggestButton from "./FriendSuggestButton/FriendSuggestButton";
-import { requestSent } from "../../../Redux/Auth/SignUp/SignUp.Selector";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 
 function FriendSuggest() {
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
-  const requestArray = useSelector(requestSent);
+  // const requestArray = useSelector(requestSent);
+
 
   useEffect(() => {
     dispatch(getAllUsersAction());
   }, []);
 
-  console.log("", requestArray);
 
   if (users.loading) {
     return <Skeleton />;
@@ -38,7 +36,7 @@ function FriendSuggest() {
             users.allUsers.data
               .map((user, idx) => (
                 <div key={user + idx} className="Friend_Suggest_Container">
-                  <FriendSuggestImage id={user._id} />
+                  <FriendSuggestImage id={user._id} avatar={user.hasAvatar}/>
                   <div className="Suggest_Name_Button">
                     <h5 className="Suggested_Person_Name">
                       {user.firstName + " " + user.lastName}
@@ -54,7 +52,6 @@ function FriendSuggest() {
             </div>
           )}
         </Carousel>
-        {console.log("users.allUsers.data.length", users.allUsers.data)}
       </div>
     </div>
   );

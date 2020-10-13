@@ -1,7 +1,6 @@
 import SignOutActionTypes from "./SignOutTypes";
 import axios from "../../../axios";
 import { getToken } from "../../token";
-import { showToster } from "../../toster/toster.action";
 
 function SignOutStart() {
   return {
@@ -9,15 +8,17 @@ function SignOutStart() {
   };
 }
 
-function SignOutSuccess() {
+function SignOutSuccess(response) {
   return {
     type: SignOutActionTypes.SIGN_OUT_SUCCESS,
+    payload: response,
   };
 }
 
-function SignOutFail() {
+function SignOutFail(error) {
   return {
     type: SignOutActionTypes.SIGN_OUT_FAIL,
+    payload: error,
   };
 }
 
@@ -31,11 +32,11 @@ function SignOutAction() {
         },
       });
       dispatch(SignOutSuccess(user));
-      localStorage.clear();
-      dispatch(showToster("Please Authenticate"));
+      localStorage.clearItem("fakeTkn");
     } catch (error) {
       if (error.response) {
         dispatch(SignOutFail(error.response.data));
+        localStorage.clearItem("fakeTkn");
       }
     }
   };

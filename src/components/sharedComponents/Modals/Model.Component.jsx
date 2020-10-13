@@ -14,9 +14,9 @@ import CoverPicPreview from "../CoverPreview/CoverPicPreview";
 import EditCurrentPost from "../EditCurrentPost/EditCurrentPost";
 import DeleteCurrentPost from "../DeleteCurrentPost/DeleteCurrentPost";
 import PleaseAuth from "../PleaseAuth/PleaseAuth";
-
-// Child Components
 import SignUpComponent from "../../SignUp/SignUp.Component";
+import FriendRequests from "../FriendRequestsAll/FriendRequestsAll";
+
 
 function Modal(props) {
   let postPath = useSelector(postSelector);
@@ -35,6 +35,7 @@ function Modal(props) {
       {modalContent.content === "EDIT_CURRENT_POST" && <EditCurrentPost />}
       {modalContent.content === "DELETE_CURRENT_POST" && <DeleteCurrentPost />}
       {modalContent.content === "PLEASE_AUTH" && <PleaseAuth />}
+      {modalContent.content === "FRIEND_REQUESTS" && <FriendRequests />}
     </div>
   );
 }

@@ -25,7 +25,6 @@ function failPostUpdate(error) {
 function updatePostAction({ id, 
   like, 
   comment }) {
-  console.log("id, like, comment ",id, like, comment )
   return function (dispatch) {
     dispatch(startPostUpdate());
 

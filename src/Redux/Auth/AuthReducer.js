@@ -26,7 +26,6 @@ export function authReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         signedIn: false,
-        user: [],
         status: action.payload,
       };
 

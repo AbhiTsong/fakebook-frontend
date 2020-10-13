@@ -11,6 +11,9 @@ import { userReducer } from "./User/UserReducer";
 import { friendsReducer } from "./Friends/friendsReducer";
 import { tosterReducer } from "./toster/toster.reducer";
 import { themeReducer } from "./theme/theme.reducer";
+import { messageReducer } from "./Message/Message.reducer";
+import { notificationReducer } from "./Notification/Notification.reducer";
+import { settingsReducer } from "./ShowSettings/ShowSettings.reducer";
 
 const persitConfig = {
   key: "root",
@@ -18,27 +21,18 @@ const persitConfig = {
   whitelist: ["auth", "theme"],
 };
 
-const postPersistConfig = {
-  key: "post",
-  storage,
-  blacklist: ["allPosts"],
-};
-
-const authPersistConfig = {
-  key: "auth",
-  storage,
-  blacklist: ["token"],
-};
-
 const RootReducer = combineReducers({
-  auth: persistReducer(authPersistConfig, authReducer),
-  user: userReducer,
-  modal: ModalReducer,
+  auth: authReducer,
   friends: friendsReducer,
-  post: persistReducer(postPersistConfig, postReducer),
-  warning: warningReducer,
-  tost: tosterReducer,
+  message: messageReducer,
+  modal: ModalReducer,
+  notification: notificationReducer,
+  post: postReducer,
+  settings: settingsReducer,
   theme: themeReducer,
+  tost: tosterReducer,
+  user: userReducer,
+  warning: warningReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

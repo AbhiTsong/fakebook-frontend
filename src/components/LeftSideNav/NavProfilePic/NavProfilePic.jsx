@@ -7,19 +7,14 @@ import { useSelector } from "react-redux";
 // Redux Import
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
-// Custom Hook
-import useCheckProfilePic from "../../../hooks/useCheckProfilePic";
-
-
-// Default Pic Import 
-import Default from "../../../Assets/images/default.png"
+// Default Pic Import
+import Default from "../../../Assets/images/default.png";
 
 function NavProfilePic() {
   const user = useSelector(currentUser);
   const {
-    user: { _id, firstName, lastName },
+    user: { _id, firstName, lastName, hasAvatar },
   } = user;
-  const [isProfilePic] = useCheckProfilePic(_id);
 
   return (
     <div className="Side_Profile_And_Name">
@@ -28,9 +23,7 @@ function NavProfilePic() {
           <img
             alt="Logged In User"
             src={
-              !isProfilePic
-                ? Default
-                : `${config.serverURL}/users/${_id}/avatar`
+              !hasAvatar ? Default : `${config.serverURL}/users/${_id}/avatar`
             }
             className="Side_Nav_Profile"
           />

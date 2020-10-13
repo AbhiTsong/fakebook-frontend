@@ -12,7 +12,6 @@ import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
 
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
-import useCheckProfilePic from "../../../hooks/useCheckProfilePic";
 
 // Default Profile Pic
 import Default from "../../../Assets/images/default.png";
@@ -21,9 +20,8 @@ function AddComment({ id }) {
   const dispatch = useDispatch();
 
   let {
-    user: { firstName, lastName, _id },
+    user: { firstName, lastName, _id, hasAvatar },
   } = useSelector(currentUser);
-  const [isProfilePic] = useCheckProfilePic(_id);
   const [values, handleValues] = useForm({ comment: "" });
 
   function handleKeyPress(e) {
@@ -47,9 +45,7 @@ function AddComment({ id }) {
     <div className="Add_Comment">
       <img
         className="LoggedIn_User"
-        src={
-          !isProfilePic ? Default : `${config.serverURL}/users/${_id}/avatar`
-        }
+        src={hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default}
         alt="Creator Profile Pic"
       />
       <FormInput

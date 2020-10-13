@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FriendSuggestImage.styles.scss";
-import axios from "../../../../axios";
 import config from "../../../../config/config.json";
 
 import Default from "../../../../Assets/images/default.png";
 
 // Custom Hook
-import useCheckProfilePic from "../../../../hooks/useCheckProfilePic";
+// import useCheckProfilePic from "../../../../hooks/useCheckProfilePic";
 
-function FriendSuggestImage({ id }) {
-  let [isProfilePic] = useCheckProfilePic(id);
-
+function FriendSuggestImage({ id, avatar }) {
   return (
     <div className="Friend_Suggest_Image">
       <img
-        src={!isProfilePic ? Default : `${config.serverURL}/users/${id}/avatar`}
+        src={avatar ? `${config.serverURL}/users/${id}/avatar` : Default}
         alt="User_Message"
         className="Friend_Suggest_Person"
       />
@@ -22,4 +19,4 @@ function FriendSuggestImage({ id }) {
   );
 }
 
-export default FriendSuggestImage;
+export default React.memo(FriendSuggestImage);
