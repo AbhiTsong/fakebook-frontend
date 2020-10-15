@@ -5,16 +5,15 @@ import config from "../../../config/config.json";
 import { useSelector } from "react-redux";
 
 // Redux Import
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Default Pic Import
 import Default from "../../../Assets/images/default.png";
 
 function NavProfilePic() {
-  const user = useSelector(currentUser);
-  const {
-    user: { _id, firstName, lastName, hasAvatar },
-  } = user;
+  const user = useSelector(signInSelector);
+
+console.log('Right Chat',user)
 
   return (
     <div className="Side_Profile_And_Name">
@@ -23,14 +22,16 @@ function NavProfilePic() {
           <img
             alt="Logged In User"
             src={
-              !hasAvatar ? Default : `${config.serverURL}/users/${_id}/avatar`
+              !user.user.hasAvatar || !user.newAvatar
+                ? Default
+                : `${config.serverURL}/users/${user.user._id}/avatar`
             }
             className="Side_Nav_Profile"
           />
         </Link>
       </div>
       <Link to="/profile">
-        <h5 className="User_Name">{`${firstName} ${lastName}`}</h5>
+        <h5 className="User_Name">{`${user.user.firstName} ${user.user.lastName}`}</h5>
       </Link>
     </div>
   );

@@ -26,17 +26,18 @@ function SignOutAction() {
   return async function (dispatch) {
     dispatch(SignOutStart());
     try {
-      let user = await axios.post("/users/logoutAll", {
+      let user = await axios.post("/users/logout", {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
       });
       dispatch(SignOutSuccess(user));
       localStorage.clearItem("fakeTkn");
+      window.location.reload();
     } catch (error) {
       if (error.response) {
+        console.log("logges out fail");
         dispatch(SignOutFail(error.response.data));
-        localStorage.clearItem("fakeTkn");
       }
     }
   };

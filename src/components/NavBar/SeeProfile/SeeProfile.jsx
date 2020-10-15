@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SeeProfile.styles.scss";
 import config from "../../../config/config.json";
@@ -27,9 +27,15 @@ function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
   const signOutState = useSelector(SignoutSelector);
 
+  // useEffect(() => {
+  //   if (signOutState.loading === false && signOutState.signedIn === false)
+  // }, [props.history, signOutState]);
+
+  console.log("signOutState signOutState ", signOutState);
+
   const {
     user: { _id, firstName, lastName, hasAvatar },
-  } = props.user;
+  } = props;
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -54,7 +60,8 @@ function SeeProfile(props) {
   // Hnadeleing The Logout Function
   function handleLogout() {
     dispatch(SignOutAction());
-    // props.history.replace("/auth");
+    props.history.push("/auth");
+    localStorage.removeItem("fakeTkn")
     // props.history.go(0);
   }
 

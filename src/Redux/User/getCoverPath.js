@@ -13,4 +13,11 @@ function clearCoverPath() {
   };
 }
 
-export { getCoverPath, clearCoverPath };
+
+function clearCreatedPath(){
+  return{
+    type: userActionTypes.CLEAR_PROFILE_CREATED
+  }
+}
+
+export { getCoverPath, clearCoverPath, clearCreatedPath };

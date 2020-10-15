@@ -29,14 +29,12 @@ function SignInComponent(props) {
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
- 
-
   // Checking If The User Is Authenticated And Has Token
   useEffect(() => {
-    if (userSelector.length !== 0 && userSelector.data.token && getToken()) {
-      props.history.replace("/home");
+    if (userSelector.user.length !== 0 && getToken()) {
+      props.history.push("/home");
     }
-  }, [props.history, userSelector.data, userSelector.length]);
+  }, [props.history, userSelector, userSelector.length]);
 
   // Logging Out The User
   const handleModal = () => {

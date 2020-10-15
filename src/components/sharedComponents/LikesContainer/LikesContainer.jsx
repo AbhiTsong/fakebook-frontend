@@ -22,9 +22,7 @@ function LikesContainer({ id, like }) {
   //   setLikeCount(like + 1);
   // }, []);
 
-  let {
-    user: { _id },
-  } = useSelector(currentUser);
+  let { _id } = useSelector(currentUser);
 
   function handleLike(e) {
     setLikeCount((pvCount) => pvCount + 1);

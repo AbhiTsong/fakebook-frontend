@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function FriendRequestCount() {
-  const requestCount = useSelector(currentUser);
+  const requestCount = useSelector(signInSelector);
 
-  if (!requestCount.user.friendRequests) {
+  if (!requestCount.friendRequests) {
     return null;
   }
 

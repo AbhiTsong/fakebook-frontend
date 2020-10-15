@@ -1,7 +1,7 @@
 import React from "react";
 import "./FriendRequestsAll.styles.scss";
 import { useSelector } from "react-redux";
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 
 // Nested Componet
@@ -10,7 +10,7 @@ import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import FriendRequestNameAndButton from "./FriendRequestNameAndButton/FriendRequestNameAndButton";
 
 function FriendRequests() {
-  const userRequests = useSelector(currentUser);
+  const userRequests = useSelector(signInSelector);
 
   return (
     <div className="Friend_Request_All_Container">

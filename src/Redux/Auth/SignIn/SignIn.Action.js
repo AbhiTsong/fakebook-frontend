@@ -1,6 +1,6 @@
 import SignInActionTypes from "./SignIn.Types";
 import axios from "../../../axios";
-import { SignOutAction } from "../SignOut/SignOut.Actions";
+import { showToster } from "../../toster/toster.action";
 
 const SignInStart = () => {
   return {
@@ -22,27 +22,38 @@ const SignInUserFail = (error) => {
   };
 };
 
+const newAvatarAdded = () => {
+  return {
+    type: SignInActionTypes.NEW_AVATAR,
+  };
+};
+
 // Funcion For Signing In The User
 export function SignInUser({ email, password }) {
   return async function (dispatch) {
     dispatch(SignInStart());
 
     try {
-      let user = await axios.post("/users/login", {
+      let signinUser = await axios.post("/users/login", {
         email,
         password,
       });
 
+      const {
+        data: { user, token },
+      } = signinUser;
+
+      console.log();
+
       dispatch(SignInSuccess(user));
-      localStorage.setItem("fakeTkn", JSON.stringify(user.data.token));
+      localStorage.setItem("fakeTkn", JSON.stringify(token));
     } catch (error) {
       if (error.response) {
-        // if (error.response.data.Error === "Please Authenticate") {
-        //   dispatch(SignOutAction());
-        //   localStorage.clear();
-        // }
         dispatch(SignInUserFail(error.response.data));
+        dispatch(showToster(error.response.data));
       }
     }
   };
 }
+
+export { newAvatarAdded };

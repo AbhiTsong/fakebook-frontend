@@ -18,9 +18,8 @@ import { settingsReducer } from "./ShowSettings/ShowSettings.reducer";
 const persitConfig = {
   key: "root",
   storage,
-  whitelist: ["auth", "theme"],
+  whitelist: ["theme", "auth"],
 };
-
 const RootReducer = combineReducers({
   auth: authReducer,
   friends: friendsReducer,

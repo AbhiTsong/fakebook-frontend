@@ -4,8 +4,10 @@ import SignOutActionTypes from "./SignOut/SignOutTypes";
 
 const INITIAL_STATE = {
   loading: false,
+  signingOut: false,
   user: [],
   newUser: [],
+  newAvatar: false,
   isSignedUp: false,
   error: "",
   signedIn: false,
@@ -16,16 +18,27 @@ export function authReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SignInActionTypes.SIGN_IN_START:
     case SignUpActionTypes.SIGN_UP_START:
-    case SignOutActionTypes.SIGN_OUT_START:
       return {
         ...state,
         loading: true,
+      };
+
+    case SignInActionTypes.NEW_AVATAR:
+      return {
+        ...state,
+        newAvatar: true,
+      };
+    case SignOutActionTypes.SIGN_OUT_START:
+      return {
+        ...state,
+        signingOut: false,
       };
 
     case SignOutActionTypes.SIGN_OUT_SUCCESS:
       return {
         ...state,
         signedIn: false,
+        signingOut: true,
         status: action.payload,
       };
 
@@ -55,6 +68,7 @@ export function authReducer(state = INITIAL_STATE, action) {
         user: [],
         status: action.payload,
         error: action.payload,
+        signingOut: false,
       };
 
     default:

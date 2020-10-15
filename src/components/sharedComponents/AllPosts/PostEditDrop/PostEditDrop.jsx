@@ -7,27 +7,27 @@ import HorizontalLine from "../../HorizontalLine/HorizontalLine";
 
 // Icon Import
 import Edit from "../../../../Assets/images/edit.png";
-import Update from "../../../../Assets/images/update.png"
-import Delete from "../../../../Assets/images/delete.png"
+import Update from "../../../../Assets/images/update.png";
+import Delete from "../../../../Assets/images/delete.png";
 
 // Redux Import
 import { ShowModal } from "../../../../Redux/Modal/ModalAction";
 import { fetchCurrentPostID } from "../../../../Redux/Post/fetchCurrentPostIDAction";
-import { currentUser } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
+import {
+  signInSelector,
+} from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import { allPostsSelector } from "../../../../Redux/Post/post.selector";
 import { showDrop } from "../../../../Redux/Post/editDropAction";
 
 function PostEditDrop({ id }) {
-  const {
-    user: { _id },
-  } = useSelector(currentUser);
+  const user = useSelector(signInSelector);
   const allPosts = useSelector(allPostsSelector);
   const dispatch = useDispatch();
   let userID = allPosts.find((post) => post._id === id);
 
   // Function for handling edit post modal
   function handleEditPost() {
-    if (userID.owner !== _id) {
+    if (userID.owner !== user.user._id) {
       alert("This post dosent belong to you cant perform the action.");
       return;
     }
@@ -37,7 +37,7 @@ function PostEditDrop({ id }) {
   }
 
   function handleDeletePost() {
-    if (userID.owner !== _id) {
+    if (userID.owner !== user.user._id) {
       alert("This post dosent belong to you cant perform the action.");
       return;
     }

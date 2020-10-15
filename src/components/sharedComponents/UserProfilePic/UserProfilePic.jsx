@@ -1,22 +1,22 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./UserProfile.styles.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import config from "../../../config/config.json";
 import Default from "../../../Assets/images/default.png";
 
 // Redux Import
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { userSelector } from "../../../Redux/User/UserSelector";
-
-// Custom Hook
+import { clearCreatedPath } from "../../../Redux/User/getCoverPath";
 
 function UserProfilePic(props) {
   let userPic = useSelector(userSelector);
-  let id = useSelector(currentUser);
-
+  let userState = useSelector(signInSelector);
+  let dispatch = useDispatch();
 
   if (!userPic.loading && userPic.created) {
+    dispatch(clearCreatedPath());
     props.history.go(0);
   }
 
@@ -24,7 +24,9 @@ function UserProfilePic(props) {
     <img
       className="Profile_Pic"
       src={
-        id.user.hasAvatar ? `${config.serverURL}/users/${id.user._id}/avatar` : Default
+        userState.user.hasAvatar || userState.newAvatar
+          ? `${config.serverURL}/users/${userState.user._id}/avatar`
+          : Default
       }
       alt="User Pic"
     />

@@ -8,15 +8,14 @@ import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic
 import CoverChangeDropMenu from "../../sharedComponents/CoverChangeDropMenu/CoverChangeDropMenu";
 
 // Redux Import
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Icon Img
 import Camera from "../../../Assets/images/camera.png";
 
 function UserProfileAndCover() {
   const [showDrop, setShowDrop] = useState(false);
-  let user = useSelector(currentUser);
-
+  let user = useSelector(signInSelector);
   const dispatch = useDispatch();
 
   // Function For Handling Upload Image

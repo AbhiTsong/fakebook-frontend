@@ -2,7 +2,6 @@ import { userActionTypes } from "./User.Types";
 
 const INITIAL_STATE = {
   avatar: "",
-  avatarFromDB: "",
   created: false,
   loading: false,
   profilePath: "",
@@ -82,6 +81,12 @@ function userReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         coverPath: action.payload,
+      };
+
+    case userActionTypes.CLEAR_PROFILE_CREATED:
+      return {
+        ...state,
+        created: false,
       };
 
     case userActionTypes.CLEAR_COVER_PATH:

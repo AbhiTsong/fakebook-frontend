@@ -10,7 +10,6 @@ import messanger from "../../../Assets/images/messenger.png";
 import bell from "../../../Assets/images/bell.png";
 import down from "../../../Assets/images/down.png";
 import add from "../../../Assets/images/add.png";
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Nested Components
 import Notification from "../Notification/Notification";
@@ -18,25 +17,23 @@ import Messages from "../Messages/Messages";
 import SeeProfile from "../SeeProfile/SeeProfile";
 
 // Redux Imports
+import {
+  signInSelector,
+} from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
-import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 import { noticeSelector } from "../../../Redux/Notification/Notification.selector";
 import { messageSelector } from "../../../Redux/Message/Message.selector";
-import { settingsSelector } from "../../../Redux/ShowSettings/ShowSettings.selector";
 
 function ProfileNavigation() {
   const dispatch = useDispatch();
-  const user = useSelector(currentUser);
+  const userState = useSelector(signInSelector);
   const notice = useSelector(noticeSelector);
   const message = useSelector(messageSelector);
   const [messageState, setMessage] = useState(true);
   const [noticeState, setNotice] = useState(true);
   const [settingsState, setSettings] = useState(false);
 
-  const {
-    user: { firstName, friendRequests },
-  } = user;
 
   function handleNotification() {
     setNotice(!noticeState);
@@ -69,7 +66,7 @@ function ProfileNavigation() {
             </Link>
           </div>
           <Link to="/profile">
-            <h5 className="User_Name">{firstName}</h5>
+            <h5 className="User_Name">{userState.user.firstName}</h5>
           </Link>
         </div>
         <div className="Icon_Container">
@@ -86,8 +83,8 @@ function ProfileNavigation() {
           <div className="User_Nav_Options_Bell">
             <img className="Nav_Icon" src={bell} alt="Message Button" />
           </div>
-          {friendRequests ? (
-            <span className="Bell_Count">{friendRequests.length}</span>
+          {userState.user.friendRequests ? (
+            <span className="Bell_Count">{userState.user.friendRequests.length}</span>
           ) : null}
         </div>
         <div onClick={handleShowProfile} className="Icon_Container">
@@ -96,7 +93,7 @@ function ProfileNavigation() {
           </div>
         </div>
       </div>
-      {settingsState && <SeeProfile user={user} />}
+      {settingsState && <SeeProfile user={userState.user} />}
       {notice.showNotification && <Notification />}
       {message.showMessage && <Messages />}
     </>

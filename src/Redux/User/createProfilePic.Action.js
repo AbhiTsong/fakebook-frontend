@@ -1,6 +1,7 @@
 import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { newAvatarAdded } from "../Auth/SignIn/SignIn.Action";
 
 function createUserAvatar() {
   return {
@@ -33,6 +34,7 @@ function createUserAvatarAction(props) {
         },
       });
       dispatch(createUserAvatarSuccess(props));
+      dispatch(newAvatarAdded());
     } catch (error) {
       if (error.response) {
         dispatch(createUserAvatarFail(error.response.data));

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import config from "../../../config/config.json";
 
 // Redux Import
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { addCommentAction } from "../../../Redux/Post/commentAction";
 
 // Shared Components
@@ -21,7 +21,7 @@ function AddComment({ id }) {
 
   let {
     user: { firstName, lastName, _id, hasAvatar },
-  } = useSelector(currentUser);
+  } = useSelector(signInSelector);
   const [values, handleValues] = useForm({ comment: "" });
 
   function handleKeyPress(e) {

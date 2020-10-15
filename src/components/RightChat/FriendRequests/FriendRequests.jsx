@@ -1,18 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import UserRequestImage from "../UserRequestImage/UserRequestImage";
-import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function FriendRequests() {
-  const requests = useSelector(currentUser);
+  const userState = useSelector(signInSelector);
 
-  if (requests.user.friendRequests.length === 0) {
+  console.log("this is the state", userState);
+
+  // if (userState.length === 0 && userState.friendRequests.length === 0) {
+  if (userState.length === 0) {
     return "";
   } else {
     return (
       <div>
         <h5>Friend Requests</h5>
-        <UserRequestImage userImg={requests.user.friendRequests} />
+        {/* <UserRequestImage
+          userImg={
+            userState.friendRequests.length > 0 ? userState.friendRequests : ""
+          }
+        /> */}
       </div>
     );
   }
