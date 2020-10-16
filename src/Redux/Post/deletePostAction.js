@@ -1,6 +1,7 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { showToster } from "../toster/toster.action";
 
 function deletePostStart() {
   return {
@@ -32,9 +33,11 @@ function deletePostAction(id) {
         },
       });
       dispatch(deletePostSuccess(post));
+      dispatch(showToster("Post Successfully Deleted"));
     } catch (error) {
       if (error.response) {
         dispatch(deletePostFail(error.response.data));
+        dispatch(showToster("Error Occures While Deleting the post"));
       }
     }
   };

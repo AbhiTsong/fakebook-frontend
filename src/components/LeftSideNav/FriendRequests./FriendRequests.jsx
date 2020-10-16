@@ -16,8 +16,8 @@ function FriendRequests() {
     dispatch(ShowModal("FRIEND_REQUESTS"));
   }
   return (
-    <>
-      <div onClick={handleNotification} className="Friend_Request_Container">
+    <div onClick={handleNotification}>
+      <div className="Friend_Request_Container">
         <div className="Friend_Request_Logo">
           <img className="Request_Logo" src={FriendReqs} alt="Request Count" />
         </div>
@@ -28,7 +28,7 @@ function FriendRequests() {
       <h6 className="Request_Count">
         <span className="Dot"></span> <FriendRequestCount /> Request
       </h6>
-    </>
+    </div>
   );
 }
 

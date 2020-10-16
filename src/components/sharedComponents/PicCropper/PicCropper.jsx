@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import "./PicCropper.styles.scss";
 
 // Redux Import
@@ -13,6 +13,7 @@ import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
 import Warning from "../Warning/Warning";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import LoadingSpinner from "../LoadingSpinner/Loading.Spinner"
 
 function PicCropper(props) {
   const dispatch = useDispatch();
@@ -36,6 +37,10 @@ function PicCropper(props) {
     let formData = new FormData();
     formData.append("avatar", user.profilePath[1]);
     dispatch(createUserAvatarAction(formData));
+  }
+
+  if(user.loading){
+      return <LoadingSpinner/>
   }
 
   return (
@@ -74,4 +79,4 @@ function PicCropper(props) {
   );
 }
 
-export default PicCropper;
+export default memo(PicCropper);

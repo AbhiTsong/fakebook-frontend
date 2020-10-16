@@ -9,6 +9,7 @@ import ButtonComponent from "../sharedComponents/Button.Component/Button.Compone
 import RadioButtonComponent from "../sharedComponents/RadioButton/RadioButton.Component";
 import HorizontaLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 import CloseModalIcon from "../sharedComponents/CloseModalIcon/CloseModalIcon";
+import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 
 // Custom Hook Import
 import { useForm } from "../../hooks/useFormInput";
@@ -72,13 +73,19 @@ function SignUpComponent(props) {
     }
   };
 
+  if (signUpState.loading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <div className="modal-content" tabIndex={-1}>
         <div className="modal-header">
+          <div className="Header_Title_Text">
+            <h1 className="header-title">Sign Up</h1>
+            <h5 className="header-sub-title">Its Quick And Easy</h5>
+          </div>
           <CloseModalIcon />
-          <h1 className="header-title">Sign Up</h1>
-          <h5 className="header-sub-title">Its Quick And Easy</h5>
         </div>
         <HorizontaLine />
 

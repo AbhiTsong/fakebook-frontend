@@ -5,8 +5,8 @@ import "./UserProfile.Styles.scss";
 import UserProfileAndCover from "./UserProfileAndCover/UserProfileAndCover";
 import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 import UserTimeline from "./UserTimeline/UserTimeline.Component";
-import UserPhotoAndFriends from "./UserPhotoAndFriends/UserPhotoAndFriends.Component"
-import UserFriendsPost from "./UserFriendsPosts/UserFriendsPosts.Component"
+import UserPhotoAndFriends from "./UserPhotoAndFriends/UserPhotoAndFriends.Component";
+import UserFriendsPost from "./UserFriendsPosts/UserFriendsPosts.Component";
 
 function UserProfile() {
   return (
@@ -17,8 +17,8 @@ function UserProfile() {
           <HorizontalLine />
           <UserTimeline />
           <div className="User_Photos_And_Posts_Container">
-            <UserPhotoAndFriends/>
-            <UserFriendsPost/>
+            <UserPhotoAndFriends />
+            <UserFriendsPost />
           </div>
         </div>
       </div>
@@ -27,6 +27,3 @@ function UserProfile() {
 }
 
 export default UserProfile;
-
-
-// let [scrollPos] = useScrollPosition(false, 790);

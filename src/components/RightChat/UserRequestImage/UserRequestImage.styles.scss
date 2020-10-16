@@ -1,5 +1,11 @@
 .Request_Container {
   padding: 0.5rem;
+  margin-right: 1rem;
+  &:hover {
+    border-radius: 10px;
+    background-color: rgb(187, 187, 199);
+    cursor: pointer;
+  }
   .Request_Content {
     display: flex;
     .Request_Img_Container {
@@ -33,11 +39,11 @@
       outline-color: transparent;
       padding: 0.5rem 1.5rem;
       &:hover {
-       background-color: transparent;
-       background-color: rgb(89, 89, 243);
+        background-color: transparent;
+        background-color: rgb(89, 89, 243);
       }
-     }
-     .Delete_Request {
+    }
+    .Delete_Request {
       margin: 0;
       margin-left: 0.5rem;
       border: none;

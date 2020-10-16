@@ -1,18 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch } from "react-redux"
 import "./Messanger.styles.scss";
 
 import Message from "../../../Assets/images/messenger.png";
 import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
-import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
+// import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 
 function Messanger() {
   const dispatch = useDispatch();
+  const [messageState, setMessage] = useState(true);
+
   function handleMessage() {
-    dispatch(messageAction(true));
+    setMessage(!messageState);
+    dispatch(messageAction(messageState));
     dispatch(notificationAction(false));
-    dispatch(settingsAction(false));
   }
   return (
     <div onClick={handleMessage} className="Messanger_Container">

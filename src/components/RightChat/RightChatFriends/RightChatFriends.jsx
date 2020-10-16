@@ -7,15 +7,11 @@ import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
 function RightChatFriends() {
   const users = useSelector(userSelector);
 
-
-  useEffect(() => {
-    if (users.loading) {
-      return [...Array(10).keys()].map((e, idx) => (
-        <ContactsSkeleton key={e + idx} />
-      ));
-    }
-    return () => {};
-  }, []);
+  if (users.loading) {
+    return [...Array(10).keys()].map((e, idx) => (
+      <ContactsSkeleton key={e + idx} />
+    ));
+  }
 
   return (
     <div className="Contacts_Container">

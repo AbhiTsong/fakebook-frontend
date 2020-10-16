@@ -1,7 +1,15 @@
 .Friend_Request_Container {
   display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 3rem;
+  &:hover{
+    background-color: rgb(197, 197, 207);
+    border-radius: 10px;
+  }
   .Friend_Request_Logo {
     width: 1.5rem;
+    padding-left: 0.5rem;
     .Request_Logo {
       display: block;
       max-width: 100%;
@@ -25,9 +33,10 @@
   margin: 0;
   display: flex;
   color: blue;
-  margin-top: -0.5rem;
-  margin-left: 2.5rem;
+  margin-top: -1rem;
+  margin-left: 3rem;
   margin-bottom: 1rem;
+  cursor: pointer;
   .Dot {
     margin-top: 0.2rem;
     width: 0.4rem;

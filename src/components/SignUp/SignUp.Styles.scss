@@ -36,11 +36,12 @@
   }
 
   .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.3rem 1rem;
     margin: 0;
     height: 4.5rem;
-
-
 
     .header-title {
       margin: 0;

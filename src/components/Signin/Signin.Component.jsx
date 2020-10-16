@@ -17,6 +17,7 @@ import Modal from "../sharedComponents/Modals/Model.Component";
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 import { getToken } from "../../Redux/token";
+import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 
 // Utility Function
 // import { validation } from "../../utility/validation";
@@ -52,6 +53,10 @@ function SignInComponent(props) {
     }
     clearState(INITIAL_STATE);
   };
+
+    if (userSelector.loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="SignInSignUpContainer">

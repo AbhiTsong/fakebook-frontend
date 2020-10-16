@@ -13,7 +13,7 @@ import Default from "../../../Assets/images/default.png";
 function NavProfilePic() {
   const user = useSelector(signInSelector);
 
-console.log('Right Chat',user)
+  console.log("Right Chat", user);
 
   return (
     <div className="Side_Profile_And_Name">
@@ -22,9 +22,9 @@ console.log('Right Chat',user)
           <img
             alt="Logged In User"
             src={
-              !user.user.hasAvatar || !user.newAvatar
-                ? Default
-                : `${config.serverURL}/users/${user.user._id}/avatar`
+              user.user.hasAvatar || user.newAvatar
+                ? `${config.serverURL}/users/${user.user._id}/avatar`
+                : Default
             }
             className="Side_Nav_Profile"
           />

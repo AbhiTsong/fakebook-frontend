@@ -23,12 +23,17 @@ import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
 import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
-import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic"
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
+import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
   const [values, setValues] = useForm({ description: "" });
+
+  // useEffect(() => {
+
+  // }, [post.loading]);
 
   // Effect for Creating the post
   useEffect(() => {
@@ -60,6 +65,10 @@ function CreatePostComponent(props) {
     dispatch(CreatePostAction(formData));
   };
 
+  if (post.loading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="CreatePostContainer">
       <div className="Create_Post_Title_Container">
@@ -68,7 +77,7 @@ function CreatePostComponent(props) {
       </div>
       <HorizontalLine />
       <div className="Create_Post_Profile_Pic">
-        <UserProfilePic/>
+        <UserProfilePic />
       </div>
       <form className="Form_Container">
         {props.path ? (
@@ -85,12 +94,14 @@ function CreatePostComponent(props) {
           />
         )}
         <CreatePostIcons />
+
         <CustomButton
           buttonType="button"
           className="Post_Button"
           buttonClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}
         >
-          {post.loading ? "Uploading..." : "Post"}
+          {" "}
+          Post{" "}
         </CustomButton>
       </form>
     </div>

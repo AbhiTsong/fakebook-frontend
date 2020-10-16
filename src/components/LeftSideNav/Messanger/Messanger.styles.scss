@@ -1,23 +1,30 @@
 .Messanger_Container {
   display: flex;
   margin-bottom: 1rem;
+  height: 3rem;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(188, 188, 207);
+    border-radius: 10px;
+  }
   .Logo_Container {
     width: 1.5rem;
+    padding-left: 0.5rem;
     .Logo {
       display: block;
       max-width: 100%;
       max-height: 100%;
     }
   }
-  .Message_Text_Container{
+  .Message_Text_Container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    .Message_text{
+    .Message_text {
       margin: 0;
       padding-left: 1rem;
     }
   }
-  
 }

@@ -16,6 +16,7 @@ import { clearDeletePostAction } from "../../../Redux/Post/clearsState.Actions.j
 // Shared Components
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
+import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 function DeleteCurrentPost() {
   const postID = useSelector(currentPostIDSelector);
@@ -39,6 +40,10 @@ function DeleteCurrentPost() {
   function handleDelete(e) {
     e.preventDefault();
     dispatch(deletePostAction(postID));
+  }
+
+  if (post.loading) {
+    return <LoadingSpinner />;
   }
 
   return (

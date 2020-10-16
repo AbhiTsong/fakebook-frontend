@@ -11,8 +11,22 @@
     margin-bottom: 1rem;
     font-weight: 500;
 
-    &:last-child{
-     font-weight: 300;
+    &:last-child {
+      font-weight: 300;
+    }
+  }
+
+  .RSS_Inro_Header {
+    display: flex;
+    .Rss_Feed_Container {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 1rem;
+      .RSS_Image {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
   }
 

@@ -1,10 +1,16 @@
 .Side_Profile_And_Name {
   display: flex;
   margin-bottom: 1rem;
+  align-items: center;
+  height: 3rem;
+  &:hover{
+    background-color: rgb(194, 194, 207);
+    border-radius: 10px;
+  }
   .Side_Profile_Container {
     width: 2rem;
     height: 2rem;
-    // border-radius: 50%;
+    padding-left: 0.5rem;
     .Side_Nav_Profile {
       display: block;
       max-width: 100%;

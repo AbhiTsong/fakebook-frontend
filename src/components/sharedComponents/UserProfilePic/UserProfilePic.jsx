@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { withRouter } from "react-router-dom";
 import "./UserProfile.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,4 +33,4 @@ function UserProfilePic(props) {
   );
 }
 
-export default withRouter(UserProfilePic);
+export default withRouter(memo(UserProfilePic));

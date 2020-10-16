@@ -3,10 +3,14 @@
   justify-content: center;
   max-width: 55rem;
   margin: auto;
-  height: calc(100vh - 4rem);
+  // height: calc(100vh - 4rem);
   .User_Profile_Content {
    width: 100%;
    height: 100%;
+  //  overflow-y: scroll;
+   &::-webkit-scrollbar{
+    width: 0;
+   }
    .User_Timeline_Container{
    max-width: 50rem;
    position: relative;
