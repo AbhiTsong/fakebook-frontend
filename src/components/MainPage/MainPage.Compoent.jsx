@@ -1,22 +1,22 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "./MainPage.Styles.scss";
+import { MainPageContainer, MainPageContent } from "./MainPage.styles";
 
 // Child Compoents Imports
 import PostFormComponent from "../sharedComponents/PostForm/PostForm.Component";
 import AllPostsComponent from "../sharedComponents/AllPosts/AllPosts.Component";
 import FriendSuggest from "../sharedComponents/FriendSuggest/FriendSuggest";
 
-function MainPageCompoent(props) {
+function MainPageCompoent() {
   return (
-    <div className="MainPageContainer">
-      <div className="MainPageChildContainer">
+    <MainPageContainer>
+      <MainPageContent>
         <PostFormComponent />
         <FriendSuggest />
         <AllPostsComponent />
-      </div>
-    </div>
+      </MainPageContent>
+    </MainPageContainer>
   );
 }
 
-export default withRouter(MainPageCompoent);
+export default withRouter(React.memo(MainPageCompoent));

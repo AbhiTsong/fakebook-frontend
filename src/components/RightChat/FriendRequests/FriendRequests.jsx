@@ -1,8 +1,13 @@
 import React from "react";
-import "./FriendRequests.styles.scss"
 import { useSelector } from "react-redux";
 import UserRequestImage from "../UserRequestImage/UserRequestImage";
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+
+// Styled Import
+import {
+  FriendRequestContainer,
+  FriendRequestTitle,
+} from "./FriendRequests.styles";
 
 function FriendRequests() {
   const userState = useSelector(signInSelector);
@@ -11,8 +16,8 @@ function FriendRequests() {
     return "";
   } else {
     return (
-      <div className="FriendRequest_Container">
-        <h5>Friend Requests</h5>
+      <FriendRequestContainer>
+        <FriendRequestTitle>Friend Requests</FriendRequestTitle>
         <UserRequestImage
           userImg={
             userState.user.friendRequests.length > 0
@@ -20,7 +25,7 @@ function FriendRequests() {
               : ""
           }
         />
-      </div>
+      </FriendRequestContainer>
     );
   }
 }

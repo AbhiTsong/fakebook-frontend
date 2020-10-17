@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Notification.styles.scss";
+// import "./Notification.styles.scss";
 import { useDispatch } from "react-redux";
 import { staticData } from "../../../statics/statics";
 
@@ -7,6 +7,27 @@ import { staticData } from "../../../statics/statics";
 import { showToster } from "../../../Redux/toster/toster.action";
 
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
+
+// Styled Imports
+import {
+  MessageHeader,
+  HeaderText,
+  HeaderDots,
+  MessageContainer,
+  MessageImageAndText,
+  MessageImageContainer,
+  MessageImage,
+} from "../Messages/Message.Styles";
+
+import {
+  DescriptonButtonContainer,
+  DescriptionText,
+  DescriptionSpan,
+  TimeContainer,
+  ButtonsContainer,
+  AcceptButton,
+  DeclineButton,
+} from "./Notification.Styles";
 
 function Notification() {
   const [showSkeleton, setSkeleton] = useState(true);
@@ -31,60 +52,57 @@ function Notification() {
 
   return (
     <>
-      <div className="Notification_Header">
-        <h2 className="Notification_Header_Text">Notifications</h2>
-        <span className="Notification_Dots">...</span>
-      </div>
-      <div className="Notification_Container">
+      <MessageHeader>
+        <HeaderText className="Notification_Header_Text">
+          Notifications
+        </HeaderText>
+        <HeaderDots className="Notification_Dots">...</HeaderDots>
+      </MessageHeader>
+      <MessageContainer>
         {showSkeleton
           ? [...Array(10).keys()].map((e, idx) => (
               <ContactsSkeleton key={e + idx} />
             ))
           : staticData.map((data) => (
-              <div
-                key={data.name + data.time}
-                className="Notification_Image_Text_Container"
-              >
-                <div className="Notification_Image_Container">
-                  <img
-                    className="Profile_Pic"
-                    alt="User Profile"
-                    src={data.image}
-                  />
-                </div>
-                <div className="Notification_Button_Text">
+              <MessageImageAndText>
+                <MessageImageContainer>
+                  <MessageImage src={data.image} />
+                </MessageImageContainer>
+                <DescriptonButtonContainer>
                   {
-                    <div className="Description_Continer">
-                      <h5 className="Description_Text">
-                        <span className="User_Name">{`${data.name} `}</span>{" "}
+                    <>
+                      <DescriptionText>
+                        <DescriptionSpan className="User_Name">{`${data.name} `}</DescriptionSpan>{" "}
                         {`${data.description}`}
-                      </h5>
+                      </DescriptionText>
 
-                      <h6 className="Time_Container">{data.time}</h6>
+                      <TimeContainer className="Time_Container">
+                        {data.time}
+                      </TimeContainer>
                       {data.buttons ? (
-                        <div className="Buttons_Container">
-                          <button
+                        <ButtonsContainer>
+                          <AcceptButton
                             onClick={handleDispatch}
                             className="Accept_Button"
                           >
                             Accept
-                          </button>
-                          <button
+                          </AcceptButton>
+                          <DeclineButton
                             onClick={handleDispatch}
                             className="Decline_Button"
                           >
                             Decline
-                          </button>
-                        </div>
+                          </DeclineButton>
+                        </ButtonsContainer>
                       ) : (
                         ""
                       )}
-                    </div>
+                    </>
                   }
-                </div>
-              </div>
+                </DescriptonButtonContainer>
+              </MessageImageAndText>
             ))}
-      </div>
+      </MessageContainer>
     </>
   );
 }

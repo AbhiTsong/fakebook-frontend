@@ -1,7 +1,18 @@
 import React, { useState, memo } from "react";
-import "./ProfileNavigation.styles.scss";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
+// Styled Components Imports
+import {
+  NavBarContainer,
+  RightNameAndProfile,
+  ProfilePicContainer,
+  UserName,
+  IconsContainer,
+  IconImageContainer,
+  IconImage,
+  RequestCount,
+} from "./NavProfile.Styles";
 
 // Utility Imports
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
@@ -17,9 +28,7 @@ import Messages from "../Messages/Messages";
 import SeeProfile from "../SeeProfile/SeeProfile";
 
 // Redux Imports
-import {
-  signInSelector,
-} from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
 import { noticeSelector } from "../../../Redux/Notification/Notification.selector";
@@ -33,7 +42,6 @@ function ProfileNavigation() {
   const [messageState, setMessage] = useState(true);
   const [noticeState, setNotice] = useState(true);
   const [settingsState, setSettings] = useState(false);
-
 
   function handleNotification() {
     setNotice(!noticeState);
@@ -58,41 +66,43 @@ function ProfileNavigation() {
 
   return (
     <>
-      <div className="UserInfoNotification">
-        <div className="User_Profile_And_Name">
-          <div className="User_Nav_Options_Profile">
+      <NavBarContainer>
+        <RightNameAndProfile>
+          <ProfilePicContainer>
             <Link to="/profile">
               <UserProfilePic />
             </Link>
-          </div>
+          </ProfilePicContainer>
           <Link to="/profile">
-            <h5 className="User_Name">{userState.user.firstName}</h5>
+            <UserName className="User_Name">
+              {userState.user.firstName}
+            </UserName>
           </Link>
-        </div>
-        <div className="Icon_Container">
-          <div className="User_Nav_Options_Profile">
-            <img className="Nav_Icon" src={add} alt="Add Button" />
-          </div>
-        </div>
-        <div onClick={handleMessage} className="Icon_Container">
-          <div className="User_Nav_Options_Profile">
-            <img className="Nav_Icon" src={messanger} alt="Message Button" />
-          </div>
-        </div>
-        <div onClick={handleNotification} className="Icon_Container">
-          <div className="User_Nav_Options_Bell">
-            <img className="Nav_Icon" src={bell} alt="Message Button" />
-          </div>
+        </RightNameAndProfile>
+        <IconsContainer>
+          <IconImageContainer>
+            <IconImage src={add} />
+          </IconImageContainer>
+        </IconsContainer>
+        <IconsContainer onClick={handleMessage}>
+          <IconImageContainer>
+            <IconImage src={messanger} alt="Message Button" />
+          </IconImageContainer>
+        </IconsContainer>
+        <IconsContainer onClick={handleNotification}>
+          <IconImageContainer>
+            <IconImage src={bell} alt="Message Button" />
+          </IconImageContainer>
           {userState.user.friendRequests ? (
-            <span className="Bell_Count">{userState.user.friendRequests.length}</span>
+            <RequestCount>{userState.user.friendRequests.length}</RequestCount>
           ) : null}
-        </div>
-        <div onClick={handleShowProfile} className="Icon_Container">
-          <div className="User_Nav_Options_Profile">
-            <img className="Nav_Icon" src={down} alt="Message Button" />
-          </div>
-        </div>
-      </div>
+        </IconsContainer>
+        <IconsContainer onClick={handleShowProfile}>
+          <IconImageContainer>
+            <IconImage src={down} alt="Message Button" />
+          </IconImageContainer>
+        </IconsContainer>
+      </NavBarContainer>
       {settingsState && <SeeProfile user={userState.user} />}
       {notice.showNotification && <Notification />}
       {message.showMessage && <Messages />}

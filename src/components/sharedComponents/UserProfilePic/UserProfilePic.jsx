@@ -1,9 +1,11 @@
 import React, { memo } from "react";
 import { withRouter } from "react-router-dom";
-import "./UserProfile.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import config from "../../../config/config.json";
 import Default from "../../../Assets/images/default.png";
+
+// Styled Import
+import { UserImage } from "./UserProfile.styles";
 
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
@@ -21,8 +23,8 @@ function UserProfilePic(props) {
   }
 
   return (
-    <img
-      className="Profile_Pic"
+    <UserImage
+      // className="Profile_Pic"
       src={
         userState.user.hasAvatar || userState.newAvatar
           ? `${config.serverURL}/users/${userState.user._id}/avatar`

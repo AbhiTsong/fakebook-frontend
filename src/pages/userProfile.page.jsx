@@ -11,7 +11,7 @@ import withAuth from "../hoc/withAuth";
 function UserProfilePage(props) {
   // browserRefresh();
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <NavBarComponent />
       <UserProfile />
     </div>

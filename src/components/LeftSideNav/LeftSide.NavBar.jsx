@@ -1,5 +1,7 @@
 import React, { memo } from "react";
-import "./LeftSideBar.Styles.scss";
+
+// Styled Imports
+import { LeftNavComponent } from "./LeftSide.styles";
 
 // Shared Compoenens
 import NavProfilePic from "./NavProfilePic/NavProfilePic";
@@ -11,14 +13,14 @@ import Videos from "./Videos/Videos";
 
 function LeftSideNavBar() {
   return (
-    <div className="LeftChatComponent">
+    <LeftNavComponent>
       <NavProfilePic />
       <FriendRequests />
       <Messanger />
       <Groups />
       <Pages />
       <Videos />
-    </div>
+    </LeftNavComponent>
   );
 }
 

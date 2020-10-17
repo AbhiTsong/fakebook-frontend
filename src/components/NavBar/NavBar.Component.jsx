@@ -13,7 +13,7 @@ import Box from "../../Assets/images/box.png";
 
 function NavBarComponent() {
   return (
-    <div className="NavBar_Container">
+    <nav className="NavBar_Container">
       <div className="LogoContainer">
         <NavLink to="/home">
           <div className="Logo_Content">
@@ -29,66 +29,46 @@ function NavBarComponent() {
         </div>
       </div>
       <div className="NavBar_Content">
-        <nav className="NavBar">
-          <ul className="NavBarUL">
-            <li className="NavBarLI">
-              <NavLink
-                exact
-                activeClassName="active"
-                activeStyle={{
-                  fontWeight: "bold",
-                  color: "red",
-                  backgroundColor: "green",
-                }}
-                to="/home"
-              >
-                <div className="Logo_Content">
-                  <img
-                    src={Home}
-                    className="Fakebook_Logo"
-                    alt="Fakebook Logo"
-                  />
-                </div>
-              </NavLink>
-            </li>
-            <li className="NavBarLI">
-              <NavLink activeClassName="active" to="/videos">
-                <div className="Logo_Content">
-                  <img
-                    src={Video}
-                    className="Fakebook_Logo"
-                    alt="Fakebook Logo"
-                  />
-                </div>
-              </NavLink>
-            </li>
-            <li className="NavBarLI">
-              <NavLink activeClassName="active" to="/contact">
-                <div className="Logo_Content">
-                  <img
-                    src={Group}
-                    className="Fakebook_Logo"
-                    alt="Fakebook Logo"
-                  />
-                </div>
-              </NavLink>
-            </li>
-            <li className="NavBarLI">
-              <NavLink activeClassName="active" to="/contact">
-                <div className="Logo_Content">
-                  <img
-                    src={Box}
-                    className="Fakebook_Logo"
-                    alt="Fakebook Logo"
-                  />
-                </div>
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+        <div className="NavBarLI">
+          <NavLink
+            exact
+            activeClassName="active"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "red",
+              backgroundColor: "green",
+            }}
+            to="/home"
+          >
+            <div className="Logo_Content">
+              <img src={Home} className="Fakebook_Logo" alt="Fakebook Logo" />
+            </div>
+          </NavLink>
+        </div>
+        <div className="NavBarLI">
+          <NavLink activeClassName="active" to="/videos">
+            <div className="Logo_Content">
+              <img src={Video} className="Fakebook_Logo" alt="Fakebook Logo" />
+            </div>
+          </NavLink>
+        </div>
+        <div className="NavBarLI">
+          <NavLink activeClassName="active" to="/contact">
+            <div className="Logo_Content">
+              <img src={Group} className="Fakebook_Logo" alt="Fakebook Logo" />
+            </div>
+          </NavLink>
+        </div>
+        <div className="NavBarLI">
+          <NavLink activeClassName="active" to="/contact">
+            <div className="Logo_Content">
+              <img src={Box} className="Fakebook_Logo" alt="Fakebook Logo" />
+            </div>
+          </NavLink>
+        </div>
       </div>
       <ProfileNavigation />
-    </div>
+    </nav>
   );
 }
 

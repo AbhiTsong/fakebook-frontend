@@ -6,6 +6,7 @@
   background-color: white;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  border: 1px solid lavender;
   .LogoContainer {
     display: flex;
     height: 2rem;
@@ -34,29 +35,22 @@
 
   .NavBar_Content {
     display: flex;
-    justify-content: center;
-    .NavBar {
-      .NavBarUL {
-        list-style: none;
-        text-decoration: none;
-        display: flex;
-        .NavBarLI {
-          padding: 1rem 5rem;
-          .active{
-            background-color: red;
-          }
-          // .active {
-            // color: blue;
-            .Logo_Content {
-              width: 2rem;
+    align-items: center;
+    height: 2rem;
+    justify-content: space-evenly;
+    width: 60%;
+    .NavBarLI {
+      height: 2rem;
+      .active {
+        background-color: red;
+      }
+      .Logo_Content {
+        width: 2rem;
 
-              .Fakebook_Logo {
-                display: block;
-                max-width: 100%;
-                max-height: 100%;
-              }
-            }
-          // }
+        .Fakebook_Logo {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
         }
       }
     }

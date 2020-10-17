@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./SeeProfile.styles.scss";
 import config from "../../../config/config.json";
 import { Link, withRouter } from "react-router-dom";
 
@@ -23,15 +22,32 @@ import LeftArrow from "../../../Assets/images/leftArrow.png";
 import Logout from "../../../Assets/images/logout.png";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
+// Styled Imports
+import {
+  ProfileSettingsContainer,
+  ProfileStttingsHeader,
+  ProfilePicContainer,
+  ProfilePic,
+  ProfileNameContainer,
+  ProfileName,
+  ProfileOption,
+  FeedBackContainer,
+  FeedBackImgCtr,
+  FeedBackIMage,
+  FeedbackTextContainer,
+  FeedbackArrow,
+  FeedBackText,
+  SettingOptionsContainer,
+  SettingsLeftContainer,
+  SettingsImageContainer,
+  Image,
+  OptionText,
+  RightImgContainer,
+} from "./SeeProfile.Styles";
+
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
-  const signOutState = useSelector(SignoutSelector);
-
-  // useEffect(() => {
-  //   if (signOutState.loading === false && signOutState.signedIn === false)
-  // }, [props.history, signOutState]);
-
-  console.log("signOutState signOutState ", signOutState);
+  // const signOutState = useSelector(SignoutSelector);
 
   const {
     user: { _id, firstName, lastName, hasAvatar },
@@ -61,7 +77,7 @@ function SeeProfile(props) {
   function handleLogout() {
     dispatch(SignOutAction());
     props.history.push("/auth");
-    localStorage.removeItem("fakeTkn")
+    localStorage.removeItem("fakeTkn");
     // props.history.go(0);
   }
 
@@ -70,89 +86,97 @@ function SeeProfile(props) {
   // }
 
   return (
-    <div className="Profile_Settings_Container">
+    <ProfileSettingsContainer>
       <Link to="/profile">
-        <div className="Profile_Settings_Header">
-          <div className="Profile_Pic_Container">
-            <img
-              alt="Logged In User"
-              className="Profie_Pic"
+        <ProfileStttingsHeader>
+          <ProfilePicContainer>
+            <ProfilePic
               src={
                 hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default
               }
             />
-          </div>
-          <div className="Profile_Name_Container">
-            <h5 className="Profile_Name">{`${firstName} ${lastName}`}</h5>
-            <h6 className="Profile_Utility">See Your Profile</h6>
-          </div>
-        </div>
+          </ProfilePicContainer>
+          <ProfileNameContainer>
+            <ProfileName className="Profile_Name">{`${firstName} ${lastName}`}</ProfileName>
+            <ProfileOption className="Profile_Utility">
+              See Your Profile
+            </ProfileOption>
+          </ProfileNameContainer>
+        </ProfileStttingsHeader>
       </Link>
       <HorizontalLine />
-      <div onClick={staticToast} className="Feedback_Container">
-        <div className="Feedback_Image_Container">
-          <img src={Feedback} alt="Feedback" className="Feedback_Image" />
-        </div>
-        <div className="Feedback_Text_Container">
-          <h5 className="Feeback_Header">Give Feedback</h5>
-          <h6 className="Feedback_Text">Help Me Improve This Project</h6>
-        </div>
-      </div>
+      <FeedBackContainer onClick={staticToast}>
+        <FeedBackImgCtr>
+          <FeedBackIMage src={Feedback} />
+        </FeedBackImgCtr>
+        <FeedbackTextContainer>
+          <FeedbackArrow className="Feeback_Header">
+            Give Feedback
+          </FeedbackArrow>
+          <FeedBackText className="Feedback_Text">
+            Help Me Improve This Project
+          </FeedBackText>
+        </FeedbackTextContainer>
+      </FeedBackContainer>
       <HorizontalLine />
-      <div onClick={staticToast} className="Settings_And_Privacy">
-        <div className="Settings_Left_Container">
-          <div className="Settings_Container">
-            <img alt="" src={Settings} className="Settings_Image" />
-          </div>
-          <h5 className="Settings_Text">Settings And Privacy</h5>
-        </div>
-        <div className="Arrow_container">
-          <img className="Right_Arrow" src={Right} alt="Right_Arrow" />
-        </div>
-      </div>
+      <SettingOptionsContainer onClick={staticToast}>
+        <SettingsLeftContainer>
+          <SettingsImageContainer>
+            <Image alt="" src={Settings} className="Settings_Image" />
+          </SettingsImageContainer>
+          <OptionText className="Settings_Text">
+            Settings And Privacy
+          </OptionText>
+        </SettingsLeftContainer>
+        <RightImgContainer>
+          <Image className="Right_Arrow" src={Right} alt="Right_Arrow" />
+        </RightImgContainer>
+      </SettingOptionsContainer>
 
-      <div onClick={staticToast} className="Settings_And_Privacy">
-        <div className="Settings_Left_Container">
-          <div className="Settings_Container">
-            <img alt="" src={Questionmark} className="Settings_Image" />
-          </div>
-          <h5 className="Settings_Text">Help And Support</h5>
-        </div>
-        <div className="Arrow_container">
-          <img className="Right_Arrow" src={Right} alt="Right_Arrow" />
-        </div>
-      </div>
+      <SettingOptionsContainer onClick={staticToast}>
+        <SettingsLeftContainer>
+          <SettingsImageContainer>
+            <Image alt="" src={Questionmark} className="Settings_Image" />
+          </SettingsImageContainer>
+          <OptionText className="Settings_Text">Help And Support</OptionText>
+        </SettingsLeftContainer>
+        <RightImgContainer>
+          <Image className="Right_Arrow" src={Right} alt="Right_Arrow" />
+        </RightImgContainer>
+      </SettingOptionsContainer>
 
-      <div className="Settings_And_Privacy">
-        <div className="Settings_Left_Container">
-          <div className="Settings_Container">
-            <img alt="" src={Moon} className="Settings_Image" />
-          </div>
-          <h5 className="Settings_Text">Dark Mode</h5>
-        </div>
-        <div onClick={selectThemeFunc} className="Arrow_container">
-          <img className="Right_Arrow" src={Right} alt="Right_Arrow" />
-        </div>
-      </div>
+      <SettingOptionsContainer>
+        <SettingsLeftContainer>
+          <SettingsImageContainer>
+            <Image alt="" src={Moon} className="Settings_Image" />
+          </SettingsImageContainer>
+          <OptionText className="Settings_Text">Dark Mode</OptionText>
+        </SettingsLeftContainer>
+        <RightImgContainer onClick={selectThemeFunc}>
+          <Image className="Right_Arrow" src={Right} alt="Right_Arrow" />
+        </RightImgContainer>
+      </SettingOptionsContainer>
 
-      <div onClick={handleClassic} className="Settings_And_Privacy">
-        <div className="Settings_Left_Container">
-          <div className="Settings_Container">
-            <img alt="" src={LeftArrow} className="Settings_Image" />
-          </div>
-          <h5 className="Settings_Text">Switch To Classic Facebook</h5>
-        </div>
-      </div>
+      <SettingOptionsContainer onClick={handleClassic}>
+        <SettingsLeftContainer>
+          <SettingsImageContainer>
+            <Image alt="" src={LeftArrow} className="Settings_Image" />
+          </SettingsImageContainer>
+          <OptionText className="Settings_Text">
+            Switch To Classic Facebook
+          </OptionText>
+        </SettingsLeftContainer>
+      </SettingOptionsContainer>
 
-      <div onClick={handleLogout} className="Settings_And_Privacy">
-        <div className="Settings_Left_Container">
-          <div className="Settings_Container">
-            <img alt="" src={Logout} className="Settings_Image" />
-          </div>
-          <h5 className="Settings_Text">Logout</h5>
-        </div>
-      </div>
-    </div>
+      <SettingOptionsContainer onClick={handleLogout}>
+        <SettingsLeftContainer>
+          <SettingsImageContainer>
+            <Image alt="" src={Logout} className="Settings_Image" />
+          </SettingsImageContainer>
+          <OptionText className="Settings_Text">Logout</OptionText>
+        </SettingsLeftContainer>
+      </SettingOptionsContainer>
+    </ProfileSettingsContainer>
   );
 }
 

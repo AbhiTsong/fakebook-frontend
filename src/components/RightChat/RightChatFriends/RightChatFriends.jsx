@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../../Redux/User/UserSelector";
 import ContactImagesAndName from "./ContactImages/ContactImages";
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
+
+import { ContactsContainer } from "./RightChatUsers.Styles";
 
 function RightChatFriends() {
   const users = useSelector(userSelector);
@@ -14,10 +16,10 @@ function RightChatFriends() {
   }
 
   return (
-    <div className="Contacts_Container">
+    <ContactsContainer>
       {users.allUsers.data &&
         users.allUsers.data.map((user, idx) => (
-          <div key={user + idx} className="Contacts_List">
+          <div key={user + idx}>
             <ContactImagesAndName
               avatar={user.hasAvatar}
               id={user._id}
@@ -25,7 +27,7 @@ function RightChatFriends() {
             />
           </div>
         ))}
-    </div>
+    </ContactsContainer>
   );
 }
 
