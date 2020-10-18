@@ -1,5 +1,12 @@
 import React from "react";
-import "./UserProfile.Styles.scss";
+
+// Styled Imports
+import {
+  UserProfileContainer,
+  UserProfileContent,
+  UserTimeLineContainer,
+  UserPhotosAndPosts,
+} from "./UserProfile.styles";
 
 // Components Imports
 import UserProfileAndCover from "./UserProfileAndCover/UserProfileAndCover";
@@ -10,19 +17,19 @@ import UserFriendsPost from "./UserFriendsPosts/UserFriendsPosts.Component";
 
 function UserProfile() {
   return (
-    <div className="User_Profile_Container">
-      <div className="User_Profile_Content">
+    <UserProfileContainer>
+      <UserProfileContent>
         <UserProfileAndCover />
-        <div className="User_Timeline_Container">
+        <UserTimeLineContainer>
           <HorizontalLine />
           <UserTimeline />
-          <div className="User_Photos_And_Posts_Container">
+          <UserPhotosAndPosts>
             <UserPhotoAndFriends />
             <UserFriendsPost />
-          </div>
-        </div>
-      </div>
-    </div>
+          </UserPhotosAndPosts>
+        </UserTimeLineContainer>
+      </UserProfileContent>
+    </UserProfileContainer>
   );
 }
 

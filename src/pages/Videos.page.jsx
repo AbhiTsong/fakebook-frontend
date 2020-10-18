@@ -1,6 +1,9 @@
 import React from "react";
-import "./Video.page.styles.scss"
-import withAuth from "../hoc/withAuth"
+import withAuth from "../hoc/withAuth";
+
+// Styled Imports
+import { HomePAgeContainer, HomePageContent } from "./HomePage.Styles";
+import { VideoContiner } from "./VideosPage.styles";
 
 // Nested Compoenents Imports
 import NavBarComponent from "../components/NavBar/NavBar.Component";
@@ -10,16 +13,16 @@ import Video from "../components/sharedComponents/Video/Video";
 
 function Videos() {
   return (
-    <div className="HomePage_Container">
+    <HomePAgeContainer>
       <NavBarComponent />
-      <div className="MainHomePageContent">
+      <HomePageContent>
         <LeftSideNavBar />
-        <div className="video_containet">
+        <VideoContiner>
           <Video />
-        </div>
+        </VideoContiner>
         <RightChatComponent />
-      </div>
-    </div>
+      </HomePageContent>
+    </HomePAgeContainer>
   );
 }
 

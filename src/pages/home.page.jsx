@@ -1,6 +1,9 @@
 // React And NPM Imports
 import React from "react";
-import "./home.page.styles.scss";
+
+// Styled Imports
+import { HomePAgeContainer, HomePageContent } from "./HomePage.Styles";
+
 import { withRouter } from "react-router-dom";
 
 // Component Imports
@@ -12,14 +15,14 @@ import withAuth from "../hoc/withAuth";
 
 function HomePage(props) {
   return (
-    <div className="HomePage_Container">
+    <HomePAgeContainer>
       <NavBarComponent />
-      <div className="MainHomePageContent">
+      <HomePageContent>
         <LeftSideNavBar />
         <MainPageCompoent />
         <RightChatComponent />
-      </div>
-    </div>
+      </HomePageContent>
+    </HomePAgeContainer>
   );
 }
 

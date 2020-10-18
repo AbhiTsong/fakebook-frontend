@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import "./FriendRequests..styles.scss";
 
 import FriendReqs from "../../../Assets/images/bell.png";
 
@@ -10,6 +9,16 @@ import FriendRequestCount from "../../sharedComponents/FriendRequestCount/Friend
 // import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
+import {
+  FriendReqContr,
+  FriendReqLogoCtr,
+  FriendReqLogo,
+  RequestCountContr,
+  ReqText,
+  ReqCount,
+  ReqCountDot,
+} from "./FriendRequest.Styles";
+
 function FriendRequests() {
   const dispatch = useDispatch();
   function handleNotification() {
@@ -17,17 +26,17 @@ function FriendRequests() {
   }
   return (
     <div onClick={handleNotification}>
-      <div className="Friend_Request_Container">
-        <div className="Friend_Request_Logo">
-          <img className="Request_Logo" src={FriendReqs} alt="Request Count" />
-        </div>
-        <div className="Count_Text_Container">
-          <h5 className="Count_Text ">Friends</h5>
-        </div>
-      </div>
-      <h6 className="Request_Count">
-        <span className="Dot"></span> <FriendRequestCount /> Request
-      </h6>
+      <FriendReqContr>
+        <FriendReqLogoCtr>
+          <FriendReqLogo src={FriendReqs} />
+        </FriendReqLogoCtr>
+        <RequestCountContr>
+          <ReqText>Friends</ReqText>
+        </RequestCountContr>
+      </FriendReqContr>
+      <ReqCount>
+        <ReqCountDot></ReqCountDot> <FriendRequestCount /> Request
+      </ReqCount>
     </div>
   );
 }

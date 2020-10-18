@@ -1,10 +1,19 @@
 import React, { useEffect } from "react";
 
+// Styled Imports
+import {
+  AddPostContainer,
+  SinglePostContainer,
+  SinglePostContent,
+  CenterPostText,
+  SinglrPostText,
+  CommentContainer,
+} from "./AddPost.Styles";
+
 // Redux Imports
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 import { postSelector } from "../../../Redux/Post/post.selector";
-import "./AllPosts.Styles.scss";
 
 // Component Imports
 import PhotoPost from "./PhotoPost/PhotoPost.Component";
@@ -14,7 +23,6 @@ import CommentsContainer from "../../sharedComponents/CommentsContainer/Comments
 import AddComment from "../../sharedComponents/AddComment/AddComment";
 import PostHeader from "./PostHeader/PostHeader";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
-import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
@@ -33,25 +41,23 @@ function AllPostsComponent() {
     return "No Posts In The DataBase";
   }
 
-
-
   return (
-    <div className="All_Post_Container">
+    <AddPostContainer>
       {allPost.allPosts.data &&
         allPost.allPosts.data
           .map((post, idx) => (
-            <div key={post + idx} className="Single_Post_Container">
+            <SinglePostContainer key={post + idx}>
               <PostHeader post={post} />
-              <div className="Single_Post_Content">
+              <SinglePostContent>
                 {post.photo !== null ? (
                   <PhotoPost post={post} />
                 ) : (
-                  <div className="Center_Post_Text">
-                    <p className="Single_Post_Text">{post.description}</p>
-                  </div>
+                  <CenterPostText>
+                    <SinglrPostText>{post.description}</SinglrPostText>
+                  </CenterPostText>
                 )}
-              </div>
-              <div className="Comments_Container">
+              </SinglePostContent>
+              <CommentContainer>
                 {/* Likes And Comments Count */}
                 <LikeCommentsCount like={post.like} comments={post.comments} />
                 {/* Like Comments Container */}
@@ -59,11 +65,11 @@ function AllPostsComponent() {
 
                 <CommentsContainer comments={post.comments} />
                 <AddComment id={post._id} />
-              </div>
-            </div>
+              </CommentContainer>
+            </SinglePostContainer>
           ))
           .reverse()}
-    </div>
+    </AddPostContainer>
   );
 }
 

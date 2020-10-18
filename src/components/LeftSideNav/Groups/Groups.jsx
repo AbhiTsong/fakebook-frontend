@@ -1,19 +1,26 @@
 import React from "react";
-import "./Groups.styles.scss";
+
+import {
+  GroupsContainer,
+  GroupsContent,
+  GroupsIcon,
+  GroupTextContainer,
+  GroupText,
+} from "./Groups.Styles";
 
 // Logo Img Import
 import Group from ".././../../Assets/images/group.png";
 
 function Groups() {
   return (
-    <div className="Groups_Container">
-      <div className="Groups_Content">
-        <img src={Group} alt="Groups Icons" className="Groups_Icon" />
-      </div>
-      <div className="Group_Text_Container">
-        <h5 className="Group_Text">Groups</h5>
-      </div>
-    </div>
+    <GroupsContainer>
+      <GroupsContent>
+        <GroupsIcon src={Group} />
+      </GroupsContent>
+      <GroupTextContainer>
+        <GroupText>Groups</GroupText>
+      </GroupTextContainer>
+    </GroupsContainer>
   );
 }
 

@@ -1,7 +1,13 @@
 import React from "react";
-import "./AddComment.styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 import config from "../../../config/config.json";
+
+// Styled Imports
+import {
+  CommentsContainer,
+  ImageContr,
+  StyledFormInput,
+} from "./AddComment.style";
 
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
@@ -42,22 +48,19 @@ function AddComment({ id }) {
   }
 
   return (
-    <div className="Add_Comment">
-      <img
-        className="LoggedIn_User"
+    <CommentsContainer>
+      <ImageContr
         src={hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default}
-        alt="Creator Profile Pic"
       />
-      <FormInput
+      <StyledFormInput
         name="comment"
         type="text"
         value={values.comment.split("  ").join(" ")}
         placeholder={`Add Comments ${firstName}....`}
         onChange={handleValues}
-        className="Comment_Input"
         onKeyPress={handleKeyPress}
       />
-    </div>
+    </CommentsContainer>
   );
 }
 

@@ -1,12 +1,31 @@
 import React, { useState, useEffect } from "react";
-import "./SignUp.Styles.scss";
 import { withRouter } from "react-router-dom";
-// App Files
-import FormInput from "../sharedComponents/FormInput/FormInput.Component";
+
+import {
+  ModalContainer,
+  ModalHeader,
+  ModalTitleText,
+  ModalSubTitleTxt,
+  SignUpFormContainer,
+  SignUpFormContent,
+  SignUpForm,
+  NameLabel,
+  StyledNameForms,
+  StyledEmailPassInput,
+  DateOFBirth,
+  DOBContaoner,
+  DOMDropDowns,
+  GenderTitle,
+  GenderContinaer,
+  GenderContent,
+  StyledRadio,
+  ValueContainer,
+  TermsAndPolicy,
+  BlueColor,
+} from "./SignUp.Styled";
 
 // Shared Componenets
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
-import RadioButtonComponent from "../sharedComponents/RadioButton/RadioButton.Component";
 import HorizontaLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 import CloseModalIcon from "../sharedComponents/CloseModalIcon/CloseModalIcon";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
@@ -79,47 +98,45 @@ function SignUpComponent(props) {
 
   return (
     <>
-      <div className="modal-content" tabIndex={-1}>
-        <div className="modal-header">
-          <div className="Header_Title_Text">
-            <h1 className="header-title">Sign Up</h1>
-            <h5 className="header-sub-title">Its Quick And Easy</h5>
+      <ModalContainer tabIndex={-1}>
+        <ModalHeader>
+          <div>
+            <ModalTitleText className="header-title">Sign Up</ModalTitleText>
+            <ModalSubTitleTxt className="header-sub-title">
+              Its Quick And Easy
+            </ModalSubTitleTxt>
           </div>
           <CloseModalIcon />
-        </div>
+        </ModalHeader>
         <HorizontaLine />
 
-        <div className="SignUpFormContainer">
-          <div className="SignUpFormContent">
-            <form onSubmit={handleSignUp} className="SignUpForm">
-              <div className="Form-Name-Sir-Name">
-                <FormInput
-                  className="Form-Input-Field"
+        <SignUpFormContainer>
+          <SignUpFormContent>
+            <SignUpForm onSubmit={handleSignUp}>
+              <NameLabel>
+                <StyledNameForms
                   name="firstName"
                   type="text"
                   value={values.firstName}
                   placeholder="First Name"
                   onChange={handleValues}
                 />
-                <FormInput
-                  className="Form-Input-Field"
+                <StyledNameForms
                   name="lastName"
                   type="text"
                   value={values.lastName}
                   placeholder="Surname"
                   onChange={handleValues}
                 />
-              </div>
-              <FormInput
-                className="Form-Input-Field"
+              </NameLabel>
+              <StyledEmailPassInput
                 name="email"
                 type="email"
                 value={values.email}
                 placeholder="email address"
                 onChange={handleValues}
               />
-              <FormInput
-                className="Form-Input-Field"
+              <StyledEmailPassInput
                 name="password"
                 type="password"
                 value={values.password}
@@ -128,10 +145,10 @@ function SignUpComponent(props) {
               />
 
               {/* Selecting The Data Of Birth */}
-              <h6 className="DOBTitle">Date Of Birth</h6>
-              <div className="DOBConatiner">
+              <DateOFBirth className="DOBTitle">Date Of Birth</DateOFBirth>
+              <DOBContaoner>
                 {/* Select The Date */}
-                <select
+                <DOMDropDowns
                   value={values.date}
                   name="date"
                   type="date"
@@ -143,10 +160,10 @@ function SignUpComponent(props) {
                       {day}
                     </option>
                   ))}
-                </select>
+                </DOMDropDowns>
 
                 {/* Selectin The Month */}
-                <select
+                <DOMDropDowns
                   value={values.month}
                   name="month"
                   type="month"
@@ -158,10 +175,10 @@ function SignUpComponent(props) {
                       {month}
                     </option>
                   ))}
-                </select>
+                </DOMDropDowns>
 
                 {/* Selecting The Year */}
-                <select
+                <DOMDropDowns
                   value={values.year}
                   name="year"
                   type="year"
@@ -173,60 +190,64 @@ function SignUpComponent(props) {
                       {year}
                     </option>
                   ))}
-                </select>
-              </div>
+                </DOMDropDowns>
+              </DOBContaoner>
 
               {/* Gender Radio Buttons */}
-              <h6 className="GenderTitle">Gender</h6>
-              <div className="GenderConatiner">
-                <div className="Gender-Content">
-                  <label htmlFor="female" className="Value-Container">
+              <GenderTitle>Gender</GenderTitle>
+              <GenderContinaer>
+                <GenderContent>
+                  <ValueContainer htmlFor="female">
                     Female
-                    <RadioButtonComponent
+                    <StyledRadio
                       type="radio"
                       value="female"
                       id="female"
                       onChange={handleChange}
                       name="gender"
                     />
-                  </label>
-                </div>
-                <div className="Gender-Content">
-                  <label htmlFor="male" className="Value-Container">
+                  </ValueContainer>
+                </GenderContent>
+                <GenderContent>
+                  <ValueContainer htmlFor="male">
                     Male
-                    <RadioButtonComponent
+                    <StyledRadio
                       type="radio"
                       value="male"
                       id="male"
                       onChange={handleChange}
                       name="gender"
                     />
-                  </label>
-                </div>
-                <div className="Gender-Content">
-                  <label htmlFor="others" className="Value-Container">
+                  </ValueContainer>
+                </GenderContent>
+                <GenderContent>
+                  <ValueContainer htmlFor="others">
                     Others
-                    <RadioButtonComponent
+                    <StyledRadio
                       type="radio"
                       value="others"
                       id="others"
                       onChange={handleChange}
                       name="gender"
                     />
-                  </label>
-                </div>
-              </div>
-              <h6 className="Terms-And-Policy">
+                  </ValueContainer>
+                </GenderContent>
+              </GenderContinaer>
+              <TermsAndPolicy>
                 By clicking Sign Up, you agree to our{" "}
-                <span className="Color-Blue">Terms, Data Policy </span> and{" "}
-                <span className="Color-Blue"> Cookie Policy. </span> You may
-                receive SMS notifications from us and can opt out at any time.
-              </h6>
+                <BlueColor className="Color-Blue">
+                  Terms, Data Policy{" "}
+                </BlueColor>{" "}
+                and{" "}
+                <BlueColor className="Color-Blue"> Cookie Policy. </BlueColor>{" "}
+                You may receive SMS notifications from us and can opt out at any
+                time.
+              </TermsAndPolicy>
               <ButtonComponent>Sign Up</ButtonComponent>
-            </form>
-          </div>
-        </div>
-      </div>
+            </SignUpForm>
+          </SignUpFormContent>
+        </SignUpFormContainer>
+      </ModalContainer>
     </>
   );
 }

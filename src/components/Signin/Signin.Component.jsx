@@ -1,6 +1,17 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import "./sign-in.styles.scss";
+
+// Styled Imports
+import {
+  SignInContaner,
+  SignInContent,
+  SignInTxtContr,
+  SignInText1,
+  SignInText2,
+  SignInFormContainer,
+  SignInForm,
+  FormInputStyled,
+} from "./Signin.Styles";
 
 // Custom Hook
 import { useForm } from "../../hooks/useFormInput";
@@ -14,10 +25,10 @@ import { modalSelector } from "../../Redux/Modal/ModalSelector";
 
 // Shared Component Imports
 import Modal from "../sharedComponents/Modals/Model.Component";
-import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 import { getToken } from "../../Redux/token";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
+import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 
 // Utility Function
 // import { validation } from "../../utility/validation";
@@ -54,21 +65,21 @@ function SignInComponent(props) {
     clearState(INITIAL_STATE);
   };
 
-    if (userSelector.loading) {
+  if (userSelector.loading) {
     return <LoadingSpinner />;
   }
 
   return (
-    <div className="SignInSignUpContainer">
-      <div className="SignInContainer">
-        <div className="SignInText">
-          <h1>fakebook</h1>
-          <h2>Fakebook helps you connect and share</h2>
-          <h2>with people in your life</h2>
-        </div>
-        <div className="SignInFormContainer">
-          <form onSubmit={handleLogIn} className="SignInForm">
-            <FormInput
+    <SignInContaner>
+      <SignInContent>
+        <SignInTxtContr>
+          <SignInText1>fakebook</SignInText1>
+          <SignInText2>Fakebook helps you connect and share</SignInText2>
+          <SignInText2>with people in your life</SignInText2>
+        </SignInTxtContr>
+        <SignInFormContainer>
+          <SignInForm onSubmit={handleLogIn}>
+            <FormInputStyled
               className="Form-Input-Field"
               name="email"
               type="email"
@@ -76,7 +87,7 @@ function SignInComponent(props) {
               placeholder="Email Address Or Phone Number"
               onChange={handleValues}
             />
-            <FormInput
+            <FormInputStyled
               className="Form-Input-Field"
               name="password"
               type="password"
@@ -87,15 +98,16 @@ function SignInComponent(props) {
             <ButtonComponent>Log In</ButtonComponent>
             <h5>Forgot Password</h5>
             <div className="line" />
-          </form>
+          </SignInForm>
+          <HorizontalLine />
           <ButtonComponent buttonType="button" buttonClick={handleModal}>
             Create A New Account
           </ButtonComponent>
           {modalState.show && <Modal />}
-        </div>
+        </SignInFormContainer>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}
-      </div>
-    </div>
+      </SignInContent>
+    </SignInContaner>
   );
 }
 

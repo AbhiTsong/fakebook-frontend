@@ -1,11 +1,20 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux"
-import "./Messanger.styles.scss";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
+// Images
 import Message from "../../../Assets/images/messenger.png";
 import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
 // import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
+
+// Styled Imports
+import {
+  LeftMessageContainer,
+  LeftLogoContaner,
+  LeftMsgLogo,
+  LeftMsgTxtContr,
+  LeftMsgTxt,
+} from "./Messenger.Styles";
 
 function Messanger() {
   const dispatch = useDispatch();
@@ -17,14 +26,14 @@ function Messanger() {
     dispatch(notificationAction(false));
   }
   return (
-    <div onClick={handleMessage} className="Messanger_Container">
-      <div className="Logo_Container">
-        <img className="Logo" src={Message} alt="Messanger Container" />
-      </div>
-      <div className="Message_Text_Container">
-        <h5 className="Message_text">Message</h5>
-      </div>
-    </div>
+    <LeftMessageContainer onClick={handleMessage}>
+      <LeftLogoContaner>
+        <LeftMsgLogo src={Message} />
+      </LeftLogoContaner>
+      <LeftMsgTxtContr>
+        <LeftMsgTxt>Message</LeftMsgTxt>
+      </LeftMsgTxtContr>
+    </LeftMessageContainer>
   );
 }
 
