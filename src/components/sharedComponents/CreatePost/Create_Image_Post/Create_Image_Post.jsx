@@ -1,14 +1,14 @@
 import React from "react";
-import "./Create_Image_Styles.scss";
 
-// // Custom Hook Import
-// import { useForm } from "../../../../hooks/useFormInput";
+// styled imports
+import {
+  StyledFormInput,
+  PicRreviewContainer,
+  PicPreviewImg,
+} from "./CreateImage.Styles";
 
 // Custom Component
 import RemoveImage from "./RemoveImage/RemoveImage.Component";
-
-// Shared Componet Import
-import FormInput from "../../../sharedComponents/FormInput/FormInput.Component";
 
 const WORD_LIMIT = 100;
 
@@ -17,7 +17,7 @@ function CreateImagePost(props) {
 
   return (
     <>
-      <FormInput
+      <StyledFormInput
         name="description"
         placeholder="What is on your mind, Abhi??"
         type="text"
@@ -26,10 +26,10 @@ function CreateImagePost(props) {
         maxLength={WORD_LIMIT}
         className="Photo_Description"
       />
-      <div className="Pic_Preview_Container">
+      <PicRreviewContainer>
         <RemoveImage />
-        <img className="Post_Pic" src={props.path[0]} alt="File To Upload" />
-      </div>
+        <PicPreviewImg src={props.path[0]} />
+      </PicRreviewContainer>
     </>
   );
 }

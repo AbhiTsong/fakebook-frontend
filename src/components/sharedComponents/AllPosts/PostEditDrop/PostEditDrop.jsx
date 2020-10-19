@@ -1,6 +1,15 @@
 import React from "react";
-import "./PostEditDrop.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
+
+// Styled Imports
+import {
+  PostEditOptions,
+  PostEditHeader,
+  IconTextContainer,
+  IconContent,
+  Icon,
+  EditText,
+} from "./PostEdit.Styles";
 
 // Shared Compoent
 import HorizontalLine from "../../HorizontalLine/HorizontalLine";
@@ -13,9 +22,7 @@ import Delete from "../../../../Assets/images/delete.png";
 // Redux Import
 import { ShowModal } from "../../../../Redux/Modal/ModalAction";
 import { fetchCurrentPostID } from "../../../../Redux/Post/fetchCurrentPostIDAction";
-import {
-  signInSelector,
-} from "../../../../Redux/Auth/SignIn/SignIn.Selector";
+import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import { allPostsSelector } from "../../../../Redux/Post/post.selector";
 import { showDrop } from "../../../../Redux/Post/editDropAction";
 
@@ -47,31 +54,33 @@ function PostEditDrop({ id }) {
   }
 
   return (
-    <div className="Post_Edit_options">
-      <h5 className="Post_Edit_Header">Edit Post Options</h5>
+    <PostEditOptions>
+      <PostEditHeader className="Post_Edit_Header">
+        Edit Post Options
+      </PostEditHeader>
       <HorizontalLine />
-      <div onClick={handleEditPost} className="Icon_Text_Container">
-        <div className="Icon_Content">
-          <img src={Edit} alt="Edit Option" className="Edit_Icon" />
-        </div>
-        <h5 className="Edit_Text">Edit Post</h5>
-      </div>
+      <IconTextContainer onClick={handleEditPost}>
+        <IconContent>
+          <Icon src={Edit} Icon />
+        </IconContent>
+        <EditText>Edit Post</EditText>
+      </IconTextContainer>
 
-      <div onClick={handleEditPost} className="Icon_Text_Container">
-        <div className="Icon_Content">
-          <img src={Update} alt="Edit Option" className="Edit_Icon" />
-        </div>
-        <h5 className="Edit_Text">Update Post</h5>
-      </div>
+      <IconTextContainer onClick={handleEditPost}>
+        <IconContent>
+          <Icon src={Update} Icon />
+        </IconContent>
+        <EditText>Update Post</EditText>
+      </IconTextContainer>
 
-      <div onClick={handleDeletePost} className="Icon_Text_Container">
-        <div className="Icon_Content">
-          <img src={Delete} alt="Edit Option" className="Edit_Icon" />
-        </div>
-        <h5 className="Edit_Text">Delete Post</h5>
-      </div>
+      <IconTextContainer onClick={handleDeletePost}>
+        <IconContent>
+          <Icon src={Delete} Icon />
+        </IconContent>
+        <EditText>Delete Post</EditText>
+      </IconTextContainer>
       <HorizontalLine />
-    </div>
+    </PostEditOptions>
   );
 }
 

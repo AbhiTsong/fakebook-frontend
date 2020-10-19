@@ -1,4 +1,6 @@
-.Remove_Pic_Button {
+import styled from "styled-components";
+
+const RemovePicButton = styled.span`
   position: absolute;
   top: 5px;
   right: 5px;
@@ -14,4 +16,6 @@
   &:hover {
     opacity: 0.9;
   }
-}
+`;
+
+export { RemovePicButton };

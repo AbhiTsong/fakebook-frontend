@@ -8,7 +8,6 @@ import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 import CreateTextPost from "../CreatePost/Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "../CreatePost/CreatePostIcons/CreatePostIcons.Component";
-import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
 
 // Redux Imports
 import {
@@ -67,13 +66,13 @@ function EditCurrentPost(props) {
           onChange={setValues}
         />
         <CreatePostIcons />
-        <CustomButton
+        <button
           buttonType="button"
           className="Post_Button"
           buttonClick={handleEditPost}
         >
           Update
-        </CustomButton>
+        </button>
       </form>
     </div>
   );

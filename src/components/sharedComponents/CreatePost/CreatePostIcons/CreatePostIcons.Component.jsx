@@ -1,9 +1,10 @@
 import React from "react";
-import "./CreatePostIcons.styles.scss"
+
+import { AddPostContainer } from "./CreatePostIcon.styles";
 
 function CreatePostIcons() {
   return (
-    <div className="Add_Post_Container">
+    <AddPostContainer>
       <span>Add to your post</span>
       <span>
         <i>1</i>
@@ -13,7 +14,7 @@ function CreatePostIcons() {
         <i>5</i>
         <i>...</i>
       </span>
-    </div>
+    </AddPostContainer>
   );
 }
 

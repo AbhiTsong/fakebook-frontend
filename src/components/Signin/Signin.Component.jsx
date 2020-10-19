@@ -25,7 +25,6 @@ import { modalSelector } from "../../Redux/Modal/ModalSelector";
 
 // Shared Component Imports
 import Modal from "../sharedComponents/Modals/Model.Component";
-import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 import { getToken } from "../../Redux/token";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
@@ -95,14 +94,14 @@ function SignInComponent(props) {
               placeholder="password"
               onChange={handleValues}
             />
-            <ButtonComponent>Log In</ButtonComponent>
+            <button>Log In</button>
             <h5>Forgot Password</h5>
             <div className="line" />
           </SignInForm>
           <HorizontalLine />
-          <ButtonComponent buttonType="button" buttonClick={handleModal}>
+          <button buttonType="button" buttonClick={handleModal}>
             Create A New Account
-          </ButtonComponent>
+          </button>
           {modalState.show && <Modal />}
         </SignInFormContainer>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}

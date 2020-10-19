@@ -1,5 +1,8 @@
 import React from "react";
-import "./CloseModal.styles.scss";
+
+// Styled Imports
+
+import { CloseBtnContr, CloseButton } from "./CloseModalIcon.Styles";
 
 // Redux Import
 import { useDispatch } from "react-redux";
@@ -13,11 +16,9 @@ function CloseModalIcon() {
   };
 
   return (
-    <div className="Close_Button_Container">
-      <span className="close" onClick={handleCloseModal}>
-        ×
-      </span>
-    </div>
+    <CloseBtnContr>
+      <CloseButton onClick={handleCloseModal}>×</CloseButton>
+    </CloseBtnContr>
   );
 }
 

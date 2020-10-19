@@ -1,5 +1,14 @@
 import React from "react";
-import "./CoverChangeDropMenu.styles.scss";
+
+// Styled Imports\
+import {
+  CoverDropContainer,
+  SelectPhotoContainer,
+  SelectPhotoContent,
+  SelectedPhoto,
+  SelectText,
+  UploadPhoto,
+} from "./CoverChangeDrop.styles";
 
 // Shared Compoenents
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
@@ -12,35 +21,35 @@ import File from "../../../Assets/images/upload.png";
 
 function CoverChangeDropMenu() {
   return (
-    <div className="Cover_Drop_Container">
-      <div className="Select_Photo_Container">
-        <div className="Select_Photo_Content">
-          <img src={Select} alt="File Upload" className="Select_Photo" />
-        </div>
-        <h6 className="File_Text">Select Photo</h6>
-      </div>
-      <div className="Upload_Photo">
+    <CoverDropContainer>
+      <SelectPhotoContainer>
+        <SelectPhotoContent>
+          <SelectedPhoto src={Select} alt="File Upload" />
+        </SelectPhotoContent>
+        <SelectText>Select Photo</SelectText>
+      </SelectPhotoContainer>
+      <UploadPhoto>
         <ChangeCover />
-        <h6 className="Upload_text">Upload Photo</h6>
-      </div>
-      <div className="Remove">
-        <div className="Select_Photo_Container">
-          <div className="Select_Photo_Content">
-            <img src={Select} alt="File Upload" className="Select_Photo" />
-          </div>
-          <h6 className="File_Text">Select Photo</h6>
-        </div>
+        <SelectText>Upload Photo</SelectText>
+      </UploadPhoto>
+      <div>
+        <SelectPhotoContainer>
+          <SelectPhotoContent>
+            <SelectedPhoto src={Select} alt="File Upload" />
+          </SelectPhotoContent>
+          <SelectText>Select Photo</SelectText>
+        </SelectPhotoContainer>
       </div>
       <HorizontalLine />
-      <div className="Remove">
-        <div className="Select_Photo_Container">
-          <div className="Select_Photo_Content">
-            <img src={Select} alt="File Upload" className="Select_Photo" />
-          </div>
-          <h6 className="File_Text">Delete Photo</h6>
-        </div>
+      <div>
+        <SelectPhotoContainer>
+          <SelectPhotoContent>
+            <SelectedPhoto src={Select} alt="File Upload" />
+          </SelectPhotoContent>
+          <SelectText>Delete Photo</SelectText>
+        </SelectPhotoContainer>
       </div>
-    </div>
+    </CoverDropContainer>
   );
 }
 

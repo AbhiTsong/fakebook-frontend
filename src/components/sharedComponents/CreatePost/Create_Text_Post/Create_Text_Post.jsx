@@ -1,5 +1,8 @@
 import React from "react";
-import "./Create_Text_Post.styles.scss";
+
+// Styled Import
+
+import { PostTextArea, WordLeftConteiner } from "./CreateTextPOst.styles";
 
 // Utility Inports
 import { countWord } from "../../../../utility/wordCount";
@@ -15,7 +18,7 @@ function CreateTextPost(props) {
   return (
     <>
       {" "}
-      <textarea
+      <PostTextArea
         className="Post_Text_Area"
         name="description"
         placeholder="What is on your mind, Abhi??"
@@ -24,7 +27,7 @@ function CreateTextPost(props) {
         onChange={onChange}
         maxLength={WORD_LIMIT}
       />
-      <h6 className="Words_Left_Container">Words Left {numberCount}</h6>
+      <WordLeftConteiner>Words Left {numberCount}</WordLeftConteiner>
     </>
   );
 }

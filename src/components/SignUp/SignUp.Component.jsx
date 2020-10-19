@@ -25,7 +25,6 @@ import {
 } from "./SignUp.Styled";
 
 // Shared Componenets
-import ButtonComponent from "../sharedComponents/Button.Component/Button.Component";
 import HorizontaLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 import CloseModalIcon from "../sharedComponents/CloseModalIcon/CloseModalIcon";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
@@ -243,7 +242,7 @@ function SignUpComponent(props) {
                 You may receive SMS notifications from us and can opt out at any
                 time.
               </TermsAndPolicy>
-              <ButtonComponent>Sign Up</ButtonComponent>
+              <button>Sign Up</button>
             </SignUpForm>
           </SignUpFormContent>
         </SignUpFormContainer>

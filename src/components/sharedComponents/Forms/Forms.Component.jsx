@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import FormInput from "../FormInput/FormInput.Component";
 import { useForm } from "../../../hooks/useFormInput";
-import ButtonComponent from "../Button.Component/Button.Component";
 
 const INITIAL_STATE = {
   firstName: "",
@@ -109,7 +108,7 @@ function FormsComponent() {
             // onChange={handleValues}
           /> */}
         </div>
-        <ButtonComponent>Sign Up</ButtonComponent>
+        <button>Sign Up</button>
       </form>
     </div>
   );

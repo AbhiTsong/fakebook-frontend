@@ -1,5 +1,14 @@
 import React, { useEffect } from "react";
-import "./CreatePost.Styles.scss";
+
+// Styled Imports
+import {
+  CreatePostContainer,
+  CreatePostTitleContainer,
+  CreatePostTitle,
+  CreatePostProfilePic,
+  CreatePostForm,
+  CreatePostBtn,
+} from "./CreatePost.Styles";
 
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +27,6 @@ import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine
 import { useForm } from "../../../hooks/useFormInput";
 
 // Shared Compoent
-import CustomButton from "../../sharedComponents/Button.Component/Button.Component";
 import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
 import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";
@@ -70,16 +78,16 @@ function CreatePostComponent(props) {
   }
 
   return (
-    <div className="CreatePostContainer">
-      <div className="Create_Post_Title_Container">
-        <h4 className="Title_Text">Create Post</h4>
+    <CreatePostContainer>
+      <CreatePostTitleContainer>
+        <CreatePostTitle>Create Post</CreatePostTitle>
         <CloseModalIcon />
-      </div>
+      </CreatePostTitleContainer>
       <HorizontalLine />
-      <div className="Create_Post_Profile_Pic">
+      <CreatePostProfilePic>
         <UserProfilePic />
-      </div>
-      <form className="Form_Container">
+      </CreatePostProfilePic>
+      <CreatePostForm>
         {props.path ? (
           <CreateImagePost
             value={values.description.split("  ").join(" ")}
@@ -95,16 +103,16 @@ function CreatePostComponent(props) {
         )}
         <CreatePostIcons />
 
-        <CustomButton
+        <CreatePostBtn
           buttonType="button"
           className="Post_Button"
           buttonClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}
         >
           {" "}
           Post{" "}
-        </CustomButton>
-      </form>
-    </div>
+        </CreatePostBtn>
+      </CreatePostForm>
+    </CreatePostContainer>
   );
 }
 

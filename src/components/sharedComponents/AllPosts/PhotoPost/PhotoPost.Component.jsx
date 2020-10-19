@@ -1,5 +1,12 @@
 import React from "react";
-import "./PostPhoto.Styles.scss";
+
+// Styled Imports
+import {
+  PosDescription,
+  CenterPostPic,
+  CenterPostPicBack,
+  SinglePostPhoto,
+} from "./PhotoPost.styles";
 
 // Utility Imports
 import { bufferToBase64 } from "../../../../utility/bufferToBase64";
@@ -7,28 +14,23 @@ import { bufferToBase64 } from "../../../../utility/bufferToBase64";
 function PhotoPost(props) {
   let { post } = props;
 
-  // console.log("descripton  ", post.description );
-
   return (
     <>
       {post.description ? (
-        <h5 className="Post_Text">{post.description}</h5>
+        <PosDescription>{post.description}</PosDescription>
       ) : null}
-      <div className="Center_Post_Pic">
-        <div
-          className="Center_Post_Pic_Background"
+      <CenterPostPic>
+        <CenterPostPicBack
           style={{
             backgroundImage: `url(data:image/png;base64,${bufferToBase64(
               post.photo.data
             )})`,
           }}
         />
-        <img
-          alt="Post Pic"
-          className="Single_Post_Photo"
+        <SinglePostPhoto
           src={`data:image/png;base64,${bufferToBase64(post.photo.data)}`}
         />
-      </div>
+      </CenterPostPic>
     </>
   );
 }

@@ -1,6 +1,18 @@
 import React from "react";
-import "./CoverPreview.styles.scss";
 import { useSelector, useDispatch } from "react-redux";
+
+// Styled Imports
+import {
+  CoverPreviewContainer,
+  CoverPreviewHeader,
+  CoverPreviewContent,
+  CoverPicPreviewContainer,
+  CoverPicPreviewContent,
+  CoverPreviewPic,
+  CoverPicPreviewFooter,
+  CoverCancleBtn,
+  CoverUploadBtn,
+} from "./CoverPreview.Styles";
 
 // Share Components
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
@@ -31,38 +43,34 @@ function CoverPicPreview() {
   }
 
   return (
-    <div className="Cover_Preview_Container">
-      <div className="Cover_Preview_Header">
-        <div className="Cover_Preview_Content">
+    <CoverPreviewContainer>
+      <CoverPreviewHeader>
+        <CoverPreviewContent>
           <h4>Update Profile Pic</h4>
-        </div>
+        </CoverPreviewContent>
         <div className="Cover_Preview_Close_Container">
           <CloseModalIcon />
         </div>
-      </div>
+      </CoverPreviewHeader>
       <HorizontalLine />
-      <div className="Cover_Pic_Preview_Container">
-        <div className="Cover_Pic_Preview_Content">
-          <img
+      <CoverPicPreviewContainer>
+        <CoverPicPreviewContent>
+          <CoverPreviewPic
             className="Cover_Pic"
             src={user.coverPath[0]}
             alt="Cover To Upload"
           />
-        </div>
-      </div>
+        </CoverPicPreviewContent>
+      </CoverPicPreviewContainer>
       <HorizontalLine />
-      <footer className="Cover_Footer_Container">
-        <button onClick={handleCancle} className="Cover_Cancle_Button">
-          Cancle
-        </button>
+      <CoverPicPreviewFooter>
+        <CoverCancleBtn onClick={handleCancle}>Cancle</CoverCancleBtn>
         <form>
-          <button onClick={handleAddProfilePic} className="Cover_Submit_Button">
-            Save
-          </button>
+          <CoverUploadBtn onClick={handleAddProfilePic}>Save</CoverUploadBtn>
         </form>
-      </footer>
+      </CoverPicPreviewFooter>
       {warningState.show && <Warning />}
-    </div>
+    </CoverPreviewContainer>
   );
 }
 

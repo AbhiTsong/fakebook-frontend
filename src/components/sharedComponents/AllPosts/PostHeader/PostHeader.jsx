@@ -1,8 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./PostHeader.styles.scss";
+import React, { useState } from "react";
 import config from "../../../../config/config.json";
 import { useSelector } from "react-redux";
-import axios from "../../../../axios";
+
+// Styled Import
+import {
+  ImageInputContiner,
+  UserProfilePic,
+  NameAndDotContiner,
+  PostCreatorName,
+  PostEditCOntainer,
+  ThreeDots,
+} from "./PostHeader.Style";
 
 // Shared Compoenet
 import PostEditDrop from "../PostEditDrop/PostEditDrop";
@@ -21,8 +29,8 @@ function PostHeader({ post }) {
   }
 
   return (
-    <div className="Image_Input_Container">
-      <img
+    <ImageInputContiner>
+      <UserProfilePic
         className="UserProfilePic"
         src={
           post.hasAvatar
@@ -32,16 +40,14 @@ function PostHeader({ post }) {
         alt="Creator Profile Pic"
       />
 
-      <div className="Name_And_Dots_Container">
-        <h4 className="Creater_Name">{post.creator}</h4>
-        <div className="Edit_Container">
-          <h3 className="Three_Dots" onClick={handleEdit}>
-            ...
-          </h3>
+      <NameAndDotContiner>
+        <PostCreatorName>{post.creator}</PostCreatorName>
+        <PostEditCOntainer>
+          <ThreeDots onClick={handleEdit}>...</ThreeDots>
           {showEdit && <PostEditDrop id={post._id} />}
-        </div>
-      </div>
-    </div>
+        </PostEditCOntainer>
+      </NameAndDotContiner>
+    </ImageInputContiner>
   );
 }
 

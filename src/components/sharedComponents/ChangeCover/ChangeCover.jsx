@@ -1,6 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./ChangeCover.styles.scss";
 import { useDispatch } from "react-redux";
+
+// Styled Imports
+import {
+  CoverUploadContainer,
+  CoverIconContainer,
+  CoverIcon,
+  CoverInput,
+} from "./ChangeCover.Styles";
 
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
@@ -51,18 +58,18 @@ function ChangeCover() {
     return setFile(seleted);
   };
   return (
-    <div className="Cover_Upload_Container">
-      <div className="Icon_Content">
-        <img src={File} alt="Cover Icon" className="Cover_Upload_Icon" />
-      </div>
+    <CoverUploadContainer>
+      <CoverIconContainer>
+        <CoverIcon src={File} alt="Cover Icon" />
+      </CoverIconContainer>
 
-      <input
+      <CoverInput
         type="file"
         ref={fileInput}
         onChange={handleFileInput}
         className="Cover_File_Input"
       />
-    </div>
+    </CoverUploadContainer>
   );
 }
 
