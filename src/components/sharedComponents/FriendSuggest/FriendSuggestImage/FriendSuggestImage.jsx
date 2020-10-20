@@ -1,6 +1,12 @@
 import React from "react";
-import "./FriendSuggestImage.styles.scss";
+// import "./FriendSuggestImage.styles.scss";
 import config from "../../../../config/config.json";
+
+// Styled Imports
+import {
+  FriendSuggesImgCtr,
+  FriendSuggestImg,
+} from "./FriendSuggestImg.styles";
 
 import Default from "../../../../Assets/images/default.png";
 
@@ -9,13 +15,11 @@ import Default from "../../../../Assets/images/default.png";
 
 function FriendSuggestImage({ id, avatar }) {
   return (
-    <div className="Friend_Suggest_Image">
-      <img
+    <FriendSuggesImgCtr>
+      <FriendSuggestImg
         src={avatar ? `${config.serverURL}/users/${id}/avatar` : Default}
-        alt="User_Message"
-        className="Friend_Suggest_Person"
       />
-    </div>
+    </FriendSuggesImgCtr>
   );
 }
 

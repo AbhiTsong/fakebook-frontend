@@ -2,6 +2,15 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+import {
+  CreatePostContainer,
+  CreatePostTitleContainer,
+  CreatePostTitle,
+  CreatePostProfilePic,
+  CreatePostForm,
+  CreatePostBtn,
+} from "../CreatePost/CreatePost.Styles";
+
 // Shared Component
 import CloseModalIcon from "../../sharedComponents/CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
@@ -50,31 +59,31 @@ function EditCurrentPost(props) {
   }
 
   return (
-    <div className="CreatePostContainer">
-      <div className="Create_Post_Title_Container">
-        <h4 className="Title_Text">Update Post</h4>
+    <CreatePostContainer>
+      <CreatePostTitleContainer>
+        <CreatePostTitle>Update Post</CreatePostTitle>
         <CloseModalIcon />
-      </div>
+      </CreatePostTitleContainer>
       <HorizontalLine />
-      <div className="Create_Post_Profile_Pic">
+      <CreatePostProfilePic>
         <UserProfilePic />
-      </div>
-      <form className="Form_Container">
+      </CreatePostProfilePic>
+      <CreatePostForm>
         <CreateTextPost
           type="text"
           value={values.description}
           onChange={setValues}
         />
         <CreatePostIcons />
-        <button
+        <CreatePostBtn
           buttonType="button"
           className="Post_Button"
           buttonClick={handleEditPost}
         >
           Update
-        </button>
-      </form>
-    </div>
+        </CreatePostBtn>
+      </CreatePostForm>
+    </CreatePostContainer>
   );
 }
 

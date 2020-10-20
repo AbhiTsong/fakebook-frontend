@@ -5,7 +5,7 @@ import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
 // Sahred Component
-import FileUploaderWithCropper from "../FileUploaderWithCropper/FileUploaderWithCropper";
+import FileUploaderWithCropper from "../ProfilePicInput/ProfilePicInput";
 
 function UserProfilePicSuggest() {
   return (

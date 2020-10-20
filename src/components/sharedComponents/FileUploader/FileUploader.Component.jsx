@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-expressions */
-// Npm Modul Imports
+// Npm Modules Imports
 import React, { useRef, useState, useEffect } from "react";
-import "./FileUploader.styles.scss";
 import { useDispatch } from "react-redux";
+
+// Styled Imports
+import { InputContainer, InputIcon, Input } from "./FileUploader.styles";
 
 // Redux Import
 import { getImagePath } from "../../../Redux/Post/photoPath.action";
@@ -11,8 +13,8 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 // // Custom Hook
 // import { readURI } from "../../../utility/readURI";
 
-// Icon Pic Import 
-import Camera from "../../../Assets/images/camera.png"
+// Icon Pic Import
+import Camera from "../../../Assets/images/camera.png";
 
 const FileUploader = (props) => {
   let dispatch = useDispatch();
@@ -57,16 +59,10 @@ const FileUploader = (props) => {
   };
 
   return (
-    <div className="Input_Container">
-     
-     <img className="Icon_Content" src={Camera} alt="Camera"/>
-      <input
-        type="file"
-        ref={fileInput}
-        onChange={handleFileInput}
-        className="Activity_Icons_Photo"
-      />
-    </div>
+    <InputContainer>
+      <InputIcon src={Camera} />
+      <Input type="file" ref={fileInput} onChange={handleFileInput} />
+    </InputContainer>
   );
 };
 

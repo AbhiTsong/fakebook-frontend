@@ -1,5 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// Styled Imports
+import {
+  InputContainer,
+  UploadButton,
+  FileInput,
+} from "./ProfilePic.Input.styles";
+
 // Redux Imports
 import { useDispatch } from "react-redux";
 import { getProfilePath } from "../../../Redux/User/userpProfilePathAction";
@@ -45,14 +52,15 @@ function FileUploaderWithCropper() {
   }
 
   return (
-    <div>
-      <input
+    <InputContainer>
+      <UploadButton>Upload</UploadButton>
+      <FileInput
         type="file"
         ref={fileInput}
         onChange={handleFileInput}
         className="Activity_Icons_Photo"
       />
-    </div>
+    </InputContainer>
   );
 }
 

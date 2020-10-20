@@ -1,8 +1,16 @@
 import React from "react";
-import "./FriendRequestsAll.styles.scss";
 import { useSelector } from "react-redux";
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
+
+// Styled Imports
+import {
+  FriendRequestContainer,
+  FrinedReqHeader,
+  HeaderText,
+  FriendReqAll,
+  FriendReqIndi,
+} from "./FriendRequestAll.styles";
 
 // Nested Componet
 import FriendRequestImages from "./FriendRequestImages/FriendRequestImages";
@@ -13,22 +21,22 @@ function FriendRequests() {
   const userRequests = useSelector(signInSelector);
 
   return (
-    <div className="Friend_Request_All_Container">
-      <div className="Friend_Request_Header">
+    <FriendRequestContainer>
+      <FrinedReqHeader>
         <div></div>
-        <h4 className="Friend_Header_Text">Friend Requests</h4>
+        <HeaderText>Friend Requests</HeaderText>
         <CloseModalIcon />
-      </div>
+      </FrinedReqHeader>
       <HorizontalLine />
-      <div className="Friend_Request_All">
+      <FriendReqAll>
         {userRequests.user.friendRequests.map((req) => (
-          <div className="Friend_Request_Indi">
+          <FriendReqIndi>
             <FriendRequestImages id={req.owner} />
             <FriendRequestNameAndButton {...req} />
-          </div>
+          </FriendReqIndi>
         ))}
-      </div>
-    </div>
+      </FriendReqAll>
+    </FriendRequestContainer>
   );
 }
 

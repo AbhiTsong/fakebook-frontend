@@ -1,7 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { acceptRequestAction } from "../../../../Redux/Friends/acceptFriendRequest";
-import "./FriendRequestNameAndButton.styles.scss";
+
+// Styled Import
+import {
+  NameAndBtnCtr,
+  RequesterName,
+  BtnContainer,
+  AcceptBtn,
+  DeleteButton,
+} from "./FrqNameAndBtn.styles";
 
 function FriendRequestNameAndButton({ name, owner }) {
   const dispatch = useDispatch();
@@ -12,21 +20,18 @@ function FriendRequestNameAndButton({ name, owner }) {
   }
 
   // Function For Declining The Friend Request
-  function handleDecline() {
-  }
+  function handleDecline() {}
 
   return (
-    <div className="Name_And_Button_Container">
-      <h5 className="Requester_Name">{name}</h5>
-      <div className="Request_Buttons">
-        <button onClick={() => handleAccept(owner)} className="Accept_Request">
-          Accept
-        </button>
-        <button onClick={() => handleDecline(owner)} className="Delete_Request">
+    <NameAndBtnCtr>
+      <RequesterName>{name}</RequesterName>
+      <BtnContainer>
+        <AcceptBtn onClick={() => handleAccept(owner)}>Accept</AcceptBtn>
+        <DeleteButton onClick={() => handleDecline(owner)}>
           Decline
-        </button>
-      </div>
-    </div>
+        </DeleteButton>
+      </BtnContainer>
+    </NameAndBtnCtr>
   );
 }
 

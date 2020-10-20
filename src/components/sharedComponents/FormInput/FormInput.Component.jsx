@@ -1,8 +1,15 @@
 import React from "react";
-import "./FormInput.Styles.scss";
 
 function FormInput(props) {
-  const { type, onChange, placeholder, name, className, onKeyPress, value } = props;
+  const {
+    type,
+    onChange,
+    placeholder,
+    name,
+    className,
+    onKeyPress,
+    value,
+  } = props;
   return (
     <input
       name={name}

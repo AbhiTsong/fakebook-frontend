@@ -1,8 +1,13 @@
 import React from "react";
-import "./HorizontalLine.scss";
+import styled from "styled-components";
+
+// Style
+const StyledDiv = styled.div`
+  border-bottom: 1px solid rgb(141, 140, 136);
+`;
 
 function HorizontalLine() {
-  return <div className="Form_Horizontal_Line"></div>;
+  return <StyledDiv></StyledDiv>;
 }
 
 export default HorizontalLine;

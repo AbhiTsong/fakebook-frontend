@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./FriendRequestImages.styles.scss";
 import axios from "../../../../axios";
 import config from "../../../../config/config.json";
 
 import Default from "../../../../Assets/images/default.png";
+
+// Styled Imports
+import { FriendRedImgCtr, ReqImg } from "./FriendRequestIImg.styles";
 
 function FriendRequestImages({ id }) {
   let [isProfile, setIsProfile] = useState();
@@ -26,13 +28,11 @@ function FriendRequestImages({ id }) {
   }, []);
 
   return (
-    <div className="Friend_Request_Image">
-      <img
+    <FriendRedImgCtr>
+      <ReqImg
         src={!isProfile ? Default : `${config.serverURL}/users/${id}/avatar`}
-        alt="User_Message"
-        className="Friend_Requestor"
       />
-    </div>
+    </FriendRedImgCtr>
   );
 }
 

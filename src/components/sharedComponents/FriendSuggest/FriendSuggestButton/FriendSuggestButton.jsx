@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+// Styled Imports
+import {
+  AddFriendBtn,
+  AddFriendImgCtr,
+  AddFriendIcon,
+} from "./FriendSuggestBtn.styles";
+
 import AddFriend from "../../../../Assets/images/addFriend.png";
 import { sendFriendRequestAction } from "../../../../Redux/Friends/addFriend.Action";
 import { friendsSelector } from "../../../../Redux/Friends/friends.selector";
@@ -20,12 +27,12 @@ function FriendSuggestButton({ id }) {
 
   return (
     <div>
-      <button onClick={handleFriendRequest} className="Add_Friend_Button">
-        <div className="Add_Friend_Image_Container">
-          <img src={AddFriend} alt="Add Friend" className="Add_Image" />
-        </div>
+      <AddFriendBtn onClick={handleFriendRequest}>
+        <AddFriendImgCtr>
+          <AddFriendIcon src={AddFriend} />
+        </AddFriendImgCtr>
         Add Friend
-      </button>
+      </AddFriendBtn>
     </div>
   );
 }

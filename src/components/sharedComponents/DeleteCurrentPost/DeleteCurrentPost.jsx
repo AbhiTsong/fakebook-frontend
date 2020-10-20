@@ -1,6 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./DeleteCurrrentPost.styles.scss";
+
+// Styled Imports
+import {
+  DeleteModalContainer,
+  TitileContainer,
+  DeleteTitleText,
+  DeleteMessage,
+  DeleteBtnContainer,
+  CancleBtn,
+  DeleteBtn,
+} from "./DeleteCurrentPost.style";
 
 // Redux Imports
 import {
@@ -47,24 +57,18 @@ function DeleteCurrentPost() {
   }
 
   return (
-    <div className="Delete_Modal_Container">
-      <div className="Delete_Post_Title_Container">
-        <h4 className="Delete_Title_Text">Delete Post</h4>
+    <DeleteModalContainer>
+      <TitileContainer>
+        <DeleteTitleText>Delete Post</DeleteTitleText>
         <CloseModalIcon />
-      </div>
+      </TitileContainer>
       <HorizontalLine />
-      <h6 className="Delete_Message">
-        Are You Sure You Want To Delete This Post?
-      </h6>
-      <div className="Delete_Button_Container">
-        <button className="Cancle_Button" onClick={handleCancle}>
-          Cancle
-        </button>
-        <button className="Delete_Button" onClick={handleDelete}>
-          Delete
-        </button>
-      </div>
-    </div>
+      <DeleteMessage>Are You Sure You Want To Delete This Post?</DeleteMessage>
+      <DeleteBtnContainer>
+        <CancleBtn onClick={handleCancle}>Cancle</CancleBtn>
+        <DeleteBtn onClick={handleDelete}>Delete</DeleteBtn>
+      </DeleteBtnContainer>
+    </DeleteModalContainer>
   );
 }
 

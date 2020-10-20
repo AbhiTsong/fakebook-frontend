@@ -1,7 +1,17 @@
 import React, { useEffect, memo } from "react";
-import "./FriendSuggest.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "react-elastic-carousel";
+
+// Styled Import
+import {
+  FriendReqContr,
+  FrinedSuggHeader,
+  SuggestNameAndCrd,
+  FriendSuggestContr,
+  SuggestNameAndBtn,
+  SuggestedPerson,
+  NoFriendSuggestion,
+} from "./FriendReqSuggest.styles";
 
 // Redux Import
 import { getAllUsersAction } from "../../../Redux/User/allUsersInTheDBAction";
@@ -17,43 +27,41 @@ function FriendSuggest() {
   const users = useSelector(userSelector);
   // const requestArray = useSelector(requestSent);
 
-
   useEffect(() => {
     dispatch(getAllUsersAction());
   }, []);
-
 
   if (users.loading) {
     return <Skeleton />;
   }
 
   return (
-    <div className="Friend_Suggest_Containet">
-      <h4 className="Friend_Suggest_Header">People You May Know</h4>
-      <div className="Suggest_Name_And_card">
+    <FriendReqContr>
+      <FrinedSuggHeader>People You May Know</FrinedSuggHeader>
+      <SuggestNameAndCrd>
         <Carousel itemsToShow={3}>
           {users.allUsers.data && users.allUsers.data.length > 0 ? (
             users.allUsers.data
               .map((user, idx) => (
-                <div key={user + idx} className="Friend_Suggest_Container">
-                  <FriendSuggestImage id={user._id} avatar={user.hasAvatar}/>
-                  <div className="Suggest_Name_Button">
-                    <h5 className="Suggested_Person_Name">
+                <FriendSuggestContr>
+                  <FriendSuggestImage id={user._id} avatar={user.hasAvatar} />
+                  <SuggestNameAndBtn>
+                    <SuggestedPerson>
                       {user.firstName + " " + user.lastName}
-                    </h5>
+                    </SuggestedPerson>
                     <FriendSuggestButton id={user._id} />
-                  </div>
-                </div>
+                  </SuggestNameAndBtn>
+                </FriendSuggestContr>
               ))
               .reverse()
           ) : (
-            <div className="No_Friend_Suggestion">
+            <NoFriendSuggestion>
               You Have Literally Sent Friend Request To All Users.
-            </div>
+            </NoFriendSuggestion>
           )}
         </Carousel>
-      </div>
-    </div>
+      </SuggestNameAndCrd>
+    </FriendReqContr>
   );
 }
 
