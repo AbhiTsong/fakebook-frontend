@@ -33,8 +33,8 @@ function createUserAvatarAction(props) {
           Authorization: `Bearer ${getToken()}`,
         },
       });
-      dispatch(createUserAvatarSuccess(props));
       dispatch(newAvatarAdded());
+      dispatch(createUserAvatarSuccess(props));
     } catch (error) {
       if (error.response) {
         dispatch(createUserAvatarFail(error.response.data));

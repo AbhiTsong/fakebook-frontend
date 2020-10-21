@@ -1,6 +1,7 @@
 import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { newCoverAdded } from "../Auth/SignIn/SignIn.Action";
 
 function changeCoverStart() {
   return {
@@ -32,6 +33,7 @@ function changeCoverAction(props) {
         },
       });
       dispatch(changeCoverSuccess(cover));
+      dispatch(newCoverAdded());
     } catch (error) {
       if (error.resposne) {
         dispatch(changeCoverFail(error.resposne.data));

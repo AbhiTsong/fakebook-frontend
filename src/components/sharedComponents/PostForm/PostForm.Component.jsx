@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-// import "./PostForm.Styles.scss";
 import { useDispatch } from "react-redux";
 
 // Styled Import
@@ -32,8 +31,6 @@ import VideoCamera from "../../../Assets/images/video.png";
 import Smile from "../../../Assets/images/smile.png";
 
 // Redux Import
-// import { postSelector } from "../../../Redux/Post/post.selector";
-import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 let createPostInput = "What is on your mind Abhi??";

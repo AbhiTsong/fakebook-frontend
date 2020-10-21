@@ -1,43 +1,57 @@
 import React from "react";
-import "./Skeleton.styles.scss";
+// import "./Skeleton.styles.scss";
+
+// Styled Imports
+import {
+  AllPostSkeletonCntr,
+  SinglePostSkeleton,
+  SinglePostSkeleton2,
+  SinglePostSkeleton3,
+  SinglePostSkeleton4,
+  SinglePostSkeleton5,
+  SinglePostSkeleton6,
+  SinglePostSkeleton7,
+  SinglePostSkeleton8,
+  SkeletonIndicator,
+} from "./AllPosts.skeleton.styles";
 
 function Skeleton() {
   return (
-    <div className="All_Post_Skeleton_Container">
-      <div className="Single_Post_Skeleton_Container">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Two">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Three">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Four">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Five">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Six">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Seven">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Eight">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Five">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Eight">
-        <div className="Skeleton_Indicator" />
-      </div>
-      <div className="Single_Post_Skeleton_Container_Five">
-        <div className="Skeleton_Indicator" />
-      </div>
-    </div>
+    <AllPostSkeletonCntr>
+      <SinglePostSkeleton>
+        <SkeletonIndicator />
+      </SinglePostSkeleton>
+      <SinglePostSkeleton2>
+        <SkeletonIndicator />
+      </SinglePostSkeleton2>
+      <SinglePostSkeleton3>
+        <SkeletonIndicator />
+      </SinglePostSkeleton3>
+      <SinglePostSkeleton4>
+        <SkeletonIndicator />
+      </SinglePostSkeleton4>
+      <SinglePostSkeleton5>
+        <SkeletonIndicator />
+      </SinglePostSkeleton5>
+      <SinglePostSkeleton6>
+        <SkeletonIndicator />
+      </SinglePostSkeleton6>
+      <SinglePostSkeleton7>
+        <SkeletonIndicator />
+      </SinglePostSkeleton7>
+      <SinglePostSkeleton8>
+        <SkeletonIndicator />
+      </SinglePostSkeleton8>
+      <SinglePostSkeleton5>
+        <SkeletonIndicator />
+      </SinglePostSkeleton5>
+      <SinglePostSkeleton8>
+        <SkeletonIndicator />
+      </SinglePostSkeleton8>
+      <SinglePostSkeleton5>
+        <SkeletonIndicator />
+      </SinglePostSkeleton5>
+    </AllPostSkeletonCntr>
   );
 }
 

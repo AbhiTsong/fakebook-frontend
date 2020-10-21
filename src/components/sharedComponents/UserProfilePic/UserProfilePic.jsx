@@ -19,8 +19,9 @@ function UserProfilePic(props) {
 
   if (!userPic.loading && userPic.created) {
     dispatch(clearCreatedPath());
-    props.history.go(0);
   }
+
+  console.log("User State", userState);
 
   return (
     <UserImage

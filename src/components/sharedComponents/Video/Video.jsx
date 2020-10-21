@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 import Construction from "./Construction/Construction";
-import "./Video.styles.scss";
+
+// Styled Import
+import { VideoCntr } from "./Video.styles";
 
 function Video() {
   const [skeleton, setSkeleton] = useState(true);
@@ -16,21 +18,13 @@ function Video() {
   }, []);
 
   return (
-    <div
-      className="Video"
-      style={{
-        width: "80%",
-        margin: "auto",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <VideoCntr>
       {skeleton ? (
         [...Array(10).keys()].map((e, idx) => <Skeleton key={e + idx} />)
       ) : (
         <Construction />
       )}
-    </div>
+    </VideoCntr>
   );
 }
 

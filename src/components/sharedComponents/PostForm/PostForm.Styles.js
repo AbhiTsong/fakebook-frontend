@@ -40,6 +40,7 @@ const StyledInput = styled(FormInput)`
   background-color: lavender;
   padding-left: 1rem;
   color: transparent;
+  cursor: pointer;
   &:focus {
     outline: none;
   }

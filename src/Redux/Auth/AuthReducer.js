@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   user: [],
   newUser: [],
   newAvatar: false,
+  newCover: false,
   isSignedUp: false,
   error: "",
   signedIn: false,
@@ -27,6 +28,12 @@ export function authReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         newAvatar: true,
+      };
+
+    case SignInActionTypes.NEW_COVER:
+      return {
+        ...state,
+        newCover: true,
       };
     case SignOutActionTypes.SIGN_OUT_START:
       return {

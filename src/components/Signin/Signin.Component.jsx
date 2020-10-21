@@ -99,7 +99,7 @@ function SignInComponent(props) {
             <div className="line" />
           </SignInForm>
           <HorizontalLine />
-          <button buttonType="button" buttonClick={handleModal}>
+          <button buttonType="button" onClick={handleModal}>
             Create A New Account
           </button>
           {modalState.show && <Modal />}

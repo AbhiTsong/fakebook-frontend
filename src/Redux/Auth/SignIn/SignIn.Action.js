@@ -28,6 +28,12 @@ const newAvatarAdded = () => {
   };
 };
 
+const newCoverAdded = () => {
+  return {
+    type: SignInActionTypes.NEW_COVER,
+  };
+};
+
 // Funcion For Signing In The User
 export function SignInUser({ email, password }) {
   return async function (dispatch) {
@@ -56,4 +62,4 @@ export function SignInUser({ email, password }) {
   };
 }
 
-export { newAvatarAdded };
+export { newAvatarAdded, newCoverAdded };

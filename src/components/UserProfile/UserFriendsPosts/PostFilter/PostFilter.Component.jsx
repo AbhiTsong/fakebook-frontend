@@ -1,25 +1,34 @@
 import React from "react";
-import "./PostFilter.styles.scss";
+// import "./PostFilter.styles.scss";
+
+import {
+  FilterContainer,
+  FilterTitle,
+  FilterText,
+  FilterBtnCntr,
+  FilterViewOptions,
+  FilterIcons,
+} from "./PostFilterStyles";
 
 // Shared Compoents
 import HorizontalLine from "../../../sharedComponents/HorizontalLine/HorizontalLine";
 
 function PostFilter() {
   return (
-    <div className="Filter_Container">
-      <div className="Filter_Title">
-        <h4 className="Title_Text">Post</h4>
-        <div className="Filter_Button_Contaner">
+    <FilterContainer>
+      <FilterTitle>
+        <FilterText>Post</FilterText>
+        <FilterBtnCntr>
           <button>Filter</button>
           <button>Manage Post</button>
-        </div>
-      </div>
+        </FilterBtnCntr>
+      </FilterTitle>
       <HorizontalLine />
-      <div className="Filter_View_Options">
-        <h5 className="Filter_Icons">List View</h5>
-        <h5 className="Filter_Icons">Grid View</h5>
-      </div>
-    </div>
+      <FilterViewOptions>
+        <FilterIcons>List View</FilterIcons>
+        <FilterIcons>Grid View</FilterIcons>
+      </FilterViewOptions>
+    </FilterContainer>
   );
 }
 

@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Toster.styles.scss";
 
+// Styled Imports
+import { TosterContaier, TosterMessage, CloseButton } from "./Toster.styles";
+
 // Redux Imports
 import { closeToster } from "../../../Redux/toster/toster.action";
 import { tostSelector } from "../../../Redux/toster/tostSelectos";
@@ -22,14 +25,12 @@ function Toster() {
   }
 
   return (
-    <div className="Toster_Container">
-      <h5 className="Tost_Message">
+    <TosterContaier>
+      <TosterMessage>
         {tostMessage.content}{" "}
-        <span className="close" onClick={handleCloseModal}>
-          x
-        </span>
-      </h5>
-    </div>
+        <CloseButton onClick={handleCloseModal}>x</CloseButton>
+      </TosterMessage>
+    </TosterContaier>
   );
 }
 

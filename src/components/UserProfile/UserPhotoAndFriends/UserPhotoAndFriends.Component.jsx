@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./UserPhotoAndFriends.styles.scss";
+
+// Styled Imports
+import {
+  UserCreatedPostContr,
+  UserPhotoSticky,
+} from "./UserPhotoAndFriends.styles";
 
 // Nested Component Import
 import UserIntro from "./UserIntro/UserIntro.Component";
@@ -27,15 +32,23 @@ function UserPhotoAndFreiends() {
   }, []);
 
   return (
-    <div className="User_Creates_Photos_Container">
-      <div className="User_Created_Photos_Relative">
+    <UserCreatedPostContr>
+      <div>
         <UserIntro />
-        <div className={scrollPos ? "" : "User_Photo_Sticky"}>
-          <UserPhotoPosts />
-          <UserFriends />
-        </div>
+        {scrollPos ? (
+          <div>
+            {" "}
+            <UserPhotoPosts />
+            <UserFriends />
+          </div>
+        ) : (
+          <UserPhotoSticky scrollPos>
+            <UserPhotoPosts />
+            <UserFriends />
+          </UserPhotoSticky>
+        )}
       </div>
-    </div>
+    </UserCreatedPostContr>
   );
 }
 

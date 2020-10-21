@@ -9,6 +9,7 @@ function FormInput(props) {
     className,
     onKeyPress,
     value,
+    onClick,
   } = props;
   return (
     <input
@@ -19,6 +20,7 @@ function FormInput(props) {
       onChange={onChange}
       onKeyPress={onKeyPress}
       placeholder={placeholder}
+      onClick={onClick}
     />
   );
 }

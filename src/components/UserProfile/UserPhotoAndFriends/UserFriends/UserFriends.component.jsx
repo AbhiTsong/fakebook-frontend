@@ -1,22 +1,33 @@
 import React from "react";
-import "./UserFriends.styles.scss";
 import Pic from "../../../../Assets/images/person-2.jpg";
+
+// Styled Imports
+
+import {
+  UserFriendsPhotoCntr,
+  TitleContainer,
+  Header1,
+  Header2,
+  ImgPostContr,
+  ImgPostContent,
+  ImgPost,
+} from "./UserFriendsStyles";
 
 function UserFriends() {
   return (
-    <div className="User_Friends_Container">
-      <div className="Title_Container">
-        <h4 className="Header">Photos</h4>
-        <h5 className="Header">See All</h5>
-      </div>
-      <div className="User_Friends_Pic_Container">
+    <UserFriendsPhotoCntr>
+      <TitleContainer>
+        <Header1>Photos</Header1>
+        <Header2>See All</Header2>
+      </TitleContainer>
+      <ImgPostContr>
         {[...Array(9).keys()].map((pic, index) => (
-          <div key={index + pic} className="Friends_Content">
-            <img className="Friends_Profile_Pic" src={Pic} alt="Pic Posts" />
-          </div>
+          <ImgPostContent>
+            <ImgPost src={Pic} />
+          </ImgPostContent>
         ))}
-      </div>
-    </div>
+      </ImgPostContr>
+    </UserFriendsPhotoCntr>
   );
 }
 

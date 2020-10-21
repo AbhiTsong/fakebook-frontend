@@ -1,5 +1,16 @@
 import React from "react";
-import "./Warning.styles.scss";
+
+// Styled Imports
+import {
+  WarningOverLay,
+  WarningConainer,
+  WarningContent,
+  WarningTextContent,
+  Text,
+  WarningButtonContr,
+  YesButton,
+  NoButton,
+} from "./Warning.styles";
 
 // Reduc Imports
 import { useDispatch } from "react-redux";
@@ -25,24 +36,18 @@ function Warning() {
   }
   return (
     <>
-      <div className="Warning_Overlay" />
-      <div className="Warning_Container">
-        <div className="Warning_Content">
-          <div className="Warning_Text_Content">
-            <h4 className="Text">
-              Do You Want To Discard All Your Current Changes
-            </h4>
-          </div>
-          <div className="Warning_Button_Container">
-            <button className="Warning_Yes" onClick={handleYes}>
-              Yes
-            </button>
-            <button className="Warning_No" onClick={handleNo}>
-              No
-            </button>
-          </div>
-        </div>
-      </div>
+      <WarningOverLay />
+      <WarningConainer>
+        <WarningContent>
+          <WarningTextContent>
+            <Text>Do You Want To Discard All Your Current Changes</Text>
+          </WarningTextContent>
+          <WarningButtonContr>
+            <YesButton onClick={handleYes}>Yes</YesButton>
+            <NoButton onClick={handleNo}>No</NoButton>
+          </WarningButtonContr>
+        </WarningContent>
+      </WarningConainer>
     </>
   );
 }

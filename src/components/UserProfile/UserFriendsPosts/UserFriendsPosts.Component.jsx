@@ -1,5 +1,7 @@
 import React from "react";
-import "./UserFriendsPosts.styles.scss";
+
+// Styled Import
+import { UserFrendPostCntr } from "./UserFriendssPosts.styles";
 
 // Shared Components
 import PostFormComponent from "../../sharedComponents/PostForm/PostForm.Component";
@@ -8,11 +10,11 @@ import PostFilter from "./PostFilter/PostFilter.Component";
 
 function UserFriendsPost() {
   return (
-    <div className="Users_Friends_Posts_Container">
+    <UserFrendPostCntr>
       <PostFormComponent />
       <PostFilter />
       {/* <AllPostsComponent /> */}
-    </div>
+    </UserFrendPostCntr>
   );
 }
 
