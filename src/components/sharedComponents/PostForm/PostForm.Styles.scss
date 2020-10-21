@@ -1,16 +1,16 @@
-.FormConatiner {
-  height: 8rem;
-  border: 1px solid black;
-  background-color: white;
-  width: auto;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 10px;
+// .FormConatiner {
+//   height: 8rem;
+//   border: 1px solid black;
+//   background-color: white;
+//   width: auto;
+//   border: none;
+//   padding: 0.5rem;
+//   border-radius: 10px;
 
-  .Image_Input_Container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  // .Image_Input_Container {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
 
     .Form_Pic_Container {
       display: flex;
@@ -21,50 +21,50 @@
       border-radius: 50%;
     }
 
-    .Post_Form_Container {
-      width: 100%;
-      padding-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      .Post_Form {
-        width: 95%;
-        height: 2.2rem;
-        border: none;
-        border-radius: 5rem;
-        background-color: lavender;
-        padding-left: 1rem;
-        color: transparent;
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-  }
+    // .Post_Form_Container {
+    //   width: 100%;
+    //   padding-left: 0.5rem;
+    //   margin-bottom: 0.5rem;
+      // .Post_Form {
+      //   width: 95%;
+      //   height: 2.2rem;
+      //   border: none;
+      //   border-radius: 5rem;
+      //   background-color: lavender;
+      //   padding-left: 1rem;
+      //   color: transparent;
+      //   &:focus {
+      //     outline: none;
+      //   }
+      // }
+    // }
+  // }
 
-  .FeelingAndVideoContainer {
-    display: flex;
-    justify-content: space-evenly;
-    align-self: center;
-    padding-top: 1.8rem;
+  // .FeelingAndVideoContainer {
+  //   display: flex;
+  //   justify-content: space-evenly;
+  //   align-self: center;
+  //   padding-top: 1.8rem;
 
-    .Icon_And_Text {
-      display: flex;
-      cursor: pointer;
-      .Icon_Conatiner {
-        width: 2rem;
+    // .Icon_And_Text {
+    //   display: flex;
+    //   cursor: pointer;
+      // .Icon_Conatiner {
+      //   width: 2rem;
 
-        .Icon_Content {
-          display: block;
-          max-width: 100%;
-          max-height: 100%;
-        }
-      }
+        // .Icon_Content {
+        //   display: block;
+        //   max-width: 100%;
+        //   max-height: 100%;
+        // }
+      // }
       .Icon_Text {
         margin: 0;
         height: 0rem;
         margin-top: 0.5rem;
         margin-left: 0.5rem;
       }
-    }
+    // }
 
     .Icon_Text_Camera {
       margin-top: 0.6rem;
@@ -74,5 +74,5 @@
     .Activity_Icons_Photo::-webkit-file-upload-button {
       visibility: hidden;
     }
-  }
-}
+  // }
+// }

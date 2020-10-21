@@ -1,5 +1,8 @@
 import React from "react";
-import "./Model.Styles.scss";
+// import "./Model.Styles.scss";
+
+// Styled Imports
+import { ModalContainer } from "./Modal.Styles";
 
 // Redux Imports
 import { useSelector } from "react-redux";
@@ -13,10 +16,8 @@ import PicCropper from "../../sharedComponents/PicCropper/PicCropper";
 import CoverPicPreview from "../CoverPreview/CoverPicPreview";
 import EditCurrentPost from "../EditCurrentPost/EditCurrentPost";
 import DeleteCurrentPost from "../DeleteCurrentPost/DeleteCurrentPost";
-import PleaseAuth from "../PleaseAuth/PleaseAuth";
 import SignUpComponent from "../../SignUp/SignUp.Component";
 import FriendRequests from "../FriendRequestsAll/FriendRequestsAll";
-
 
 function Modal(props) {
   let postPath = useSelector(postSelector);
@@ -24,7 +25,7 @@ function Modal(props) {
   let path = postPath.photoPath;
 
   return (
-    <div className="modal">
+    <ModalContainer>
       {modalContent.content === "SIGN_UP_USER" && <SignUpComponent />}
       {modalContent.content === "SHOW_PHOTO_FORM" && <UserProfilePicSuggest />}
       {modalContent.content === "CREATE_POST" && (
@@ -34,9 +35,8 @@ function Modal(props) {
       {modalContent.content === "CHANGE_USER_COVER" && <CoverPicPreview />}
       {modalContent.content === "EDIT_CURRENT_POST" && <EditCurrentPost />}
       {modalContent.content === "DELETE_CURRENT_POST" && <DeleteCurrentPost />}
-      {modalContent.content === "PLEASE_AUTH" && <PleaseAuth />}
       {modalContent.content === "FRIEND_REQUESTS" && <FriendRequests />}
-    </div>
+    </ModalContainer>
   );
 }
 // }

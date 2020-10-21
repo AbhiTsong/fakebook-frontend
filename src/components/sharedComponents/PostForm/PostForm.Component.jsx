@@ -1,6 +1,21 @@
 import React, { memo } from "react";
-import "./PostForm.Styles.scss";
-import { useSelector, useDispatch } from "react-redux";
+// import "./PostForm.Styles.scss";
+import { useDispatch } from "react-redux";
+
+// Styled Import
+import {
+  FormContainer,
+  ImgInputCntr,
+  FormPicContr,
+  PostFormContr,
+  StyledInput,
+  FeeingContainer,
+  IconTextCtr,
+  IconCntr,
+  Icon,
+  IconText,
+  IconTextCamera,
+} from "./PostForm.Styles.js";
 
 // Icons Import
 // import Camera from "../../../Assets/images/camera.png"
@@ -9,7 +24,6 @@ import { useSelector, useDispatch } from "react-redux";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
 // Shared Components
-import Modal from "../Modals/Model.Component";
 import FileUploader from "../FileUploader/FileUploader.Component";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
@@ -26,7 +40,6 @@ let createPostInput = "What is on your mind Abhi??";
 // Componetnt Code
 function PostFormComponent() {
   // Redux State Change
-  const modalState = useSelector(modalSelector);
   const dispatch = useDispatch();
   // const postText = useSelector(postSelector);
 
@@ -35,43 +48,42 @@ function PostFormComponent() {
   };
 
   return (
-    <div className="FormConatiner">
+    <FormContainer>
       {/* Image And Input  */}
-      <div className="Image_Input_Container">
-        <div className="Form_Pic_Container">
+      <ImgInputCntr>
+        <FormPicContr>
           <UserProfilePic />
-        </div>
-        <form className="Post_Form_Container">
-          <input
-            className="Post_Form"
+        </FormPicContr>
+        <PostFormContr>
+          <StyledInput
+            // className="Post_Form"
             type="text"
             placeholder={createPostInput}
             onClick={handleModal}
           />
-        </form>
-        {/* {modalState.show && <Modal header1="Create Post" />} */}
-      </div>
+        </PostFormContr>
+      </ImgInputCntr>
       <HorizontalLine />
       {/*Opens the modal to create the post */}
-      <div className="FeelingAndVideoContainer">
-        <span className="Icon_And_Text" onClick={handleModal}>
-          <div className="Icon_Conatiner">
-            <img className="Icon_Content" src={VideoCamera} alt="Video Icon" />
-          </div>
-          <h5 className="Icon_Text">Live Video</h5>
-        </span>
+      <FeeingContainer>
+        <IconTextCtr onClick={handleModal}>
+          <IconCntr>
+            <Icon src={VideoCamera} />
+          </IconCntr>
+          <IconText>Live Video</IconText>
+        </IconTextCtr>
         {/* Photo Upload */}
         <FileUploader />
-        <h5 className="Icon_Text_Camera">Photo/Video</h5>
+        <IconTextCamera>Photo/Video</IconTextCamera>
         {/* Opens the modal to create the post */}
-        <span className="Icon_And_Text" onClick={handleModal}>
-          <div className="Icon_Conatiner">
-            <img className="Icon_Content" src={Smile} alt="Smile Icon" />
-          </div>
-          <h5 className="Icon_Text">Feeling</h5>
-        </span>
-      </div>
-    </div>
+        <IconTextCtr onClick={handleModal}>
+          <IconCntr>
+            <Icon src={Smile} />
+          </IconCntr>
+          <IconText className="Icon_Text">Feeling</IconText>
+        </IconTextCtr>
+      </FeeingContainer>
+    </FormContainer>
   );
 }
 

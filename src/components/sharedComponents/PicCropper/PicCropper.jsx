@@ -1,5 +1,19 @@
 import React, { useEffect, memo } from "react";
-import "./PicCropper.styles.scss";
+// import "./PicCropper.styles.scss";
+
+import {
+  PicCropperCOntainer,
+  HeaderContainer,
+  HeaderContent,
+  // HeaderTitle,
+  CloseButtonCntr,
+  PicPreviewContr,
+  // PicPreviewContent,
+  PreviewPic,
+  FooterCntr,
+  CancleBtn,
+  SaveBtn,
+} from "./PicCropper.styles";
 
 // Redux Import
 import { useSelector, useDispatch } from "react-redux";
@@ -13,7 +27,7 @@ import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
 import Warning from "../Warning/Warning";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
-import LoadingSpinner from "../LoadingSpinner/Loading.Spinner"
+import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 function PicCropper(props) {
   const dispatch = useDispatch();
@@ -39,43 +53,39 @@ function PicCropper(props) {
     dispatch(createUserAvatarAction(formData));
   }
 
-  if(user.loading){
-      return <LoadingSpinner/>
+  if (user.loading) {
+    return <LoadingSpinner />;
   }
 
   return (
-    <div className="Pic_Cropper_Container">
-      <div className="Header_Container">
-        <div className="Header_Content">
+    <PicCropperCOntainer>
+      <HeaderContainer>
+        <HeaderContent>
           <h4 className="Header_Title">Update Profile Pic</h4>
-        </div>
-        <div className="Close_Button_Container">
+        </HeaderContent>
+        <CloseButtonCntr>
           <CloseModalIcon />
-        </div>
-      </div>
+        </CloseButtonCntr>
+      </HeaderContainer>
       <HorizontalLine />
-      <div className="Pic_Preview_Container">
+      <PicPreviewContr>
         <div className="Pic_Preview_Content">
-          <img
+          <PreviewPic
             className="Post_Pic"
             src={user.profilePath[0]}
             alt="File To Upload"
           />
         </div>
-      </div>
+      </PicPreviewContr>
       <HorizontalLine />
-      <footer className="Footer_Container">
-        <button onClick={handleCancle} className="Cancle_Button">
-          Cancle
-        </button>
+      <FooterCntr>
+        <CancleBtn onClick={handleCancle}>Cancle</CancleBtn>
         <form>
-          <button onClick={handleAddProfilePic} className="Submit_Button">
-            Save
-          </button>
+          <SaveBtn onClick={handleAddProfilePic}>Save</SaveBtn>
         </form>
-      </footer>
+      </FooterCntr>
       {warningState.show && <Warning />}
-    </div>
+    </PicCropperCOntainer>
   );
 }
 
