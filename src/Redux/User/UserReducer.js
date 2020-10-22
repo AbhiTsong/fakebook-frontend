@@ -83,11 +83,11 @@ function userReducer(state = INITIAL_STATE, action) {
         coverPath: action.payload,
       };
 
-    case userActionTypes.CLEAR_PROFILE_CREATED:
-      return {
-        ...state,
-        created: false,
-      };
+    // case userActionTypes.CLEAR_PROFILE_CREATED:
+      // return {
+        // ...state,
+        // created: false,
+      // };
 
     case userActionTypes.CLEAR_COVER_PATH:
       return {

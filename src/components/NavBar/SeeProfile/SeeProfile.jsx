@@ -9,7 +9,6 @@ import { selectTheme } from "../../../Redux/theme/theme.action";
 
 // Shared Components
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
-import { SignoutSelector } from "../../../Redux/Auth/SignOut/signout.selector";
 
 // Image Import
 import Default from "../../../Assets/images/default.png";
@@ -44,14 +43,13 @@ import {
   OptionText,
   RightImgContainer,
 } from "./SeeProfile.Styles";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
   // const signOutState = useSelector(SignoutSelector);
 
-  const {
-    user: { _id, firstName, lastName, hasAvatar },
-  } = props;
+  const currUsr = useSelector(signInSelector);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -92,12 +90,14 @@ function SeeProfile(props) {
           <ProfilePicContainer>
             <ProfilePic
               src={
-                hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default
+                currUsr.user.hasAvatar || currUsr.newAvatar
+                  ? `${config.serverURL}/users/${currUsr.user._id}/avatar`
+                  : Default
               }
             />
           </ProfilePicContainer>
           <ProfileNameContainer>
-            <ProfileName className="Profile_Name">{`${firstName} ${lastName}`}</ProfileName>
+            <ProfileName className="Profile_Name">{`${currUsr.user.firstName} ${currUsr.user.lastName}`}</ProfileName>
             <ProfileOption className="Profile_Utility">
               See Your Profile
             </ProfileOption>

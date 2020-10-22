@@ -13,7 +13,7 @@ function UserFriendsPost() {
     <UserFrendPostCntr>
       <PostFormComponent />
       <PostFilter />
-      {/* <AllPostsComponent /> */}
+      <AllPostsComponent />
     </UserFrendPostCntr>
   );
 }

@@ -11,6 +11,8 @@ import {
   SignInFormContainer,
   SignInForm,
   FormInputStyled,
+  LogInButton,
+  CreateAccountButton,
 } from "./Signin.Styles";
 
 // Custom Hook
@@ -73,8 +75,8 @@ function SignInComponent(props) {
       <SignInContent>
         <SignInTxtContr>
           <SignInText1>fakebook</SignInText1>
-          <SignInText2>Fakebook helps you connect and share</SignInText2>
-          <SignInText2>with people in your life</SignInText2>
+          <SignInText2>Fakebook helps you fake and share</SignInText2>
+          <SignInText2>with fake people in your life</SignInText2>
         </SignInTxtContr>
         <SignInFormContainer>
           <SignInForm onSubmit={handleLogIn}>
@@ -83,7 +85,7 @@ function SignInComponent(props) {
               name="email"
               type="email"
               value={values.email}
-              placeholder="Email Address Or Phone Number"
+              placeholder="Email Address"
               onChange={handleValues}
             />
             <FormInputStyled
@@ -91,17 +93,17 @@ function SignInComponent(props) {
               name="password"
               type="password"
               value={values.password}
-              placeholder="password"
+              placeholder="Password"
               onChange={handleValues}
             />
-            <button>Log In</button>
+            <LogInButton>Log In</LogInButton>
             <h5>Forgot Password</h5>
             <div className="line" />
           </SignInForm>
           <HorizontalLine />
-          <button buttonType="button" onClick={handleModal}>
+          <CreateAccountButton onClick={handleModal}>
             Create A New Account
-          </button>
+          </CreateAccountButton>
           {modalState.show && <Modal />}
         </SignInFormContainer>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}

@@ -39,10 +39,6 @@ function CreatePostComponent(props) {
   const post = useSelector(postSelector);
   const [values, setValues] = useForm({ description: "" });
 
-  // useEffect(() => {
-
-  // }, [post.loading]);
-
   // Effect for Creating the post
   useEffect(() => {
     if (
@@ -106,7 +102,7 @@ function CreatePostComponent(props) {
         <CreatePostBtn
           buttonType="button"
           className="Post_Button"
-          buttonClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}
+          onClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}
         >
           {" "}
           Post{" "}

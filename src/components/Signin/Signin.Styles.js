@@ -19,6 +19,12 @@ const SignInContent = styled.div`
   justify-content: center;
   width: 90%;
   height: 60%;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: -5rem;
+  }
 `;
 
 const SignInTxtContr = styled.div`
@@ -26,7 +32,11 @@ const SignInTxtContr = styled.div`
 `;
 const SignInText1 = styled.h1``;
 
-const SignInText2 = styled.h2``;
+const SignInText2 = styled.h2`
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+`;
 
 const SignInFormContainer = styled.div`
   display: flex;
@@ -47,7 +57,7 @@ const SignInForm = styled.form`
 `;
 
 const FormInputStyled = styled(FormInput)`
-  height: 1rem;
+  height: 2rem;
   margin-bottom: 0.7rem;
   border: 1px solid gray;
   border-radius: 5px;
@@ -55,6 +65,45 @@ const FormInputStyled = styled(FormInput)`
   background-color: lavender;
   padding: 0.5rem;
 `;
+
+const LogInButton = styled.button`
+  width: 100%;
+  background-color: #1877f2;
+  height: 3rem;
+  border-radius: 5px;
+  outline-color: transparent;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  &::focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #4b97f9;
+  }
+`;
+
+const CreateAccountButton = styled.button`
+  width: 80%;
+  background-color: #42b72a;
+  height: 3rem;
+  border-radius: 5px;
+  outline-color: transparent;
+  border: none;
+  color: white;
+  margin: auto;
+  cursor: pointer;
+  font-weight: bolder;
+  &::focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #5fe144;
+  }
+`;
+
+// #42b72a
 export {
   SignInContaner,
   SignInContent,
@@ -63,5 +112,7 @@ export {
   SignInText2,
   SignInFormContainer,
   SignInForm,
-  FormInputStyled
+  FormInputStyled,
+  LogInButton,
+  CreateAccountButton,
 };

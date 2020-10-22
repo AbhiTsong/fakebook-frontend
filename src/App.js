@@ -1,8 +1,8 @@
 import React, { memo, useEffect } from "react";
-import "./App.css";
+// import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 // Nested Components
 import SigninSignupPage from "./pages/signin-signup.page";
@@ -25,13 +25,21 @@ import darkTheme from "./theme/dark";
 import Container from "./theme/components/container";
 import { getToken } from "./Redux/token";
 
+// Styled Import
+const AppContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1650px;
+  margin: auto;
+`;
+
 function App() {
   const modalState = useSelector(modalSelector);
   const tostState = useSelector(tostSelector);
   const themeMode = useSelector(themeSelector);
   const postState = useSelector(postSelector);
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     if (postState.error.Error === "Please Authenticate") {
@@ -43,7 +51,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode.light ? lightTheme : darkTheme}>
-      <Container className="App">
+      <AppContainer>
         {modalState.show && <Modal header1="Create Post" />}
         {tostState.show && <Toster />}
         <Switch>
@@ -51,7 +59,9 @@ function App() {
           <Route
             exact
             path="/auth"
-            render={() => (getToken() ? <Redirect to="/" /> : <SigninSignupPage />)}
+            render={() =>
+              getToken() ? <Redirect to="/" /> : <SigninSignupPage />
+            }
             // render={() => <SigninSignupPage />}
           />
           <Route exact path="/videos" component={VideosPage} />
@@ -62,7 +72,7 @@ function App() {
           />
           <Redirect from="/" to="/home" />
         </Switch>
-      </Container>
+      </AppContainer>
     </ThemeProvider>
   );
 }

@@ -62,8 +62,18 @@ const INITIAL_STATE = {
 function SignUpComponent(props) {
   const dispatch = useDispatch();
   const signUpState = useSelector(signUpSelector);
+  const [width, setWidth] = useState(false);
   const [values, handleValues] = useForm(INITIAL_STATE);
   const [gender, setGender] = useState("");
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if(window.innerWidth === 375){
+
+        setWidth(true)
+      }
+    })
+  }, [])
 
   useEffect(() => {
     if (!signUpState.loading && signUpState.isSignedUp) {
@@ -91,13 +101,18 @@ function SignUpComponent(props) {
     }
   };
 
+
+
+  console.log("/////////",width)
+
+
   if (signUpState.loading) {
     return <LoadingSpinner />;
   }
 
   return (
     <>
-      <ModalContainer tabIndex={-1}>
+      <ModalContainer>
         <ModalHeader>
           <div>
             <ModalTitleText className="header-title">Sign Up</ModalTitleText>

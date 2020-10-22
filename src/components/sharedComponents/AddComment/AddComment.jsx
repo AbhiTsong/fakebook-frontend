@@ -14,7 +14,6 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { addCommentAction } from "../../../Redux/Post/commentAction";
 
 // Shared Components
-import FormInput from "../../sharedComponents/FormInput/FormInput.Component";
 
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -25,9 +24,7 @@ import Default from "../../../Assets/images/default.png";
 function AddComment({ id }) {
   const dispatch = useDispatch();
 
-  let {
-    user: { firstName, lastName, _id, hasAvatar },
-  } = useSelector(signInSelector);
+  let currUsr = useSelector(signInSelector);
   const [values, handleValues] = useForm({ comment: "" });
 
   function handleKeyPress(e) {
@@ -40,8 +37,8 @@ function AddComment({ id }) {
         addCommentAction({
           comment: values.comment,
           id,
-          userId: _id,
-          name: `${firstName} ${lastName}`,
+          userId: currUsr.user._id,
+          name: `${currUsr.user.firstName} ${currUsr.user.lastName}`,
         })
       );
     }
@@ -50,13 +47,17 @@ function AddComment({ id }) {
   return (
     <CommentsContainer>
       <ImageContr
-        src={hasAvatar ? `${config.serverURL}/users/${_id}/avatar` : Default}
+        src={
+          currUsr.user.hasAvatar || currUsr.newAvatar
+            ? `${config.serverURL}/users/${currUsr.user._id}/avatar`
+            : Default
+        }
       />
       <StyledFormInput
         name="comment"
         type="text"
         value={values.comment.split("  ").join(" ")}
-        placeholder={`Add Comments ${firstName}....`}
+        placeholder={`Add Comments ${currUsr.user.firstName}....`}
         onChange={handleValues}
         onKeyPress={handleKeyPress}
       />

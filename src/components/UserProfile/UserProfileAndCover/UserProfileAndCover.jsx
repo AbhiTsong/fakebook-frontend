@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 // Styled Import
@@ -24,14 +25,16 @@ import CoverChangeDropMenu from "../../sharedComponents/CoverChangeDropMenu/Cove
 
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { userSelector } from "../../../Redux/User/UserSelector";
 
 // Icon Img
 import Camera from "../../../Assets/images/camera.png";
 
-function UserProfileAndCover() {
+function UserProfileAndCover(props) {
   const [showDrop, setShowDrop] = useState(false);
   const [cover, setCover] = useState(false);
   let user = useSelector(signInSelector);
+  let coverAndProfile = useSelector(userSelector);
   const dispatch = useDispatch();
 
   // Function For Handling Upload Image
@@ -51,6 +54,12 @@ function UserProfileAndCover() {
     e.preventDefault();
     setShowDrop(!showDrop);
   }
+
+  useEffect(() => {
+    if (coverAndProfile.coverCreated) {
+      window.location.reload();
+    }
+  }, [coverAndProfile.coverCreated]);
 
   return (
     <>
@@ -74,6 +83,7 @@ function UserProfileAndCover() {
               <ProfileCameraIcn src={Camera} />
             </ProfileCamerCntr>
           </ProfileIconCntr>
+          {/* User Profile Pic */}
           <UserProfilePic />
         </ProfilePicContainer>
       </ProfileAndCover>
@@ -87,4 +97,4 @@ function UserProfileAndCover() {
   );
 }
 
-export default UserProfileAndCover;
+export default withRouter(memo(UserProfileAndCover));

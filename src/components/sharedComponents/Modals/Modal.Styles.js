@@ -27,7 +27,7 @@ const ModalContainer = styled.div`
   display: flex; /* Stay in place */
   align-items: center;
   justify-content: space-around;
-  animation: ${ModalAnimation} 1s ease-in-out;
+  animation: ${ModalAnimation} 0.5s ease-in-out;
   z-index: 100 !important; /* Sit on top */
   //   padding-top: 100px; /* Location of the box */
   left: 0;

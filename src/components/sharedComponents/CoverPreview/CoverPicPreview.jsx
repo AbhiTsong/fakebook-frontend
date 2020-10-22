@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Styled Imports
@@ -18,17 +18,25 @@ import {
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
 import Warning from "../Warning/Warning";
+import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 // Redux Imports
 import { userSelector } from "../../../Redux/User/UserSelector";
 import { warningSelector } from "../../../Redux/Warning/Warning.Selector";
 import { ShowWarning } from "../../../Redux/Warning/Warning.Action";
 import { changeCoverAction } from "../../../Redux/User/changeCoverAction";
+import { CloseModal } from "../../../Redux/Modal/ModalAction";
 
 function CoverPicPreview() {
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
   const warningState = useSelector(warningSelector);
+
+  // Close Modal If the cover is updated
+  useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
+    user.coverCreated ? dispatch(CloseModal()) : "";
+  }, [dispatch, user.coverCreated]);
 
   function handleAddProfilePic(e) {
     e.preventDefault();
@@ -40,6 +48,10 @@ function CoverPicPreview() {
   function handleCancle(e) {
     e.preventDefault();
     dispatch(ShowWarning());
+  }
+
+  if (user.loading) {
+    return <LoadingSpinner />;
   }
 
   return (

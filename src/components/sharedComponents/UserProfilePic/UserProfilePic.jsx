@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import config from "../../../config/config.json";
@@ -17,15 +17,18 @@ function UserProfilePic(props) {
   let userState = useSelector(signInSelector);
   let dispatch = useDispatch();
 
-  if (!userPic.loading && userPic.created) {
-    dispatch(clearCreatedPath());
-  }
 
-  console.log("User State", userState);
+  console.log("userState ====== >>>>>",userPic)
+
+  useEffect(() => {
+    if (!userPic.loading && userPic.created) {
+      dispatch(clearCreatedPath());
+      window.location.reload();
+    }
+  }, [dispatch, userPic.created, userPic.loading]);
 
   return (
     <UserImage
-      // className="Profile_Pic"
       src={
         userState.user.hasAvatar || userState.newAvatar
           ? `${config.serverURL}/users/${userState.user._id}/avatar`

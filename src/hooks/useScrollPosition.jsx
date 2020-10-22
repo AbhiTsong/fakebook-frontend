@@ -6,7 +6,6 @@ function useScrollPosition(state, pos) {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       let topPos = window.pageYOffset <= pos;
-      console.log("topPos topPos ",topPos)
       if (topPos === false) {
         setScrollPosition(false);
       } else {

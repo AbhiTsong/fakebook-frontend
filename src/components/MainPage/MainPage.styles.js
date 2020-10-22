@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const MainPageContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: 130rem;
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
@@ -15,7 +15,7 @@ const MainPageContainer = styled.div`
 `;
 
 const MainPageContent = styled.div`
-  width: 47rem;
+  width: 75%;
 `;
 
 export { MainPageContainer, MainPageContent };
