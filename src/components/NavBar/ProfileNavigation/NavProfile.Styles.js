@@ -1,10 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+function profileNavigation({ width }) {
+  if (width < 800) {
+    return css`
+      display: none;
+    `;
+  }
+
+  return css`
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+  `;
+}
 
 const NavBarContainer = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: 15rem;
+  ${profileNavigation}
 `;
 
 const RightNameAndProfile = styled.div`
@@ -65,5 +77,5 @@ export {
   IconsContainer,
   IconImageContainer,
   IconImage,
-  RequestCount
+  RequestCount,
 };

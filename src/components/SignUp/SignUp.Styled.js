@@ -1,8 +1,25 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 import RadioButtonComponent from "../sharedComponents/RadioButton/RadioButton.Component";
 
+const ContrRegularWidth = css`
+  width: 28rem;
+`;
+
+const ContrSmallScreenWidth = css`
+  width: 21rem;
+`;
+
+const ModalContainerStyle = (props) => {
+  if (props.width > 500) {
+    return ContrRegularWidth;
+  }
+
+  return ContrSmallScreenWidth;
+};
+
 const ModalContainer = styled.div`
+  ${ModalContainerStyle}
   position: relative;
   justify-content: center;
   background-color: #fefefe;
@@ -10,7 +27,6 @@ const ModalContainer = styled.div`
   flex-direction: column;
   margin: auto;
   padding: 0;
-  width: 28rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
@@ -19,11 +35,6 @@ const ModalContainer = styled.div`
   animation-duration: 0.4s;
   &:focus {
     outline: none;
-  }
-
-  @media screen and(max-width: 800px) {
-    width: 19rem;
-    background-color: red;
   }
 `;
 
@@ -60,13 +71,43 @@ const SignUpForm = styled.form`
   flex-direction: column;
 `;
 
-const NameLabel = styled.div`
+const normalLabel = css`
   display: flex;
   justify-content: space-between;
 `;
 
-const StyledNameForms = styled(FormInput)`
+const smallLable = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+const nameLableStyle = (props) => {
+  if (props.width > 500) {
+    return normalLabel;
+  }
+  return smallLable;
+};
+
+const NameLabel = styled.div`
+  ${nameLableStyle}
+`;
+
+const regularInputStyle = css`
   width: 11.5rem;
+`;
+
+const smallInputStyles = css``;
+
+const inputStyle = (props) => {
+  if (props.width > 500) {
+    return regularInputStyle;
+  }
+
+  return smallInputStyles;
+};
+
+const StyledNameForms = styled(FormInput)`
+  ${inputStyle}
   height: 1rem;
   margin-bottom: 0.7rem;
   border: 1px solid gray;
@@ -75,6 +116,7 @@ const StyledNameForms = styled(FormInput)`
   background-color: lavender;
   padding: 0.5rem;
 `;
+
 const StyledEmailPassInput = styled(FormInput)`
   height: 1rem;
   margin-bottom: 0.7rem;
@@ -84,6 +126,7 @@ const StyledEmailPassInput = styled(FormInput)`
   background-color: lavender;
   padding: 0.5rem;
 `;
+
 const DateOFBirth = styled.h5`
   margin: 0;
   margin-bottom: 5px;
@@ -104,6 +147,11 @@ const DOMDropDowns = styled.select`
   background-color: white;
 `;
 
+
+const Options = styled.option`
+  height: 5rem;
+`
+
 const GenderTitle = styled.h5`
   margin: 0;
   margin-bottom: 5px;
@@ -118,7 +166,6 @@ const GenderContinaer = styled.div`
 const GenderContent = styled.div`
   display: flex;
   justify-content: space-between;
-  min-width: 100px;
   width: 7rem;
   font-size: medium;
   padding: 0.5rem;
@@ -149,6 +196,25 @@ const StyledRadio = styled(RadioButtonComponent)`
   left: 6rem;
 `;
 
+const StyledButton = styled.button`
+  width: 80%;
+  background-color: #42b72a;
+  height: 2rem;
+  border-radius: 5px;
+  outline-color: transparent;
+  border: none;
+  color: white;
+  margin: auto;
+  cursor: pointer;
+  font-weight: bolder;
+  &::focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #5fe144;
+  }
+`;
+
 export {
   ModalContainer,
   ModalHeader,
@@ -163,6 +229,7 @@ export {
   DateOFBirth,
   DOBContaoner,
   DOMDropDowns,
+  Options,
   GenderTitle,
   GenderContinaer,
   GenderContent,
@@ -170,4 +237,5 @@ export {
   ValueContainer,
   TermsAndPolicy,
   BlueColor,
+  StyledButton
 };

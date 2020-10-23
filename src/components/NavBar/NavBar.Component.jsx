@@ -1,8 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import FormInput from "../sharedComponents/FormInput/FormInput.Component";
-import "./NavBar.Styles.scss";
 import ProfileNavigation from "./ProfileNavigation/ProfileNavigation";
+
+// Custom Hook Import
+import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
+
+// Styled Imports
+import {
+  NavBar,
+  LogoContainer,
+  LogoContent,
+  NavSearchContainer,
+  StyledInput,
+  NavbarContent,
+  NavbarLinkCntr,
+  IconsContainer,
+  NavIcons,
+} from "./Navbar.styles";
 
 // Icon Pic Imports
 import Logo from "../../Assets/images/fakebookBlack.png";
@@ -10,26 +24,28 @@ import Home from "../../Assets/images/home.png";
 import Video from "../../Assets/images/youtube.png";
 import Group from "../../Assets/images/group.png";
 import Box from "../../Assets/images/box.png";
+import Profile from "../../Assets/images/profile-icon.png";
 
 function NavBarComponent() {
+  let width = useCalcInnerWidth(window.innerWidth);
   return (
-    <nav className="NavBar_Container">
-      <div className="LogoContainer">
+    <NavBar>
+      <LogoContainer width={width}>
         <NavLink to="/home">
-          <div className="Logo_Content">
-            <img src={Logo} className="Fakebook_Logo" alt="Fakebook Logo" />
-          </div>
+          <LogoContent>
+            <NavIcons src={Logo} alt="Fakebook Logo" />
+          </LogoContent>
         </NavLink>
-        <div className="Nav_Search_Container">
-          <FormInput
+        <NavSearchContainer>
+          <StyledInput
             type="text"
             placeholder="Search Fakebook"
             className="Nav_Search"
           />
-        </div>
-      </div>
-      <div className="NavBar_Content">
-        <div className="NavBarLI">
+        </NavSearchContainer>
+      </LogoContainer>
+      <NavbarContent>
+        <NavbarLinkCntr>
           <NavLink
             exact
             activeClassName="active"
@@ -40,35 +56,46 @@ function NavBarComponent() {
             }}
             to="/home"
           >
-            <div className="Logo_Content">
-              <img src={Home} className="Fakebook_Logo" alt="Fakebook Logo" />
-            </div>
+            <IconsContainer width={width}>
+              <NavIcons src={Home} alt="Fakebook Logo" />
+            </IconsContainer>
           </NavLink>
-        </div>
-        <div className="NavBarLI">
+        </NavbarLinkCntr>
+        <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/videos">
-            <div className="Logo_Content">
-              <img src={Video} className="Fakebook_Logo" alt="Fakebook Logo" />
-            </div>
+            <IconsContainer width={width}>
+              <NavIcons src={Video} alt="Fakebook Logo" />
+            </IconsContainer>
           </NavLink>
-        </div>
-        <div className="NavBarLI">
+        </NavbarLinkCntr>
+        <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/contact">
-            <div className="Logo_Content">
-              <img src={Group} className="Fakebook_Logo" alt="Fakebook Logo" />
-            </div>
+            <IconsContainer width={width}>
+              <NavIcons src={Group} alt="Fakebook Logo" />
+            </IconsContainer>
           </NavLink>
-        </div>
-        <div className="NavBarLI">
+        </NavbarLinkCntr>
+        {width < 800 ? (
+          <NavbarLinkCntr>
+            <NavLink activeClassName="active" to="/profile">
+              <IconsContainer width={width}>
+                <NavIcons src={Profile} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarLinkCntr>
+        ) : (
+          ""
+        )}
+        <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/contact">
-            <div className="Logo_Content">
-              <img src={Box} className="Fakebook_Logo" alt="Fakebook Logo" />
-            </div>
+            <IconsContainer width={width}>
+              <NavIcons src={Box} alt="Fakebook Logo" />
+            </IconsContainer>
           </NavLink>
-        </div>
-      </div>
+        </NavbarLinkCntr>
+      </NavbarContent>
       <ProfileNavigation />
-    </nav>
+    </NavBar>
   );
 }
 

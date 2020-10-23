@@ -1,5 +1,4 @@
 import React, { memo, useEffect } from "react";
-// import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";

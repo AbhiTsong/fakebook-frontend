@@ -103,7 +103,6 @@ const CreateAccountButton = styled.button`
   }
 `;
 
-// #42b72a
 export {
   SignInContaner,
   SignInContent,

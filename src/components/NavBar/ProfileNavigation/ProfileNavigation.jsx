@@ -2,6 +2,9 @@ import React, { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+// Custon Hook Import
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth.jsx";
+
 // Styled Components Imports
 import {
   NavBarContainer,
@@ -17,10 +20,12 @@ import {
 // Utility Imports
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
+// Icom Imports
 import messanger from "../../../Assets/images/messenger.png";
 import bell from "../../../Assets/images/bell.png";
 import down from "../../../Assets/images/down.png";
 import add from "../../../Assets/images/add.png";
+import Hamburger from "../../Hamburger/Hamburger";
 
 // Nested Components
 import Notification from "../Notification/Notification";
@@ -35,6 +40,7 @@ import { noticeSelector } from "../../../Redux/Notification/Notification.selecto
 import { messageSelector } from "../../../Redux/Message/Message.selector";
 
 function ProfileNavigation() {
+  let width = useCalcInnerWidth(window.innerWidth);
   const dispatch = useDispatch();
   const userState = useSelector(signInSelector);
   const notice = useSelector(noticeSelector);
@@ -66,43 +72,49 @@ function ProfileNavigation() {
 
   return (
     <>
-      <NavBarContainer>
-        <RightNameAndProfile>
-          <ProfilePicContainer>
+      {width < 800 ? (
+        <Hamburger width={width}/>
+      ) : (
+        <NavBarContainer>
+          <RightNameAndProfile>
+            <ProfilePicContainer>
+              <Link to="/profile">
+                <UserProfilePic />
+              </Link>
+            </ProfilePicContainer>
             <Link to="/profile">
-              <UserProfilePic />
+              <UserName className="User_Name">
+                {userState.user.firstName}
+              </UserName>
             </Link>
-          </ProfilePicContainer>
-          <Link to="/profile">
-            <UserName className="User_Name">
-              {userState.user.firstName}
-            </UserName>
-          </Link>
-        </RightNameAndProfile>
-        <IconsContainer>
-          <IconImageContainer>
-            <IconImage src={add} />
-          </IconImageContainer>
-        </IconsContainer>
-        <IconsContainer onClick={handleMessage}>
-          <IconImageContainer>
-            <IconImage src={messanger} alt="Message Button" />
-          </IconImageContainer>
-        </IconsContainer>
-        <IconsContainer onClick={handleNotification}>
-          <IconImageContainer>
-            <IconImage src={bell} alt="Message Button" />
-          </IconImageContainer>
-          {userState.user.friendRequests ? (
-            <RequestCount>{userState.user.friendRequests.length}</RequestCount>
-          ) : null}
-        </IconsContainer>
-        <IconsContainer onClick={handleShowProfile}>
-          <IconImageContainer>
-            <IconImage src={down} alt="Message Button" />
-          </IconImageContainer>
-        </IconsContainer>
-      </NavBarContainer>
+          </RightNameAndProfile>
+          <IconsContainer>
+            <IconImageContainer>
+              <IconImage src={add} />
+            </IconImageContainer>
+          </IconsContainer>
+          <IconsContainer onClick={handleMessage}>
+            <IconImageContainer>
+              <IconImage src={messanger} alt="Message Button" />
+            </IconImageContainer>
+          </IconsContainer>
+          <IconsContainer onClick={handleNotification}>
+            <IconImageContainer>
+              <IconImage src={bell} alt="Message Button" />
+            </IconImageContainer>
+            {userState.user.friendRequests ? (
+              <RequestCount>
+                {userState.user.friendRequests.length}
+              </RequestCount>
+            ) : null}
+          </IconsContainer>
+          <IconsContainer onClick={handleShowProfile}>
+            <IconImageContainer>
+              <IconImage src={down} alt="Message Button" />
+            </IconImageContainer>
+          </IconsContainer>
+        </NavBarContainer>
+      )}
       {settingsState && <SeeProfile user={userState.user} />}
       {notice.showNotification && <Notification />}
       {message.showMessage && <Messages />}

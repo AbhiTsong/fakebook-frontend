@@ -15,6 +15,7 @@ import {
   DateOFBirth,
   DOBContaoner,
   DOMDropDowns,
+  Options,
   GenderTitle,
   GenderContinaer,
   GenderContent,
@@ -22,6 +23,7 @@ import {
   ValueContainer,
   TermsAndPolicy,
   BlueColor,
+  StyledButton,
 } from "./SignUp.Styled";
 
 // Shared Componenets
@@ -62,18 +64,17 @@ const INITIAL_STATE = {
 function SignUpComponent(props) {
   const dispatch = useDispatch();
   const signUpState = useSelector(signUpSelector);
-  const [width, setWidth] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
   const [values, handleValues] = useForm(INITIAL_STATE);
   const [gender, setGender] = useState("");
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      if(window.innerWidth === 375){
-
-        setWidth(true)
-      }
-    })
-  }, [])
+    function findWidth() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", findWidth);
+    return () => window.removeEventListener("resize", findWidth);
+  }, []);
 
   useEffect(() => {
     if (!signUpState.loading && signUpState.isSignedUp) {
@@ -101,18 +102,13 @@ function SignUpComponent(props) {
     }
   };
 
-
-
-  console.log("/////////",width)
-
-
   if (signUpState.loading) {
     return <LoadingSpinner />;
   }
 
   return (
     <>
-      <ModalContainer>
+      <ModalContainer width={width}>
         <ModalHeader>
           <div>
             <ModalTitleText className="header-title">Sign Up</ModalTitleText>
@@ -127,8 +123,9 @@ function SignUpComponent(props) {
         <SignUpFormContainer>
           <SignUpFormContent>
             <SignUpForm onSubmit={handleSignUp}>
-              <NameLabel>
+              <NameLabel width={width}>
                 <StyledNameForms
+                  width={width}
                   name="firstName"
                   type="text"
                   value={values.firstName}
@@ -136,6 +133,7 @@ function SignUpComponent(props) {
                   onChange={handleValues}
                 />
                 <StyledNameForms
+                  width={width}
                   name="lastName"
                   type="text"
                   value={values.lastName}
@@ -170,9 +168,9 @@ function SignUpComponent(props) {
                   onChange={handleValues}
                 >
                   {[...Array(31).keys()].map((day) => (
-                    <option key={day} value={day}>
+                    <Options key={day} value={day}>
                       {day}
-                    </option>
+                    </Options>
                   ))}
                 </DOMDropDowns>
 
@@ -257,7 +255,7 @@ function SignUpComponent(props) {
                 You may receive SMS notifications from us and can opt out at any
                 time.
               </TermsAndPolicy>
-              <button>Sign Up</button>
+              <StyledButton>Sign Up</StyledButton>
             </SignUpForm>
           </SignUpFormContent>
         </SignUpFormContainer>
