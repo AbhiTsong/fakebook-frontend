@@ -1,14 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+// Function for sizing the style depending on the window width
+function seeProfileStyle({ width }) {
+  if (width < 800) {
+    return css`
+      width: 94%;
+      top: 4rem;
+      left: 0rem;
+      border-top: 1px solid gray;
+    `;
+  }
+
+  return css`
+    width: 20rem;
+    right: 1rem;
+    top: 5rem;
+  `;
+}
 
 const ProfileSettingsContainer = styled.div`
+  ${seeProfileStyle}
   position: absolute;
-  top: 5rem;
-  right: 1rem;
+  padding: 0.5rem 1rem;
   background-color: white;
   z-index: 100;
-  width: 20rem;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
 `;
 
 const ProfileStttingsHeader = styled.div`

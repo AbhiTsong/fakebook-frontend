@@ -21,6 +21,9 @@ import LeftArrow from "../../../Assets/images/leftArrow.png";
 import Logout from "../../../Assets/images/logout.png";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
+// Custom Hook
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
+
 // Styled Imports
 import {
   ProfileSettingsContainer,
@@ -47,9 +50,8 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
-  // const signOutState = useSelector(SignoutSelector);
-
   const currUsr = useSelector(signInSelector);
+  const width = useCalcInnerWidth(window.innerWidth);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -84,7 +86,7 @@ function SeeProfile(props) {
   // }
 
   return (
-    <ProfileSettingsContainer>
+    <ProfileSettingsContainer width={width}>
       <Link to="/profile">
         <ProfileStttingsHeader>
           <ProfilePicContainer>

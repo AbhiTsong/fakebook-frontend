@@ -14,6 +14,7 @@ import { themeReducer } from "./theme/theme.reducer";
 import { messageReducer } from "./Message/Message.reducer";
 import { notificationReducer } from "./Notification/Notification.reducer";
 import { settingsReducer } from "./ShowSettings/ShowSettings.reducer";
+import { hamburgerReducer } from "./Hamburger/Hamburger.reducer";
 
 const persitConfig = {
   key: "root",
@@ -32,6 +33,7 @@ const RootReducer = combineReducers({
   tost: tosterReducer,
   user: userReducer,
   warning: warningReducer,
+  burger: hamburgerReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

@@ -44,7 +44,7 @@ function NavBarComponent() {
           />
         </NavSearchContainer>
       </LogoContainer>
-      <NavbarContent>
+      <NavbarContent width={width}>
         <NavbarLinkCntr>
           <NavLink
             exact

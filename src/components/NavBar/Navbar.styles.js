@@ -66,12 +66,26 @@ const StyledInput = styled(FormInput)`
   }
 `;
 
+// With depending upon the screen size
+function widthStyle({ width }) {
+  if (width < 800) {
+    return css`
+      width: 85%;
+      justify-content: space-between;
+    `;
+  }
+
+  return css`
+    width: 60%;
+    justify-content: space-evenly;
+  `;
+}
+
 const NavbarContent = styled.div`
+  ${widthStyle}
   display: flex;
   align-items: center;
   height: 2rem;
-  justify-content: space-evenly;
-  width: 60%;
 `;
 
 const NavbarLinkCntr = styled.div`

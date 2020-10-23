@@ -38,6 +38,7 @@ import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
 import { noticeSelector } from "../../../Redux/Notification/Notification.selector";
 import { messageSelector } from "../../../Redux/Message/Message.selector";
+import { toggleState } from "../../../Redux/Hamburger/Hamburger.selector";
 
 function ProfileNavigation() {
   let width = useCalcInnerWidth(window.innerWidth);
@@ -48,6 +49,7 @@ function ProfileNavigation() {
   const [messageState, setMessage] = useState(true);
   const [noticeState, setNotice] = useState(true);
   const [settingsState, setSettings] = useState(false);
+  const { show } = useSelector(toggleState);
 
   function handleNotification() {
     setNotice(!noticeState);
@@ -73,7 +75,7 @@ function ProfileNavigation() {
   return (
     <>
       {width < 800 ? (
-        <Hamburger width={width}/>
+        <Hamburger width={width} />
       ) : (
         <NavBarContainer>
           <RightNameAndProfile>
@@ -115,7 +117,7 @@ function ProfileNavigation() {
           </IconsContainer>
         </NavBarContainer>
       )}
-      {settingsState && <SeeProfile user={userState.user} />}
+      {settingsState || (show && <SeeProfile user={userState.user} />)}
       {notice.showNotification && <Notification />}
       {message.showMessage && <Messages />}
     </>
