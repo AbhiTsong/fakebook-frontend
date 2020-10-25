@@ -6,13 +6,14 @@ const MessageHeader = styled.div`
   right: 1rem;
   height: 5vh;
   background-color: white;
-  z-index: 100;
+  z-index: 21;
   width: 20rem;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  align-items: baseline;
 `;
 
 const HeaderText = styled.h2`
@@ -25,6 +26,17 @@ const HeaderDots = styled.span`
   color: gray;
 `;
 
+const HeaderClose = styled.div`
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+`;
+const CloseIcon = styled.img`
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+`;
+
 const MessageContainer = styled.div`
   position: absolute;
   top: 7.5rem;
@@ -32,7 +44,7 @@ const MessageContainer = styled.div`
   height: 80vh;
   background-color: white;
   padding: 0 1rem;
-  z-index: 100;
+  z-index: 21;
   width: 20rem;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -87,6 +99,8 @@ export {
   MessageHeader,
   HeaderText,
   HeaderDots,
+  HeaderClose,
+  CloseIcon,
   MessageContainer,
   MessageImageAndText,
   MessageImageContainer,

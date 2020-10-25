@@ -4,7 +4,9 @@ const FriendReqContr = styled.div`
   display: flex;
   cursor: pointer;
   align-items: center;
-  height: 3rem;
+  padding-left: ${({ width }) => (width < 800 ? "" : "0.5rem")};
+  height: ${({ width }) => (width < 800 ? "1.5rem" : "3rem")};
+  margin: ${({ width }) => (width < 800 ? "1rem 0" : "")};
   &:hover {
     background-color: rgb(197, 197, 207);
     border-radius: 10px;
@@ -13,7 +15,8 @@ const FriendReqContr = styled.div`
 
 const FriendReqLogoCtr = styled.div`
   width: 1.5rem;
-  padding-left: 0.5rem;
+  height: 1.5rem;
+  padding-left: ${(props) => (props.width > 800 ? "0.5rem" : "0")};
 `;
 const FriendReqLogo = styled.img`
   display: block;
@@ -37,10 +40,10 @@ const ReqCount = styled.h6`
   margin: 0;
   display: flex;
   color: blue;
-  margin-top: -1rem;
-  margin-left: 3rem;
   margin-bottom: 1rem;
   cursor: pointer;
+  margin-top: -1rem;
+  margin-left: ${({ width }) => (width < 800 ? "2.5rem" : "3rem")};
 `;
 
 const ReqCountDot = styled.span`

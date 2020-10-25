@@ -10,17 +10,25 @@ import Messanger from "./Messanger/Messanger";
 import Groups from "./Groups/Groups";
 import Pages from "./Pages/Pages";
 import Videos from "./Videos/Videos";
+import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
 
 function LeftSideNavBar() {
+  let width = useCalcInnerWidth(window.innerWidth);
   return (
-    <LeftNavComponent>
-      <NavProfilePic />
-      <FriendRequests />
-      <Messanger />
-      <Groups />
-      <Pages />
-      <Videos />
-    </LeftNavComponent>
+    <>
+      {width < 800 ? (
+        ""
+      ) : (
+        <LeftNavComponent>
+          <NavProfilePic />
+          <FriendRequests />
+          <Messanger />
+          <Groups />
+          <Pages />
+          <Videos />
+        </LeftNavComponent>
+      )}
+    </>
   );
 }
 

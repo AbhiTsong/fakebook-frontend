@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const InputContainer = styled.div`
   position: relative;
-  width: 2rem;
+  width: ${({width}) => width < 550 ? "1rem" : "2rem"};
+  height: ${({width}) => width < 550 ? "1rem" : "2rem"};
 `;
 
 const InputIcon = styled.img`
@@ -13,7 +14,7 @@ const InputIcon = styled.img`
 
 const Input = styled.input`
   opacity: 0;
-  width: 10rem;
+  width: ${({width}) => width < 550 ? "1rem" :"10rem"};
   z-index: 1;
   position: absolute;
   top: 0;

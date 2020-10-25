@@ -20,8 +20,6 @@ import {
 function NavProfilePic() {
   const user = useSelector(signInSelector);
 
-  console.log("Right Chat", user);
-
   return (
     <LeftProfiePicContainer>
       <LeftPofileContent>

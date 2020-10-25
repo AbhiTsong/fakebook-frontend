@@ -1,5 +1,4 @@
 import React from "react";
-// import "./Model.Styles.scss";
 
 // Styled Imports
 import { ModalContainer } from "./Modal.Styles";

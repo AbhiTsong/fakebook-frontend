@@ -4,8 +4,6 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 function FriendRequestCount() {
   const requestCount = useSelector(signInSelector);
 
-  console.log("requestCount", requestCount)
-
   if (!requestCount.user.friendRequests) {
     return null;
   }

@@ -4,10 +4,12 @@ import styled, { css } from "styled-components";
 function seeProfileStyle({ width }) {
   if (width < 800) {
     return css`
-      width: 94%;
+      width: 96%;
       top: 4rem;
       left: 0rem;
       border-top: 1px solid gray;
+      z-index: 10 ;
+      /* overflow-y: scroll */
     `;
   }
 
@@ -23,7 +25,7 @@ const ProfileSettingsContainer = styled.div`
   position: absolute;
   padding: 0.5rem 1rem;
   background-color: white;
-  z-index: 100;
+  z-index: 20;
   justify-content: space-between;
 `;
 

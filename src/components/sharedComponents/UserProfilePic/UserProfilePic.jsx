@@ -17,9 +17,6 @@ function UserProfilePic(props) {
   let userState = useSelector(signInSelector);
   let dispatch = useDispatch();
 
-
-  console.log("userState ====== >>>>>",userPic)
-
   useEffect(() => {
     if (!userPic.loading && userPic.created) {
       dispatch(clearCreatedPath());

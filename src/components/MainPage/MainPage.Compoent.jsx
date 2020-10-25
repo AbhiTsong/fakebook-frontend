@@ -7,10 +7,14 @@ import PostFormComponent from "../sharedComponents/PostForm/PostForm.Component";
 import AllPostsComponent from "../sharedComponents/AllPosts/AllPosts.Component";
 import FriendSuggest from "../sharedComponents/FriendSuggest/FriendSuggest";
 
+// Custom Hook
+import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
+
 function MainPageCompoent() {
+  const width = useCalcInnerWidth(window.innerWidth);
   return (
-    <MainPageContainer>
-      <MainPageContent>
+    <MainPageContainer width={width}>
+      <MainPageContent width={width}>
         <PostFormComponent />
         <FriendSuggest />
         <AllPostsComponent />

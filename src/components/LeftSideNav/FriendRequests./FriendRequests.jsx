@@ -9,6 +9,10 @@ import FriendRequestCount from "../../sharedComponents/FriendRequestCount/Friend
 // import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
+// custom hook import
+
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
+
 import {
   FriendReqContr,
   FriendReqLogoCtr,
@@ -21,20 +25,21 @@ import {
 
 function FriendRequests() {
   const dispatch = useDispatch();
+  const width = useCalcInnerWidth(window.innerWidth);
   function handleNotification() {
     dispatch(ShowModal("FRIEND_REQUESTS"));
   }
   return (
     <div onClick={handleNotification}>
-      <FriendReqContr>
-        <FriendReqLogoCtr>
+      <FriendReqContr width={width}>
+        <FriendReqLogoCtr >
           <FriendReqLogo src={FriendReqs} />
         </FriendReqLogoCtr>
         <RequestCountContr>
-          <ReqText>Friends</ReqText>
+          <ReqText width={width}>Friends</ReqText>
         </RequestCountContr>
       </FriendReqContr>
-      <ReqCount>
+      <ReqCount width={width}>
         <ReqCountDot></ReqCountDot> <FriendRequestCount /> Request
       </ReqCount>
     </div>

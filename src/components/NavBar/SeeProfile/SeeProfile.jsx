@@ -5,10 +5,16 @@ import { Link, withRouter } from "react-router-dom";
 
 // Redux Imports
 import { showToster } from "../../../Redux/toster/toster.action";
+import { toggleHamburger } from "../../../Redux/Hamburger/Hamburger.action";
 import { selectTheme } from "../../../Redux/theme/theme.action";
 
 // Shared Components
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
+import FriendRequests from "../../LeftSideNav/FriendRequests./FriendRequests";
+import Messanger from "../../LeftSideNav/Messanger/Messanger";
+import Groups from "../../LeftSideNav/Groups/Groups";
+import Pages from "../../LeftSideNav/Pages/Pages";
+import Videos from "../../LeftSideNav/Videos/Videos";
 
 // Image Import
 import Default from "../../../Assets/images/default.png";
@@ -84,6 +90,10 @@ function SeeProfile(props) {
   // if (signOutState.loading) {
   //   return "Loading....";
   // }
+
+  function closeDrop() {
+    dispatch(toggleHamburger());
+  }
 
   return (
     <ProfileSettingsContainer width={width}>
@@ -170,6 +180,21 @@ function SeeProfile(props) {
         </SettingsLeftContainer>
       </SettingOptionsContainer>
 
+      {width < 800 ? (
+        <>
+          <FriendRequests />
+          <Link to="/" onClick={closeDrop}>
+            <Messanger />
+            <Groups />
+            <Pages />
+          </Link>
+          <span onClick={closeDrop}>
+            <Videos />
+          </span>
+        </>
+      ) : (
+        ""
+      )}
       <SettingOptionsContainer onClick={handleLogout}>
         <SettingsLeftContainer>
           <SettingsImageContainer>

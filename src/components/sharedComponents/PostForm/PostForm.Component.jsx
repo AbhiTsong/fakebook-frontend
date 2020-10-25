@@ -33,19 +33,20 @@ import Smile from "../../../Assets/images/smile.png";
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
-let createPostInput = "What is on your mind Abhi??";
-// Componetnt Code
+// Custom Hook
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
+
 function PostFormComponent() {
-  // Redux State Change
   const dispatch = useDispatch();
-  // const postText = useSelector(postSelector);
+  const width = useCalcInnerWidth(window.innerWidth);
 
   const handleModal = () => {
     dispatch(ShowModal("CREATE_POST"));
   };
 
+  let createPostInput = "What is on your mind Abhi??";
   return (
-    <FormContainer>
+    <FormContainer width={width}>
       {/* Image And Input  */}
       <ImgInputCntr>
         <FormPicContr>
@@ -62,22 +63,24 @@ function PostFormComponent() {
       </ImgInputCntr>
       <HorizontalLine />
       {/*Opens the modal to create the post */}
-      <FeeingContainer>
+      <FeeingContainer width={width}>
         <IconTextCtr onClick={handleModal}>
-          <IconCntr>
+          <IconCntr width={width}>
             <Icon src={VideoCamera} />
           </IconCntr>
-          <IconText>Live Video</IconText>
+          <IconText width={width}>Live Video</IconText>
         </IconTextCtr>
         {/* Photo Upload */}
         <FileUploader />
-        <IconTextCamera>Photo/Video</IconTextCamera>
+        <IconTextCamera width={width}>Photo/Video</IconTextCamera>
         {/* Opens the modal to create the post */}
         <IconTextCtr onClick={handleModal}>
-          <IconCntr>
+          <IconCntr width={width}>
             <Icon src={Smile} />
           </IconCntr>
-          <IconText className="Icon_Text">Feeling</IconText>
+          <IconText width={width} className="Icon_Text">
+            Feeling
+          </IconText>
         </IconTextCtr>
       </FeeingContainer>
     </FormContainer>

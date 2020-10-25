@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+// Redux Imports
+import { messageAction } from "../../../Redux/Message/Message.Action";
+
+// Nested Components
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
 import { messageData } from "../../../statics/statics";
+
+// Image Import
+import Close from "../../../Assets/images/close.png";
 
 // Styled Imports
 import {
   MessageHeader,
   HeaderText,
   HeaderDots,
+  HeaderClose,
+  CloseIcon,
   MessageContainer,
   MessageImageAndText,
   MessageImageContainer,
@@ -17,8 +28,13 @@ import {
   MessagedDate,
 } from "./Message.Styles";
 
+// Cutom Hook
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
+
 function Messages() {
+  const dispatch = useDispatch();
   const [showSkeleton, setSkeleton] = useState(true);
+  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     let time = setTimeout(() => {
@@ -29,11 +45,21 @@ function Messages() {
     };
   }, []);
 
+  function closeMessage() {
+    dispatch(messageAction());
+  }
+
   return (
     <>
       <MessageHeader>
         <HeaderText className="Messages_Header_Text">Messages</HeaderText>
-        <HeaderDots className="Messages_Dots">...</HeaderDots>
+        {width > 800 ? (
+          <HeaderDots className="Messages_Dots">...</HeaderDots>
+        ) : (
+          <HeaderClose onClick={closeMessage}>
+            <CloseIcon src={Close} />
+          </HeaderClose>
+        )}
       </MessageHeader>
       <MessageContainer>
         {showSkeleton

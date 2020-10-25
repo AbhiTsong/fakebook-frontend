@@ -1,4 +1,5 @@
 import React from "react";
+import { useCalcInnerWidth } from "../../../../hooks/useCalcInnerWidth";
 
 // Styled Imports
 import {
@@ -13,14 +14,16 @@ import { bufferToBase64 } from "../../../../utility/bufferToBase64";
 
 function PhotoPost(props) {
   let { post } = props;
+  const width = useCalcInnerWidth(window.innerWidth);
 
   return (
     <>
       {post.description ? (
         <PosDescription>{post.description}</PosDescription>
       ) : null}
-      <CenterPostPic>
+      <CenterPostPic width={width}>
         <CenterPostPicBack
+          width={width}
           style={{
             backgroundImage: `url(data:image/png;base64,${bufferToBase64(
               post.photo.data

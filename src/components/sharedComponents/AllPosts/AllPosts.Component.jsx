@@ -23,10 +23,15 @@ import CommentsContainer from "../../sharedComponents/CommentsContainer/Comments
 import AddComment from "../../sharedComponents/AddComment/AddComment";
 import PostHeader from "./PostHeader/PostHeader";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
+import HorizontalLine from "../HorizontalLine/HorizontalLine";
+
+// Custom Hook
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
 
 function AllPostsComponent() {
   const dispatch = useDispatch();
   let allPost = useSelector(postSelector);
+  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     dispatch(fetchAllPosts());
@@ -46,14 +51,17 @@ function AllPostsComponent() {
       {allPost.allPosts.data &&
         allPost.allPosts.data
           .map((post, idx) => (
-            <SinglePostContainer key={post + idx}>
+            <SinglePostContainer width={width} key={post + idx}>
               <PostHeader post={post} />
-              <SinglePostContent>
+                <HorizontalLine />
+              <SinglePostContent width={width}>
                 {post.photo !== null ? (
                   <PhotoPost post={post} />
                 ) : (
                   <CenterPostText>
-                    <SinglrPostText>{post.description}</SinglrPostText>
+                    <SinglrPostText>
+                      {post.description}
+                    </SinglrPostText>
                   </CenterPostText>
                 )}
               </SinglePostContent>

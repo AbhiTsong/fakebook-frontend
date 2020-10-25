@@ -10,12 +10,14 @@ import {
 } from "./Pages.Styles";
 
 import Page from "../../../Assets/images/video.png";
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
 
 function Pages() {
+  let width = useCalcInnerWidth(window.innerWidth)
   return (
-    <PagesContainer>
+    <PagesContainer width={width} >
       <PageContent>
-        <PagesIcon src={Page} />
+        <PagesIcon width={width} src={Page} />
       </PageContent>
       <TextContainer>
         <PageText>Pages</PageText>

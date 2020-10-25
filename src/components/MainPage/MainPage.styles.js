@@ -5,7 +5,7 @@ const MainPageContainer = styled.div`
   width: 130rem;
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
+  padding-top: ${({width}) => width < 550 ? "" :  "1rem"};
   align-items: center;
   color: gray;
   overflow-y: scroll;
@@ -15,7 +15,7 @@ const MainPageContainer = styled.div`
 `;
 
 const MainPageContent = styled.div`
-  width: 75%;
+  width: ${({ width }) => (width < 550 ? "100%" : "75%")};
 `;
 
 export { MainPageContainer, MainPageContent };

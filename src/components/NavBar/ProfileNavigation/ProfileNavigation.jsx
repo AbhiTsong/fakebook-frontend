@@ -117,7 +117,7 @@ function ProfileNavigation() {
           </IconsContainer>
         </NavBarContainer>
       )}
-      {settingsState || (show && <SeeProfile user={userState.user} />)}
+      {(settingsState || show) && <SeeProfile user={userState.user} />}
       {notice.showNotification && <Notification />}
       {message.showMessage && <Messages />}
     </>

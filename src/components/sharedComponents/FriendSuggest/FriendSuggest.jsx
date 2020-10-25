@@ -17,6 +17,9 @@ import {
 import { getAllUsersAction } from "../../../Redux/User/allUsersInTheDBAction";
 import { userSelector } from "../../../Redux/User/UserSelector";
 
+// Custom Hooks
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
+
 // Shared Components
 import FriendSuggestImage from "./FriendSuggestImage/FriendSuggestImage";
 import FriendSuggestButton from "./FriendSuggestButton/FriendSuggestButton";
@@ -25,8 +28,8 @@ import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 function FriendSuggest() {
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
-  // const requestArray = useSelector(requestSent);
-
+  let width = useCalcInnerWidth(window.innerWidth);
+  
   useEffect(() => {
     dispatch(getAllUsersAction());
   }, []);
@@ -39,11 +42,11 @@ function FriendSuggest() {
     <FriendReqContr>
       <FrinedSuggHeader>People You May Know</FrinedSuggHeader>
       <SuggestNameAndCrd>
-        <Carousel itemsToShow={3}>
+        <Carousel itemsToShow={width < 550 ? 1 : width < 800 ? 2 : 3}>
           {users.allUsers.data && users.allUsers.data.length > 0 ? (
             users.allUsers.data
               .map((user, idx) => (
-                <FriendSuggestContr>
+                <FriendSuggestContr key={idx}>
                   <FriendSuggestImage id={user._id} avatar={user.hasAvatar} />
                   <SuggestNameAndBtn>
                     <SuggestedPerson>

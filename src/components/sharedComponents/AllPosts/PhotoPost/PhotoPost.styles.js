@@ -9,14 +9,14 @@ const PosDescription = styled.h5`
 `;
 
 const CenterPostPic = styled.div`
-  height: 23rem;
+  height: ${({ width }) => (width < 800 ? "16rem" : "23rem")};
   width: 100%;
   position: relative;
 `;
 
 const CenterPostPicBack = styled.div`
   position: absolute;
-  height: 23rem;
+  height: ${({ width }) => (width < 800 ? "16rem" : "23rem")};
   width: 100%;
   background-size: cover;
   filter: blur(3px);

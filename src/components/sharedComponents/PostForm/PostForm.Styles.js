@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import FormInput from "../FormInput/FormInput.Component";
 
 const FormContainer = styled.div`
-  height: 8rem;
+  height: ${({ width }) => (width < 550 ? "5rem" : " 8rem")};
   border: 1px solid black;
   background-color: white;
   width: auto;
   border: none;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: ${({ width }) => (width < 550 ? "" : "10px")};
 `;
 
 const ImgInputCntr = styled.div`
@@ -50,7 +50,7 @@ const FeeingContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-self: center;
-  padding-top: 1.8rem;
+  padding-top: ${({ width }) => (width < 550 ? "0.8rem" : "1.8rem")};
 `;
 
 const IconTextCtr = styled.div`
@@ -59,7 +59,7 @@ const IconTextCtr = styled.div`
 `;
 
 const IconCntr = styled.div`
-  width: 2rem;
+  width: ${({ width }) => (width < 550 ? "1rem" : "2rem")};
 `;
 
 const Icon = styled.img`
@@ -68,16 +68,47 @@ const Icon = styled.img`
   max-height: 100%;
 `;
 
+// Icon Text
+function iconStyle({ width }) {
+  if (width < 550) {
+    return css`
+      display: none;
+    `;
+  }
+
+  return css`
+    margin: 0;
+    height: 0rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  `;
+}
+
 const IconText = styled.h5`
-  margin: 0;
-  height: 0rem;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  ${iconStyle}
 `;
 
+function cameraText({ width }) {
+  if (width < 550) {
+    return css`
+      display: none;
+    `;
+  }
+
+  if (width < 800) {
+    return css`
+      margin-top: 0.6rem;
+      margin-left: -3rem;
+    `;
+  }
+  return css`
+    margin-top: 0.6rem;
+    margin-left: -6rem;
+  `;
+}
+
 const IconTextCamera = styled.h5`
-  margin-top: 0.6rem;
-  margin-left: -6rem;
+  ${cameraText}
 `;
 
 export {

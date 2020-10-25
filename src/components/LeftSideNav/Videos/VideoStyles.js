@@ -3,8 +3,10 @@ import styled from "styled-components";
 const VideoContainer = styled.div`
   display: flex;
   margin-bottom: 1rem;
-  height: 3rem;
   align-items: center;
+  margin-top: ${({ width }) => (width < 800 ? "1.5rem" : "")};
+  margin-bottom: ${({ width }) => (width < 800 ? "1rem" : "")};
+  height: ${({ width }) => (width < 800 ? "1rem" : " 3rem")};
   cursor: pointer;
   &:hover {
     background-color: rgb(188, 188, 207);
@@ -14,13 +16,14 @@ const VideoContainer = styled.div`
 
 const VideoContent = styled.div`
   width: 1.5rem;
+  height: 1.5rem;
 `;
 
 const VideoIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
-  padding-left: 0.5rem;
+  padding-left: ${({ width }) => (width > 800 ? "0.5rem" : "0")};
 `;
 
 const VideoTextContainer = styled.div`
@@ -32,7 +35,7 @@ const VideoTextContainer = styled.div`
 
 const VideoText = styled.h5`
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
 `;
 
 export {
