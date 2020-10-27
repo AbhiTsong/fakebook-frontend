@@ -46,6 +46,7 @@ import {
   FeedbackArrow,
   FeedBackText,
   SettingOptionsContainer,
+  FriendReqContr,
   SettingsLeftContainer,
   SettingsImageContainer,
   Image,
@@ -180,9 +181,8 @@ function SeeProfile(props) {
         </SettingsLeftContainer>
       </SettingOptionsContainer>
 
-      {/* Rund Only On Smaller Screens */}
-      {width < 800 ? (
-        <>
+      {/* Runs Only On Smaller Screens */}
+        <FriendReqContr>
           <FriendRequests />
           <Link to="/" onClick={closeDrop}>
             <Messanger />
@@ -192,10 +192,7 @@ function SeeProfile(props) {
           <span onClick={closeDrop}>
             <Videos />
           </span>
-        </>
-      ) : (
-        ""
-      )}
+        </FriendReqContr>
       <SettingOptionsContainer onClick={handleLogout}>
         <SettingsLeftContainer>
           <SettingsImageContainer>

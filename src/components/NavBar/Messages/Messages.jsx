@@ -28,13 +28,10 @@ import {
   MessagedDate,
 } from "./Message.Styles";
 
-// Cutom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
 
 function Messages() {
   const dispatch = useDispatch();
   const [showSkeleton, setSkeleton] = useState(true);
-  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     let time = setTimeout(() => {
@@ -54,13 +51,9 @@ function Messages() {
       <MessageHeader>
         <HeaderText className="Messages_Header_Text">Messages</HeaderText>
         {/* All done */}
-        {width > 800 ? (
-          <HeaderDots className="Messages_Dots">...</HeaderDots>
-        ) : (
           <HeaderClose onClick={closeMessage}>
             <CloseIcon src={Close} />
           </HeaderClose>
-        )}
       </MessageHeader>
       <MessageContainer>
         {showSkeleton

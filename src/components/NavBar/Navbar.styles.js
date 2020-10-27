@@ -57,7 +57,9 @@ const NavbarLinkCntr = styled.div`
 `;
 
 const NavbarProfileCntr = styled.div`
+display: none;
   @media screen and (max-width: 800px) {
+    display: inline;
     height: 2rem;
   }
 `;

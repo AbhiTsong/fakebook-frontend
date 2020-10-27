@@ -4,6 +4,10 @@ const UserCreatedPostContr = styled.div`
   position: relative;
   width: 42%;
   height: 100%;
+
+  @media screen and (max-width: 800px){
+     display: none
+  }
 `;
 
 const UserPhotoSticky = styled.div`

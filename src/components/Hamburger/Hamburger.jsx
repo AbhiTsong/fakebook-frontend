@@ -12,7 +12,7 @@ import { toggleState } from "../../Redux/Hamburger/Hamburger.selector";
 // Child Componet
 import { HamBurgerCutr, HamIcon } from "./Hamburger.styles";
 
-function Hamburger({ width }) {
+function Hamburger() {
   const dispatch = useDispatch();
   const { show } = useSelector(toggleState);
 
@@ -21,14 +21,11 @@ function Hamburger({ width }) {
   }
 
   return (
-    <>
-      {width < 800 ? (
+      <>
         <HamBurgerCutr>
           <HamIcon onClick={toggleBtn} src={show ? CloseIcn : HamburgerIcn} />
         </HamBurgerCutr>
-      ) : (
-        ""
-      )}
+      
     </>
   );
 }

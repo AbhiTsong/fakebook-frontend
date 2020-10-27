@@ -6,14 +6,14 @@ const ProfileSettingsContainer = styled.div`
   background-color: white;
   z-index: 20;
   justify-content: space-between;
-  width: 96%;
   top: 4rem;
-  left: 0rem;
+    width: 20rem;
+  right: 0rem;
   border-top: 1px solid gray;
   z-index: 10;
 
   @media screen and (max-width: 800px) {
-    width: 20rem;
+  width: 96%;
     right: 1rem;
     top: 5rem;
   }
@@ -98,6 +98,13 @@ const SettingOptionsContainer = styled.div`
   cursor: pointer;
 `;
 
+const FriendReqContr = styled.span`
+display: none;
+@media screen and (max-width: 800px){
+  display: inline-block;
+}
+`
+
 const SettingsLeftContainer = styled.div`
   display: flex;
   align-items: center;
@@ -139,6 +146,7 @@ export {
   FeedbackArrow,
   FeedBackText,
   SettingOptionsContainer,
+  FriendReqContr,
   SettingsLeftContainer,
   SettingsImageContainer,
   Image,
