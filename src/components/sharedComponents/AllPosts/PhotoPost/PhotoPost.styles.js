@@ -9,18 +9,26 @@ const PosDescription = styled.h5`
 `;
 
 const CenterPostPic = styled.div`
-  height: ${({ width }) => (width < 800 ? "16rem" : "23rem")};
+  height: 23rem;
   width: 100%;
   position: relative;
+
+  @media screen and (max-width: 800px) {
+    height: 16rem;
+  }
 `;
 
 const CenterPostPicBack = styled.div`
   position: absolute;
-  height: ${({ width }) => (width < 800 ? "16rem" : "23rem")};
+  height: 23rem;
   width: 100%;
   background-size: cover;
   filter: blur(3px);
   -webkit-filter: blur(3px);
+
+  @media screen and (max-width: 800px) {
+    height: 16rem;
+  }
 `;
 
 const SinglePostPhoto = styled.img`

@@ -4,13 +4,18 @@ const PagesContainer = styled.div`
   display: flex;
   margin-bottom: 1rem;
   align-items: center;
-  margin-top: ${({ width }) => (width < 800 ? "1rem" : "")};
-  margin-bottom: ${({ width }) => (width < 800 ? "1rem" : "")};
-  height: ${({ width }) => (width < 800 ? "1.5rem" : " 3rem")};
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 3rem;
   cursor: pointer;
   &:hover {
     background-color: rgb(188, 188, 207);
     border-radius: 10px;
+  }
+  @media screen and (max-width: 800px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 1.5rem;
   }
 `;
 
@@ -23,7 +28,11 @@ const PagesIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
-  margin-left: ${({ width }) => (width > 800 ? "0.5rem" : "0")};
+  margin-left: 0.5rem;
+
+  @media screen and (max-width: 800px) {
+    margin-left: 0;
+  }
 `;
 
 const TextContainer = styled.div`

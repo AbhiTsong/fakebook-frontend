@@ -28,6 +28,7 @@ import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 function FriendSuggest() {
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
+  // All done
   let width = useCalcInnerWidth(window.innerWidth);
   
   useEffect(() => {

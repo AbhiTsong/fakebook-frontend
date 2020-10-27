@@ -2,9 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ProfileNavigation from "./ProfileNavigation/ProfileNavigation";
 
-// Custom Hook Import
-import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
-
 // Styled Imports
 import {
   NavBar,
@@ -14,6 +11,7 @@ import {
   StyledInput,
   NavbarContent,
   NavbarLinkCntr,
+  NavbarProfileCntr,
   IconsContainer,
   NavIcons,
 } from "./Navbar.styles";
@@ -27,10 +25,9 @@ import Box from "../../Assets/images/box.png";
 import Profile from "../../Assets/images/profile-icon.png";
 
 function NavBarComponent() {
-  let width = useCalcInnerWidth(window.innerWidth);
   return (
     <NavBar>
-      <LogoContainer width={width}>
+      <LogoContainer>
         <NavLink to="/home">
           <LogoContent>
             <NavIcons src={Logo} alt="Fakebook Logo" />
@@ -44,7 +41,7 @@ function NavBarComponent() {
           />
         </NavSearchContainer>
       </LogoContainer>
-      <NavbarContent width={width}>
+      <NavbarContent>
         <NavbarLinkCntr>
           <NavLink
             exact
@@ -56,39 +53,36 @@ function NavBarComponent() {
             }}
             to="/home"
           >
-            <IconsContainer width={width}>
+            <IconsContainer>
               <NavIcons src={Home} alt="Fakebook Logo" />
             </IconsContainer>
           </NavLink>
         </NavbarLinkCntr>
         <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/videos">
-            <IconsContainer width={width}>
+            <IconsContainer>
               <NavIcons src={Video} alt="Fakebook Logo" />
             </IconsContainer>
           </NavLink>
         </NavbarLinkCntr>
         <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/contact">
-            <IconsContainer width={width}>
+            <IconsContainer>
               <NavIcons src={Group} alt="Fakebook Logo" />
             </IconsContainer>
           </NavLink>
         </NavbarLinkCntr>
-        {width < 800 ? (
-          <NavbarLinkCntr>
-            <NavLink activeClassName="active" to="/profile">
-              <IconsContainer width={width}>
-                <NavIcons src={Profile} alt="Fakebook Logo" />
-              </IconsContainer>
-            </NavLink>
-          </NavbarLinkCntr>
-        ) : (
-          ""
-        )}
+        {/* This Code Runs Only On Smaller Screen */}
+        <NavbarProfileCntr>
+          <NavLink activeClassName="active" to="/profile">
+            <IconsContainer>
+              <NavIcons src={Profile} alt="Fakebook Logo" />
+            </IconsContainer>
+          </NavLink>
+        </NavbarProfileCntr>
         <NavbarLinkCntr>
           <NavLink activeClassName="active" to="/contact">
-            <IconsContainer width={width}>
+            <IconsContainer>
               <NavIcons src={Box} alt="Fakebook Logo" />
             </IconsContainer>
           </NavLink>

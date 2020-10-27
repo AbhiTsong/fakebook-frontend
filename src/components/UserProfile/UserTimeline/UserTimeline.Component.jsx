@@ -12,9 +12,9 @@ import {
 import useScrollPosition from "../../../hooks/useScrollPosition";
 
 function UserTimeline() {
-  // setTimeout(() => {})
   let [scrollPos] = useScrollPosition(true, 494);
 
+  // User Profie Pic Should Appear
   return (
     <TimelineCntr>
       <TimelineContent scrollPos={scrollPos}>

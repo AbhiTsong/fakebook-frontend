@@ -5,18 +5,19 @@ const UserProfileContainer = styled.div`
   justify-content: center;
   max-width: 55rem;
   margin: auto;
+  height: calc(100vh - 3rem);
 `;
 
 const UserProfileContent = styled.div`
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 0;
   }
 `;
 
 const UserTimeLineContainer = styled.div`
-  max-width: 50rem;
   position: relative;
   margin: auto;
 `;

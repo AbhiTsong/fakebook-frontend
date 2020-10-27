@@ -15,31 +15,23 @@ import {
   ContactsText,
   ContactDots,
 } from "./RightChat.Styles";
-import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
 
 function RightChatComponent() {
   const userState = useSelector(signInSelector);
-  const width = useCalcInnerWidth(window.innerWidth);
 
   const {
     user: { friendRequests },
   } = userState;
 
   return (
-    <>
-      {width < 800 ? (
-        ""
-      ) : (
-        <RightNavContainer>
-          {friendRequests.length > 0 ? <FriendRequests /> : ""}
-          <ContactsHeader>
-            <ContactsText>Contacts</ContactsText>
-            <ContactDots>...</ContactDots>
-          </ContactsHeader>
-          <RightChatFriends />
-        </RightNavContainer>
-      )}
-    </>
+    <RightNavContainer>
+      {friendRequests.length > 0 ? <FriendRequests /> : ""}
+      <ContactsHeader>
+        <ContactsText>Contacts</ContactsText>
+        <ContactDots>...</ContactDots>
+      </ContactsHeader>
+      <RightChatFriends />
+    </RightNavContainer>
   );
 }
 

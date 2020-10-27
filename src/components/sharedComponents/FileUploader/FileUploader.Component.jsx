@@ -10,9 +10,6 @@ import { InputContainer, InputIcon, Input } from "./FileUploader.styles";
 import { getImagePath } from "../../../Redux/Post/photoPath.action";
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
-// // Custom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 // Icon Pic Import
 import Camera from "../../../Assets/images/camera.png";
 
@@ -21,7 +18,6 @@ const FileUploader = () => {
   const fileInput = useRef(null);
   let [file, setFile] = useState("");
   let [imgURL, setURL] = useState("");
-  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     if (file !== "" && imgURL !== null) {
@@ -60,14 +56,9 @@ const FileUploader = () => {
   };
 
   return (
-    <InputContainer width={width}>
+    <InputContainer>
       <InputIcon src={Camera} />
-      <Input
-        width={width}
-        type="file"
-        ref={fileInput}
-        onChange={handleFileInput}
-      />
+      <Input type="file" ref={fileInput} onChange={handleFileInput} />
     </InputContainer>
   );
 };

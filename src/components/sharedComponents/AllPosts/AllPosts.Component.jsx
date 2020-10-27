@@ -25,13 +25,9 @@ import PostHeader from "./PostHeader/PostHeader";
 import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
-// Custom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 function AllPostsComponent() {
   const dispatch = useDispatch();
   let allPost = useSelector(postSelector);
-  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     dispatch(fetchAllPosts());
@@ -51,17 +47,15 @@ function AllPostsComponent() {
       {allPost.allPosts.data &&
         allPost.allPosts.data
           .map((post, idx) => (
-            <SinglePostContainer width={width} key={post + idx}>
+            <SinglePostContainer key={post + idx}>
               <PostHeader post={post} />
-                <HorizontalLine />
-              <SinglePostContent width={width}>
+              <HorizontalLine />
+              <SinglePostContent>
                 {post.photo !== null ? (
                   <PhotoPost post={post} />
                 ) : (
                   <CenterPostText>
-                    <SinglrPostText>
-                      {post.description}
-                    </SinglrPostText>
+                    <SinglrPostText>{post.description}</SinglrPostText>
                   </CenterPostText>
                 )}
               </SinglePostContent>

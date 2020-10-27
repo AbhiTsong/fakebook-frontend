@@ -4,19 +4,29 @@ const FriendReqContr = styled.div`
   display: flex;
   cursor: pointer;
   align-items: center;
-  padding-left: ${({ width }) => (width < 800 ? "" : "0.5rem")};
-  height: ${({ width }) => (width < 800 ? "1.5rem" : "3rem")};
-  margin: ${({ width }) => (width < 800 ? "1rem 0" : "")};
+  padding-left: 0.5rem;
+  height: 3rem;
+  margin: 0;
   &:hover {
     background-color: rgb(197, 197, 207);
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+    height: 1.5rem;
+    margin: 1rem 0;
   }
 `;
 
 const FriendReqLogoCtr = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-  padding-left: ${(props) => (props.width > 800 ? "0.5rem" : "0")};
+  padding-left: 0;
+
+  @media screen and (max-width) {
+    padding-left: 0.5rem;
+  }
 `;
 const FriendReqLogo = styled.img`
   display: block;
@@ -43,7 +53,11 @@ const ReqCount = styled.h6`
   margin-bottom: 1rem;
   cursor: pointer;
   margin-top: -1rem;
-  margin-left: ${({ width }) => (width < 800 ? "2.5rem" : "3rem")};
+  margin-left: 3rem;
+
+  @media screen and (max-width: 800px) {
+    margin-left: 2.5rem;
+  }
 `;
 
 const ReqCountDot = styled.span`

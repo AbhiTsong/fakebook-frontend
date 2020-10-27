@@ -39,10 +39,19 @@ const CoverCameraIcon = styled.img`
 const ProfilePicContainer = styled.div`
   position: relative;
   top: 52%;
+  margin: 0;
   left: 40%;
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+
+  @media screen and (max-width: 550px) {
+    margin: auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    left: 0;
+  }
 `;
 
 const ProfileIconCntr = styled.div`

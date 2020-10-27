@@ -7,9 +7,6 @@ import { messageAction } from "../../../Redux/Message/Message.Action";
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
 // import { settingsAction } from "../../../Redux/ShowSettings/ShowSettings.actions";
 
-// Custom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 // Styled Imports
 import {
   LeftMessageContainer,
@@ -22,7 +19,6 @@ import {
 function Messanger() {
   const dispatch = useDispatch();
   const [messageState, setMessage] = useState(true);
-  const width = useCalcInnerWidth(window.innerWidth);
 
   function handleMessage() {
     setMessage(!messageState);
@@ -30,8 +26,8 @@ function Messanger() {
     dispatch(notificationAction(false));
   }
   return (
-    <LeftMessageContainer width={width} onClick={handleMessage}>
-      <LeftLogoContaner width={width}>
+    <LeftMessageContainer onClick={handleMessage}>
+      <LeftLogoContaner>
         <LeftMsgLogo src={Message} />
       </LeftLogoContaner>
       <LeftMsgTxtContr>

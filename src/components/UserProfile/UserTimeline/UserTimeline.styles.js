@@ -22,6 +22,9 @@ const TimelineFixed = css`
   justify-content: space-evenly;
   padding: 0.5rem;
   background-color: rgb(241, 220, 220);
+  @media screen and (max-width: 800) {
+    width: 100%;
+  }
 `;
 
 const TimelineCntr = styled.div`
@@ -45,9 +48,4 @@ const TimelineNavigation = styled(Link)`
   padding: 0.5rem;
 `;
 
-
-export {
- TimelineCntr,
- TimelineContent,
- TimelineNavigation
-}
+export { TimelineCntr, TimelineContent, TimelineNavigation };

@@ -1,32 +1,22 @@
-import styled, { css } from "styled-components";
-
-// Function for sizing the style depending on the window width
-function seeProfileStyle({ width }) {
-  if (width < 800) {
-    return css`
-      width: 96%;
-      top: 4rem;
-      left: 0rem;
-      border-top: 1px solid gray;
-      z-index: 10 ;
-      /* overflow-y: scroll */
-    `;
-  }
-
-  return css`
-    width: 20rem;
-    right: 1rem;
-    top: 5rem;
-  `;
-}
+import styled from "styled-components";
 
 const ProfileSettingsContainer = styled.div`
-  ${seeProfileStyle}
   position: absolute;
   padding: 0.5rem 1rem;
   background-color: white;
   z-index: 20;
   justify-content: space-between;
+  width: 96%;
+  top: 4rem;
+  left: 0rem;
+  border-top: 1px solid gray;
+  z-index: 10;
+
+  @media screen and (max-width: 800px) {
+    width: 20rem;
+    right: 1rem;
+    top: 5rem;
+  }
 `;
 
 const ProfileStttingsHeader = styled.div`
@@ -89,16 +79,16 @@ const FeedBackText = styled.h6`
   margin: 0;
 `;
 
-const IconContainer = styled.div`
-  width: 1.5rem;
-  height: 1.5rem;
-`;
+// const IconContainer = styled.div`
+//   width: 1.5rem;
+//   height: 1.5rem;
+// `;
 
-const IconImage = styled.img`
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-`;
+// const IconImage = styled.img`
+//   display: block;
+//   max-width: 100%;
+//   max-height: 100%;
+// `;
 
 const SettingOptionsContainer = styled.div`
   display: flex;

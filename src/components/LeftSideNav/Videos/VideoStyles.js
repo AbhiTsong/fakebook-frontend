@@ -4,13 +4,19 @@ const VideoContainer = styled.div`
   display: flex;
   margin-bottom: 1rem;
   align-items: center;
-  margin-top: ${({ width }) => (width < 800 ? "1.5rem" : "")};
-  margin-bottom: ${({ width }) => (width < 800 ? "1rem" : "")};
-  height: ${({ width }) => (width < 800 ? "1rem" : " 3rem")};
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 3rem;
   cursor: pointer;
   &:hover {
     background-color: rgb(188, 188, 207);
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    height: 1rem;
   }
 `;
 
@@ -23,7 +29,11 @@ const VideoIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
-  padding-left: ${({ width }) => (width > 800 ? "0.5rem" : "0")};
+  padding-left: 0.5rem;
+
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+  }
 `;
 
 const VideoTextContainer = styled.div`

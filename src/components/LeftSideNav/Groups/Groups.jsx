@@ -1,8 +1,5 @@
 import React from "react";
 
-// Custom Hook Import
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 import {
   GroupsContainer,
   GroupsContent,
@@ -15,14 +12,13 @@ import {
 import Group from ".././../../Assets/images/group.png";
 
 function Groups() {
-  let width = useCalcInnerWidth(window.innerWidth);
   return (
-    <GroupsContainer width={width}>
+    <GroupsContainer>
       <GroupsContent>
-        <GroupsIcon width={width} src={Group} />
+        <GroupsIcon src={Group} />
       </GroupsContent>
       <GroupTextContainer>
-        <GroupText>Groups</GroupText>
+        <GroupText>Groups yoo</GroupText>
       </GroupTextContainer>
     </GroupsContainer>
   );

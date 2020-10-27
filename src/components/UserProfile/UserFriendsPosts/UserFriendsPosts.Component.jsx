@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Styled Import
 import { UserFrendPostCntr } from "./UserFriendssPosts.styles";
@@ -9,8 +9,20 @@ import AllPostsComponent from "../../sharedComponents/AllPosts/AllPosts.Componen
 import PostFilter from "./PostFilter/PostFilter.Component";
 
 function UserFriendsPost() {
+  let [height, setHeight] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function findHeight() {
+      setHeight(window.innerHeight);
+    }
+    window.addEventListener("resize", findHeight);
+    return () => window.removeEventListener("resize", findHeight);
+  }, []);
+
+  console.log("height", height);
+
   return (
-    <UserFrendPostCntr>
+    <UserFrendPostCntr height={height}>
       <PostFormComponent />
       <PostFilter />
       <AllPostsComponent />

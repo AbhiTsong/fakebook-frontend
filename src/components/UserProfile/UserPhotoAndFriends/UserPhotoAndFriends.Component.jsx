@@ -10,11 +10,13 @@ import {
 import UserIntro from "./UserIntro/UserIntro.Component";
 import UserPhotoPosts from "../../sharedComponents/UserPhotoPosts/UserPhotoPosts.component";
 import UserFriends from "./UserFriends/UserFriends.component";
+import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
 
 // Custom Hook
 
 function UserPhotoAndFreiends() {
   let [scrollPos, setScrollPos] = useState(true);
+  let width = useCalcInnerWidth(window.innerWidth);
 
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
@@ -32,23 +34,25 @@ function UserPhotoAndFreiends() {
   }, []);
 
   return (
-    <UserCreatedPostContr>
-      <div>
-        <UserIntro />
-        {scrollPos ? (
-          <div>
-            {" "}
-            <UserPhotoPosts />
-            <UserFriends />
-          </div>
-        ) : (
-          <UserPhotoSticky scrollPos>
-            <UserPhotoPosts />
-            <UserFriends />
-          </UserPhotoSticky>
-        )}
-      </div>
-    </UserCreatedPostContr>
+    width >= 800 && (
+      <UserCreatedPostContr>
+        <div>
+          <UserIntro />
+          {scrollPos ? (
+            <div>
+              {" "}
+              <UserPhotoPosts />
+              <UserFriends />
+            </div>
+          ) : (
+            <UserPhotoSticky scrollPos>
+              <UserPhotoPosts />
+              <UserFriends />
+            </UserPhotoSticky>
+          )}
+        </div>
+      </UserCreatedPostContr>
+    )
   );
 }
 

@@ -1,14 +1,23 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import FormInput from "../FormInput/FormInput.Component";
 
 const FormContainer = styled.div`
-  height: ${({ width }) => (width < 550 ? "5rem" : " 8rem")};
   border: 1px solid black;
   background-color: white;
-  width: auto;
   border: none;
   padding: 0.5rem;
-  border-radius: ${({ width }) => (width < 550 ? "" : "10px")};
+  height: 8rem;
+  width: auto;
+  border-radius: 10px;
+
+  @media screen and (max-width: 550) {
+    height: 5rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    border-radius: "";
+  }
 `;
 
 const ImgInputCntr = styled.div`
@@ -50,7 +59,11 @@ const FeeingContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-self: center;
-  padding-top: ${({ width }) => (width < 550 ? "0.8rem" : "1.8rem")};
+  padding-top: 1.8rem;
+
+  @media screen and (max-width: 550px) {
+    padding-top: 0.8rem;
+  }
 `;
 
 const IconTextCtr = styled.div`
@@ -59,7 +72,11 @@ const IconTextCtr = styled.div`
 `;
 
 const IconCntr = styled.div`
-  width: ${({ width }) => (width < 550 ? "1rem" : "2rem")};
+  width: 2rem;
+
+  @media screen and (max-width: 550px) {
+    width: 1rem;
+  }
 `;
 
 const Icon = styled.img`
@@ -68,47 +85,29 @@ const Icon = styled.img`
   max-height: 100%;
 `;
 
-// Icon Text
-function iconStyle({ width }) {
-  if (width < 550) {
-    return css`
-      display: none;
-    `;
-  }
-
-  return css`
-    margin: 0;
-    height: 0rem;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-  `;
-}
-
 const IconText = styled.h5`
-  ${iconStyle}
+  margin: 0;
+  height: 0rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
-function cameraText({ width }) {
-  if (width < 550) {
-    return css`
-      display: none;
-    `;
-  }
-
-  if (width < 800) {
-    return css`
-      margin-top: 0.6rem;
-      margin-left: -3rem;
-    `;
-  }
-  return css`
-    margin-top: 0.6rem;
-    margin-left: -6rem;
-  `;
-}
-
 const IconTextCamera = styled.h5`
-  ${cameraText}
+  margin-top: 0.6rem;
+  margin-left: -6rem;
+
+  @media screen and (max-width: 550) {
+    display: none;
+  }
+
+  @media screen and (max-width: 800) {
+    margin-top: 0.6rem;
+    margin-left: -3rem;
+  }
 `;
 
 export {

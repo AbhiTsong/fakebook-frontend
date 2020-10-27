@@ -2,8 +2,13 @@ import styled from "styled-components";
 
 const InputContainer = styled.div`
   position: relative;
-  width: ${({width}) => width < 550 ? "1rem" : "2rem"};
-  height: ${({width}) => width < 550 ? "1rem" : "2rem"};
+  width: 2rem;
+  height: 2rem;
+
+  @media screen and (max-width: 550px) {
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 const InputIcon = styled.img`
@@ -14,7 +19,7 @@ const InputIcon = styled.img`
 
 const Input = styled.input`
   opacity: 0;
-  width: ${({width}) => width < 550 ? "1rem" :"10rem"};
+  width: 10rem;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -24,6 +29,10 @@ const Input = styled.input`
   &::-webkit-file-upload-button {
     visibility: hidden;
     opacity: 0;
+  }
+
+  @media screen and (max-width: 550px){
+    width: 1rem
   }
 `;
 

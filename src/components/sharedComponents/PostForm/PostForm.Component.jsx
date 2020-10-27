@@ -16,9 +16,6 @@ import {
   IconTextCamera,
 } from "./PostForm.Styles.js";
 
-// Icons Import
-// import Camera from "../../../Assets/images/camera.png"
-
 // Child Components
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 
@@ -33,12 +30,8 @@ import Smile from "../../../Assets/images/smile.png";
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
-// Custom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 function PostFormComponent() {
   const dispatch = useDispatch();
-  const width = useCalcInnerWidth(window.innerWidth);
 
   const handleModal = () => {
     dispatch(ShowModal("CREATE_POST"));
@@ -46,7 +39,7 @@ function PostFormComponent() {
 
   let createPostInput = "What is on your mind Abhi??";
   return (
-    <FormContainer width={width}>
+    <FormContainer>
       {/* Image And Input  */}
       <ImgInputCntr>
         <FormPicContr>
@@ -54,7 +47,6 @@ function PostFormComponent() {
         </FormPicContr>
         <PostFormContr>
           <StyledInput
-            // className="Post_Form"
             type="text"
             placeholder={createPostInput}
             onClick={handleModal}
@@ -63,24 +55,22 @@ function PostFormComponent() {
       </ImgInputCntr>
       <HorizontalLine />
       {/*Opens the modal to create the post */}
-      <FeeingContainer width={width}>
+      <FeeingContainer>
         <IconTextCtr onClick={handleModal}>
-          <IconCntr width={width}>
+          <IconCntr>
             <Icon src={VideoCamera} />
           </IconCntr>
-          <IconText width={width}>Live Video</IconText>
+          <IconText>Live Video</IconText>
         </IconTextCtr>
         {/* Photo Upload */}
         <FileUploader />
-        <IconTextCamera width={width}>Photo/Video</IconTextCamera>
+        <IconTextCamera>Photo/Video</IconTextCamera>
         {/* Opens the modal to create the post */}
         <IconTextCtr onClick={handleModal}>
-          <IconCntr width={width}>
+          <IconCntr>
             <Icon src={Smile} />
           </IconCntr>
-          <IconText width={width} className="Icon_Text">
-            Feeling
-          </IconText>
+          <IconText className="Icon_Text">Feeling</IconText>
         </IconTextCtr>
       </FeeingContainer>
     </FormContainer>

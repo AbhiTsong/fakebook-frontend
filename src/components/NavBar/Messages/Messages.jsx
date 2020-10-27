@@ -53,6 +53,7 @@ function Messages() {
     <>
       <MessageHeader>
         <HeaderText className="Messages_Header_Text">Messages</HeaderText>
+        {/* All done */}
         {width > 800 ? (
           <HeaderDots className="Messages_Dots">...</HeaderDots>
         ) : (

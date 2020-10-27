@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 const RightNavContainer = styled.div`
   width: 30rem;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const ContactsHeader = styled.div`

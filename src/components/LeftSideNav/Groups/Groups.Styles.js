@@ -4,13 +4,19 @@ const GroupsContainer = styled.div`
   display: flex;
   margin-bottom: 1rem;
   align-items: center;
-  margin-top: ${({ width }) => (width < 800 ? "1.5rem" : "")};
-  margin-bottom: ${({ width }) => (width < 800 ? "1rem" : "")};
-  height: ${({ width }) => (width < 800 ? "1rem" : " 3rem")};
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 3rem;
   cursor: pointer;
   &:hover {
     background-color: rgb(188, 188, 207);
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    height: 1rem;
   }
 `;
 
@@ -23,7 +29,10 @@ const GroupsIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
-  padding-left: ${({ width }) => (width > 800 ? "0.5rem" : "")};
+  padding-left: 0.5rem;
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+  }
 `;
 
 const GroupTextContainer = styled.div`
@@ -35,7 +44,12 @@ const GroupTextContainer = styled.div`
 
 const GroupText = styled.h5`
   margin: 0;
-  padding-left: 1rem;
+  margin-left: 1rem;
+
+  @media screen and(max-width: 800px) {
+    margin-left: 1rem;
+    color: red;
+  }
 `;
 
 export {

@@ -4,6 +4,11 @@ const FilterContainer = styled.div`
   background-color: white;
   border-radius: 10px;
   margin-top: 1rem;
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    border-radius: 0;
+  }
 `;
 
 const FilterTitle = styled.div`

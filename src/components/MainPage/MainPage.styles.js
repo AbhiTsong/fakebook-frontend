@@ -5,17 +5,24 @@ const MainPageContainer = styled.div`
   width: 130rem;
   display: flex;
   flex-direction: column;
-  padding-top: ${({width}) => width < 550 ? "" :  "1rem"};
+  padding-top: 1rem;
   align-items: center;
   color: gray;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 0;
   }
+
+  @media screen and (max-width: 550px) {
+    padding-top: 0;
+  }
 `;
 
 const MainPageContent = styled.div`
-  width: ${({ width }) => (width < 550 ? "100%" : "75%")};
+  width: 75%;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
 `;
 
 export { MainPageContainer, MainPageContent };

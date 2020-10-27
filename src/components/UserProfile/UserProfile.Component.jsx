@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Styled Imports
 import {
@@ -16,6 +16,8 @@ import UserPhotoAndFriends from "./UserPhotoAndFriends/UserPhotoAndFriends.Compo
 import UserFriendsPost from "./UserFriendsPosts/UserFriendsPosts.Component";
 
 function UserProfile() {
+  // let height = useCalcInnerHeight(window.innerHeight);
+
   return (
     <UserProfileContainer>
       <UserProfileContent>
@@ -23,11 +25,11 @@ function UserProfile() {
         <UserTimeLineContainer>
           <HorizontalLine />
           <UserTimeline />
-          <UserPhotosAndPosts>
-            <UserPhotoAndFriends />
-            <UserFriendsPost />
-          </UserPhotosAndPosts>
         </UserTimeLineContainer>
+        <UserPhotosAndPosts>
+          <UserPhotoAndFriends />
+          <UserFriendsPost />
+        </UserPhotosAndPosts>
       </UserProfileContent>
     </UserProfileContainer>
   );

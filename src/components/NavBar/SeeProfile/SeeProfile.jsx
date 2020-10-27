@@ -96,7 +96,7 @@ function SeeProfile(props) {
   }
 
   return (
-    <ProfileSettingsContainer width={width}>
+    <ProfileSettingsContainer>
       <Link to="/profile">
         <ProfileStttingsHeader>
           <ProfilePicContainer>
@@ -180,6 +180,7 @@ function SeeProfile(props) {
         </SettingsLeftContainer>
       </SettingOptionsContainer>
 
+      {/* Rund Only On Smaller Screens */}
       {width < 800 ? (
         <>
           <FriendRequests />

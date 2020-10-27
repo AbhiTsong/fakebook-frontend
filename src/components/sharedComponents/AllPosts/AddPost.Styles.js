@@ -8,14 +8,21 @@ const SinglePostContainer = styled.div`
   margin: 1.5rem 0;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: ${({ width }) => (width < 800 ? "" : "10px")};
+  border-radius: 10px;
   width: 100%;
+
+  @media screen and (max-width: 800px) {
+    border-radius: 0;
+  }
 `;
 
 const SinglePostContent = styled.div`
   text-align: center;
   width: 100%;
-  height: ${({ width }) => (width < 800 ? "16rem" : "24rem")};
+  height: 24rem;
+  @media screen and (max-width: 800px) {
+    height: 16rem;
+  }
 `;
 
 const CenterPostText = styled.div`
