@@ -8,7 +8,7 @@ import {
   // HeaderTitle,
   CloseButtonCntr,
   PicPreviewContr,
-  // PicPreviewContent,
+  PicPreviewContent,
   PreviewPic,
   FooterCntr,
   CancleBtn,
@@ -69,13 +69,13 @@ function PicCropper(props) {
       </HeaderContainer>
       <HorizontalLine />
       <PicPreviewContr>
-        <div className="Pic_Preview_Content">
+        <PicPreviewContent>
           <PreviewPic
             className="Post_Pic"
             src={user.profilePath[0]}
             alt="File To Upload"
           />
-        </div>
+        </PicPreviewContent>
       </PicPreviewContr>
       <HorizontalLine />
       <FooterCntr>

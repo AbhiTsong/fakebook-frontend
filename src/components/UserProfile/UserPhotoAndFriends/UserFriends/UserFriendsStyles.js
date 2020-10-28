@@ -12,6 +12,7 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 1.5rem;
+  padding: 0 0.8rem;
 `;
 
 const Header1 = styled.h4`
@@ -25,6 +26,7 @@ const Header2 = styled.h5`
 const ImgPostContr = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const ImgPostContent = styled.div`

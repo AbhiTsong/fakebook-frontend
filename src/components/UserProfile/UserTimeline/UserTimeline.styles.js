@@ -7,8 +7,9 @@ const TimelineRelative = css`
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem;
-  background-color: rgb(241, 220, 220);
+  background-color: white;
   margin-top: 0.5rem;
+  border-radius: 5px;
 `;
 
 const TimelineFixed = css`

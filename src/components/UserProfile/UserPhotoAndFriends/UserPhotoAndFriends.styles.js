@@ -10,10 +10,14 @@ const UserCreatedPostContr = styled.div`
   }
 `;
 
+const LeftPostsCntr = styled.div`
+  width: 22rem;
+`
+
 const UserPhotoSticky = styled.div`
   position: sticky;
   top: -2rem;
   width: 20.9rem;
 `;
 
-export { UserCreatedPostContr, UserPhotoSticky };
+export { UserCreatedPostContr, LeftPostsCntr ,UserPhotoSticky };

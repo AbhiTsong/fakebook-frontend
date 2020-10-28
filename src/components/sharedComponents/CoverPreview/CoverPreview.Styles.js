@@ -15,6 +15,11 @@ const CoverPreviewContainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+    height: 22rem;
+  }
 `;
 
 const CoverPreviewHeader = styled.div`
@@ -25,13 +30,20 @@ const CoverPreviewContent = styled.div`
   margin: auto;
 `;
 
+const CoverPreviewCloseContr = styled.div`
+  display: flex;
+  margin-right: 0.5rem;
+`;
+
 const CoverPicPreviewContainer = styled.div`
-  // width: 100%;
   height: 20rem;
   position: relative;
-  // margin: auto 1rem;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 550px){
+    height: 15rem
+  }
 `;
 
 const CoverPicPreviewContent = styled.div`
@@ -75,6 +87,7 @@ export {
   CoverPreviewContainer,
   CoverPreviewHeader,
   CoverPreviewContent,
+  CoverPreviewCloseContr,
   CoverPicPreviewContainer,
   CoverPicPreviewContent,
   CoverPreviewPic,

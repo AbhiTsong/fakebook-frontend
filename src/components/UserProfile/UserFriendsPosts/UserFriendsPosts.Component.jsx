@@ -19,8 +19,6 @@ function UserFriendsPost() {
     return () => window.removeEventListener("resize", findHeight);
   }, []);
 
-  console.log("height", height);
-
   return (
     <UserFrendPostCntr height={height}>
       <PostFormComponent />

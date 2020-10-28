@@ -15,6 +15,11 @@ const CoverDropContainer = styled.div`
   transition-delay: 0.5s;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 10;
+
+  @media screen and (max-width: 800px){
+    right: 1rem
+  }
 `;
 
 const SelectPhotoContainer = styled.div`

@@ -32,8 +32,8 @@ function changeCoverAction(props) {
           Authorization: `Bearer ${getToken()}`,
         },
       });
-      dispatch(changeCoverSuccess(cover));
       dispatch(newCoverAdded());
+      dispatch(changeCoverSuccess(cover));
     } catch (error) {
       if (error.resposne) {
         dispatch(changeCoverFail(error.resposne.data));

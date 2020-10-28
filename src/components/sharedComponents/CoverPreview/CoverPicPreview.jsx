@@ -6,6 +6,7 @@ import {
   CoverPreviewContainer,
   CoverPreviewHeader,
   CoverPreviewContent,
+  CoverPreviewCloseContr,
   CoverPicPreviewContainer,
   CoverPicPreviewContent,
   CoverPreviewPic,
@@ -38,7 +39,7 @@ function CoverPicPreview() {
     user.coverCreated ? dispatch(CloseModal()) : "";
   }, [dispatch, user.coverCreated]);
 
-  function handleAddProfilePic(e) {
+  function handleChangeCover(e) {
     e.preventDefault();
     let formData = new FormData();
     formData.append("cover", user.coverPath[1]);
@@ -60,9 +61,9 @@ function CoverPicPreview() {
         <CoverPreviewContent>
           <h4>Update Profile Pic</h4>
         </CoverPreviewContent>
-        <div className="Cover_Preview_Close_Container">
+        <CoverPreviewCloseContr>
           <CloseModalIcon />
-        </div>
+        </CoverPreviewCloseContr>
       </CoverPreviewHeader>
       <HorizontalLine />
       <CoverPicPreviewContainer>
@@ -78,7 +79,7 @@ function CoverPicPreview() {
       <CoverPicPreviewFooter>
         <CoverCancleBtn onClick={handleCancle}>Cancle</CoverCancleBtn>
         <form>
-          <CoverUploadBtn onClick={handleAddProfilePic}>Save</CoverUploadBtn>
+          <CoverUploadBtn onClick={handleChangeCover}>Save</CoverUploadBtn>
         </form>
       </CoverPicPreviewFooter>
       {warningState.show && <Warning />}

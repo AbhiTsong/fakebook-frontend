@@ -15,6 +15,11 @@ const PicCropperCOntainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+    height: 22rem;
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -28,19 +33,24 @@ const HeaderContent = styled.div`
 // const HeaderTitle = styled.h4``;
 
 const CloseButtonCntr = styled.div`
-  padding-right: 0.5rem;
+  display: flex;
+  margin-right: 0.5rem;
 `;
 
 const PicPreviewContr = styled.div`
-  // width: 100%;
   height: 20rem;
   position: relative;
-  // margin: auto 1rem;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 550px) {
+    height: 15rem;
+  }
 `;
 
-// const PicPreviewContent = styled.div``;
+const PicPreviewContent = styled.div`
+  padding: 0.5rem;
+`;
 
 const PreviewPic = styled.img`
   display: block;
@@ -82,7 +92,7 @@ export {
   // HeaderTitle,
   CloseButtonCntr,
   PicPreviewContr,
-  // PicPreviewContent,
+  PicPreviewContent,
   PreviewPic,
   FooterCntr,
   CancleBtn,

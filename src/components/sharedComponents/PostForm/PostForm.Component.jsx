@@ -46,7 +46,6 @@ function PostFormComponent() {
     dispatch(ShowModal("CREATE_POST"));
   };
 
-  console.log("This is the container", container);
 
   let createPostInput = `What is on your mind, ${firstName}??`;
   return (

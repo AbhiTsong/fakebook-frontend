@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import {
   UserCreatedPostContr,
   UserPhotoSticky,
+  LeftPostsCntr,
 } from "./UserPhotoAndFriends.styles";
 
 // Nested Component Import
 import UserIntro from "./UserIntro/UserIntro.Component";
 import UserPhotoPosts from "../../sharedComponents/UserPhotoPosts/UserPhotoPosts.component";
 import UserFriends from "./UserFriends/UserFriends.component";
-
 
 function UserPhotoAndFreiends() {
   let [scrollPos, setScrollPos] = useState(true);
@@ -31,24 +31,19 @@ function UserPhotoAndFreiends() {
   }, []);
 
   return (
-      <UserCreatedPostContr>
-        <div>
-          <UserIntro />
-          {scrollPos ? (
-            <div>
-              {" "}
+    <UserCreatedPostContr>
+      <LeftPostsCntr>
+        <UserIntro />
+
+        <UserPhotoPosts />
+        <UserFriends />
+
+        {/* <UserPhotoSticky scrollPos>
               <UserPhotoPosts />
               <UserFriends />
-            </div>
-          ) : (
-            <UserPhotoSticky scrollPos>
-              <UserPhotoPosts />
-              <UserFriends />
-            </UserPhotoSticky>
-          )}
-        </div>
-      </UserCreatedPostContr>
-    
+            </UserPhotoSticky> */}
+      </LeftPostsCntr>
+    </UserCreatedPostContr>
   );
 }
 
