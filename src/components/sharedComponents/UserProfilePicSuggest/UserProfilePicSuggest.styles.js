@@ -18,6 +18,10 @@ const UserPhotoSuggestCntr = styled.div`
   &:focus {
     outline: none;
   }
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+  }
 `;
 
 const ComponentTitle = styled.div`

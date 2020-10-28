@@ -6,16 +6,19 @@ const ProfileSettingsContainer = styled.div`
   background-color: white;
   z-index: 20;
   justify-content: space-between;
-  top: 4rem;
-    width: 20rem;
+  top: 4.5rem;
+  width: 20rem;
   right: 0rem;
-  border-top: 1px solid gray;
   z-index: 10;
+  margin-right: 1rem;
+  border-radius: 10px;
 
   @media screen and (max-width: 800px) {
-  width: 96%;
-    right: 1rem;
-    top: 5rem;
+    border-top: 1px solid gray;
+    margin-right: 0;
+    border-radius: 0;
+    width: 96%;
+    top: 4rem;
   }
 `;
 
@@ -99,11 +102,11 @@ const SettingOptionsContainer = styled.div`
 `;
 
 const FriendReqContr = styled.span`
-display: none;
-@media screen and (max-width: 800px){
-  display: inline-block;
-}
-`
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: inline-block;
+  }
+`;
 
 const SettingsLeftContainer = styled.div`
   display: flex;

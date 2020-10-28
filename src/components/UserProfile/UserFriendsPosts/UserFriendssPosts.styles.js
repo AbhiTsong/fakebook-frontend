@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const UserFrendPostCntr = styled.div`
   width: 57%;
-  height: ${({ height }) => `${height}px`};
-  overflow-y: scroll;
 
   @media screen and (max-width: 800px) {
     width: 100%;

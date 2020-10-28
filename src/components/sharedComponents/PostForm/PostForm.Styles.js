@@ -7,16 +7,11 @@ const FormContainer = styled.div`
   border: none;
   padding: 0.5rem;
   height: 8rem;
-  width: auto;
   border-radius: 10px;
 
-  @media screen and (max-width: 550) {
+  @media screen and (max-width: 550px) {
     height: 5rem;
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    border-radius: "";
+    border-radius: 0px;
   }
 `;
 
@@ -100,13 +95,8 @@ const IconTextCamera = styled.h5`
   margin-top: 0.6rem;
   margin-left: -6rem;
 
-  @media screen and (max-width: 550) {
+  @media screen and (max-width: 800px) {
     display: none;
-  }
-
-  @media screen and (max-width: 800) {
-    margin-top: 0.6rem;
-    margin-left: -3rem;
   }
 `;
 

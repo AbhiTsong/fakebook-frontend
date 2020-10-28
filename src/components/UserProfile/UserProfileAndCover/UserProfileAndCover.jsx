@@ -69,7 +69,7 @@ function UserProfileAndCover(props) {
             <CoverIconContr>
               <CoverCameraIcon src={Camera} />
             </CoverIconContr>
-            Edit Cover Photo
+            Change Cover
           </StyledButton>
         </ChangeCoverButton>
         {showDrop && <CoverChangeDropMenu />}

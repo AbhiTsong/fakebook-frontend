@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 // Styled Import
 
 import { PostTextArea, WordLeftConteiner } from "./CreateTextPOst.styles";
@@ -7,9 +7,15 @@ import { PostTextArea, WordLeftConteiner } from "./CreateTextPOst.styles";
 // Utility Inports
 import { countWord } from "../../../../utility/wordCount";
 
+// Redux Import
+import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
+
 const WORD_LIMIT = 300;
 function CreateTextPost(props) {
   const { value, onChange } = props;
+  const {
+    user: { firstName },
+  } = useSelector(signInSelector);
   // const [values, setValues] = useForm({ description: "" });
 
   // Word Limit And Count
@@ -21,7 +27,7 @@ function CreateTextPost(props) {
       <PostTextArea
         className="Post_Text_Area"
         name="description"
-        placeholder="What is on your mind, Abhi??"
+        placeholder={`What is on your mind, ${firstName}??`}
         type="text"
         value={value}
         onChange={onChange}

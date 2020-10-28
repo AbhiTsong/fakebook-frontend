@@ -31,6 +31,10 @@ const TimelineCntr = styled.div`
   position: relative;
   margin: 0;
   max-width: 98%;
+
+  @media screen and (max-width: 550px){
+      display: none
+  }
 `;
 
 const timelineStyle = (props) => {

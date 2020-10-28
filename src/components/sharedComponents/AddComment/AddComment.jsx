@@ -57,7 +57,7 @@ function AddComment({ id }) {
         name="comment"
         type="text"
         value={values.comment.split("  ").join(" ")}
-        placeholder={`Add Comments ${currUsr.user.firstName}....`}
+        placeholder={`Add Comment ${currUsr.user.firstName}....`}
         onChange={handleValues}
         onKeyPress={handleKeyPress}
       />

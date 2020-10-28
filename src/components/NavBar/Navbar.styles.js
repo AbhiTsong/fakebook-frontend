@@ -2,6 +2,7 @@ import styled from "styled-components";
 import FormInput from "../sharedComponents/FormInput/FormInput.Component";
 
 const NavBar = styled.nav`
+  position: relative;
   display: flex;
   margin: 0;
   align-items: center;

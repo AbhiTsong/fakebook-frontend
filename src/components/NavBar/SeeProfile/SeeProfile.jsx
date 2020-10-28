@@ -27,9 +27,6 @@ import LeftArrow from "../../../Assets/images/leftArrow.png";
 import Logout from "../../../Assets/images/logout.png";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 
-// Custom Hook
-import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
-
 // Styled Imports
 import {
   ProfileSettingsContainer,
@@ -58,7 +55,6 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
   const currUsr = useSelector(signInSelector);
-  const width = useCalcInnerWidth(window.innerWidth);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -182,17 +178,17 @@ function SeeProfile(props) {
       </SettingOptionsContainer>
 
       {/* Runs Only On Smaller Screens */}
-        <FriendReqContr>
-          <FriendRequests />
-          <Link to="/" onClick={closeDrop}>
-            <Messanger />
-            <Groups />
-            <Pages />
-          </Link>
-          <span onClick={closeDrop}>
-            <Videos />
-          </span>
-        </FriendReqContr>
+      <FriendReqContr>
+        <FriendRequests />
+        <Link to="/" onClick={closeDrop}>
+          <Messanger />
+          <Groups />
+          <Pages />
+        </Link>
+        <span onClick={closeDrop}>
+          <Videos />
+        </span>
+      </FriendReqContr>
       <SettingOptionsContainer onClick={handleLogout}>
         <SettingsLeftContainer>
           <SettingsImageContainer>

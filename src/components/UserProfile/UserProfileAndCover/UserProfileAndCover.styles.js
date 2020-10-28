@@ -13,22 +13,42 @@ const ProfileAndCover = styled.div`
   height: 20rem;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+
+  @media screen and (max-width: 550px) {
+    height: 10rem;
+  }
 `;
 
 const ChangeCoverButton = styled.div`
   position: absolute;
   bottom: 1rem;
   right: 2rem;
+
+  @media screen and (max-width: 550px) {
+    right: 1rem;
+  }
 `;
 
 const StyledButton = styled.button`
   display: flex;
   cursor: pointer;
+  border-radius: 5px;
+  background-color: lavender;
+  padding: 0.2rem 1rem;
+  font-weight: bolder;
+  outline-color: transparent;
+
+  @media screen and (max-width: 550px) {
+    padding: 0.1rem;
+  }
 `;
 
 const CoverIconContr = styled.div`
   width: 1rem;
   padding-right: 0.5rem;
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
 `;
 const CoverCameraIcon = styled.img`
   display: block;
@@ -46,10 +66,13 @@ const ProfilePicContainer = styled.div`
   border-radius: 50%;
 
   @media screen and (max-width: 550px) {
-    margin: auto;
+    /* margin: auto; */
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 550px) {
+    width: 6rem;
+    height: 6rem;
+    margin: auto;
     left: 0;
   }
 `;
@@ -63,10 +86,18 @@ const ProfileIconCntr = styled.div`
   background-color: rgb(240, 227, 227);
   border-radius: 50%;
   cursor: pointer;
+
+  @media screen and (max-width: 550px) {
+    right: -0.5rem;
+  }
 `;
 
 const ProfileCamerCntr = styled.div`
   width: 1.5rem;
+  @media screen and (max-width: 550px) {
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 const ProfileCameraIcn = styled.img`
@@ -84,6 +115,10 @@ const UserName = styled.h1`
   text-transform: capitalize;
   &:first-child {
     margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    font-size: 1.5rem;
   }
 `;
 

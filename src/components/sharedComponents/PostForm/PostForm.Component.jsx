@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import { useDispatch } from "react-redux";
+import React, { memo, useRef, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 // Styled Import
 import {
@@ -29,17 +29,28 @@ import Smile from "../../../Assets/images/smile.png";
 
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector.js";
+
+// Custom hook import
+import { useCalcDivWidth } from "../../../hooks/useClacDivWidth";
 
 function PostFormComponent() {
   const dispatch = useDispatch();
+  const currRef = useRef();
+  const container = useCalcDivWidth(currRef)
+  const {
+    user: { firstName },
+  } = useSelector(signInSelector);
 
   const handleModal = () => {
     dispatch(ShowModal("CREATE_POST"));
   };
 
-  let createPostInput = "What is on your mind Abhi??";
+  console.log("This is the container", container);
+
+  let createPostInput = `What is on your mind, ${firstName}??`;
   return (
-    <FormContainer>
+    <FormContainer ref={currRef}>
       {/* Image And Input  */}
       <ImgInputCntr>
         <FormPicContr>
@@ -62,9 +73,9 @@ function PostFormComponent() {
           </IconCntr>
           <IconText>Live Video</IconText>
         </IconTextCtr>
-        {/* Photo Upload */}
+        {/* Photo Upload Icon */}
         <FileUploader />
-        <IconTextCamera>Photo/Video</IconTextCamera>
+        {container > 800 && <IconTextCamera>Photo/Video</IconTextCamera>}
         {/* Opens the modal to create the post */}
         <IconTextCtr onClick={handleModal}>
           <IconCntr>
