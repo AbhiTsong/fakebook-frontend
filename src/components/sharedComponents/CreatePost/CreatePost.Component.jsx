@@ -34,6 +34,9 @@ import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
+// Redux Import
+import { showToster } from "../../../Redux/toster/toster.action";
+
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
@@ -54,8 +57,11 @@ function CreatePostComponent(props) {
   // Creating Only Text Post
   const handleCreatePost = (e) => {
     e.preventDefault();
-    const { description } = values;
-    if (description !== null || description.length <= 500) {
+
+    if (values.description === "") {
+      dispatch(showToster("There is nothing to post."));
+      return "";
+    } else if (values.description.length <= 500) {
       dispatch(CreatePostActionOnlyText(values));
     }
   };
@@ -74,7 +80,7 @@ function CreatePostComponent(props) {
   }
 
   return (
-    <CreatePostContainer>
+    <CreatePostContainer post={props.path ? true : false}>
       <CreatePostTitleContainer>
         <CreatePostTitle>Create Post</CreatePostTitle>
         <CloseModalIcon />

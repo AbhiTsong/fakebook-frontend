@@ -20,7 +20,6 @@ import {
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { deletePostAction } from "../../../Redux/Post/deletePostAction";
 import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions.js";
-import { showDrop } from "../../../Redux/Post/editDropAction.js";
 import { clearDeletePostAction } from "../../../Redux/Post/clearsState.Actions.js";
 
 // Shared Components
@@ -43,7 +42,6 @@ function DeleteCurrentPost() {
 
   function handleCancle(e) {
     e.preventDefault();
-    dispatch(showDrop(false));
     dispatch(CloseModal());
   }
 

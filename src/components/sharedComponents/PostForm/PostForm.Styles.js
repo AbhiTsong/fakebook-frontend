@@ -67,10 +67,10 @@ const IconTextCtr = styled.div`
 `;
 
 const IconCntr = styled.div`
-  width: 2rem;
+  width: ${({ loader }) => (loader ? "4rem" : "2rem")};
 
   @media screen and (max-width: 550px) {
-    width: 1rem;
+    width: ${({ loader }) => (loader ? "2rem" : "1rem")};
   }
 `;
 
@@ -78,6 +78,7 @@ const Icon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
+  border-radius: ${({ loader }) => (loader ? "1.5rem" : "")};
 `;
 
 const IconText = styled.h5`

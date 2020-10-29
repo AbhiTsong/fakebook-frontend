@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const InputContainer = styled.div`
   position: relative;
-  width: 2rem;
+  width: ${({ loader }) => (loader ? "4rem" : "2rem")};
   height: 2rem;
 
   @media screen and (max-width: 550px) {
-    width: 1rem;
+    width: ${({ loader }) => (loader ? "2rem" : "1rem")};
     height: 1rem;
   }
 `;
@@ -15,6 +15,7 @@ const InputIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
+  border-radius: ${({ loader }) => (loader ? "1.5rem" : "")};
 `;
 
 const Input = styled.input`
@@ -31,8 +32,8 @@ const Input = styled.input`
     opacity: 0;
   }
 
-  @media screen and (max-width: 550px){
-    width: 1rem
+  @media screen and (max-width: 550px) {
+    width: 1rem;
   }
 `;
 

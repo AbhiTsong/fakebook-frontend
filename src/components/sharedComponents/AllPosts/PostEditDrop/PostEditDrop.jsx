@@ -24,7 +24,6 @@ import { ShowModal } from "../../../../Redux/Modal/ModalAction";
 import { fetchCurrentPostID } from "../../../../Redux/Post/fetchCurrentPostIDAction";
 import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import { allPostsSelector } from "../../../../Redux/Post/post.selector";
-import { showDrop } from "../../../../Redux/Post/editDropAction";
 
 function PostEditDrop({ id }) {
   const user = useSelector(signInSelector);
@@ -38,7 +37,6 @@ function PostEditDrop({ id }) {
       alert("This post dosent belong to you cant perform the action.");
       return;
     }
-    dispatch(showDrop(false));
     dispatch(ShowModal("EDIT_CURRENT_POST"));
     dispatch(fetchCurrentPostID(id));
   }
@@ -48,7 +46,6 @@ function PostEditDrop({ id }) {
       alert("This post dosent belong to you cant perform the action.");
       return;
     }
-    dispatch(showDrop(false));
     dispatch(fetchCurrentPostID(id));
     dispatch(ShowModal("DELETE_CURRENT_POST"));
   }

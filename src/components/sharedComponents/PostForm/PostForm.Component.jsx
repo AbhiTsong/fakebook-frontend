@@ -26,6 +26,7 @@ import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic
 // Icom Image Import
 import VideoCamera from "../../../Assets/images/video.png";
 import Smile from "../../../Assets/images/smile.png";
+import Loader from "../../../Assets/gifs/loading.gif";
 
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
@@ -37,15 +38,19 @@ import { useCalcDivWidth } from "../../../hooks/useClacDivWidth";
 function PostFormComponent() {
   const dispatch = useDispatch();
   const currRef = useRef();
-  const container = useCalcDivWidth(currRef)
+  const container = useCalcDivWidth(currRef);
+  let [loader, setLoader] = useState(false);
   const {
     user: { firstName },
   } = useSelector(signInSelector);
 
   const handleModal = () => {
+    setLoader(true);
     dispatch(ShowModal("CREATE_POST"));
+     setTimeout(() => {
+      setLoader(false);
+    }, 10000);
   };
-
 
   let createPostInput = `What is on your mind, ${firstName}??`;
   return (
@@ -67,18 +72,18 @@ function PostFormComponent() {
       {/*Opens the modal to create the post */}
       <FeeingContainer>
         <IconTextCtr onClick={handleModal}>
-          <IconCntr>
-            <Icon src={VideoCamera} />
+          <IconCntr loader={loader}>
+            <Icon src={loader ? Loader : VideoCamera} loader={loader} />
           </IconCntr>
-          <IconText>Live Video</IconText>
+          {loader && <IconText>Live Video</IconText>}
         </IconTextCtr>
         {/* Photo Upload Icon */}
         <FileUploader />
         {container > 800 && <IconTextCamera>Photo/Video</IconTextCamera>}
         {/* Opens the modal to create the post */}
         <IconTextCtr onClick={handleModal}>
-          <IconCntr>
-            <Icon src={Smile} />
+          <IconCntr loader={loader}>
+            <Icon src={loader ? Loader : Smile} loader={loader}/>
           </IconCntr>
           <IconText className="Icon_Text">Feeling</IconText>
         </IconTextCtr>

@@ -22,18 +22,9 @@ let allPostsSelector = createSelector(
   (post) => post.allPosts.data
 );
 
-// Seleting The Edit Drop State
-let editDropSelector = createSelector(
-  postSelector,
-  post => post.showEditDrop
-)
-
-
 export {
   postSelector,
   commentsSelector,
   currentPostIDSelector,
   allPostsSelector,
-  editDropSelector
 };
-

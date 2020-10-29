@@ -1,17 +1,11 @@
 import React from "react";
 import ConstructionImage from "../../../../Assets/gifs/work.gif";
-
-// Styled Component
-import styled from "styled-components";
-const ConstructionImgCntr = styled.div`
-  margin: auto;
-  margin-top: 15%;
-`;
+import { ConstructionImgCntr, ConstructorImg } from "./Constructon.styles";
 
 function Construction() {
   return (
     <ConstructionImgCntr>
-      <img src={ConstructionImage} alt="Construction Pic" />
+      <ConstructorImg src={ConstructionImage} />
     </ConstructionImgCntr>
   );
 }

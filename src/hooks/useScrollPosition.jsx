@@ -12,10 +12,12 @@ function useScrollPosition(state, pos) {
         setScrollPosition(true);
       }
     });
+    console.log("scrollPos scrollPos ----",window.pageYOffset)
     return () => {
       // window.removeEventListener("scroll");
     };
   }, [pos, scrollPos]);
+
 
   return [scrollPos];
 }

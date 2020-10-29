@@ -23,10 +23,20 @@ const TosterContaier = styled.div`
   align-items: baseline;
   padding-right: 1rem;
   animation: 1s ${TostAnimation} linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 550px) {
+    right: 0.5rem;
+    width: 74%;
+    word-break: break-all;
+    padding: 1.5rem;
+    height: 3rem;
+  }
 `;
 
 const TosterMessage = styled.h5`
-  height: 0;
   margin: 0;
   color: ghostwhite;
   font-size: 1rem;
@@ -38,6 +48,10 @@ const CloseButton = styled.span`
   height: 0;
   margin-left: 2rem;
   cursor: pointer;
+
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
 `;
 
 export { TosterContaier, TosterMessage, CloseButton };

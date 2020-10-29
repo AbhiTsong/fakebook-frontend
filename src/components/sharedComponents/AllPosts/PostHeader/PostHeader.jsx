@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import config from "../../../../config/config.json";
 import { useSelector } from "react-redux";
 
@@ -15,18 +15,27 @@ import {
 // Shared Compoenet
 import PostEditDrop from "../PostEditDrop/PostEditDrop";
 
-// Redux Import
-import { editDropSelector } from "../../../../Redux/Post/post.selector";
 
 // Default Profile Pic
 import Default from "../../../../Assets/images/default.png";
 
 function PostHeader({ post }) {
-  const showEditDrop = useSelector(editDropSelector);
-  const [showEdit, setShowEdit] = useState(showEditDrop);
+  // const showEditDrop = useSelector(editDropSelector);
+  const [showEdit, setShowEdit] = useState(false);
   function handleEdit(e) {
-    setShowEdit(!showEdit);
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    setShowEdit(true);
   }
+
+  // Effect for editing the current post
+  useEffect(() => {
+    function closeEdit() {
+      setShowEdit(false);
+    }
+    window.addEventListener("click", closeEdit);
+    return () => window.removeEventListener("click", closeEdit);
+  }, []);
 
   return (
     <ImageInputContiner>

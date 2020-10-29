@@ -2,7 +2,6 @@ import React from "react";
 import Pic from "../../../../Assets/images/person-2.jpg";
 
 // Styled Imports
-
 import {
   UserFriendsPhotoCntr,
   TitleContainer,
@@ -17,6 +16,7 @@ function UserFriends() {
   return (
     <UserFriendsPhotoCntr>
       <TitleContainer>
+        yoo
         <Header1>Photos</Header1>
         <Header2>See All</Header2>
       </TitleContainer>

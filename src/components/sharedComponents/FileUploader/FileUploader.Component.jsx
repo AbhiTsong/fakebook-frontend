@@ -12,19 +12,31 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 // Icon Pic Import
 import Camera from "../../../Assets/images/camera.png";
+import Loader from "../../../Assets/gifs/loading.gif";
 
 const FileUploader = () => {
   let dispatch = useDispatch();
   const fileInput = useRef(null);
   let [file, setFile] = useState("");
   let [imgURL, setURL] = useState("");
+  let [loader, setLoader] = useState(false);
 
+  // Effect for loading  and serving the pic post
   useEffect(() => {
     if (file !== "" && imgURL !== null) {
       dispatch(ShowModal("CREATE_POST"));
       dispatch(getImagePath([imgURL, file]));
     }
   }, [dispatch, file, imgURL]);
+
+  // Effect for Showing the loader
+  function handlePicPost() {
+    setLoader(true);
+
+    setTimeout(() => {
+      setLoader(false);
+    }, 10000);
+  }
 
   // Function For Reading the path of the file user wants to upload
   function readURI(e) {
@@ -56,9 +68,13 @@ const FileUploader = () => {
   };
 
   return (
-    <InputContainer>
-      <InputIcon src={Camera} />
-      <Input type="file" ref={fileInput} onChange={handleFileInput} />
+    <InputContainer onClick={handlePicPost} loader={loader}>
+      <InputIcon src={loader ? Loader : Camera} loader={loader}/>
+      {loader ? (
+        ""
+      ) : (
+        <Input type="file" ref={fileInput} onChange={handleFileInput} />
+      )}
     </InputContainer>
   );
 };

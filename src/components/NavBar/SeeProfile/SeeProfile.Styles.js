@@ -20,6 +20,10 @@ const ProfileSettingsContainer = styled.div`
     width: 96%;
     top: 4rem;
   }
+
+  @media screen and (max-width: 550px) {
+    width: 92%;
+  }
 `;
 
 const ProfileStttingsHeader = styled.div`

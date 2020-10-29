@@ -3,8 +3,8 @@ import styled from "styled-components";
 const UserCreatedPostContr = styled.div`
   position: relative;
   width: 42%;
-  height: 100%;
-
+  height: 50%;
+  
   @media screen and (max-width: 800px){
      display: none
   }

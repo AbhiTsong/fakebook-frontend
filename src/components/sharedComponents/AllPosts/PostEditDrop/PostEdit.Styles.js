@@ -11,6 +11,12 @@ const PostEditOptions = styled.div`
   border-radius: 10px;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  @media screen and (max-width: 550px) {
+    width: 13rem;
+    height: 11rem;
+    right: -1rem;
+  }
 `;
 
 const PostEditHeader = styled.h5`

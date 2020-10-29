@@ -15,6 +15,16 @@ const CreatePostContainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+    height: ${({ post }) => (post ? "30rem" : "23rem")};
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 19rem;
+    height: ${({ post }) => (post ? "27rem" : "23rem")};
+  }
 `;
 
 const CreatePostTitleContainer = styled.div`
@@ -45,7 +55,15 @@ const CreatePostForm = styled.form`
   padding: 0.5rem;
 `;
 
-const CreatePostBtn = styled.button``;
+const CreatePostBtn = styled.button`
+  width: 100%;
+  height: 2rem;
+  font-weight: bolder;
+  color: gray;
+  outline-color: transparent;
+  border-radius: 5px;
+  font-size: 1rem;
+`;
 
 export {
   CreatePostContainer,
