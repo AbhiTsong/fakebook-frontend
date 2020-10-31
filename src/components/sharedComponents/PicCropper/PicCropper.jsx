@@ -1,5 +1,4 @@
 import React, { useEffect, memo } from "react";
-// import "./PicCropper.styles.scss";
 
 import {
   PicCropperCOntainer,

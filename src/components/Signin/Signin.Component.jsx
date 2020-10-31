@@ -32,7 +32,7 @@ import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 
 // Utility Function
-// import { validation } from "../../utility/validation";
+import { validation } from "../../utility/validation";
 
 const INITIAL_STATE = { email: "", password: "" };
 
@@ -58,7 +58,7 @@ function SignInComponent(props) {
   const handleLogIn = (e) => {
     e.preventDefault();
     try {
-      // validation(values);
+      validation(values);
       dispatch(SignInUser(values));
     } catch (error) {
       alert(error.message);

@@ -1,7 +1,15 @@
-import React from "react";
-import Pic from "../../../Assets/images/photo-1.jpg";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
+
+// Loader
+import Loader from "../../../Assets/gifs/loading2.gif";
+
+// Redux Import
+import { FetchRandomUsers3 } from "../../../Redux/RandomUsers/randomUsersAction";
+import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { randomSelector } from "../../../Redux/RandomUsers/RandomUsers.selector";
 
 // Styled Imports
 import {
@@ -10,6 +18,7 @@ import {
   Title,
   UploadBtnAndPhoto,
   ButtonCntr,
+  SuggestText,
   AllPhotCntr,
   AllPhotoContent,
   PhotoContent,
@@ -18,8 +27,22 @@ import {
 
 // Sahred Component
 import FileUploaderWithCropper from "../ProfilePicInput/ProfilePicInput";
+import { ToolTip } from "../ToolTip/ToolTip";
 
 function UserProfilePicSuggest() {
+  const dispatch = useDispatch();
+  let picSuggest = useSelector(randomSelector);
+
+  useEffect(() => {
+    dispatch(FetchRandomUsers3());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function setRandomProfilePic(picAdd) {
+    window.sessionStorage.setItem("randomPic", JSON.stringify(picAdd));
+    dispatch(CloseModal());
+  }
+
   return (
     <UserPhotoSuggestCntr>
       <ComponentTitle>
@@ -32,15 +55,30 @@ function UserProfilePicSuggest() {
           <FileUploaderWithCropper />
         </ButtonCntr>
         <AllPhotCntr>
-          <h5>Suggested Photos</h5>
+          <SuggestText>Suggested Photos</SuggestText>
           <AllPhotoContent>
-            {[...Array(18).keys()].map((pic, idx) => {
-              return (
-                <PhotoContent>
-                  <Image src={Pic} />
-                </PhotoContent>
-              );
-            })}
+            {picSuggest.loading
+              ? [...Array(40).keys()].map((pic, idx) => {
+                  return (
+                    <PhotoContent key={pic + idx}>
+                      <Image src={Loader} />
+                    </PhotoContent>
+                  );
+                })
+              : picSuggest.users3 &&
+                picSuggest.users3.data &&
+                picSuggest.users3.data.results.map((user, idx) => {
+                  return (
+                    <PhotoContent
+                      key={idx + user}
+                      onClick={() => setRandomProfilePic(user.picture.large)}
+                    >
+                      <ToolTip tip="Click to make this as your profile pic">
+                        <Image src={user.picture.large} />
+                      </ToolTip>
+                    </PhotoContent>
+                  );
+                })}
           </AllPhotoContent>
         </AllPhotCntr>
       </UploadBtnAndPhoto>

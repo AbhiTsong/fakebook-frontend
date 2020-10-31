@@ -24,10 +24,14 @@ function UserProfilePic(props) {
     }
   }, [dispatch, userPic.created, userPic.loading]);
 
+  let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
+
   return (
     <UserImage
       src={
-        userState.user.hasAvatar || userState.newAvatar
+        random
+          ? random
+          : userState.user.hasAvatar || userState.newAvatar
           ? `${config.serverURL}/users/${userState.user._id}/avatar`
           : Default
       }

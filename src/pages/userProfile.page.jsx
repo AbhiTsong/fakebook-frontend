@@ -13,11 +13,9 @@ let UserProfielContainer = styled.div`
   width: 100%;
 `;
 
-let UserProfileContr = styled.div`
-  position: relative;
-  height: calc(100vh - 4rem);
-  overflow-y: scroll;
-  overflow-x: hidden;
+let UserProfileContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 function UserProfilePage(props) {
@@ -25,9 +23,9 @@ function UserProfilePage(props) {
   return (
     <UserProfielContainer>
       <NavBarComponent />
-      <UserProfileContr>
+      <UserProfileContainer>
         <UserProfile />
-      </UserProfileContr>
+      </UserProfileContainer>
     </UserProfielContainer>
   );
 }

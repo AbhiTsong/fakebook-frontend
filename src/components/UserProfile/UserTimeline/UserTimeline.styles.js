@@ -12,36 +12,34 @@ const TimelineRelative = css`
   border-radius: 5px;
 `;
 
-const TimelineFixed = css`
-  position: fixed;
-  top: 0;
-  margin-top: 0;
-  margin: 0;
-  z-index: 500;
-  width: 44.9vw;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0.5rem;
-  background-color: rgb(241, 220, 220);
-  @media screen and (max-width: 800) {
-    width: 100%;
-  }
-`;
+// const TimelineFixed = css`
+//   position: fixed;
+//   top: 0;
+//   margin-top: 0;
+//   margin: 0;
+//   z-index: 500;
+//   width: 44.9vw;
+//   display: flex;
+//   justify-content: space-evenly;
+//   padding: 0.5rem;
+//   background-color: rgb(241, 220, 220);
+//   @media screen and (max-width: 800) {
+//     width: 100%;
+//   }
+// `;
 
 const TimelineCntr = styled.div`
-  position: relative;
+  position: sticky;
+  top: 5rem;
   margin: 0;
   max-width: 98%;
 
-  @media screen and (max-width: 550px){
-      display: none
+  @media screen and (max-width: 550px) {
+    display: none;
   }
 `;
 
 const timelineStyle = (props) => {
-  if (!props.scrollPos) {
-    return TimelineFixed;
-  }
   return TimelineRelative;
 };
 

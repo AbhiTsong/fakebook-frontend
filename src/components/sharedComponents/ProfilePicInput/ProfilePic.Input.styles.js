@@ -3,6 +3,7 @@ import styled from "styled-components";
 const InputContainer = styled.div`
   position: relative;
   width: 15rem;
+  margin: auto;
 `;
 
 const UploadButton = styled.button`
@@ -13,10 +14,17 @@ const UploadButton = styled.button`
   width: 15rem;
   height: 2rem;
   color: blue;
-  &:hover{
-   background-color: #c6c6f6;
-   cursor: pointer;
+  &:hover {
+    background-color: #c6c6f6;
+    cursor: pointer;
   }
+`;
+
+const LoadingImg = styled.img`
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
 `;
 
 const FileInput = styled.input`
@@ -34,4 +42,4 @@ const FileInput = styled.input`
   }
 `;
 
-export { InputContainer, UploadButton, FileInput };
+export { InputContainer, UploadButton, LoadingImg, FileInput };

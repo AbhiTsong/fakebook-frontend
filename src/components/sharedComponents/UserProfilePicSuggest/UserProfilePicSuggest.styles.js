@@ -38,15 +38,25 @@ const Title = styled.h4`
   text-align: center;
 `;
 
-const UploadBtnAndPhoto = styled.div``;
+const UploadBtnAndPhoto = styled.div`
+  margin-bottom: 1rem;
+`;
 
 const ButtonCntr = styled.div``;
 
-const AllPhotCntr = styled.div``;
+const SuggestText = styled.h5`
+  margin: auto;
+`;
+
+const AllPhotCntr = styled.div`
+  height: 28rem;
+  overflow-y: scroll;
+`;
 
 const AllPhotoContent = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const PhotoContent = styled.div`
@@ -70,6 +80,7 @@ export {
   Title,
   UploadBtnAndPhoto,
   ButtonCntr,
+  SuggestText,
   AllPhotCntr,
   AllPhotoContent,
   PhotoContent,

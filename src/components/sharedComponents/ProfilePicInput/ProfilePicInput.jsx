@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// Gif Import
+import Loader from "../../../Assets/gifs/loading2.gif";
+
 // Styled Imports
 import {
   InputContainer,
   UploadButton,
+  LoadingImg,
   FileInput,
 } from "./ProfilePic.Input.styles";
 
@@ -22,6 +26,7 @@ function FileUploaderWithCropper() {
   const dispatch = useDispatch();
   let [file, setFile] = useState("");
   let [imgURL, setURL] = useState("");
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (file !== "" && imgURL !== "") {
@@ -39,6 +44,18 @@ function FileUploaderWithCropper() {
     reader.readAsDataURL(e.target.files[0]);
   }
 
+  // Tuner Finction For showing the loader
+  function timerFunc() {
+    return setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }
+
+  // Effeft For Clearing the timer function
+  useEffect(() => {
+    return () => timerFunc();
+  }, []);
+
   function handleFileInput(e) {
     // eslint-disable-next-line no-unused-expressions
     readFileSize(e) ? "" : readURI(e);
@@ -51,9 +68,17 @@ function FileUploaderWithCropper() {
     return setFile(seleted);
   }
 
+  // Handleling the loader for a better UX
+  function handleUpload() {
+    setLoading(true);
+    timerFunc();
+  }
+
   return (
-    <InputContainer>
-      <UploadButton>Upload</UploadButton>
+    <InputContainer onClick={handleUpload}>
+      <UploadButton disabled={loading}>
+        {loading ? <LoadingImg src={Loader} /> : `Upload`}
+      </UploadButton>
       <FileInput
         type="file"
         ref={fileInput}

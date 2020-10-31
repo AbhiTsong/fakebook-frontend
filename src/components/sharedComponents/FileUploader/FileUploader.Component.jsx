@@ -69,12 +69,8 @@ const FileUploader = () => {
 
   return (
     <InputContainer onClick={handlePicPost} loader={loader}>
-      <InputIcon src={loader ? Loader : Camera} loader={loader}/>
-      {loader ? (
-        ""
-      ) : (
-        <Input type="file" ref={fileInput} onChange={handleFileInput} />
-      )}
+      <InputIcon src={loader ? Loader : Camera} loader={loader} />
+      <Input type="file" ref={fileInput} onChange={handleFileInput} />
     </InputContainer>
   );
 };

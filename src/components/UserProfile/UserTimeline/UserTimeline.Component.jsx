@@ -8,16 +8,11 @@ import {
   TimelineNavigation,
 } from "./UserTimeline.styles";
 
-// Custom Hook
-import useScrollPosition from "../../../hooks/useScrollPosition";
-
 function UserTimeline() {
-  let [scrollPos] = useScrollPosition(true, 494);
-
   // User Profie Pic Should Appear
   return (
     <TimelineCntr>
-      <TimelineContent scrollPos={scrollPos}>
+      <TimelineContent>
         <TimelineNavigation to="/">Timeline</TimelineNavigation>
         <TimelineNavigation to="/">About</TimelineNavigation>
         <TimelineNavigation to="/">Freinds</TimelineNavigation>

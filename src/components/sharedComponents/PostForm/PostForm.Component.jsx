@@ -26,7 +26,7 @@ import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic
 // Icom Image Import
 import VideoCamera from "../../../Assets/images/video.png";
 import Smile from "../../../Assets/images/smile.png";
-import Loader from "../../../Assets/gifs/loading.gif";
+import Loader from "../../../Assets/gifs/loading2.gif";
 
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
@@ -47,7 +47,7 @@ function PostFormComponent() {
   const handleModal = () => {
     setLoader(true);
     dispatch(ShowModal("CREATE_POST"));
-     setTimeout(() => {
+    setTimeout(() => {
       setLoader(false);
     }, 10000);
   };
@@ -83,7 +83,7 @@ function PostFormComponent() {
         {/* Opens the modal to create the post */}
         <IconTextCtr onClick={handleModal}>
           <IconCntr loader={loader}>
-            <Icon src={loader ? Loader : Smile} loader={loader}/>
+            <Icon src={loader ? Loader : Smile} loader={loader} />
           </IconCntr>
           <IconText className="Icon_Text">Feeling</IconText>
         </IconTextCtr>

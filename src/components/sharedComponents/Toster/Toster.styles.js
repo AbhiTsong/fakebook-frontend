@@ -12,7 +12,7 @@ const TostAnimation = keyframes`
 
 const TosterContaier = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 4rem;
   z-index: 1000;

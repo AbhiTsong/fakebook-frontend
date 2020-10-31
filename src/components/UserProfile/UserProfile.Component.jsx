@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Styled Imports
 import {
@@ -15,8 +15,11 @@ import UserTimeline from "./UserTimeline/UserTimeline.Component";
 import UserPhotoAndFriends from "./UserPhotoAndFriends/UserPhotoAndFriends.Component";
 import UserFriendsPost from "./UserFriendsPosts/UserFriendsPosts.Component";
 
+// Cutom Hook
+import { useCalcInnerWidth } from "../../hooks/useCalcInnerWidth";
+
 function UserProfile() {
-  // let height = useCalcInnerHeight(window.innerHeight);
+  let width = useCalcInnerWidth(window.innerWidth);
 
   return (
     <UserProfileContainer>
@@ -27,7 +30,7 @@ function UserProfile() {
           <UserTimeline />
         </UserTimeLineContainer>
         <UserPhotosAndPosts>
-          <UserPhotoAndFriends />
+          {width > 800 ? <UserPhotoAndFriends /> : ""}
           <UserFriendsPost />
         </UserPhotosAndPosts>
       </UserProfileContent>

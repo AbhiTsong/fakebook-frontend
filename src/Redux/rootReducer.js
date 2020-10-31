@@ -15,6 +15,7 @@ import { messageReducer } from "./Message/Message.reducer";
 import { notificationReducer } from "./Notification/Notification.reducer";
 import { settingsReducer } from "./ShowSettings/ShowSettings.reducer";
 import { hamburgerReducer } from "./Hamburger/Hamburger.reducer";
+import { randomUsersReducer } from "./RandomUsers/RamdomUser.reducer";
 
 const persitConfig = {
   key: "root",
@@ -34,6 +35,7 @@ const RootReducer = combineReducers({
   user: userReducer,
   warning: warningReducer,
   burger: hamburgerReducer,
+  randomUser: randomUsersReducer,
 });
 
 export default persistReducer(persitConfig, RootReducer);

@@ -55,6 +55,13 @@ const StyledButton = styled.button`
   height: 2rem;
 `;
 
+const LoadingImage = styled.img`
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+`;
+
 export {
   IntroContainer,
   Header1,
@@ -64,4 +71,5 @@ export {
   RSSIcon,
   ButtonContainer,
   StyledButton,
+  LoadingImage
 };

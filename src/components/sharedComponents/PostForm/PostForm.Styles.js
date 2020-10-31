@@ -67,7 +67,7 @@ const IconTextCtr = styled.div`
 `;
 
 const IconCntr = styled.div`
-  width: ${({ loader }) => (loader ? "4rem" : "2rem")};
+  width: 2rem;
 
   @media screen and (max-width: 550px) {
     width: ${({ loader }) => (loader ? "2rem" : "1rem")};

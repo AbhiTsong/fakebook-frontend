@@ -20,7 +20,7 @@ const InputIcon = styled.img`
 
 const Input = styled.input`
   opacity: 0;
-  width: 10rem;
+  width: 5rem;
   z-index: 1;
   position: absolute;
   top: 0;
