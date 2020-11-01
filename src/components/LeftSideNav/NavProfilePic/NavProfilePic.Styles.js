@@ -17,12 +17,6 @@ const LeftPofileContent = styled.div`
   padding-left: 0.5rem;
 `;
 
-const LeftProfilePic = styled.img`
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
-`;
 
 const LeftProfileName = styled.h5`
   margin-top: 0.5rem;
@@ -36,6 +30,5 @@ const LeftProfileName = styled.h5`
 export {
   LeftProfiePicContainer,
   LeftPofileContent,
-  LeftProfilePic,
   LeftProfileName,
 };

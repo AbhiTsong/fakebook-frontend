@@ -17,6 +17,7 @@ import { getProfilePath } from "../../../Redux/User/userpProfilePathAction";
 
 // Shared Component
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
+import { ToolTip } from "../ToolTip/ToolTip";
 
 // utility import
 import { readFileSize } from "../../../utility/readURI";
@@ -44,11 +45,11 @@ function FileUploaderWithCropper() {
     reader.readAsDataURL(e.target.files[0]);
   }
 
-  // Tuner Finction For showing the loader
+  // Tuner Function For showing the loader
   function timerFunc() {
     return setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 10000);
   }
 
   // Effeft For Clearing the timer function
@@ -76,9 +77,11 @@ function FileUploaderWithCropper() {
 
   return (
     <InputContainer onClick={handleUpload}>
-      <UploadButton disabled={loading}>
-        {loading ? <LoadingImg src={Loader} /> : `Upload`}
-      </UploadButton>
+      <ToolTip tip="Click To Upload New Profile Pic">
+        <UploadButton disabled={loading}>
+          {loading ? <LoadingImg src={Loader} /> : `Upload`}
+        </UploadButton>
+      </ToolTip>
       <FileInput
         type="file"
         ref={fileInput}

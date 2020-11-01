@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import config from "../../../config/config.json";
 import { useSelector } from "react-redux";
+
+// Shared Compoent
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
-
-// Default Pic Import
-import Default from "../../../Assets/images/default.png";
 
 // Styled Imports
 import {
   LeftProfiePicContainer,
   LeftPofileContent,
-  LeftProfilePic,
   LeftProfileName,
 } from "./NavProfilePic.Styles";
 
@@ -24,13 +22,8 @@ function NavProfilePic() {
     <LeftProfiePicContainer>
       <LeftPofileContent>
         <Link to="/profile">
-          <LeftProfilePic
-            src={
-              user.user.hasAvatar || user.newAvatar
-                ? `${config.serverURL}/users/${user.user._id}/avatar`
-                : Default
-            }
-          />
+       
+          <UserProfilePic />
         </Link>
       </LeftPofileContent>
       <Link to="/profile">

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const UserFriendsPhotoCntr = styled.div`
   height: 20.5rem;
@@ -29,14 +29,34 @@ const ImgPostContr = styled.div`
   justify-content: center;
 `;
 
+// Showing the style only on load
+function loadingStyle({ loading }) {
+  if (loading) {
+    return css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `;
+  }
+
+  return "";
+}
+
 const ImgPostContent = styled.div`
   width: 5.9rem;
   height: 6rem;
   margin: 0.2rem;
+  ${loadingStyle};
   &:last-child {
     border-bottom-right-radius: 5px;
   }
 `;
+
+const LoaderContr = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+`
 
 const ImgPost = styled.img`
   display: block;
@@ -51,5 +71,6 @@ export {
   Header2,
   ImgPostContr,
   ImgPostContent,
+  LoaderContr,
   ImgPost,
 };

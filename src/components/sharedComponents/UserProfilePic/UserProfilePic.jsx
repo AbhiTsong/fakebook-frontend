@@ -27,7 +27,7 @@ function UserProfilePic(props) {
   let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
 
   return (
-    <UserImage
+    <UserImage border={props.border}
       src={
         random
           ? random

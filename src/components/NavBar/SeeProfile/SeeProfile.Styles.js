@@ -37,13 +37,6 @@ const ProfilePicContainer = styled.div`
   height: 3rem;
 `;
 
-const ProfilePic = styled.img`
-  display: block;
-  max-width: 100%;
-  max-height: 100;
-  border-radius: 50%;
-`;
-
 const ProfileNameContainer = styled.div`
   margin-left: 1rem;
 `;
@@ -85,17 +78,6 @@ const FeedbackArrow = styled.h5`
 const FeedBackText = styled.h6`
   margin: 0;
 `;
-
-// const IconContainer = styled.div`
-//   width: 1.5rem;
-//   height: 1.5rem;
-// `;
-
-// const IconImage = styled.img`
-//   display: block;
-//   max-width: 100%;
-//   max-height: 100%;
-// `;
 
 const SettingOptionsContainer = styled.div`
   display: flex;
@@ -142,7 +124,6 @@ export {
   ProfileSettingsContainer,
   ProfileStttingsHeader,
   ProfilePicContainer,
-  ProfilePic,
   ProfileNameContainer,
   ProfileName,
   ProfileOption,

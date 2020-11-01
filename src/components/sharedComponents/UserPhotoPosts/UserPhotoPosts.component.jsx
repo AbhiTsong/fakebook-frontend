@@ -14,6 +14,7 @@ import {
   Header2,
   ImgPostContr,
   ImgPostContent,
+  LoaderContr,
   ImgPost,
 } from "./UserPhotoPost.styles";
 
@@ -33,17 +34,20 @@ function UserPhotoPosts() {
         <Header2>See All</Header2>
       </TitleContainer>
       <ImgPostContr>
-        {users.loading
+        {/* {users.loading */}
+        {true
           ? [...Array(9).keys()].map((pic, index) => (
-              <ImgPostContent>
-                <ImgPost src={Pic} />
+              <ImgPostContent loading={true} key={index + pic}>
+                <LoaderContr>
+                  <ImgPost src={Pic} />
+                </LoaderContr>
               </ImgPostContent>
             ))
           : users.users2 &&
             users.users2.data &&
-            users.users2.data.results.map((user) => {
+            users.users2.data.results.map((user, idx) => {
               return (
-                <ImgPostContent>
+                <ImgPostContent key={idx + user.cell}>
                   <ImgPost src={user.picture.large} />
                 </ImgPostContent>
               );

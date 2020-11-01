@@ -14,6 +14,7 @@ import {
   Header2,
   ImgPostContr,
   ImgPostContent,
+  LoaderContr,
   ImgPost,
 } from "./UserFriendsStyles";
 
@@ -25,7 +26,6 @@ function UserFriends() {
     dispatch(FetchRandomUsers());
   }, []);
 
-
   return (
     <UserFriendsPhotoCntr>
       <TitleContainer>
@@ -35,15 +35,17 @@ function UserFriends() {
       <ImgPostContr>
         {users.loading
           ? [...Array(9).keys()].map((pic, index) => (
-              <ImgPostContent>
-                <ImgPost src={Pic} />
+              <ImgPostContent loading={true} key={index + pic}>
+                <LoaderContr>
+                  <ImgPost src={Pic} />
+                </LoaderContr>
               </ImgPostContent>
             ))
           : users.users &&
             users.users.data &&
-            users.users.data.results.map((user) => {
+            users.users.data.results.map((user, idx) => {
               return (
-                <ImgPostContent>
+                <ImgPostContent key={user.cell + idx}>
                   <ImgPost src={user.picture.large} />
                 </ImgPostContent>
               );

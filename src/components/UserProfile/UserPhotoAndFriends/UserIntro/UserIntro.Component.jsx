@@ -44,7 +44,7 @@ function reducer(state, action) {
         loader2: false,
       };
     default:
-      break;
+      return state;
   }
 }
 

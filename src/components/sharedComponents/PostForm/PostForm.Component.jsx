@@ -1,4 +1,4 @@
-import React, { memo, useRef, useEffect, useState } from "react";
+import React, { memo, useRef, useEffect, useState, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Styled Import
@@ -35,24 +35,83 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector.js";
 // Custom hook import
 import { useCalcDivWidth } from "../../../hooks/useClacDivWidth";
 
+// lOADER INITIAL STATE
+const INITIAL_STATE = {
+  loader1: false,
+  loader2: false,
+};
+
+function reducer(state, { type }) {
+  switch (type) {
+    case "LOADER_1":
+      return {
+        ...state,
+        loader1: true,
+      };
+    case "RESET_1":
+      return {
+        ...state,
+        loader1: false,
+      };
+
+    case "LOADER_2":
+      return {
+        ...state,
+        loader2: true,
+      };
+    case "RESET_2":
+      return {
+        ...state,
+        loader2: false,
+      };
+
+    default:
+      return state;
+  }
+}
+
 function PostFormComponent() {
   const dispatch = useDispatch();
   const currRef = useRef();
   const container = useCalcDivWidth(currRef);
-  let [loader, setLoader] = useState(false);
+  let [loader, dispatchLoader] = useReducer(reducer, INITIAL_STATE);
+
   const {
     user: { firstName },
   } = useSelector(signInSelector);
 
-  const handleModal = () => {
-    setLoader(true);
+  const handleModal = (modDis) => {
+    if (modDis === "1") {
+      dispatchLoader({ type: "LOADER_1" });
+    } else if (modDis === "2") {
+      dispatchLoader({ type: "LOADER_2" });
+    }
     dispatch(ShowModal("CREATE_POST"));
-    setTimeout(() => {
-      setLoader(false);
-    }, 10000);
   };
 
   let createPostInput = `What is on your mind, ${firstName}??`;
+
+  useEffect(() => {
+    let timer1;
+    if (loader.loader1) {
+      timer1 = setTimeout(() => {
+        dispatchLoader({ type: "RESET_1" });
+      }, 10000);
+    }
+    return () => clearInterval(timer1);
+  }, [loader.loader1]);
+
+
+  useEffect(() => {
+    let timer2;
+    if (loader.loader1) {
+      timer2 = setTimeout(() => {
+        dispatchLoader({ type: "RESET_2" });
+      }, 1000);
+    }
+    return () => clearInterval(timer2);
+  }, [loader.loader1]);
+
   return (
     <FormContainer ref={currRef}>
       {/* Image And Input  */}
@@ -71,9 +130,9 @@ function PostFormComponent() {
       <HorizontalLine />
       {/*Opens the modal to create the post */}
       <FeeingContainer>
-        <IconTextCtr onClick={handleModal}>
-          <IconCntr loader={loader}>
-            <Icon src={loader ? Loader : VideoCamera} loader={loader} />
+        <IconTextCtr onClick={() => handleModal("1")}>
+          <IconCntr loader={loader.loader2}>
+            <Icon src={loader.loader1 ? Loader : VideoCamera} loader={loader} />
           </IconCntr>
           {loader && <IconText>Live Video</IconText>}
         </IconTextCtr>
@@ -81,9 +140,9 @@ function PostFormComponent() {
         <FileUploader />
         {container > 800 && <IconTextCamera>Photo/Video</IconTextCamera>}
         {/* Opens the modal to create the post */}
-        <IconTextCtr onClick={handleModal}>
-          <IconCntr loader={loader}>
-            <Icon src={loader ? Loader : Smile} loader={loader} />
+        <IconTextCtr onClick={() => handleModal("2")}>
+          <IconCntr loader={loader.loader2}>
+            <Icon src={loader.loader2 ? Loader : Smile} loader={loader} />
           </IconCntr>
           <IconText className="Icon_Text">Feeling</IconText>
         </IconTextCtr>

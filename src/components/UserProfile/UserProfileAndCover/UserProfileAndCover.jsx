@@ -22,6 +22,7 @@ import {
 // Shared Components Import
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 import CoverChangeDropMenu from "../../sharedComponents/CoverChangeDropMenu/CoverChangeDropMenu";
+import { ToolTip } from "../../sharedComponents/ToolTip/ToolTip";
 
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
@@ -65,12 +66,14 @@ function UserProfileAndCover(props) {
     <>
       <ProfileAndCover hasCover={cover} id={user.user._id}>
         <ChangeCoverButton>
-          <StyledButton onClick={handeCoverDropDown}>
-            <CoverIconContr>
-              <CoverCameraIcon src={Camera} />
-            </CoverIconContr>
-            Change Cover
-          </StyledButton>
+          <ToolTip tip="Click To Add New Cover">
+            <StyledButton onClick={handeCoverDropDown}>
+              <CoverIconContr>
+                <CoverCameraIcon src={Camera} />
+              </CoverIconContr>
+              Change Cover
+            </StyledButton>
+          </ToolTip>
         </ChangeCoverButton>
         {showDrop && <CoverChangeDropMenu />}
         <ProfilePicContainer>
@@ -80,11 +83,13 @@ function UserProfileAndCover(props) {
             className="Profile_Pic_Camera"
           >
             <ProfileCamerCntr>
-              <ProfileCameraIcn src={Camera} />
+              <ToolTip tip="Click To Change Profile Pic">
+                <ProfileCameraIcn src={Camera} />
+              </ToolTip>
             </ProfileCamerCntr>
           </ProfileIconCntr>
           {/* User Profile Pic */}
-          <UserProfilePic />
+          <UserProfilePic border={true} />
         </ProfilePicContainer>
       </ProfileAndCover>
       <UserNameCutr>

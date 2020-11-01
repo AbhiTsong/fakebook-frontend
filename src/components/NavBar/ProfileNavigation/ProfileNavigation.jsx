@@ -74,7 +74,7 @@ function ProfileNavigation() {
 
   return (
     <>
-    {/* Done  */}
+      {/* Done  */}
       {width < 800 ? (
         <Hamburger width={width} />
       ) : (
@@ -82,7 +82,7 @@ function ProfileNavigation() {
           <RightNameAndProfile>
             <ProfilePicContainer>
               <Link to="/profile">
-                <UserProfilePic />
+                <UserProfilePic border={true} />
               </Link>
             </ProfilePicContainer>
             <Link to="/profile">

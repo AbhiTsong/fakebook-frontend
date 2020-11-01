@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const UserPhotoSuggestCntr = styled.div`
   position: relative;
@@ -42,15 +42,19 @@ const UploadBtnAndPhoto = styled.div`
   margin-bottom: 1rem;
 `;
 
-const ButtonCntr = styled.div``;
+const ButtonCntr = styled.div`
+  margin: 0.5rem 0;
+`;
 
 const SuggestText = styled.h5`
   margin: auto;
+  padding-left: 1rem;
 `;
 
 const AllPhotCntr = styled.div`
   height: 28rem;
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 const AllPhotoContent = styled.div`
@@ -59,13 +63,33 @@ const AllPhotoContent = styled.div`
   justify-content: center;
 `;
 
+// Showing the style only on load
+function loadingStyle({ loading }) {
+  if (loading) {
+    return css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `;
+  }
+
+  return "";
+}
+
 const PhotoContent = styled.div`
   width: 5.9rem;
   height: 6rem;
   margin: 0.2rem;
+  ${loadingStyle}
   &:last-child {
     border-bottom-right-radius: 5px;
   }
+`;
+
+const LoaderContr = styled.div`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
 `;
 
 const Image = styled.img`
@@ -84,5 +108,6 @@ export {
   AllPhotCntr,
   AllPhotoContent,
   PhotoContent,
+  LoaderContr,
   Image,
 };

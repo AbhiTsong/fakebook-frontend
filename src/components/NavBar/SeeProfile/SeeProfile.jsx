@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import config from "../../../config/config.json";
 import { Link, withRouter } from "react-router-dom";
 
 // Redux Imports
@@ -15,9 +14,9 @@ import Messanger from "../../LeftSideNav/Messanger/Messanger";
 import Groups from "../../LeftSideNav/Groups/Groups";
 import Pages from "../../LeftSideNav/Pages/Pages";
 import Videos from "../../LeftSideNav/Videos/Videos";
+import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 // Image Import
-import Default from "../../../Assets/images/default.png";
 import Feedback from "../../../Assets/images/feedback.png";
 import Right from "../../../Assets/images/rightArrow.png";
 import Settings from "../../../Assets/images/settings.png";
@@ -32,7 +31,6 @@ import {
   ProfileSettingsContainer,
   ProfileStttingsHeader,
   ProfilePicContainer,
-  ProfilePic,
   ProfileNameContainer,
   ProfileName,
   ProfileOption,
@@ -84,10 +82,6 @@ function SeeProfile(props) {
     // props.history.go(0);
   }
 
-  // if (signOutState.loading) {
-  //   return "Loading....";
-  // }
-
   function closeDrop() {
     dispatch(toggleHamburger());
   }
@@ -97,13 +91,7 @@ function SeeProfile(props) {
       <Link to="/profile">
         <ProfileStttingsHeader>
           <ProfilePicContainer>
-            <ProfilePic
-              src={
-                currUsr.user.hasAvatar || currUsr.newAvatar
-                  ? `${config.serverURL}/users/${currUsr.user._id}/avatar`
-                  : Default
-              }
-            />
+            <UserProfilePic />
           </ProfilePicContainer>
           <ProfileNameContainer>
             <ProfileName className="Profile_Name">{`${currUsr.user.firstName} ${currUsr.user.lastName}`}</ProfileName>

@@ -29,8 +29,25 @@ const FilterViewOptions = styled.div`
   padding: 0.5rem;
 `;
 
-const FilterIcons = styled.h5`
+const FilterIcons = styled.button`
   margin: 0;
+  padding: 0.5rem 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  outline-color: transparent;
+  border: transparent;
+  background-color: transparent;
+  &:hover {
+    background-color: lavender;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+`;
+
+const LoaderGif = styled.img`
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 export {
@@ -40,4 +57,5 @@ export {
   FilterBtnCntr,
   FilterViewOptions,
   FilterIcons,
+  LoaderGif,
 };
