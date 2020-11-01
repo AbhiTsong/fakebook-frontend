@@ -15,7 +15,7 @@ let UserProfielContainer = styled.div`
 
 let UserProfileContainer = styled.div`
   display: flex;
-  justify-content: center;
+  height: calc(100vh - 4rem);
 `;
 
 function UserProfilePage(props) {

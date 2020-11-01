@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LeftNavComponent = styled.div`
+const LeftNavComponent = styled.aside`
   width: 25rem;
   padding: 1rem;
 

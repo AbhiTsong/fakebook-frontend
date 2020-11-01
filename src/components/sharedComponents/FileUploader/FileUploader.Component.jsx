@@ -12,7 +12,7 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 
 // Icon Pic Import
 import Camera from "../../../Assets/images/camera.png";
-import Loader from "../../../Assets/gifs/loading.gif";
+import Loader from "../../../Assets/gifs/loading2.gif";
 
 const FileUploader = () => {
   let dispatch = useDispatch();

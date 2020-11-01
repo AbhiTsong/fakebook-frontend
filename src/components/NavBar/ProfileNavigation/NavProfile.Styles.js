@@ -21,6 +21,7 @@ const NavBarContainer = styled.div`
 
 const RightNameAndProfile = styled.div`
   display: flex;
+  border-radius: 1.5rem;
   justify-content: space-between;
 `;
 
@@ -34,6 +35,9 @@ const UserName = styled.h5`
   margin-bottom: 0;
   margin-left: 0.5rem;
   text-transform: capitalize;
+  &:hover {
+    color: gray;
+  }
 `;
 
 const IconsContainer = styled.div`
@@ -47,6 +51,9 @@ const IconsContainer = styled.div`
   width: 1rem;
   padding: 0.5rem;
   cursor: pointer;
+  &:hover {
+    background-color: #d6d6dc;
+  }
 `;
 
 const IconImageContainer = styled.div``;

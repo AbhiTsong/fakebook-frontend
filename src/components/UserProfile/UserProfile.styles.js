@@ -10,6 +10,11 @@ const UserProfileContainer = styled.div`
 
 const UserProfileContent = styled.div`
   width: 100%;
+  height: calc(100vh - 4rem);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 const UserTimeLineContainer = styled.div`

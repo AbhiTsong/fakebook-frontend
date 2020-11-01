@@ -1,24 +1,32 @@
 import React from "react";
-import "./LikeCommentsCount.syles.scss";
+import "./LikeCommentsCount.syles.js";
 
 import Like from "../../../Assets/images/like2.png";
 
+// styled imports
+import {
+  ReactionCount,
+  ThumbsUpContainer,
+  ThumbsUp,
+  CommentPeople
+} from "./LikeCommentsCount.syles"
+
 function LikeCommentsCount({ like, comments }) {
   return (
-    <div className="Reaction_Count">
-      <div
+    <ReactionCount>
+      <ThumbsUpContainer
         className="Thumbs_Up_Container"
         role="img"
         aria-label="Post Reaction"
       >
-        <img className="Thumbs_Up" src={Like} alt="Thumbs Up" />
-      </div>
+        <ThumbsUp src={Like}  />
+      </ThumbsUpContainer>
       {like}
-      <div className="Comment_People">
+      <CommentPeople>
         <span></span>
         <span>{comments.length} Comments</span>
-      </div>
-    </div>
+      </CommentPeople>
+    </ReactionCount>
   );
 }
 

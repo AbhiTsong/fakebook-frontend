@@ -44,7 +44,7 @@ const GroupTextContainer = styled.div`
 
 const GroupText = styled.h5`
   margin: 0;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 
   @media screen and(max-width: 800px) {
     margin-left: 1rem;

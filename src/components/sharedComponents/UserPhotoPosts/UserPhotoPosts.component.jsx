@@ -34,8 +34,7 @@ function UserPhotoPosts() {
         <Header2>See All</Header2>
       </TitleContainer>
       <ImgPostContr>
-        {/* {users.loading */}
-        {true
+        {users.loading
           ? [...Array(9).keys()].map((pic, index) => (
               <ImgPostContent loading={true} key={index + pic}>
                 <LoaderContr>

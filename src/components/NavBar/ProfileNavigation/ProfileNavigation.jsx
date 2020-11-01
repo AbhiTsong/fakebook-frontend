@@ -86,7 +86,7 @@ function ProfileNavigation() {
               </Link>
             </ProfilePicContainer>
             <Link to="/profile">
-              <UserName className="User_Name">
+              <UserName>
                 {userState.user.firstName}
               </UserName>
             </Link>

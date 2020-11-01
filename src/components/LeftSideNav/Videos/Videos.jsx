@@ -21,7 +21,7 @@ function Videos() {
           <VideoIcon src={Video} />
         </VideoContent>
         <VideoTextContainer>
-          <VideoText> Videos</VideoText>
+          <VideoText>Videos</VideoText>
         </VideoTextContainer>
       </VideoContainer>
     </Link>

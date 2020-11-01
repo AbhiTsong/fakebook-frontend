@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RightNavContainer = styled.div`
+const RightNavContainer = styled.aside`
   width: 30rem;
 
   @media screen and (max-width: 800px) {
@@ -8,7 +8,7 @@ const RightNavContainer = styled.div`
   }
 `;
 
-const ContactsHeader = styled.div`
+const ContactsHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
@@ -19,11 +19,11 @@ const ContactsHeader = styled.div`
   border-top-left-radius: 5px;
 `;
 
-const ContactsText = styled.div`
+const ContactsText = styled.text`
   font-weight: 500;
 `;
 
-const ContactDots = styled.div`
+const ContactDots = styled.text`
   font-weight: 900;
 `;
 

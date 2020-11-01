@@ -44,7 +44,7 @@ const TextContainer = styled.div`
 
 const PageText = styled.h5`
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 `;
 
 export { PagesContainer, PageContent, PagesIcon, TextContainer, PageText };

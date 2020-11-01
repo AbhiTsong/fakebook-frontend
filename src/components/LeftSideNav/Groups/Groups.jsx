@@ -18,7 +18,7 @@ function Groups() {
         <GroupsIcon src={Group} />
       </GroupsContent>
       <GroupTextContainer>
-        <GroupText>Groups yoo</GroupText>
+        <GroupText>Groups</GroupText>
       </GroupTextContainer>
     </GroupsContainer>
   );

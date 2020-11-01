@@ -45,7 +45,7 @@ const VideoTextContainer = styled.div`
 
 const VideoText = styled.h5`
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 `;
 
 export {
