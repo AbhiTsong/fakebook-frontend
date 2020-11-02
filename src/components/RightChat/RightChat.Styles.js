@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RightNavContainer = styled.aside`
+const RightNavContainer = styled.div`
   width: 30rem;
 
   @media screen and (max-width: 800px) {
@@ -19,11 +19,11 @@ const ContactsHeader = styled.header`
   border-top-left-radius: 5px;
 `;
 
-const ContactsText = styled.text`
+const ContactsText = styled.span`
   font-weight: 500;
 `;
 
-const ContactDots = styled.text`
+const ContactDots = styled.span`
   font-weight: 900;
 `;
 

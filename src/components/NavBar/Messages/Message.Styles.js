@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
-const MessageHeader = styled.div`
+const Parent = styled.div`
   position: absolute;
   top: 5rem;
   right: 1rem;
-  height: 5vh;
-  background-color: white;
   z-index: 21;
   width: 20rem;
+  height: 85vh;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
+    rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
+`;
+
+const MessageHeader = styled.div`
+  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
   align-items: baseline;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 `;
 
 const HeaderText = styled.h2`
@@ -38,17 +45,9 @@ const CloseIcon = styled.img`
 `;
 
 const MessageContainer = styled.div`
-  position: absolute;
-  top: 7.5rem;
-  right: 1rem;
-  height: 80vh;
-  background-color: white;
   padding: 0 1rem;
-  z-index: 21;
-  width: 20rem;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
   overflow-y: scroll;
+  height: 80vh;
 `;
 
 const MessageImageAndText = styled.div`
@@ -96,6 +95,7 @@ const MessagedDate = styled.h6`
 `;
 
 export {
+  Parent,
   MessageHeader,
   HeaderText,
   HeaderDots,

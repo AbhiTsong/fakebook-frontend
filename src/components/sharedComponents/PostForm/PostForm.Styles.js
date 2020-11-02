@@ -78,7 +78,7 @@ const Icon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
-  border-radius: ${({ loader }) => (loader ? "1.5rem" : "")};
+  /* border-radius: ${({ loader }) => (loader ? "1.5rem" : "0")}; */
 `;
 
 const IconText = styled.h5`

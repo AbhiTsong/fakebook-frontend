@@ -56,6 +56,20 @@ function UserProfileAndCover(props) {
     setShowDrop(!showDrop);
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Close Cover If the user click on the screen
+
+  useEffect(() => {
+    function closeCoverDrop() {
+      if (showDrop) {
+        setShowDrop(false);
+      }
+    }
+    window.addEventListener("click", closeCoverDrop);
+
+    return () => window.removeEventListener("click", closeCoverDrop);
+  }, [showDrop]);
+
   useEffect(() => {
     if (coverAndProfile.coverCreated) {
       window.location.reload();

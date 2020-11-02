@@ -6,11 +6,10 @@ const CommentsContainer = styled.div`
   margin: 0.5rem;
 `;
 
-const ImageContr = styled.img`
+const ImageContr = styled.div`
   width: 2rem;
   height: 2rem;
   margin-right: 1rem;
-  border-radius: 50%;
 `;
 
 const StyledFormInput = styled(FormInput)`

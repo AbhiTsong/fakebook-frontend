@@ -15,12 +15,17 @@ import {
 // Shared Compoenet
 import PostEditDrop from "../PostEditDrop/PostEditDrop";
 
+// Redux Import
+import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Default Profile Pic
 import Default from "../../../../Assets/images/default.png";
 
 function PostHeader({ post }) {
   // const showEditDrop = useSelector(editDropSelector);
+  const loggedUser = useSelector(signInSelector);
+
+  console.log(loggedUser);
   const [showEdit, setShowEdit] = useState(false);
   function handleEdit(e) {
     e.stopPropagation();
@@ -37,13 +42,19 @@ function PostHeader({ post }) {
     return () => window.removeEventListener("click", closeEdit);
   }, []);
 
+  let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
+
   return (
     <ImageInputContiner>
       <UserProfilePic
         className="UserProfilePic"
         src={
           post.hasAvatar
-            ? `${config.serverURL}/users/${post.owner}/avatar`
+            ? post.owner === loggedUser.user._id
+              ? random
+                ? random
+                : `${config.serverURL}/users/${post.owner}/avatar`
+              : ""
             : Default
         }
         alt="Creator Profile Pic"

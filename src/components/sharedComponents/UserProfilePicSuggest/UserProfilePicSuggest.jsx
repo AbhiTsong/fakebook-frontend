@@ -61,7 +61,7 @@ function UserProfilePicSuggest() {
             {picSuggest.loading
               ? [...Array(40).keys()].map((pic, idx) => {
                   return (
-                    <PhotoContent loading={true} key={pic + idx}>
+                    <PhotoContent loading="true" key={pic + idx}>
                       <LoaderContr>
                         <ToolTip tip="Loading Image Plz Wait">
                           <Image src={Loader} />

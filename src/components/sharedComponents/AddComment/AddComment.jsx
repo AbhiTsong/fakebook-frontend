@@ -14,6 +14,7 @@ import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { addCommentAction } from "../../../Redux/Post/commentAction";
 
 // Shared Components
+import UserProfilePic from "../UserProfilePic/UserProfilePic"
 
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -46,13 +47,9 @@ function AddComment({ id }) {
 
   return (
     <CommentsContainer>
-      <ImageContr
-        src={
-          currUsr.user.hasAvatar || currUsr.newAvatar
-            ? `${config.serverURL}/users/${currUsr.user._id}/avatar`
-            : Default
-        }
-      />
+      <ImageContr>
+        <UserProfilePic/>
+      </ImageContr>
       <StyledFormInput
         name="comment"
         type="text"

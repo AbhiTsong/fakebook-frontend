@@ -4,7 +4,7 @@ const ProfileSettingsContainer = styled.div`
   position: absolute;
   padding: 0.5rem 1rem;
   background-color: white;
-  z-index: 20;
+  z-index: 200;
   justify-content: space-between;
   top: 4.5rem;
   width: 20rem;
@@ -12,6 +12,8 @@ const ProfileSettingsContainer = styled.div`
   z-index: 10;
   margin-right: 1rem;
   border-radius: 10px;
+  box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
+    rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
 
   @media screen and (max-width: 800px) {
     border-top: 1px solid gray;

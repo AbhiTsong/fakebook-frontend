@@ -11,6 +11,7 @@ const NavBar = styled.nav`
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border: 1px solid lavender;
+  z-index: 10;
 `;
 
 const LogoContainer = styled.div`
@@ -58,7 +59,7 @@ const NavbarLinkCntr = styled.div`
 `;
 
 const NavbarProfileCntr = styled.div`
-display: none;
+  display: none;
   @media screen and (max-width: 800px) {
     display: inline;
     height: 2rem;

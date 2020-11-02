@@ -51,6 +51,8 @@ const IconsContainer = styled.div`
   width: 1rem;
   padding: 0.5rem;
   cursor: pointer;
+  box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
+    rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
   &:hover {
     background-color: #d6d6dc;
   }

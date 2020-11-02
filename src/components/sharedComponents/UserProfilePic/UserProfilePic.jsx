@@ -40,4 +40,4 @@ function UserProfilePic(props) {
   );
 }
 
-export default withRouter(memo(UserProfilePic));
+export default memo(UserProfilePic);

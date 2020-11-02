@@ -34,8 +34,8 @@ function AllPostsComponent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // if (allPost.loading) {
-    if (true) {
+  // if (true) {
+  if (allPost.loading) {
     return [...Array(10).keys()].map((e, idx) => <Skeleton key={e + idx} />);
   }
 

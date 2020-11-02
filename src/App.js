@@ -31,6 +31,7 @@ const AppContainer = styled(Container)`
   justify-content: center;
   max-width: 1650px;
   margin: auto;
+  overflow-y: ${({ scroll }) => (scroll ? "hidden" : "")};
 `;
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
   const postState = useSelector(postSelector);
   const dispatch = useDispatch();
 
+  // Effect For Anth And Protected Routes
   useEffect(() => {
     if (postState.error.Error === "Please Authenticate") {
       dispatch(SignOutAction());
@@ -50,7 +52,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode.light ? lightTheme : darkTheme}>
-      <AppContainer>
+      <AppContainer scroll={modalState.show}>
         {modalState.show && <Modal header1="Create Post" />}
         {tostState.show && <Toster />}
         <Switch>

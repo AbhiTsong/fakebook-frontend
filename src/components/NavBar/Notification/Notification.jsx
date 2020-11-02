@@ -10,6 +10,7 @@ import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
 
 // Styled Imports
 import {
+  Parent,
   MessageHeader,
   HeaderText,
   HeaderDots,
@@ -51,7 +52,7 @@ function Notification() {
   }
 
   return (
-    <>
+    <Parent>
       <MessageHeader>
         <HeaderText className="Notification_Header_Text">
           Notifications
@@ -103,7 +104,7 @@ function Notification() {
               </MessageImageAndText>
             ))}
       </MessageContainer>
-    </>
+    </Parent>
   );
 }
 

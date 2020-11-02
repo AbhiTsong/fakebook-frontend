@@ -13,9 +13,9 @@ import Close from "../../../Assets/images/close.png";
 
 // Styled Imports
 import {
+  Parent,
   MessageHeader,
   HeaderText,
-  HeaderDots,
   HeaderClose,
   CloseIcon,
   MessageContainer,
@@ -47,7 +47,7 @@ function Messages() {
   }
 
   return (
-    <>
+    <Parent>
       <MessageHeader>
         <HeaderText className="Messages_Header_Text">Messages</HeaderText>
         {/* All done */}
@@ -73,7 +73,7 @@ function Messages() {
               </MessageImageAndText>
             ))}
       </MessageContainer>
-    </>
+    </Parent>
   );
 }
 

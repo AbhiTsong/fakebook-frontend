@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -58,12 +58,24 @@ function ProfileNavigation() {
     setSettings(false);
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleMessage() {
     setMessage(!messageState);
     dispatch(messageAction(messageState));
     dispatch(notificationAction(false));
     setSettings(false);
   }
+
+  useEffect(() => {
+    function closeSettings() {
+      if (settingsState) {
+        setSettings(false);
+      }
+    }
+
+    window.addEventListener("click", closeSettings);
+    return () => window.removeEventListener("click", closeSettings);
+  }, [settingsState]);
 
   function handleShowProfile() {
     setSettings(!settingsState);
@@ -86,9 +98,7 @@ function ProfileNavigation() {
               </Link>
             </ProfilePicContainer>
             <Link to="/profile">
-              <UserName>
-                {userState.user.firstName}
-              </UserName>
+              <UserName>{userState.user.firstName}</UserName>
             </Link>
           </RightNameAndProfile>
           <IconsContainer>

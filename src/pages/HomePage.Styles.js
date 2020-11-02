@@ -7,6 +7,7 @@ const HomePAgeContainer = styled.div`
 const HomePageContent = styled.div`
   display: flex;
   height: calc(100vh - 4rem);
+  z-index: 1;
 `;
 
 export { HomePAgeContainer, HomePageContent };
