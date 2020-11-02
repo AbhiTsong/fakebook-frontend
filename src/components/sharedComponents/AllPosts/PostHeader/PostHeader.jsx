@@ -22,25 +22,24 @@ import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import Default from "../../../../Assets/images/default.png";
 
 function PostHeader({ post }) {
-  // const showEditDrop = useSelector(editDropSelector);
   const loggedUser = useSelector(signInSelector);
-
-  console.log(loggedUser);
   const [showEdit, setShowEdit] = useState(false);
   function handleEdit(e) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    setShowEdit(true);
+    setShowEdit(!showEdit);
   }
 
   // Effect for editing the current post
   useEffect(() => {
     function closeEdit() {
-      setShowEdit(false);
+      if (showEdit) {
+        setShowEdit(false);
+      }
     }
     window.addEventListener("click", closeEdit);
     return () => window.removeEventListener("click", closeEdit);
-  }, []);
+  }, [showEdit]);
 
   let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
 
@@ -54,7 +53,7 @@ function PostHeader({ post }) {
               ? random
                 ? random
                 : `${config.serverURL}/users/${post.owner}/avatar`
-              : ""
+              : `${config.serverURL}/users/${post.owner}/avatar`
             : Default
         }
         alt="Creator Profile Pic"
