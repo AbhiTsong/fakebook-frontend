@@ -4,6 +4,7 @@ const ReactionCount = styled.div`
   display: flex;
   padding: 0.5rem;
   justify-content: space-between;
+  color: ${({ light }) => (light ? "" : "aliceblue")};
 `;
 
 const ThumbsUpContainer = styled.div`
@@ -24,11 +25,4 @@ const CommentPeople = styled.div`
   justify-content: space-between;
 `;
 
-
-export {
-  ReactionCount,
-  ThumbsUpContainer,
-  ThumbsUp,
-  CommentPeople
-
-}
+export { ReactionCount, ThumbsUpContainer, ThumbsUp, CommentPeople };

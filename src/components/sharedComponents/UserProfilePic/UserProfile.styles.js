@@ -5,7 +5,8 @@ const UserImage = styled.img`
   margin: 0;
   max-width: 100%;
   height: 100%;
-  border: ${({ border }) => (border ? "0.3rem solid white" : "")};
+  border: ${({ border, light }) =>
+    border ? `0.3rem solid ${light ? `white` : "transparent"}` : ""};
   border-radius: 50%;
 `;
 

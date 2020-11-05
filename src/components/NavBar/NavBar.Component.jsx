@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ProfileNavigation from "./ProfileNavigation/ProfileNavigation";
+
+// Redux Imports
+import { themeSelector } from "../../Redux/theme/theme.selector";
 
 // Styled Imports
 import {
@@ -25,8 +29,9 @@ import Box from "../../Assets/images/box.png";
 import Profile from "../../Assets/images/profile-icon.png";
 
 function NavBarComponent() {
+  let { light } = useSelector(themeSelector);
   return (
-    <NavBar>
+    <NavBar light={light}>
       <LogoContainer>
         <NavLink to="/home">
           <LogoContent>

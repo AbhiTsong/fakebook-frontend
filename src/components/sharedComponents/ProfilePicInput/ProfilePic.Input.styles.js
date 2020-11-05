@@ -30,7 +30,7 @@ const LoadingImg = styled.img`
 const FileInput = styled.input`
   opacity: 0;
   width: 15rem;
-  z-index: 1;
+  z-index: 15;
   position: absolute;
   top: 0;
   left: 0;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ProfileSettingsContainer = styled.div`
   position: absolute;
   padding: 0.5rem 1rem;
-  background-color: white;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
   z-index: 200;
   justify-content: space-between;
   top: 4.5rem;
@@ -41,6 +41,7 @@ const ProfilePicContainer = styled.div`
 
 const ProfileNameContainer = styled.div`
   margin-left: 1rem;
+  color: ${({ light }) => (light ? "black" : "aliceblue")};
 `;
 
 const ProfileName = styled.h5`

@@ -3,7 +3,7 @@ import FormInput from "../FormInput/FormInput.Component";
 
 const FormContainer = styled.div`
   border: 1px solid black;
-  background-color: white;
+  background-color: ${({ light }) => (light ? "white" : "#3e3c3c")};
   border: none;
   padding: 0.5rem;
   height: 8rem;

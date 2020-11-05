@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FriendReqContr = styled.div`
-  background-color: white;
+  background-color: ${({light}) => light ? "white" : "#3e3c3c"};
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 10px;

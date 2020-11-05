@@ -16,6 +16,7 @@ import {
 // Redux Import
 import { getAllUsersAction } from "../../../Redux/User/allUsersInTheDBAction";
 import { userSelector } from "../../../Redux/User/UserSelector";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Custom Hooks
 import { useCalcInnerWidth } from "../../../hooks/useCalcInnerWidth";
@@ -28,6 +29,7 @@ import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 function FriendSuggest() {
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
+  const {light} = useSelector(themeSelector)
   let width = useCalcInnerWidth(window.innerWidth);
   
   useEffect(() => {
@@ -39,7 +41,7 @@ function FriendSuggest() {
   }
 
   return (
-    <FriendReqContr>
+    <FriendReqContr light={light}>
       <FrinedSuggHeader>People You May Know</FrinedSuggHeader>
       <SuggestNameAndCrd>
         <Carousel itemsToShow={width < 550 ? 1 : width < 800 ? 2 : 3}>

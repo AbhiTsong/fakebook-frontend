@@ -25,23 +25,24 @@ function fetchPostFail(error) {
 }
 
 // Async Action For Fetching All The Posts
-function fetchAllPosts() {
+function fetchAllPosts({ skip, limit }) {
   return async function (dispatch) {
     dispatch(fetchPostStart());
     try {
-      let allPosts = await axios.get("/posts", {
+      let allPosts = await axios.get(`/posts?limit=${limit}&skip=${skip}`, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
+        // params: { page: page, limit: limit },
       });
       dispatch(fetchPostSuccess(allPosts));
     } catch (error) {
       if (error.response) {
         // if (error.response.data.Error === "Please Authenticate") {
-          
+
         //   dispatch(SignOutAction())
         //   localStorage.clear();
-          
+
         // }
         dispatch(fetchPostFail(error.response.data));
       }

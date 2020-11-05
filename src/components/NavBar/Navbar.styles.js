@@ -7,10 +7,9 @@ const NavBar = styled.nav`
   margin: 0;
   align-items: center;
   height: 3rem;
-  background-color: white;
+  background-color: ${({light}) => light ? "white" : "#3e3c3c"};
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  border: 1px solid lavender;
   z-index: 10;
 `;
 

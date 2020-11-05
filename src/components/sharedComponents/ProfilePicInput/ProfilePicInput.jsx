@@ -54,7 +54,7 @@ function FileUploaderWithCropper() {
 
   // Effeft For Clearing the timer function
   useEffect(() => {
-    return () => timerFunc();
+    return () => clearInterval(timerFunc);
   }, []);
 
   function handleFileInput(e) {

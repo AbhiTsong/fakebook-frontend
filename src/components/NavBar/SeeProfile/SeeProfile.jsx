@@ -6,6 +6,9 @@ import { Link, withRouter } from "react-router-dom";
 import { showToster } from "../../../Redux/toster/toster.action";
 import { toggleHamburger } from "../../../Redux/Hamburger/Hamburger.action";
 import { selectTheme } from "../../../Redux/theme/theme.action";
+import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
+import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Shared Components
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
@@ -24,7 +27,7 @@ import Questionmark from "../../../Assets/images/questionmark.png";
 import Moon from "../../../Assets/images/moon.png";
 import LeftArrow from "../../../Assets/images/leftArrow.png";
 import Logout from "../../../Assets/images/logout.png";
-import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
+import Sun from "../../../Assets/images/sun.png";
 
 // Styled Imports
 import {
@@ -48,11 +51,11 @@ import {
   OptionText,
   RightImgContainer,
 } from "./SeeProfile.Styles";
-import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
   const currUsr = useSelector(signInSelector);
+  const { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -87,13 +90,13 @@ function SeeProfile(props) {
   }
 
   return (
-    <ProfileSettingsContainer>
+    <ProfileSettingsContainer light={light}>
       <Link to="/profile">
         <ProfileStttingsHeader>
           <ProfilePicContainer>
             <UserProfilePic />
           </ProfilePicContainer>
-          <ProfileNameContainer>
+          <ProfileNameContainer light={light}>
             <ProfileName className="Profile_Name">{`${currUsr.user.firstName} ${currUsr.user.lastName}`}</ProfileName>
             <ProfileOption className="Profile_Utility">
               See Your Profile
@@ -143,15 +146,17 @@ function SeeProfile(props) {
       </SettingOptionsContainer>
 
       <SettingOptionsContainer>
-        <SettingsLeftContainer>
+        <SettingsLeftContainer onClick={selectThemeFunc}>
           <SettingsImageContainer>
-            <Image alt="" src={Moon} className="Settings_Image" />
+            <Image alt="" src={light ? Moon : Sun} className="Settings_Image" />
           </SettingsImageContainer>
-          <OptionText className="Settings_Text">Dark Mode</OptionText>
+          <OptionText className="Settings_Text">
+            {light ? `Dark Mode` : "Light Mode"}
+          </OptionText>
         </SettingsLeftContainer>
-        <RightImgContainer onClick={selectThemeFunc}>
-          <Image className="Right_Arrow" src={Right} alt="Right_Arrow" />
-        </RightImgContainer>
+        {/* <RightImgContainer > */}
+        {/* <Image className="Right_Arrow" src={Right} alt="Right_Arrow" /> */}
+        {/* </RightImgContainer> */}
       </SettingOptionsContainer>
 
       <SettingOptionsContainer onClick={handleClassic}>

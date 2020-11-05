@@ -28,6 +28,7 @@ const PostCreatorName = styled.h4`
   align-items: center;
   text-transform: capitalize;
   margin: 0;
+  color: ${({ light }) => (light ? "" : "aliceblue")};
 `;
 
 const PostEditCOntainer = styled.div`
@@ -39,6 +40,7 @@ const ThreeDots = styled.h3`
   cursor: pointer;
   margin: 0;
   height: 0;
+  color: ${({ light }) => (light ? "" : "aliceblue")};
 `;
 
 export {

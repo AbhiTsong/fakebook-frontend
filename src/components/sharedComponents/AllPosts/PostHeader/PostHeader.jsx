@@ -20,10 +20,12 @@ import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 
 // Default Profile Pic
 import Default from "../../../../Assets/images/default.png";
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 function PostHeader({ post }) {
   const loggedUser = useSelector(signInSelector);
   const [showEdit, setShowEdit] = useState(false);
+  const { light } = useSelector(themeSelector);
   function handleEdit(e) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
@@ -60,9 +62,9 @@ function PostHeader({ post }) {
       />
 
       <NameAndDotContiner>
-        <PostCreatorName>{post.creator}</PostCreatorName>
+        <PostCreatorName light={light}>{post.creator}</PostCreatorName>
         <PostEditCOntainer>
-          <ThreeDots onClick={handleEdit}>...</ThreeDots>
+          <ThreeDots light={light} onClick={handleEdit}>...</ThreeDots>
           {showEdit && <PostEditDrop id={post._id} />}
         </PostEditCOntainer>
       </NameAndDotContiner>

@@ -1,4 +1,4 @@
-import React, { memo, useRef, useEffect, useState, useReducer } from "react";
+import React, { memo, useRef, useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Styled Import
@@ -31,6 +31,7 @@ import Loader from "../../../Assets/gifs/loading2.gif";
 // Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector.js";
+import { themeSelector } from "../../../Redux/theme/theme.selector.js";
 
 // Custom hook import
 import { useCalcDivWidth } from "../../../hooks/useClacDivWidth";
@@ -74,6 +75,7 @@ function PostFormComponent() {
   const dispatch = useDispatch();
   const currRef = useRef();
   const container = useCalcDivWidth(currRef);
+  let { light } = useSelector(themeSelector);
   let [loader, dispatchLoader] = useReducer(reducer, INITIAL_STATE);
 
   const {
@@ -101,7 +103,6 @@ function PostFormComponent() {
     return () => clearInterval(timer1);
   }, [loader.loader1]);
 
-
   useEffect(() => {
     let timer2;
     if (loader.loader1) {
@@ -113,7 +114,7 @@ function PostFormComponent() {
   }, [loader.loader1]);
 
   return (
-    <FormContainer ref={currRef}>
+    <FormContainer light={light} ref={currRef}>
       {/* Image And Input  */}
       <ImgInputCntr>
         <FormPicContr>

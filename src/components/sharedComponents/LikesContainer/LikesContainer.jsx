@@ -14,18 +14,20 @@ import Comment from "../../../Assets/images/comments.png";
 import Like from "../../../Assets/images/like.png";
 
 // Redux import
-// import { updatePostAction } from "../../../Redux/Post/updatePostAction";
-// import { postSelector } from "../../../Redux/Post/post.selector";
 import { likeCommentAction } from "../../../Redux/Post/likeAction";
 import { currentUser } from "../../../Redux/Auth/SignIn/SignIn.Selector";
+import { showToster } from "../../../Redux/toster/toster.action";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function LikesContainer({ id, like }) {
   const dispatch = useDispatch();
+  const { light } = useSelector(themeSelector);
   const [likeCount, setLikeCount] = useState(like + 1);
 
   let { _id } = useSelector(currentUser);
 
   function handleLike(e) {
+    e.preventDefault();
     setLikeCount((pvCount) => pvCount + 1);
 
     if (likeCount > like) {
@@ -40,11 +42,11 @@ function LikesContainer({ id, like }) {
   }
 
   function handleShare() {
-    alert("This Feture Is Under Going Construction");
+    dispatch(showToster("This Feture Is Under Going Construction"));
   }
 
   return (
-    <LikeContainer>
+    <LikeContainer light={light}>
       <CommentIconCntr onClick={handleLike}>
         <ContainerIcn src={Like} /> Like
       </CommentIconCntr>

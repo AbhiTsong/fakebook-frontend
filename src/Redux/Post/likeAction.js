@@ -1,6 +1,7 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { showToster } from "../toster/toster.action";
 
 function likeCommentStart() {
   return {
@@ -23,7 +24,7 @@ function likeCommentFail(error) {
 }
 
 function likeCommentAction({ like, id, userId }) {
- console.log("likelikelikelikelikelike",like)
+  console.log("likelikelikelikelikelike", like);
   return async function (dispatch) {
     try {
       dispatch(likeCommentStart());
@@ -36,9 +37,11 @@ function likeCommentAction({ like, id, userId }) {
           },
         }
       );
+      dispatch(showToster("Post Successfully Liked"));
       dispatch(likeCommentSuccess(newLike));
     } catch (error) {
       if (error.response) {
+        dispatch(showToster("Error Adding The Reaction"));
         dispatch(likeCommentFail(error.response.data));
       }
     }

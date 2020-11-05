@@ -11,10 +11,12 @@ import { UserImage } from "./UserProfile.styles";
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { userSelector } from "../../../Redux/User/UserSelector";
 import { clearCreatedPath } from "../../../Redux/User/getCoverPath";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function UserProfilePic(props) {
   let userPic = useSelector(userSelector);
   let userState = useSelector(signInSelector);
+  let { light } = useSelector(themeSelector);
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +29,9 @@ function UserProfilePic(props) {
   let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
 
   return (
-    <UserImage border={props.border}
+    <UserImage
+      light={light}
+      border={props.border}
       src={
         random
           ? random
