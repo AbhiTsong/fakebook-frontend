@@ -13,6 +13,13 @@ const NavBar = styled.nav`
   z-index: 10;
 `;
 
+const NavContent = styled.div`
+    max-width: 1600px;
+    margin: auto;
+    display: flex;
+    width: 100%;
+`
+
 const LogoContainer = styled.div`
   display: flex;
   height: 2rem;
@@ -80,6 +87,7 @@ const NavIcons = styled.img`
 
 export {
   NavBar,
+  NavContent,
   LogoContainer,
   LogoContent,
   NavSearchContainer,

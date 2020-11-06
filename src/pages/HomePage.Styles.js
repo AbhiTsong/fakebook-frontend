@@ -5,6 +5,8 @@ const HomePAgeContainer = styled.div`
 `;
 
 const HomePageContent = styled.div`
+  max-width: 1600px;
+  margin: auto;
   display: flex;
   height: calc(100vh - 4rem);
   z-index: 1;

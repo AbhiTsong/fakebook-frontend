@@ -9,6 +9,7 @@ import { themeSelector } from "../../Redux/theme/theme.selector";
 // Styled Imports
 import {
   NavBar,
+  NavContent,
   LogoContainer,
   LogoContent,
   NavSearchContainer,
@@ -32,68 +33,70 @@ function NavBarComponent() {
   let { light } = useSelector(themeSelector);
   return (
     <NavBar light={light}>
-      <LogoContainer>
-        <NavLink to="/home">
-          <LogoContent>
-            <NavIcons src={Logo} alt="Fakebook Logo" />
-          </LogoContent>
-        </NavLink>
-        <NavSearchContainer>
-          <StyledInput
-            type="text"
-            placeholder="Search Fakebook"
-            className="Nav_Search"
-          />
-        </NavSearchContainer>
-      </LogoContainer>
-      <NavbarContent>
-        <NavbarLinkCntr>
-          <NavLink
-            exact
-            activeClassName="active"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "red",
-              backgroundColor: "green",
-            }}
-            to="/home"
-          >
-            <IconsContainer>
-              <NavIcons src={Home} alt="Fakebook Logo" />
-            </IconsContainer>
+      <NavContent>
+        <LogoContainer>
+          <NavLink to="/home">
+            <LogoContent>
+              <NavIcons src={Logo} alt="Fakebook Logo" />
+            </LogoContent>
           </NavLink>
-        </NavbarLinkCntr>
-        <NavbarLinkCntr>
-          <NavLink activeClassName="active" to="/videos">
-            <IconsContainer>
-              <NavIcons src={Video} alt="Fakebook Logo" />
-            </IconsContainer>
-          </NavLink>
-        </NavbarLinkCntr>
-        <NavbarLinkCntr>
-          <NavLink activeClassName="active" to="/contact">
-            <IconsContainer>
-              <NavIcons src={Group} alt="Fakebook Logo" />
-            </IconsContainer>
-          </NavLink>
-        </NavbarLinkCntr>
-        {/* This Code Runs Only On Smaller Screen */}
-        <NavbarProfileCntr>
-          <NavLink activeClassName="active" to="/profile">
-            <IconsContainer>
-              <NavIcons src={Profile} alt="Fakebook Logo" />
-            </IconsContainer>
-          </NavLink>
-        </NavbarProfileCntr>
-        <NavbarLinkCntr>
-          <NavLink activeClassName="active" to="/contact">
-            <IconsContainer>
-              <NavIcons src={Box} alt="Fakebook Logo" />
-            </IconsContainer>
-          </NavLink>
-        </NavbarLinkCntr>
-      </NavbarContent>
-      <ProfileNavigation />
+          <NavSearchContainer>
+            <StyledInput
+              type="text"
+              placeholder="Search Fakebook"
+              className="Nav_Search"
+            />
+          </NavSearchContainer>
+        </LogoContainer>
+        <NavbarContent>
+          <NavbarLinkCntr>
+            <NavLink
+              exact
+              activeClassName="active"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "red",
+                backgroundColor: "green",
+              }}
+              to="/home"
+            >
+              <IconsContainer>
+                <NavIcons src={Home} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarLinkCntr>
+          <NavbarLinkCntr>
+            <NavLink activeClassName="active" to="/videos">
+              <IconsContainer>
+                <NavIcons src={Video} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarLinkCntr>
+          <NavbarLinkCntr>
+            <NavLink activeClassName="active" to="/contact">
+              <IconsContainer>
+                <NavIcons src={Group} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarLinkCntr>
+          {/* This Code Runs Only On Smaller Screen */}
+          <NavbarProfileCntr>
+            <NavLink activeClassName="active" to="/profile">
+              <IconsContainer>
+                <NavIcons src={Profile} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarProfileCntr>
+          <NavbarLinkCntr>
+            <NavLink activeClassName="active" to="/contact">
+              <IconsContainer>
+                <NavIcons src={Box} alt="Fakebook Logo" />
+              </IconsContainer>
+            </NavLink>
+          </NavbarLinkCntr>
+        </NavbarContent>
+        <ProfileNavigation />
+      </NavContent>
     </NavBar>
   );
 }

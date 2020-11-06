@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 // User Profie Compoenent
 import UserProfile from "../components/UserProfile/UserProfile.Component";
-import NavBarComponent from "../components/NavBar/NavBar.Component";
 
 // With Auth Hoc
 import withAuth from "../hoc/withAuth";
@@ -22,7 +21,6 @@ function UserProfilePage(props) {
   // browserRefresh();
   return (
     <UserProfielContainer>
-      <NavBarComponent />
       <UserProfileContainer>
         <UserProfile />
       </UserProfileContainer>
