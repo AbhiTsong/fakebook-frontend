@@ -7,18 +7,22 @@ const NavBar = styled.nav`
   margin: 0;
   align-items: center;
   height: 3rem;
-  background-color: ${({light}) => light ? "white" : "#3e3c3c"};
+  background-color: ${({ light }) => (light ? "white" : "#3e3c3c")};
   justify-content: space-between;
   padding: 0.5rem 1rem;
   z-index: 10;
+  -webkit-box-shadow: 0 1px 1px -1px black;
+  -moz-box-shadow: 0 1px 1px -1px black;
+  box-shadow: 0 1px 1px -1px black;
 `;
 
 const NavContent = styled.div`
-    max-width: 1600px;
-    margin: auto;
-    display: flex;
-    width: 100%;
-`
+  max-width: 1600px;
+  margin: auto;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
 
 const LogoContainer = styled.div`
   display: flex;
@@ -43,7 +47,9 @@ const StyledInput = styled(FormInput)`
   border-radius: 15px;
   height: 100%;
   width: 13rem;
-  background-color: whitesmoke;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
+  border-radius: 15px;
   padding: 0 0.5rem;
 `;
 

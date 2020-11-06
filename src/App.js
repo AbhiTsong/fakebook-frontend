@@ -8,7 +8,6 @@ import Loader from "./components/sharedComponents/LoadingSpinner/Loading.Spinner
 import Modal from "./components/sharedComponents/Modals/Model.Component";
 import Toster from "./components/sharedComponents/Toster/Toster.jsx";
 import ErrorBoundary from "./components/sharedComponents/ErrorBoundries/ErrorBoundries";
-import NavBar from "./components/NavBar/NavBar.Component"
 
 // Redux Imports
 import { tostSelector } from "./Redux/toster/tostSelectos";
@@ -56,7 +55,6 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode.light ? lightTheme : darkTheme}>
-        <NavBar/>
       <AppContainer scroll={modalState.show}>
         {modalState.show && <Modal header1="Create Post" />}
         {tostState.show && <Toster />}
@@ -70,7 +68,6 @@ function App() {
                 render={() =>
                   getToken() ? <Redirect to="/" /> : <SigninSignupPage />
                 }
-                // render={() => <SigninSignupPage />}
               />
               <Route exact path="/videos" component={VideosPage} />
               <Route

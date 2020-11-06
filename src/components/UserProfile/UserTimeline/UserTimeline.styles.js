@@ -7,26 +7,10 @@ const TimelineRelative = css`
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem;
-  background-color: white;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
   margin-top: 0.5rem;
   border-radius: 5px;
 `;
-
-// const TimelineFixed = css`
-//   position: fixed;
-//   top: 0;
-//   margin-top: 0;
-//   margin: 0;
-//   z-index: 500;
-//   width: 44.9vw;
-//   display: flex;
-//   justify-content: space-evenly;
-//   padding: 0.5rem;
-//   background-color: rgb(241, 220, 220);
-//   @media screen and (max-width: 800) {
-//     width: 100%;
-//   }
-// `;
 
 const TimelineCntr = styled.div`
   position: sticky;
@@ -49,6 +33,7 @@ const TimelineContent = styled.div`
 
 const TimelineNavigation = styled(Link)`
   padding: 0.5rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : "aliceblue")};
 `;
 
 export { TimelineCntr, TimelineContent, TimelineNavigation };

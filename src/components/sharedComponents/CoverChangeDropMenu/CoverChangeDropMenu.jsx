@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 // Styled Imports\
 import {
@@ -17,38 +18,33 @@ import ChangeCover from "../ChangeCover/ChangeCover";
 // Icons Import
 import Select from "../../../Assets/images/file.png";
 import File from "../../../Assets/images/upload.png";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 // import Remove from "../../../Assets/images/d"
 
 function CoverChangeDropMenu() {
+  let { light } = useSelector(themeSelector);
   return (
-    <CoverDropContainer>
-      <SelectPhotoContainer>
-        <SelectPhotoContent>
-          <SelectedPhoto src={Select} alt="File Upload" />
-        </SelectPhotoContent>
+    <CoverDropContainer light={light}>
+      <UploadPhoto>
+        <ChangeCover />
         <SelectText>Select Photo</SelectText>
-      </SelectPhotoContainer>
+      </UploadPhoto>
+
       <UploadPhoto>
         <ChangeCover />
         <SelectText>Upload Photo</SelectText>
       </UploadPhoto>
-      <div>
-        <SelectPhotoContainer>
-          <SelectPhotoContent>
-            <SelectedPhoto src={Select} alt="File Upload" />
-          </SelectPhotoContent>
-          <SelectText>Select Photo</SelectText>
-        </SelectPhotoContainer>
-      </div>
+
+      <UploadPhoto>
+        <ChangeCover />
+        <SelectText>Add Photo</SelectText>
+      </UploadPhoto>
+
       <HorizontalLine />
-      <div>
-        <SelectPhotoContainer>
-          <SelectPhotoContent>
-            <SelectedPhoto src={Select} alt="File Upload" />
-          </SelectPhotoContent>
-          <SelectText>Delete Photo</SelectText>
-        </SelectPhotoContainer>
-      </div>
+      <UploadPhoto>
+        <ChangeCover />
+        <SelectText>Delete Photo</SelectText>
+      </UploadPhoto>
     </CoverDropContainer>
   );
 }

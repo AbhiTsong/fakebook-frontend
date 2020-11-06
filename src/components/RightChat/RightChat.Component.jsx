@@ -1,12 +1,13 @@
 import React, { memo } from "react";
+import { useSelector } from "react-redux";
 // import "./RightChat.styles.scss";
 
 import FriendRequests from "./FriendRequests/FriendRequests";
 import RightChatFriends from "./RightChatFriends/RightChatFriends";
 
 // Redux Imports
-import { useSelector } from "react-redux";
 import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
+import { themeSelector } from "../../Redux/theme/theme.selector";
 
 // Styled Imports
 import {
@@ -17,6 +18,7 @@ import {
 } from "./RightChat.Styles";
 
 function RightChatComponent() {
+  let { light } = useSelector(themeSelector);
   const userState = useSelector(signInSelector);
 
   const {
@@ -26,7 +28,7 @@ function RightChatComponent() {
   return (
     <RightNavContainer>
       {friendRequests.length > 0 ? <FriendRequests /> : ""}
-      <ContactsHeader>
+      <ContactsHeader light={light}>
         <ContactsText>Contacts</ContactsText>
         <ContactDots>...</ContactDots>
       </ContactsHeader>

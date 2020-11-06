@@ -39,6 +39,7 @@ import { notificationAction } from "../../../Redux/Notification/Notification.act
 import { noticeSelector } from "../../../Redux/Notification/Notification.selector";
 import { messageSelector } from "../../../Redux/Message/Message.selector";
 import { toggleState } from "../../../Redux/Hamburger/Hamburger.selector";
+import { themeSelector } from "../../../Redux/theme/theme.selector.js";
 
 function ProfileNavigation() {
   let width = useCalcInnerWidth(window.innerWidth);
@@ -50,6 +51,7 @@ function ProfileNavigation() {
   const [noticeState, setNotice] = useState(true);
   const [settingsState, setSettings] = useState(false);
   const { show } = useSelector(toggleState);
+  let { light } = useSelector(themeSelector);
 
   function handleNotification() {
     setNotice(!noticeState);
@@ -98,7 +100,7 @@ function ProfileNavigation() {
               </Link>
             </ProfilePicContainer>
             <Link to="/profile">
-              <UserName>{userState.user.firstName}</UserName>
+              <UserName light={light}>{userState.user.firstName}</UserName>
             </Link>
           </RightNameAndProfile>
           <IconsContainer>

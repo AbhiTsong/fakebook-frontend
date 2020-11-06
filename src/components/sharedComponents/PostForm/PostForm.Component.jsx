@@ -122,6 +122,7 @@ function PostFormComponent() {
         </FormPicContr>
         <PostFormContr>
           <StyledInput
+            light={light}
             type="text"
             placeholder={createPostInput}
             onClick={handleModal}

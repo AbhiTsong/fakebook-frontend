@@ -14,7 +14,7 @@ import Video from "../components/sharedComponents/Video/Video";
 function Videos() {
   return (
     <HomePAgeContainer>
-      {/* <NavBarComponent /> */}
+      <NavBarComponent />
       <HomePageContent>
         <LeftSideNavBar />
         <VideoContiner>

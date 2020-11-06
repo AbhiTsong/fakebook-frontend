@@ -8,7 +8,8 @@ const LeftMessageContainer = styled.div`
   align-items: center;
   cursor: pointer;
   &:hover {
-    background-color: rgb(188, 188, 207);
+    background-color: ${({ light }) =>
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
     border-radius: 10px;
   }
 
@@ -44,6 +45,7 @@ const LeftMsgTxtContr = styled.div`
 const LeftMsgTxt = styled.h5`
   margin: 0;
   padding-left: 1rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
 `;
 
 export {

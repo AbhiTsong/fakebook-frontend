@@ -12,9 +12,10 @@ import {
 // Redux Import
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
 import { addCommentAction } from "../../../Redux/Post/commentAction";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Shared Components
-import UserProfilePic from "../UserProfilePic/UserProfilePic"
+import UserProfilePic from "../UserProfilePic/UserProfilePic";
 
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -24,6 +25,7 @@ import Default from "../../../Assets/images/default.png";
 
 function AddComment({ id }) {
   const dispatch = useDispatch();
+  const { light } = useSelector(themeSelector);
 
   let currUsr = useSelector(signInSelector);
   const [values, handleValues] = useForm({ comment: "" });
@@ -48,9 +50,10 @@ function AddComment({ id }) {
   return (
     <CommentsContainer>
       <ImageContr>
-        <UserProfilePic/>
+        <UserProfilePic />
       </ImageContr>
       <StyledFormInput
+        light={light}
         name="comment"
         type="text"
         value={values.comment.split("  ").join(" ")}

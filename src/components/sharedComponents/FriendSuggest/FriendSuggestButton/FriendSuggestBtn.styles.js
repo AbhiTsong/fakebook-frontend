@@ -5,16 +5,18 @@ const AddFriendBtn = styled.button`
   justify-content: space-evenly;
   width: 9rem;
   padding: 0.2rem;
-  border-color: transparent;
-  background-color: lavender;
   border-radius: 5px;
+  border-color: ${({ light }) => (light ? "transparent" : "")};
+  background-color: ${({ light }) => (light ? `lavender` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  cursor: pointer;
   &:focus {
     outline: none;
     outline-color: transparent;
   }
 
   &:hover {
-    background-color: rgb(185, 185, 196);
+    background-color: ${({ light }) => (light ? `#d1d1d5` : "#343232")};
   }
 `;
 

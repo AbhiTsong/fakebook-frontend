@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FriendReqContr = styled.div`
-  background-color: ${({light}) => light ? "white" : "#3e3c3c"};
+  background-color: ${({ light }) => (light ? "white" : "#3e3c3c")};
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 10px;
@@ -42,7 +42,7 @@ const SuggestNameAndBtn = styled.div`
 
 const SuggestedPerson = styled.h5`
   margin: 0;
-  color: black;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   text-transform: capitalize;
   margin-bottom: 0.5rem;
 `;

@@ -44,14 +44,14 @@ function FriendSuggest() {
     <FriendReqContr light={light}>
       <FrinedSuggHeader>People You May Know</FrinedSuggHeader>
       <SuggestNameAndCrd>
-        <Carousel itemsToShow={width < 550 ? 1 : width < 800 ? 2 : 3}>
+        <Carousel itemsToShow={width < 550 ? 1 : width < 1300 ? 2 : 3}>
           {users.allUsers.data && users.allUsers.data.length > 0 ? (
             users.allUsers.data
               .map((user, idx) => (
                 <FriendSuggestContr key={idx}>
                   <FriendSuggestImage id={user._id} avatar={user.hasAvatar} />
                   <SuggestNameAndBtn>
-                    <SuggestedPerson>
+                    <SuggestedPerson light={light}>
                       {user.firstName + " " + user.lastName}
                     </SuggestedPerson>
                     <FriendSuggestButton id={user._id} />

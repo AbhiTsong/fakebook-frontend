@@ -1,10 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import FriendReqs from "../../../Assets/images/bell.png";
-
 import FriendRequestCount from "../../sharedComponents/FriendRequestCount/FriendRequestCount";
+
+// Redux Import
 import { ShowModal } from "../../../Redux/Modal/ModalAction";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 import {
   FriendReqContr,
@@ -17,13 +19,14 @@ import {
 } from "./FriendRequest.Styles";
 
 function FriendRequests() {
+  let { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
   function handleNotification() {
     dispatch(ShowModal("FRIEND_REQUESTS"));
   }
   return (
     <div onClick={handleNotification}>
-      <FriendReqContr>
+      <FriendReqContr light={light}>
         <FriendReqLogoCtr>
           <FriendReqLogo src={FriendReqs} />
         </FriendReqLogoCtr>

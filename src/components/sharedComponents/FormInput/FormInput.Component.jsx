@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function FormInput(props) {
+  let { light } = useSelector(themeSelector);
   const {
     type,
     onChange,
@@ -13,6 +16,7 @@ function FormInput(props) {
   } = props;
   return (
     <input
+      light={light}
       name={name}
       value={value}
       className={className}

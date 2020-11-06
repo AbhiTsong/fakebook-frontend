@@ -45,6 +45,8 @@ const StyledInput = styled(FormInput)`
   padding-left: 1rem;
   color: transparent;
   cursor: pointer;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
   &:focus {
     outline: none;
   }

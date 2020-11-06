@@ -14,20 +14,23 @@ import {
   LeftPofileContent,
   LeftProfileName,
 } from "./NavProfilePic.Styles";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function NavProfilePic() {
+  const { light } = useSelector(themeSelector);
   const user = useSelector(signInSelector);
 
   return (
     <LeftProfiePicContainer>
       <LeftPofileContent>
         <Link to="/profile">
-       
           <UserProfilePic />
         </Link>
       </LeftPofileContent>
       <Link to="/profile">
-        <LeftProfileName>{`${user.user.firstName} ${user.user.lastName}`}</LeftProfileName>
+        <LeftProfileName
+          light={light}
+        >{`${user.user.firstName} ${user.user.lastName}`}</LeftProfileName>
       </Link>
     </LeftProfiePicContainer>
   );

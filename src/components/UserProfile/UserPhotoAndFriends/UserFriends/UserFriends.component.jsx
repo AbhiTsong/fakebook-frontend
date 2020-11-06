@@ -17,8 +17,10 @@ import {
   LoaderContr,
   ImgPost,
 } from "./UserFriendsStyles";
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 function UserFriends() {
+  let { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
   const users = useSelector(randomSelector);
 
@@ -27,7 +29,7 @@ function UserFriends() {
   }, []);
 
   return (
-    <UserFriendsPhotoCntr>
+    <UserFriendsPhotoCntr light={light}>
       <TitleContainer>
         <Header1>Friends</Header1>
         <Header2>See All</Header2>

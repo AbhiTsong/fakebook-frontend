@@ -115,6 +115,8 @@ const StyledNameForms = styled(FormInput)`
   font-size: medium;
   background-color: lavender;
   padding: 0.5rem;
+  /* color: ${({ light }) => (light ? "#3e3c3c" : `white`)}; */
+  /* background-color: ${({ light }) => (light ? "whitesmoke" : "black")}; */
 `;
 
 const StyledEmailPassInput = styled(FormInput)`
@@ -125,6 +127,8 @@ const StyledEmailPassInput = styled(FormInput)`
   font-size: medium;
   background-color: lavender;
   padding: 0.5rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "black")};
 `;
 
 const DateOFBirth = styled.h5`
@@ -147,10 +151,9 @@ const DOMDropDowns = styled.select`
   background-color: white;
 `;
 
-
 const Options = styled.option`
   height: 5rem;
-`
+`;
 
 const GenderTitle = styled.h5`
   margin: 0;
@@ -237,5 +240,5 @@ export {
   ValueContainer,
   TermsAndPolicy,
   BlueColor,
-  StyledButton
+  StyledButton,
 };

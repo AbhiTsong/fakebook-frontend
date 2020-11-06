@@ -9,7 +9,8 @@ const VideoContainer = styled.div`
   height: 3rem;
   cursor: pointer;
   &:hover {
-    background-color: rgb(188, 188, 207);
+    background-color: ${({ light }) =>
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
     border-radius: 10px;
   }
 
@@ -46,6 +47,7 @@ const VideoTextContainer = styled.div`
 const VideoText = styled.h5`
   margin: 0;
   padding-left: 1.5rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
 `;
 
 export {

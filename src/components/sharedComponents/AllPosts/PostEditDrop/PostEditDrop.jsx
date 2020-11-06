@@ -24,8 +24,10 @@ import { ShowModal } from "../../../../Redux/Modal/ModalAction";
 import { fetchCurrentPostID } from "../../../../Redux/Post/fetchCurrentPostIDAction";
 import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import { allPostsSelector } from "../../../../Redux/Post/post.selector";
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 function PostEditDrop({ id }) {
+  const { light } = useSelector(themeSelector);
   const user = useSelector(signInSelector);
   const allPosts = useSelector(allPostsSelector);
   const dispatch = useDispatch();
@@ -51,7 +53,7 @@ function PostEditDrop({ id }) {
   }
 
   return (
-    <PostEditOptions>
+    <PostEditOptions light={light}>
       <PostEditHeader className="Post_Edit_Header">
         Edit Post Options
       </PostEditHeader>

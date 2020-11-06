@@ -42,6 +42,7 @@ function NavBarComponent() {
           </NavLink>
           <NavSearchContainer>
             <StyledInput
+              light={light}
               type="text"
               placeholder="Search Fakebook"
               className="Nav_Search"

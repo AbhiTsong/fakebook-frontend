@@ -5,6 +5,7 @@ import Pic from "../../../Assets/gifs/loading2.gif";
 // Redux Import
 import { FetchRandomUsers2 } from "../../../Redux/RandomUsers/randomUsersAction";
 import { randomSelector } from "../../../Redux/RandomUsers/RandomUsers.selector";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Styled Imports
 import {
@@ -19,6 +20,7 @@ import {
 } from "./UserPhotoPost.styles";
 
 function UserPhotoPosts() {
+  let { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
   const users = useSelector(randomSelector);
 
@@ -28,7 +30,7 @@ function UserPhotoPosts() {
   }, []);
 
   return (
-    <UserPhotoPostsCntr>
+    <UserPhotoPostsCntr light={light}>
       <TitleContainer>
         <Header1>Photos</Header1>
         <Header2>See All</Header2>

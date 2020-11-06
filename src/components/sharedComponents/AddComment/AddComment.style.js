@@ -19,6 +19,8 @@ const StyledFormInput = styled(FormInput)`
   border-radius: 5rem;
   background-color: lavender;
   padding-left: 1rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
 `;
 
 export { CommentsContainer, ImageContr, StyledFormInput };

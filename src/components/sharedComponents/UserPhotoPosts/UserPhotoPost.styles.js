@@ -1,12 +1,12 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 const UserPhotoPostsCntr = styled.div`
   height: 20.5rem;
   border-radius: 10px;
-  background-color: white;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   padding: 1rem;
   margin-bottom: 1rem;
-  
 `;
 
 const TitleContainer = styled.div`
@@ -24,8 +24,6 @@ const Header2 = styled.h5`
   margin: 0;
 `;
 
-
-
 const ImgPostContr = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +34,7 @@ const LoaderContr = styled.div`
   width: 2rem;
   height: 2rem;
   border-radius: 5px;
-`
+`;
 
 // Showing the style only on load
 function loadingStyle({ loading }) {
@@ -55,7 +53,7 @@ const ImgPostContent = styled.div`
   width: 5.9rem;
   height: 6rem;
   margin: 0.2rem;
-${loadingStyle}
+  ${loadingStyle}
   &:last-child {
     border-bottom-right-radius: 5px;
   }

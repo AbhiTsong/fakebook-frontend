@@ -6,7 +6,7 @@ const LikeContainer = styled.div`
   padding: 0.5rem;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
-  color: ${({ like }) => (like ? "" : "aliceblue")};
+  color: ${({ light }) => (light ? "" : "aliceblue")};
 `;
 
 const CommentIconCntr = styled.span`

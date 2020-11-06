@@ -6,7 +6,8 @@ const ContactImgAndNameContr = styled.div`
   align-items: center;
 
   &:hover {
-    background-color: rgb(192, 192, 201);
+    background-color: ${({ light }) =>
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
     border-radius: 10px;
     cursor: pointer;
   }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const ProfileSettingsContainer = styled.div`
   position: absolute;
   padding: 0.5rem 1rem;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
   z-index: 200;
   justify-content: space-between;

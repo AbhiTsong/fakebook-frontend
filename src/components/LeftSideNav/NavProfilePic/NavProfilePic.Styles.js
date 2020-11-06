@@ -6,7 +6,8 @@ const LeftProfiePicContainer = styled.div`
   align-items: center;
   height: 3rem;
   &:hover {
-    background-color: rgb(194, 194, 207);
+    background-color: ${({ light }) =>
+      light ? "rgb(194, 194, 207)" : "#3e3c3c"};
     border-radius: 10px;
   }
 `;
@@ -17,18 +18,14 @@ const LeftPofileContent = styled.div`
   padding-left: 0.5rem;
 `;
 
-
 const LeftProfileName = styled.h5`
   margin-top: 0.5rem;
   margin-bottom: 0;
   margin-left: 0.5rem;
-  color: black;
+  color: ${({ light }) => (light ? "black" : "aliceblue")};
+  /* color: black; */
   font-weight: 500;
   text-transform: capitalize;
 `;
 
-export {
-  LeftProfiePicContainer,
-  LeftPofileContent,
-  LeftProfileName,
-};
+export { LeftProfiePicContainer, LeftPofileContent, LeftProfileName };

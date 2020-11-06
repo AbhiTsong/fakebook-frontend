@@ -3,7 +3,8 @@ import styled, { css } from "styled-components";
 const UserFriendsPhotoCntr = styled.div`
   height: 20.5rem;
   border-radius: 10px;
-  background-color: white;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   padding: 1rem;
   margin-bottom: 1rem;
 `;
@@ -56,7 +57,7 @@ const LoaderContr = styled.div`
   width: 2rem;
   height: 2rem;
   border-radius: 5px;
-`
+`;
 
 const ImgPost = styled.img`
   display: block;

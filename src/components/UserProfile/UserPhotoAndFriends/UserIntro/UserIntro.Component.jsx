@@ -1,6 +1,6 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import RSS from "../../../../Assets/images/RSS-Notifier-icon.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Gif Import
 import Loading from "../../../../Assets/gifs/loading2.gif";
@@ -18,6 +18,7 @@ import {
   LoadingImage,
 } from "./UserInfoComponent.styles";
 import { showToster } from "../../../../Redux/toster/toster.action";
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 const INITIAL_STATE = {
   loader1: false,
@@ -50,6 +51,7 @@ function reducer(state, action) {
 
 function UserIntro() {
   const dispatch = useDispatch();
+  const { light } = useSelector(themeSelector);
   let [loading, dispatchLoading] = useReducer(reducer, INITIAL_STATE);
 
   if (loading.loader1 || loading.loader2) {
@@ -60,7 +62,7 @@ function UserIntro() {
   }
 
   return (
-    <IntroContainer>
+    <IntroContainer light={light}>
       <Header1>Intro</Header1>
       <RSSIntroHeader>
         <RSSFeedContainer>
@@ -70,12 +72,14 @@ function UserIntro() {
       </RSSIntroHeader>
       <ButtonContainer>
         <StyledButton
+          light={light}
           disabled={loading.loader1}
           onClick={() => dispatchLoading({ type: "LOADER1" })}
         >
           {loading.loader1 ? <LoadingImage src={Loading} /> : "Edit Details"}
         </StyledButton>
         <StyledButton
+          light={light}
           disabled={loading.loader2}
           onClick={() => dispatchLoading({ type: "LOADER2" })}
         >

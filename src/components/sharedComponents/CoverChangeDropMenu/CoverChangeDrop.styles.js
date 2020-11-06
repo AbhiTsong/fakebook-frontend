@@ -7,7 +7,6 @@ const CoverDropContainer = styled.div`
   justify-content: space-between;
   bottom: -6.1rem;
   right: 2rem;
-  background-color: white;
   width: 14rem;
   height: 6rem;
   padding: 0.2rem;
@@ -16,9 +15,11 @@ const CoverDropContainer = styled.div`
   cursor: pointer;
   padding: 0.5rem;
   z-index: 10;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
 
-  @media screen and (max-width: 800px){
-    right: 1rem
+  @media screen and (max-width: 800px) {
+    right: 1rem;
   }
 `;
 

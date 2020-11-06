@@ -8,6 +8,8 @@ const StyledFormInput = styled(FormInput)`
   outline: none;
   padding: 0.5rem;
   font-size: larger;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "black")};
 
   &:focus {
     outline-color: none;

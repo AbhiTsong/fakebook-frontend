@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // styled imports
 import {
@@ -9,9 +11,10 @@ import {
 } from "./UserTimeline.styles";
 
 function UserTimeline() {
+  let { light } = useSelector(themeSelector);
   // User Profie Pic Should Appear
   return (
-    <TimelineCntr>
+    <TimelineCntr light={light}>
       <TimelineContent>
         <TimelineNavigation to="/">Timeline</TimelineNavigation>
         <TimelineNavigation to="/">About</TimelineNavigation>
@@ -22,13 +25,13 @@ function UserTimeline() {
         <TimelineNavigation to="/">
           <span>Edit Profile</span>
         </TimelineNavigation>
-        <TimelineNavigation to="/">
+        <TimelineNavigation light={light} to="/">
           <span>I</span>
         </TimelineNavigation>
-        <TimelineNavigation to="/">
+        <TimelineNavigation light={light} to="/">
           <span>Search</span>
         </TimelineNavigation>
-        <TimelineNavigation to="/">
+        <TimelineNavigation light={light} to="/">
           <span>...</span>
         </TimelineNavigation>
       </TimelineContent>

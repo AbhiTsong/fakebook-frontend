@@ -3,9 +3,9 @@ import styled from "styled-components";
 const IntroContainer = styled.div`
   height: 9rem;
   border-radius: 10px;
-  background-color: white;
   padding: 1rem;
   margin-bottom: 1rem;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
 `;
 
 const Header1 = styled.h3`
@@ -53,6 +53,18 @@ const ButtonContainer = styled.div`
 
 const StyledButton = styled.button`
   height: 2rem;
+  border-radius: 5px;
+  outline-color: transparent;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  &:focus {
+    outline: none;
+    outline-color: transparent;
+  }
+
+  &:hover {
+    background-color: ${({ light }) => (light ? `white` : "#343232")};
+  }
 `;
 
 const LoadingImage = styled.img`
@@ -71,5 +83,5 @@ export {
   RSSIcon,
   ButtonContainer,
   StyledButton,
-  LoadingImage
+  LoadingImage,
 };

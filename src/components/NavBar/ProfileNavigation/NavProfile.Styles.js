@@ -35,6 +35,7 @@ const UserName = styled.h5`
   margin-bottom: 0;
   margin-left: 0.5rem;
   text-transform: capitalize;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   &:hover {
     color: gray;
   }

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const PostEditOptions = styled.div`
   position: absolute;
-  background-color: white;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   right: 0rem;
   width: 18rem;
   height: 11rem;

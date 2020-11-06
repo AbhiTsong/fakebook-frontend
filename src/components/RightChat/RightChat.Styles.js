@@ -12,7 +12,7 @@ const ContactsHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
-  color: gray;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   margin-right: 1rem;
   position: relative;
   border-top-right-radius: 5px;

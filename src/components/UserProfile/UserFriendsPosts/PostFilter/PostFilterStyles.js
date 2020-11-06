@@ -5,6 +5,7 @@ const FilterContainer = styled.div`
   border-radius: 10px;
   margin-top: 1rem;
   width: 100%;
+  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
 
   @media screen and (max-width: 800px) {
     border-radius: 0;
@@ -31,16 +32,20 @@ const FilterViewOptions = styled.div`
 
 const FilterIcons = styled.button`
   margin: 0;
-  padding: 0.5rem 2rem;
-  height: 2rem;
+  padding: ${({ small }) => (small ? "" : "0.5rem 2rem")};
+  height: ${({ small }) => (small ? "" : "2rem")};
   border-radius: 5px;
   outline-color: transparent;
-  border: transparent;
-  background-color: transparent;
+  border: ${({ small }) => (small ? "" : `transparent`)};
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? `transparent` : "#3e3c3c")};
+  &:focus {
+    outline: none;
+    outline-color: transparent;
+  }
+
   &:hover {
-    background-color: lavender;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: ${({ light }) => (light ? `white` : "#343232")};
   }
 `;
 

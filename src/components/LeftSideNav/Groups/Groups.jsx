@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import {
   GroupsContainer,
@@ -10,15 +11,17 @@ import {
 
 // Logo Img Import
 import Group from ".././../../Assets/images/group.png";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function Groups() {
+  let { light } = useSelector(themeSelector);
   return (
-    <GroupsContainer>
+    <GroupsContainer light={light}>
       <GroupsContent>
         <GroupsIcon src={Group} />
       </GroupsContent>
       <GroupTextContainer>
-        <GroupText>Groups</GroupText>
+        <GroupText light={light}>Groups</GroupText>
       </GroupTextContainer>
     </GroupsContainer>
   );

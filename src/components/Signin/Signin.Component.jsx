@@ -42,6 +42,11 @@ function SignInComponent(props) {
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
 
+  useEffect(() => {
+    sessionStorage.clear();
+    localStorage.clear();
+  }, []);
+
   // Checking If The User Is Authenticated And Has Token
   useEffect(() => {
     if (userSelector.user.length !== 0 && getToken()) {
