@@ -32,16 +32,6 @@ function PostHeader({ post }) {
     setShowEdit(!showEdit);
   }
 
-  // Effect for editing the current post
-  useEffect(() => {
-    function closeEdit() {
-      if (showEdit) {
-        setShowEdit(false);
-      }
-    }
-    window.addEventListener("click", closeEdit);
-    return () => window.removeEventListener("click", closeEdit);
-  }, [showEdit]);
 
   let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
 

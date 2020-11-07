@@ -7,6 +7,8 @@ const PostTextArea = styled.textarea`
   outline: none;
   font-size: 1.4rem;
   resize: none;
+  color: ${({ light }) => (light ? "" : "white")};
+  background-color: ${({ light }) => (light ? `lavander` : `#3e3c3c`)};
   &:focus {
     outline-color: none;
   }

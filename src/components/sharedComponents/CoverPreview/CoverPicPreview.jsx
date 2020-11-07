@@ -27,8 +27,10 @@ import { warningSelector } from "../../../Redux/Warning/Warning.Selector";
 import { ShowWarning } from "../../../Redux/Warning/Warning.Action";
 import { changeCoverAction } from "../../../Redux/User/changeCoverAction";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function CoverPicPreview() {
+  let { light } = useSelector(themeSelector)
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
   const warningState = useSelector(warningSelector);
@@ -56,7 +58,7 @@ function CoverPicPreview() {
   }
 
   return (
-    <CoverPreviewContainer>
+    <CoverPreviewContainer light={light}>
       <CoverPreviewHeader>
         <CoverPreviewContent>
           <h4>Update Profile Pic</h4>
@@ -77,7 +79,7 @@ function CoverPicPreview() {
       </CoverPicPreviewContainer>
       <HorizontalLine />
       <CoverPicPreviewFooter>
-        <CoverCancleBtn onClick={handleCancle}>Cancle</CoverCancleBtn>
+        <CoverCancleBtn light={light} onClick={handleCancle}>Cancle</CoverCancleBtn>
         <form>
           <CoverUploadBtn onClick={handleChangeCover}>Save</CoverUploadBtn>
         </form>

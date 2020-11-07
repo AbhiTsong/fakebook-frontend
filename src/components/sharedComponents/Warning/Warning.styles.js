@@ -21,10 +21,9 @@ const WarningConainer = styled.div`
 const WarningContent = styled.div`
   position: absolute;
   top: 40%;
-  background-color: white;
   border-radius: 10px;
-  // width: 90%;
   display: flex;
+  background-color: ${({ light }) => (light ? `white` : "#343232")};
 `;
 
 const WarningTextContent = styled.div`

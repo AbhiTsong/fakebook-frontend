@@ -68,16 +68,6 @@ function ProfileNavigation() {
     setSettings(false);
   }
 
-  useEffect(() => {
-    function closeSettings() {
-      if (settingsState) {
-        setSettings(false);
-      }
-    }
-
-    window.addEventListener("click", closeSettings);
-    return () => window.removeEventListener("click", closeSettings);
-  }, [settingsState]);
 
   function handleShowProfile() {
     setSettings(!settingsState);

@@ -9,9 +9,11 @@ import { countWord } from "../../../../utility/wordCount";
 
 // Redux Import
 import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 const WORD_LIMIT = 300;
 function CreateTextPost(props) {
+  const { light } = useSelector(themeSelector);
   const { value, onChange } = props;
   const {
     user: { firstName },
@@ -25,6 +27,7 @@ function CreateTextPost(props) {
     <>
       {" "}
       <PostTextArea
+        light={light}
         className="Post_Text_Area"
         name="description"
         placeholder={`What is on your mind, ${firstName}??`}

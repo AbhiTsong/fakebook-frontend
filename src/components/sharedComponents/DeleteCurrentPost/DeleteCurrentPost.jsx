@@ -21,6 +21,7 @@ import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { deletePostAction } from "../../../Redux/Post/deletePostAction";
 import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions.js";
 import { clearDeletePostAction } from "../../../Redux/Post/clearsState.Actions.js";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Shared Components
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
@@ -28,6 +29,7 @@ import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine
 import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 function DeleteCurrentPost() {
+  let { light } = useSelector(themeSelector)
   const postID = useSelector(currentPostIDSelector);
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
@@ -55,7 +57,7 @@ function DeleteCurrentPost() {
   }
 
   return (
-    <DeleteModalContainer>
+    <DeleteModalContainer light={light}>
       <TitileContainer>
         <DeleteTitleText>Delete Post</DeleteTitleText>
         <CloseModalIcon />

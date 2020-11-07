@@ -86,7 +86,7 @@ function SeeProfile(props) {
   }
 
   function closeDrop() {
-    dispatch(toggleHamburger());
+    // dispatch(toggleHamburger());
   }
 
   return (

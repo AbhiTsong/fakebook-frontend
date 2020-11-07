@@ -16,13 +16,25 @@ function UserTimeline() {
   return (
     <TimelineCntr light={light}>
       <TimelineContent>
-        <TimelineNavigation to="/">Timeline</TimelineNavigation>
-        <TimelineNavigation to="/">About</TimelineNavigation>
-        <TimelineNavigation to="/">Freinds</TimelineNavigation>
-        <TimelineNavigation to="/">Photo</TimelineNavigation>
-        <TimelineNavigation to="/">Archive</TimelineNavigation>
-        <TimelineNavigation to="/">More</TimelineNavigation>
-        <TimelineNavigation to="/">
+        <TimelineNavigation light={light} to="/">
+          Timeline
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
+          About
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
+          Freinds
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
+          Photo
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
+          Archive
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
+          More
+        </TimelineNavigation>
+        <TimelineNavigation light={light} to="/">
           <span>Edit Profile</span>
         </TimelineNavigation>
         <TimelineNavigation light={light} to="/">

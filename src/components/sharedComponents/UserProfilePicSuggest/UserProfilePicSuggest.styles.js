@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 const UserPhotoSuggestCntr = styled.div`
   position: relative;
   justify-content: center;
-  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -15,6 +14,8 @@ const UserPhotoSuggestCntr = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
   &:focus {
     outline: none;
   }

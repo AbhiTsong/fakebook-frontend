@@ -36,7 +36,10 @@ const ModalContainer = styled.div`
   width: 100vw; /* Full width */
   height: 100vh; /* Full height */
   overflow: hidden; /* Enable scroll if needed */
-  background-color: rgba(255, 255, 255, 0.9); /* Fallback color */
+  background-color: ${({ light }) =>
+    light
+      ? `rgba(255, 255, 255, 0.9)`
+      : `#3a3a3ed1`}; /* Fallback color */
 `;
 
 export { ModalContainer };

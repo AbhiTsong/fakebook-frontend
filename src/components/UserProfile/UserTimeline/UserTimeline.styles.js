@@ -7,7 +7,6 @@ const TimelineRelative = css`
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem;
-  background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
   margin-top: 0.5rem;
   border-radius: 5px;
 `;
@@ -17,6 +16,9 @@ const TimelineCntr = styled.div`
   top: 5rem;
   margin: 0;
   max-width: 98%;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
+
 
   @media screen and (max-width: 550px) {
     display: none;

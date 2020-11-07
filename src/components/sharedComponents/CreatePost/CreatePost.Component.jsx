@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 // Styled Imports
 import {
@@ -11,7 +12,6 @@ import {
 } from "./CreatePost.Styles";
 
 // Redux Imports
-import { useDispatch, useSelector } from "react-redux";
 import {
   CreatePostAction,
   CreatePostActionOnlyText,
@@ -36,11 +36,13 @@ import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 // Redux Import
 import { showToster } from "../../../Redux/toster/toster.action";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function CreatePostComponent(props) {
   const dispatch = useDispatch();
   const post = useSelector(postSelector);
   const [values, setValues] = useForm({ description: "" });
+  let { light } = useSelector(themeSelector);
 
   // Effect for Creating the post
   useEffect(() => {
@@ -80,7 +82,7 @@ function CreatePostComponent(props) {
   }
 
   return (
-    <CreatePostContainer post={props.path ? true : false}>
+    <CreatePostContainer light={light} post={props.path ? true : false}>
       <CreatePostTitleContainer>
         <CreatePostTitle>Create Post</CreatePostTitle>
         <CloseModalIcon />
@@ -106,6 +108,7 @@ function CreatePostComponent(props) {
         <CreatePostIcons />
 
         <CreatePostBtn
+          light={light}
           buttonType="button"
           className="Post_Button"
           onClick={props.path[0] ? handleCreatePhotoPost : handleCreatePost}

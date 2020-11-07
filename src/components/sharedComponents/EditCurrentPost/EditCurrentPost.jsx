@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+// Styles Coming From Create Post Component
 import {
   CreatePostContainer,
   CreatePostTitleContainer,
@@ -31,8 +32,10 @@ import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 // custom Hook import
 import { useForm } from "../../../hooks/useFormInput";
 import { clearUpdatePostAction } from "../../../Redux/Post/clearsState.Actions";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function EditCurrentPost(props) {
+  let { light } = useSelector(themeSelector);
   const postId = useSelector(currentPostIDSelector);
   const allPosts = useSelector(allPostsSelector);
   const post = useSelector(postSelector);
@@ -59,7 +62,7 @@ function EditCurrentPost(props) {
   }
 
   return (
-    <CreatePostContainer>
+    <CreatePostContainer light={light}>
       <CreatePostTitleContainer>
         <CreatePostTitle>Update Post</CreatePostTitle>
         <CloseModalIcon />

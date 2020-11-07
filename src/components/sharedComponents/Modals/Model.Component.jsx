@@ -1,14 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Styled Imports
 import { ModalContainer } from "./Modal.Styles";
 
 // Redux Imports
-import { useSelector } from "react-redux";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { modalSelector } from "../../../Redux/Modal/ModalSelector";
-import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Shared Components
 import CreatePostComponent from "../../sharedComponents/CreatePost/CreatePost.Component";
@@ -20,17 +19,14 @@ import DeleteCurrentPost from "../DeleteCurrentPost/DeleteCurrentPost";
 import SignUpComponent from "../../SignUp/SignUp.Component";
 import FriendRequests from "../FriendRequestsAll/FriendRequestsAll";
 
-function Modal(props) {
-  let ref = useRef();
+function Modal() {
+  let { light } = useSelector(themeSelector);
   let postPath = useSelector(postSelector);
   let modalContent = useSelector(modalSelector);
   let path = postPath.photoPath;
-  const dispatch = useDispatch();
-
-
 
   return (
-    <ModalContainer>
+    <ModalContainer light={light}>
       {modalContent.content === "SIGN_UP_USER" && <SignUpComponent />}
       {modalContent.content === "SHOW_PHOTO_FORM" && <UserProfilePicSuggest />}
       {modalContent.content === "CREATE_POST" && (

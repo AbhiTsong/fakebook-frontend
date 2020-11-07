@@ -11,7 +11,7 @@ function useCalcInnerHeight(innerHeight) {
     window.addEventListener("resize", calcHeight);
 
     return window.removeEventListener("resize", calcHeight);
-  }, []);
+  }, [innerHeight]);
 
   return height;
 }

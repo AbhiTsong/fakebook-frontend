@@ -3,7 +3,6 @@ import styled from "styled-components";
 const FriendRequestContainer = styled.div`
   position: relative;
   justify-content: center;
-  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -16,6 +15,8 @@ const FriendRequestContainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
 `;
 
 const FrinedReqHeader = styled.div`

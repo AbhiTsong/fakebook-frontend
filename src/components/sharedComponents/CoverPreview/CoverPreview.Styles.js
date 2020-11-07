@@ -3,7 +3,6 @@ import styled from "styled-components";
 const CoverPreviewContainer = styled.div`
   position: relative;
   justify-content: center;
-  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -15,6 +14,8 @@ const CoverPreviewContainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
 
   @media screen and (max-width: 550px) {
     width: 22rem;
@@ -65,22 +66,28 @@ const CoverPicPreviewFooter = styled.footer`
 `;
 
 const CoverCancleBtn = styled.button`
-  color: blue;
-  padding: 0.5rem 1rem;
+   padding: 0.5rem 1rem;
   border: none;
   background-color: transparent;
   outline-color: transparent;
+  color: ${({ light }) => (light ? `blue` : `white`)};
   cursor: pointer;
+  &:hover {
+    background-color: ${({ light }) => (light ? `transparent` : "#343232")};
+  }
 `;
 
 const CoverUploadBtn = styled.button`
-  padding: 0.5rem 3rem;
+    padding: 0.5rem 3rem;
   background-color: blue;
   border-radius: 5px;
   border: none;
   color: white;
   outline-color: transparent;
   cursor: pointer;
+  &:hover {
+    background-color: #3434edfc;
+  }
 `;
 
 export {

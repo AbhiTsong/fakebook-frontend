@@ -1,4 +1,5 @@
 import React, { useEffect, memo } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   PicCropperCOntainer,
@@ -15,11 +16,11 @@ import {
 } from "./PicCropper.styles";
 
 // Redux Import
-import { useSelector, useDispatch } from "react-redux";
 import { warningSelector } from "../../../Redux/Warning/Warning.Selector";
 import { ShowWarning } from "../../../Redux/Warning/Warning.Action";
 import { userSelector } from "../../../Redux/User/UserSelector";
 import { createUserAvatarAction } from "../../../Redux/User/createProfilePic.Action";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Shared Compoent
 import CloseModalIcon from "../CloseModalIcon/CloseModalIcon";
@@ -29,6 +30,7 @@ import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import LoadingSpinner from "../LoadingSpinner/Loading.Spinner";
 
 function PicCropper(props) {
+  let { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
   const warningState = useSelector(warningSelector);
   const user = useSelector(userSelector);
@@ -57,7 +59,7 @@ function PicCropper(props) {
   }
 
   return (
-    <PicCropperCOntainer>
+    <PicCropperCOntainer light={light}>
       <HeaderContainer>
         <HeaderContent>
           <h4 className="Header_Title">Update Profile Pic</h4>
@@ -78,9 +80,13 @@ function PicCropper(props) {
       </PicPreviewContr>
       <HorizontalLine />
       <FooterCntr>
-        <CancleBtn onClick={handleCancle}>Cancle</CancleBtn>
+        <CancleBtn light={light} onClick={handleCancle}>
+          Cancle
+        </CancleBtn>
         <form>
-          <SaveBtn onClick={handleAddProfilePic}>Save</SaveBtn>
+          <SaveBtn light={light} onClick={handleAddProfilePic}>
+            Save
+          </SaveBtn>
         </form>
       </FooterCntr>
       {warningState.show && <Warning />}

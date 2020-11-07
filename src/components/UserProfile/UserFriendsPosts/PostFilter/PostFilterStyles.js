@@ -22,30 +22,38 @@ const FilterText = styled.h4`
   margin: 0;
 `;
 
-const FilterBtnCntr = styled.div``;
+const FilterBtnCntr = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 11rem;
+`;
 
 const FilterViewOptions = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding: 0.5rem;
+  margin: 0.2rem;
 `;
 
 const FilterIcons = styled.button`
   margin: 0;
+  margin-bottom: ${({ small }) => (small ? "" : "0.2rem")};
   padding: ${({ small }) => (small ? "" : "0.5rem 2rem")};
-  height: ${({ small }) => (small ? "" : "2rem")};
+  height: ${({ small }) => (small ? "1.3rem" : "2rem")};
+  width: ${({ small, loading }) => (small && loading ? "5rem" : "")};
   border-radius: 5px;
   outline-color: transparent;
-  border: ${({ small }) => (small ? "" : `transparent`)};
+  border: transparent;
+  /* border: ${({ small }) => (small ? "" : `transparent`)}; */
   color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   background-color: ${({ light }) => (light ? `transparent` : "#3e3c3c")};
+
   &:focus {
     outline: none;
-    outline-color: transparent;
   }
 
   &:hover {
-    background-color: ${({ light }) => (light ? `white` : "#343232")};
+    background-color: ${({ light }) => (light ? `lavender` : "#343232")};
+    cursor: pointer;
   }
 `;
 
@@ -53,6 +61,7 @@ const LoaderGif = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
+  margin: auto;
 `;
 
 export {

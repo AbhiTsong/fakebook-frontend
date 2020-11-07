@@ -3,7 +3,6 @@ import styled from "styled-components";
 const CreatePostContainer = styled.div`
   position: relative;
   justify-content: center;
-  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -15,6 +14,11 @@ const CreatePostContainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
+  &:focus {
+    outline: none;
+  }
 
   @media screen and (max-width: 550px) {
     width: 22rem;
@@ -59,10 +63,14 @@ const CreatePostBtn = styled.button`
   width: 100%;
   height: 2rem;
   font-weight: bolder;
-  color: gray;
-  outline-color: transparent;
+  color: white;
   border-radius: 5px;
   font-size: 1rem;
+  background-color: #1877f2;
+  &:focus {
+    outline: none;
+    outline-color: transparent;
+  }
 `;
 
 export {

@@ -10,6 +10,7 @@ import Loader from "../../../Assets/gifs/loading2.gif";
 import { FetchRandomUsers3 } from "../../../Redux/RandomUsers/randomUsersAction";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { randomSelector } from "../../../Redux/RandomUsers/RandomUsers.selector";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Styled Imports
 import {
@@ -32,6 +33,7 @@ import { ToolTip } from "../ToolTip/ToolTip";
 
 function UserProfilePicSuggest() {
   const dispatch = useDispatch();
+  let {light} = useSelector(themeSelector)
   let picSuggest = useSelector(randomSelector);
 
   useEffect(() => {
@@ -45,7 +47,7 @@ function UserProfilePicSuggest() {
   }
 
   return (
-    <UserPhotoSuggestCntr>
+    <UserPhotoSuggestCntr light={light}>
       <ComponentTitle>
         <Title>Upload A Profile Pic</Title>
         <CloseModalIcon />

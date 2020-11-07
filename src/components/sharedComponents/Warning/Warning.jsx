@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux"
 
 // Styled Imports
 import {
@@ -12,13 +13,15 @@ import {
   NoButton,
 } from "./Warning.styles";
 
-// Reduc Imports
+// Redux Imports
 import { useDispatch } from "react-redux";
 import { CloseWarning } from "../../../Redux/Warning/Warning.Action";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
 import { clearImagePath } from "../../../Redux/Post/photoPath.action";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function Warning() {
+  let { light } = useSelector(themeSelector)
   const dispatch = useDispatch();
 
   // Function For Discarding The Changes
@@ -38,7 +41,7 @@ function Warning() {
     <>
       <WarningOverLay />
       <WarningConainer>
-        <WarningContent>
+        <WarningContent light={light} >
           <WarningTextContent>
             <Text>Do You Want To Discard All Your Current Changes</Text>
           </WarningTextContent>

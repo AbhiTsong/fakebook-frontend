@@ -22,6 +22,7 @@ import darkTheme from "./theme/dark";
 import Container from "./theme/components/container";
 import { getToken } from "./Redux/token";
 
+
 // Lazy Imports
 const HomePage = lazy(() => import("./pages/home.page.jsx"));
 const SigninSignupPage = lazy(() => import("./pages/signin-signup.page"));
@@ -37,12 +38,29 @@ const AppContainer = styled(Container)`
   overflow-y: ${({ scroll }) => (scroll ? "hidden" : "")};
 `;
 
+const OverPayOnLandScape = styled.div`
+  display: none;
+  @media screen and (max-height: 450px) {
+    background-color: black;
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+    justify-content: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: large;
+  }
+`;
+
 function App() {
   const modalState = useSelector(modalSelector);
   const tostState = useSelector(tostSelector);
   const themeMode = useSelector(themeSelector);
   const postState = useSelector(postSelector);
   const dispatch = useDispatch();
+
 
   // Effect For Anth And Protected Routes
   useEffect(() => {
@@ -55,6 +73,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode.light ? lightTheme : darkTheme}>
+      <OverPayOnLandScape>We Dont Support Landscape Mode</OverPayOnLandScape>
       <AppContainer scroll={modalState.show}>
         {modalState.show && <Modal header1="Create Post" />}
         {tostState.show && <Toster />}

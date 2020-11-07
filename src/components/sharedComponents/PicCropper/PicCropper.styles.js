@@ -3,7 +3,6 @@ import styled from "styled-components";
 const PicCropperCOntainer = styled.div`
   position: relative;
   justify-content: center;
-  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -15,6 +14,8 @@ const PicCropperCOntainer = styled.div`
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
 
   @media screen and (max-width: 550px) {
     width: 22rem;
@@ -67,12 +68,15 @@ const FooterCntr = styled.footer`
 `;
 
 const CancleBtn = styled.button`
-  color: blue;
   padding: 0.5rem 1rem;
   border: none;
   background-color: transparent;
   outline-color: transparent;
+  color: ${({ light }) => (light ? `blue` : `white`)};
   cursor: pointer;
+  &:hover {
+    background-color: ${({ light }) => (light ? `transparent` : "#343232")};
+  }
 `;
 
 const SaveBtn = styled.button`
@@ -83,6 +87,9 @@ const SaveBtn = styled.button`
   color: white;
   outline-color: transparent;
   cursor: pointer;
+  &:hover {
+    background-color: #3434edfc;
+  }
 `;
 
 export {
