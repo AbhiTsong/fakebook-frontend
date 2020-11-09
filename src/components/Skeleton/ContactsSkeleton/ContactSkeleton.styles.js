@@ -29,8 +29,9 @@ const SkeletonImgContr = styled.div`
   position: relative;
 
   &:hover {
-    background-color: rgba(221, 221, 230, 0.479);
-    border-radius: 10px;
+    background-color: ${({ light }) =>
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
+    border-radius: 15px;
   }
 `;
 

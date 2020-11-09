@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 // Redux Imports
 import { showToster } from "../../../Redux/toster/toster.action";
 import { toggleHamburger } from "../../../Redux/Hamburger/Hamburger.action";
+import { toggleState } from "../../../Redux/Hamburger/Hamburger.selector";
 import { selectTheme } from "../../../Redux/theme/theme.action";
 import { SignOutAction } from "../../../Redux/Auth/SignOut/SignOut.Actions";
 import { signInSelector } from "../../../Redux/Auth/SignIn/SignIn.Selector";
@@ -51,7 +52,6 @@ import {
   OptionText,
   RightImgContainer,
 } from "./SeeProfile.Styles";
-import { toggleState } from "../../../Redux/Hamburger/Hamburger.selector";
 
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
@@ -168,7 +168,7 @@ function SeeProfile(props) {
         </SettingsLeftContainer>
       </SettingOptionsContainer>
 
-      {/* Runs Only On Smaller Screens */}
+      {/* Runs Only On Smaller Screens ~~~~*/}
       <FriendReqContr>
         <FriendRequests />
         <Link to="/home" onClick={closeDrop}>
@@ -180,6 +180,7 @@ function SeeProfile(props) {
           <Videos />
         </span>
       </FriendReqContr>
+      {/* Runs Only On Smaller Screens ^^^*/}
       <SettingOptionsContainer onClick={handleLogout}>
         <SettingsLeftContainer>
           <SettingsImageContainer>

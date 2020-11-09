@@ -7,7 +7,7 @@ const ProfileSettingsContainer = styled.div`
   background-color: ${({ light }) => (light ? `white` : "#3e3c3c")};
   z-index: 200;
   justify-content: space-between;
-  top: 4.5rem;
+  top: 3.5rem;
   width: 20rem;
   right: 0rem;
   z-index: 10;

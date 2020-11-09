@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 const Parent = styled.div`
   position: absolute;
-  top: 5rem;
+  top: 3.5rem;
   right: 1rem;
   z-index: 21;
   width: 20rem;
   height: 85vh;
   border-radius: 5px;
-  background-color: white;
+  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
   box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
     rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
 `;
 
 const MessageHeader = styled.div`
-  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
@@ -55,7 +55,8 @@ const MessageImageAndText = styled.div`
   padding: 0.5rem;
 
   &:hover {
-    background-color: lavender;
+    background-color: ${({ light }) =>
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
     border-radius: 15px;
   }
 `;

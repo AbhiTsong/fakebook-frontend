@@ -16,34 +16,34 @@ function UserTimeline() {
   return (
     <TimelineCntr light={light}>
       <TimelineContent>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           Timeline
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           About
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           Freinds
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           Photo
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           Archive
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           More
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           <span>Edit Profile</span>
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           <span>I</span>
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           <span>Search</span>
         </TimelineNavigation>
-        <TimelineNavigation light={light} to="/">
+        <TimelineNavigation light={light ? "true" : "false"} to="/">
           <span>...</span>
         </TimelineNavigation>
       </TimelineContent>

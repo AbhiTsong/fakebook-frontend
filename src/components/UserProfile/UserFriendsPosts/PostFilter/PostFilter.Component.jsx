@@ -102,7 +102,7 @@ function PostFilter() {
         <FilterBtnCntr>
           <FilterIcons
             disabled={loading1}
-            loading={loading1}
+            // loading={loading1}
             onClick={() => dispatchLoader({ type: "LOADER_1" })}
             light={light}
             small={true}
@@ -111,7 +111,7 @@ function PostFilter() {
           </FilterIcons>
           <FilterIcons
             disabled={loading3}
-            loading={loading3}
+            // loading={loading3}
             onClick={() => dispatchLoader({ type: "LOADER_3" })}
             light={light}
             small={true}
@@ -129,7 +129,7 @@ function PostFilter() {
           List View
         </FilterIcons>
         <FilterIcons
-          disabled={loading2}
+          // disabled={loading2}
           light={light}
           onClick={() => dispatchLoader({ type: "LOADER_2" })}
         >

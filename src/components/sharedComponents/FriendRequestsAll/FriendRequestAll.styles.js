@@ -17,6 +17,16 @@ const FriendRequestContainer = styled.div`
   animation-duration: 0.4s;
   color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
   background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
+
+  @media screen and (max-width: 550px) {
+    width: 22rem;
+    height: ${({ post }) => (post ? "30rem" : "23rem")};
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 19rem;
+    height: ${({ post }) => (post ? "27rem" : "23rem")};
+  }
 `;
 
 const FrinedReqHeader = styled.div`

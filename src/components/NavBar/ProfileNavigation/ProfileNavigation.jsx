@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, memo, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -43,37 +43,56 @@ import { themeSelector } from "../../../Redux/theme/theme.selector.js";
 import { toggleHamburger } from "../../../Redux/Hamburger/Hamburger.action";
 
 function ProfileNavigation() {
+  let ref = useRef();
   let width = useCalcInnerWidth(window.innerWidth);
   const dispatch = useDispatch();
   const userState = useSelector(signInSelector);
-  const notice = useSelector(noticeSelector);
-  const message = useSelector(messageSelector);
-  const [messageState, setMessage] = useState(true);
-  const [noticeState, setNotice] = useState(true);
+  const [messageState, setMessage] = useState(false);
+  const [noticeState, setNotice] = useState(false);
   const [settingsState, setSettings] = useState(false);
+  // Selectors
+  const { showMessage } = useSelector(messageSelector);
   const { show } = useSelector(toggleState);
   let { light } = useSelector(themeSelector);
 
-  function handleNotification() {
-    setNotice(!noticeState);
-    dispatch(notificationAction(noticeState));
-    dispatch(messageAction(false));
-    setSettings(false);
-  }
+  useEffect(() => {
+    function closeSettings(event) {
+      if (show && ref.current && !ref.current.contains(event.target)) {
+        dispatch(toggleHamburger(!show));
+      }
+    }
+    function closeNotification(event) {
+      if (noticeState && ref.current && !ref.current.contains(event.target)) {
+        setNotice((pvSt) => !pvSt);
+        // dispatch(toggleHamburger(!show));
+      }
+    }
+    function closeMessage(event) {
+      if (messageState && ref.current && !ref.current.contains(event.target)) {
+        setMessage((pvSt) => !pvSt);
+      }
+    }
+    window.addEventListener("click", closeSettings, true);
+    window.addEventListener("click", closeNotification, true);
+    window.addEventListener("click", closeMessage, true);
+    return () => {
+      window.removeEventListener("click", closeNotification, true);
+      window.removeEventListener("click", closeSettings, true);
+      window.removeEventListener("click", closeMessage, true);
+    };
+  }, [dispatch, messageState, noticeState, ref, show]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleMessage() {
-    setMessage(!messageState);
-    dispatch(messageAction(messageState));
-    dispatch(notificationAction(false));
-    setSettings(false);
+    setMessage((pvSt) => !pvSt);
+  }
+
+  function handleNotification() {
+    setNotice((pvSt) => !pvSt);
   }
 
   function handleShowProfile() {
     setSettings(!settingsState);
-    // dispatch(settingsAction(settingsState));
-    dispatch(notificationAction(false));
-    dispatch(messageAction(false));
     dispatch(toggleHamburger(!show));
   }
 
@@ -121,9 +140,11 @@ function ProfileNavigation() {
           </IconsContainer>
         </NavBarContainer>
       )}
-      {show && <SeeProfile user={userState.user} />}
-      {notice.showNotification && <Notification />}
-      {message.showMessage && <Messages />}
+      <div ref={ref}>
+        {show && <SeeProfile user={userState.user} />}
+        {noticeState && <Notification />}
+        {messageState && <Messages />}
+      </div>
     </>
   );
 }

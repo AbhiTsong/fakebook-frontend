@@ -64,8 +64,8 @@ function Notification() {
           ? [...Array(10).keys()].map((e, idx) => (
               <ContactsSkeleton key={e + idx} />
             ))
-          : staticData.map((data) => (
-              <MessageImageAndText>
+          : staticData.map((data, idx) => (
+              <MessageImageAndText key={idx + data}>
                 <MessageImageContainer>
                   <MessageImage src={data.image} />
                 </MessageImageContainer>

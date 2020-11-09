@@ -17,6 +17,7 @@ const NavBar = styled.nav`
 `;
 
 const NavContent = styled.div`
+  position: relative;
   max-width: 1600px;
   margin: auto;
   display: flex;

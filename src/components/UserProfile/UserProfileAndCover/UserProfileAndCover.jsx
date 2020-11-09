@@ -31,8 +31,11 @@ import { userSelector } from "../../../Redux/User/UserSelector";
 // Icon Img
 import Camera from "../../../Assets/images/camera.png";
 
+// Custom Hook
+import { useOusideClick } from "../../../hooks/useOutsideClick";
+
 function UserProfileAndCover(props) {
-  const [showDrop, setShowDrop] = useState(false);
+  let { visible, setVisible, ref } = useOusideClick(false);
   const [cover, setCover] = useState(false);
   let user = useSelector(signInSelector);
   let coverAndProfile = useSelector(userSelector);
@@ -53,10 +56,8 @@ function UserProfileAndCover(props) {
   // Function for Handling the Show and close of cart dropdown menu
   function handeCoverDropDown(e) {
     e.preventDefault();
-    setShowDrop(!showDrop);
+    setVisible((pvSt) => !pvSt);
   }
-
-
 
   useEffect(() => {
     if (coverAndProfile.coverCreated) {
@@ -77,7 +78,11 @@ function UserProfileAndCover(props) {
             </StyledButton>
           </ToolTip>
         </ChangeCoverButton>
-        {showDrop && <CoverChangeDropMenu />}
+        {visible && (
+          <div ref={ref}>
+            <CoverChangeDropMenu />
+          </div>
+        )}
         <ProfilePicContainer>
           <ProfileIconCntr
             onClick={handleClick}

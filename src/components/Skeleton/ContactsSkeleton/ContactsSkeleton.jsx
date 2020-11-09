@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 import {
   SkeletonImgContr,
@@ -8,8 +10,9 @@ import {
 } from "./ContactSkeleton.styles";
 
 function ContactsSkeleton() {
+  let { light } = useSelector(themeSelector);
   return (
-    <SkeletonImgContr>
+    <SkeletonImgContr light={light}>
       <SinglePostSkeetonCntr1>
         <SkeletonIndicator />
       </SinglePostSkeetonCntr1>

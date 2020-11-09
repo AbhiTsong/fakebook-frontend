@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Redux Imports
 import { messageAction } from "../../../Redux/Message/Message.Action";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 // Nested Components
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
@@ -28,8 +29,8 @@ import {
   MessagedDate,
 } from "./Message.Styles";
 
-
 function Messages() {
+  const { light } = useSelector(themeSelector);
   const dispatch = useDispatch();
   const [showSkeleton, setSkeleton] = useState(true);
 
@@ -47,13 +48,13 @@ function Messages() {
   }
 
   return (
-    <Parent>
+    <Parent light={light}>
       <MessageHeader>
         <HeaderText className="Messages_Header_Text">Messages</HeaderText>
         {/* All done */}
-          <HeaderClose onClick={closeMessage}>
-            <CloseIcon src={Close} />
-          </HeaderClose>
+        <HeaderClose onClick={closeMessage}>
+          <CloseIcon src={Close} />
+        </HeaderClose>
       </MessageHeader>
       <MessageContainer>
         {showSkeleton
@@ -61,7 +62,7 @@ function Messages() {
               <ContactsSkeleton key={idx + e} />
             ))
           : messageData.map((data) => (
-              <MessageImageAndText key={data.name + data.time}>
+              <MessageImageAndText light={light} key={data.name + data.time}>
                 <MessageImageContainer>
                   <MessageImage src={data.image} />
                 </MessageImageContainer>

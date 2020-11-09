@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import config from "../../../../config/config.json";
 import { useSelector } from "react-redux";
 
@@ -22,16 +22,21 @@ import { signInSelector } from "../../../../Redux/Auth/SignIn/SignIn.Selector";
 import Default from "../../../../Assets/images/default.png";
 import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
+// Custom Hook
+import { useOusideClick } from "../.././../../hooks/useOutsideClick";
+
 function PostHeader({ post }) {
+  // let ref = useRef(null);
   const loggedUser = useSelector(signInSelector);
-  const [showEdit, setShowEdit] = useState(false);
+  let { visible, setVisible, ref } = useOusideClick(false);
+
+  // const [showEdit, setShowEdit] = useState(false);
   const { light } = useSelector(themeSelector);
   function handleEdit(e) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    setShowEdit(!showEdit);
+    setVisible(pvSt => !pvSt);
   }
-
 
   let random = JSON.parse(window.sessionStorage.getItem("randomPic"));
 
@@ -54,8 +59,14 @@ function PostHeader({ post }) {
       <NameAndDotContiner>
         <PostCreatorName light={light}>{post.creator}</PostCreatorName>
         <PostEditCOntainer>
-          <ThreeDots light={light} onClick={handleEdit}>...</ThreeDots>
-          {showEdit && <PostEditDrop id={post._id} />}
+          <ThreeDots light={light} onClick={handleEdit}>
+            ...
+          </ThreeDots>
+          {visible && (
+            <div ref={ref}>
+              <PostEditDrop id={post._id} />
+            </div>
+          )}
         </PostEditCOntainer>
       </NameAndDotContiner>
     </ImageInputContiner>
