@@ -51,11 +51,13 @@ import {
   OptionText,
   RightImgContainer,
 } from "./SeeProfile.Styles";
+import { toggleState } from "../../../Redux/Hamburger/Hamburger.selector";
 
 function SeeProfile(props) {
   const [theme, setTheme] = useState(false);
   const currUsr = useSelector(signInSelector);
   const { light } = useSelector(themeSelector);
+  const { show } = useSelector(toggleState);
   const dispatch = useDispatch();
 
   function staticToast() {
@@ -86,7 +88,7 @@ function SeeProfile(props) {
   }
 
   function closeDrop() {
-    // dispatch(toggleHamburger());
+    dispatch(toggleHamburger(!show));
   }
 
   return (
@@ -154,11 +156,7 @@ function SeeProfile(props) {
             {light ? `Dark Mode` : "Light Mode"}
           </OptionText>
         </SettingsLeftContainer>
-        {/* <RightImgContainer > */}
-        {/* <Image className="Right_Arrow" src={Right} alt="Right_Arrow" /> */}
-        {/* </RightImgContainer> */}
       </SettingOptionsContainer>
-
       <SettingOptionsContainer onClick={handleClassic}>
         <SettingsLeftContainer>
           <SettingsImageContainer>
@@ -173,7 +171,7 @@ function SeeProfile(props) {
       {/* Runs Only On Smaller Screens */}
       <FriendReqContr>
         <FriendRequests />
-        <Link to="/" onClick={closeDrop}>
+        <Link to="/home" onClick={closeDrop}>
           <Messanger />
           <Groups />
           <Pages />

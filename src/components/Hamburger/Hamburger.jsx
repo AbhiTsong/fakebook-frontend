@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Icon import
@@ -15,9 +15,10 @@ import { HamBurgerCutr, HamIcon } from "./Hamburger.styles";
 function Hamburger() {
   const dispatch = useDispatch();
   const { show } = useSelector(toggleState);
+  // let [toggle, setToggle ] = useState(show)
 
   function toggleBtn() {
-    dispatch(toggleHamburger());
+    dispatch(toggleHamburger(!show));
   }
 
   return (

@@ -4,12 +4,11 @@ const INITIAL_STATE = {
   show: false,
 };
 
-function hamburgerReducer(state = INITIAL_STATE, { type }) {
+function hamburgerReducer(state = INITIAL_STATE, { type, payload }) {
   switch (type) {
     case HambugerTypes.TOGGLE_HAMBURGER_MENU:
       return {
-        ...state,
-        show: !state.show,
+        show: payload,
       };
 
     default:
