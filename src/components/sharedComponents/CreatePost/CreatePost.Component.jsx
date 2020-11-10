@@ -18,10 +18,7 @@ import {
 } from "../../../Redux/Post/createPost.action";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { CloseModal } from "../../../Redux/Modal/ModalAction";
-import { resetPostAction } from "../../../Redux/Post/resetPost.action";
-import { fetchAllPosts } from "../../../Redux/Post/fetchPosts.actions";
 import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine";
-// import { persistUserTextPost } from "../../../Redux/Post/persistedUserPostAction";
 
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
@@ -51,8 +48,7 @@ function CreatePostComponent(props) {
       post.isPhotoUploaded === true
     ) {
       dispatch(CloseModal());
-      dispatch(resetPostAction());
-      dispatch(fetchAllPosts());
+      // dispatch(resetPostAction());
     }
   }, [post.loading, dispatch, post.isEventCreated, post.isPhotoUploaded]);
 

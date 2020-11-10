@@ -28,7 +28,6 @@ import {
 
 // Shared Componenets
 import HorizontaLine from "../sharedComponents/HorizontalLine/HorizontalLine";
-import CloseModalIcon from "../sharedComponents/CloseModalIcon/CloseModalIcon";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 
 // Custom Hook Import
@@ -43,7 +42,7 @@ import { signUpSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
 import { validation } from "../../utility/validation";
 import { Range } from "../../utility/range";
 import { allMonths } from "../../utility/allMonths";
-import { CloseModal } from "../../Redux/Modal/ModalAction";
+import { CloseModal2 } from "../../Redux/Modal/ModalAction";
 
 const TODAY = new Date();
 
@@ -78,7 +77,7 @@ function SignUpComponent(props) {
 
   useEffect(() => {
     if (!signUpState.loading && signUpState.isSignedUp) {
-      dispatch(CloseModal());
+      dispatch(CloseModal2());
     }
   }, [dispatch, signUpState.isSignedUp, signUpState.loading]);
 
@@ -107,160 +106,155 @@ function SignUpComponent(props) {
   }
 
   return (
-    <>
-      <ModalContainer width={width}>
-        <ModalHeader>
-          <div>
-            <ModalTitleText className="header-title">Sign Up</ModalTitleText>
-            <ModalSubTitleTxt className="header-sub-title">
-              Its Quick And Easy
-            </ModalSubTitleTxt>
-          </div>
-          <CloseModalIcon />
-        </ModalHeader>
-        <HorizontaLine />
+    <ModalContainer width={width}>
+      <ModalHeader>
+        <div>
+          <ModalTitleText className="header-title">Sign Up</ModalTitleText>
+          <ModalSubTitleTxt className="header-sub-title">
+            Its Quick And Easy
+          </ModalSubTitleTxt>
+        </div>
+        {/* <CloseModalIcon /> */}
+      </ModalHeader>
+      <HorizontaLine />
 
-        <SignUpFormContainer>
-          <SignUpFormContent>
-            <SignUpForm onSubmit={handleSignUp}>
-              <NameLabel width={width}>
-                <StyledNameForms
-                  width={width}
-                  name="firstName"
-                  type="text"
-                  value={values.firstName}
-                  placeholder="First Name"
-                  onChange={handleValues}
-                />
-                <StyledNameForms
-                  width={width}
-                  name="lastName"
-                  type="text"
-                  value={values.lastName}
-                  placeholder="Surname"
-                  onChange={handleValues}
-                />
-              </NameLabel>
-              <StyledEmailPassInput
-                name="email"
-                type="email"
-                value={values.email}
-                placeholder="email address"
+      <SignUpFormContainer>
+        <SignUpFormContent>
+          <SignUpForm onSubmit={handleSignUp}>
+            <NameLabel width={width}>
+              <StyledNameForms
+                width={width}
+                name="firstName"
+                type="text"
+                value={values.firstName}
+                placeholder="First Name"
                 onChange={handleValues}
               />
-              <StyledEmailPassInput
-                name="password"
-                type="password"
-                value={values.password}
-                placeholder="New Password"
+              <StyledNameForms
+                width={width}
+                name="lastName"
+                type="text"
+                value={values.lastName}
+                placeholder="Surname"
                 onChange={handleValues}
               />
+            </NameLabel>
+            <StyledEmailPassInput
+              name="email"
+              type="email"
+              value={values.email}
+              placeholder="email address"
+              onChange={handleValues}
+            />
+            <StyledEmailPassInput
+              name="password"
+              type="password"
+              value={values.password}
+              placeholder="New Password"
+              onChange={handleValues}
+            />
 
-              {/* Selecting The Data Of Birth */}
-              <DateOFBirth className="DOBTitle">Date Of Birth</DateOFBirth>
-              <DOBContaoner>
-                {/* Select The Date */}
-                <DOMDropDowns
-                  value={values.date}
-                  name="date"
-                  type="date"
-                  className="dropdown-content"
-                  onChange={handleValues}
-                >
-                  {[...Array(31).keys()].map((day) => (
-                    <Options key={day} value={day}>
-                      {day}
-                    </Options>
-                  ))}
-                </DOMDropDowns>
+            {/* Selecting The Data Of Birth */}
+            <DateOFBirth className="DOBTitle">Date Of Birth</DateOFBirth>
+            <DOBContaoner>
+              {/* Select The Date */}
+              <DOMDropDowns
+                value={values.date}
+                name="date"
+                type="date"
+                className="dropdown-content"
+                onChange={handleValues}
+              >
+                {[...Array(31).keys()].map((day) => (
+                  <Options key={day} value={day}>
+                    {day}
+                  </Options>
+                ))}
+              </DOMDropDowns>
 
-                {/* Selectin The Month */}
-                <DOMDropDowns
-                  value={values.month}
-                  name="month"
-                  type="month"
-                  className="dropdown-content"
-                  onChange={handleValues}
-                >
-                  {allMonths.map((month, idx) => (
-                    <option key={month} value={month}>
-                      {month}
-                    </option>
-                  ))}
-                </DOMDropDowns>
+              {/* Selectin The Month */}
+              <DOMDropDowns
+                value={values.month}
+                name="month"
+                type="month"
+                className="dropdown-content"
+                onChange={handleValues}
+              >
+                {allMonths.map((month, idx) => (
+                  <option key={month} value={month}>
+                    {month}
+                  </option>
+                ))}
+              </DOMDropDowns>
 
-                {/* Selecting The Year */}
-                <DOMDropDowns
-                  value={values.year}
-                  name="year"
-                  type="year"
-                  onChange={handleValues}
-                  className="dropdown-content"
-                >
-                  {YEARS.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </DOMDropDowns>
-              </DOBContaoner>
+              {/* Selecting The Year */}
+              <DOMDropDowns
+                value={values.year}
+                name="year"
+                type="year"
+                onChange={handleValues}
+                className="dropdown-content"
+              >
+                {YEARS.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </DOMDropDowns>
+            </DOBContaoner>
 
-              {/* Gender Radio Buttons */}
-              <GenderTitle>Gender</GenderTitle>
-              <GenderContinaer>
-                <GenderContent>
-                  <ValueContainer htmlFor="female">
-                    Female
-                    <StyledRadio
-                      type="radio"
-                      value="female"
-                      id="female"
-                      onChange={handleChange}
-                      name="gender"
-                    />
-                  </ValueContainer>
-                </GenderContent>
-                <GenderContent>
-                  <ValueContainer htmlFor="male">
-                    Male
-                    <StyledRadio
-                      type="radio"
-                      value="male"
-                      id="male"
-                      onChange={handleChange}
-                      name="gender"
-                    />
-                  </ValueContainer>
-                </GenderContent>
-                <GenderContent>
-                  <ValueContainer htmlFor="others">
-                    Others
-                    <StyledRadio
-                      type="radio"
-                      value="others"
-                      id="others"
-                      onChange={handleChange}
-                      name="gender"
-                    />
-                  </ValueContainer>
-                </GenderContent>
-              </GenderContinaer>
-              <TermsAndPolicy>
-                By clicking Sign Up, you agree to our{" "}
-                <BlueColor className="Color-Blue">
-                  Terms, Data Policy{" "}
-                </BlueColor>{" "}
-                and{" "}
-                <BlueColor className="Color-Blue"> Cookie Policy. </BlueColor>{" "}
-                You may receive SMS notifications from us and can opt out at any
-                time.
-              </TermsAndPolicy>
-              <StyledButton>Sign Up</StyledButton>
-            </SignUpForm>
-          </SignUpFormContent>
-        </SignUpFormContainer>
-      </ModalContainer>
-    </>
+            {/* Gender Radio Buttons */}
+            <GenderTitle>Gender</GenderTitle>
+            <GenderContinaer>
+              <GenderContent>
+                <ValueContainer htmlFor="female">
+                  Female
+                  <StyledRadio
+                    type="radio"
+                    value="female"
+                    id="female"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </ValueContainer>
+              </GenderContent>
+              <GenderContent>
+                <ValueContainer htmlFor="male">
+                  Male
+                  <StyledRadio
+                    type="radio"
+                    value="male"
+                    id="male"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </ValueContainer>
+              </GenderContent>
+              <GenderContent>
+                <ValueContainer htmlFor="others">
+                  Others
+                  <StyledRadio
+                    type="radio"
+                    value="others"
+                    id="others"
+                    onChange={handleChange}
+                    name="gender"
+                  />
+                </ValueContainer>
+              </GenderContent>
+            </GenderContinaer>
+            <TermsAndPolicy>
+              By clicking Sign Up, you agree to our{" "}
+              <BlueColor className="Color-Blue">Terms, Data Policy </BlueColor>{" "}
+              and <BlueColor className="Color-Blue"> Cookie Policy. </BlueColor>{" "}
+              You may receive SMS notifications from us and can opt out at any
+              time.
+            </TermsAndPolicy>
+            <StyledButton>Sign Up</StyledButton>
+          </SignUpForm>
+        </SignUpFormContent>
+      </SignUpFormContainer>
+    </ModalContainer>
   );
 }
 

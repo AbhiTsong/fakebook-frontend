@@ -43,6 +43,12 @@ function AllPostsComponent() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    if (allPost.isEventCreated) {
+      dispatch(fetchAllPosts({ skip: skip, limit: limit }));
+    }
+  }, [dispatch, skip, limit, allPost.isEventCreated]);
+
+  useEffect(() => {
     if (allPost.allPosts.data && allPost.allPosts.data) {
       setAllPosts((prevData) => [...allPost.allPosts.data]);
     }
@@ -70,7 +76,6 @@ function AllPostsComponent() {
     setSkip((pv) => pv - 30);
   };
 
-  // if (true) {
   if (allPost.loading) {
     return [...Array(10).keys()].map((e, idx) => <Skeleton key={e + idx} />);
   }

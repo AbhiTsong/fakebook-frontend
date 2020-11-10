@@ -20,13 +20,13 @@ import {
 import { useForm } from "../../hooks/useFormInput";
 
 // Redux Imports
-import { ShowModal } from "../../Redux/Modal/ModalAction";
+import { ShowModal2 } from "../../Redux/Modal/ModalAction";
 import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
 import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
 import { modalSelector } from "../../Redux/Modal/ModalSelector";
 
 // Shared Component Imports
-import Modal from "../sharedComponents/Modals/Model.Component";
+import { Modal2 } from "../sharedComponents/Modals/Model.Component";
 import { getToken } from "../../Redux/token";
 import LoadingSpinner from "../sharedComponents/LoadingSpinner/Loading.Spinner";
 import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
@@ -51,7 +51,7 @@ function SignInComponent(props) {
 
   // Logging Out The User
   const handleModal = () => {
-    dispatch(ShowModal("SIGN_UP_USER"));
+    dispatch(ShowModal2("SIGN_UP_USER"));
   };
 
   // Logging In A New User
@@ -104,7 +104,7 @@ function SignInComponent(props) {
           <CreateAccountButton onClick={handleModal}>
             Create A New Account
           </CreateAccountButton>
-          {modalState.show && <Modal />}
+          {modalState.show2 && <Modal2 />}
         </SignInFormContainer>
         {/* <h6>Create a Page For Celebrity Brand Or Business</h6> */}
       </SignInContent>

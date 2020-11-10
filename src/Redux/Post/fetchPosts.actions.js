@@ -23,11 +23,11 @@ function fetchPostFail(error) {
 }
 
 // Async Action For Fetching All The Posts
-function fetchAllPosts({ skip, limit }) {
+function fetchAllPosts(props) {
   return async function (dispatch) {
     dispatch(fetchPostStart());
     try {
-      let allPosts = await axios.get(`/posts?limit=${limit}&skip=${skip}`, {
+      let allPosts = await axios.get(`/posts?limit=${props.limit}&skip=${props.skip}`, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },

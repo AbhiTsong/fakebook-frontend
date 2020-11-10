@@ -8,7 +8,7 @@ import { ModalContainer } from "./Modal.Styles";
 import { postSelector } from "../../../Redux/Post/post.selector";
 import { modalSelector } from "../../../Redux/Modal/ModalSelector";
 import { themeSelector } from "../../../Redux/theme/theme.selector";
-import { CloseModal } from "../../../Redux/Modal/ModalAction";
+import { CloseModal, CloseModal2 } from "../../../Redux/Modal/ModalAction";
 
 // Shared Components
 import CreatePostComponent from "../../sharedComponents/CreatePost/CreatePost.Component";
@@ -43,7 +43,6 @@ function Modal() {
   return (
     <ModalContainer light={light}>
       <div ref={ref}>
-        {content === "SIGN_UP_USER" && <SignUpComponent />}
         {content === "SHOW_PHOTO_FORM" && <UserProfilePicSuggest />}
         {content === "CREATE_POST" && <CreatePostComponent path={path} />}
         {content === "ADD_NEW_PROFILE_PIC" && <PicCropper />}
@@ -55,6 +54,30 @@ function Modal() {
     </ModalContainer>
   );
 }
-// }
+
+export function Modal2() {
+  const ref = useRef();
+  const dispatch = useDispatch();
+  let { show2, content } = useSelector(modalSelector);
+  let { light } = useSelector(themeSelector);
+
+  // Effect For Closing the Modal On Outside Click
+  useEffect(() => {
+    function closeSettings(event) {
+      if (show2 && ref.current && !ref.current.contains(event.target)) {
+        dispatch(CloseModal2());
+      }
+    }
+
+    window.addEventListener("click", closeSettings, true);
+    return () => window.removeEventListener("click", closeSettings, true);
+  }, [dispatch, ref, show2]);
+
+  return (
+    <ModalContainer light={light}>
+      <div ref={ref}>{content === "SIGN_UP_USER" && <SignUpComponent />}</div>
+    </ModalContainer>
+  );
+}
 
 export default Modal;

@@ -7,10 +7,23 @@ function ShowModal(modalContent) {
   };
 }
 
+function ShowModal2(modalContent) {
+  return {
+    type: ModalTypes.SHOW_MODAL2,
+    payload: modalContent,
+  };
+}
+
 function CloseModal() {
   return {
     type: ModalTypes.CLOSE_MODAL,
   };
 }
 
-export { ShowModal, CloseModal };
+function CloseModal2() {
+  return {
+    type: ModalTypes.CLOSE_MODAL2,
+  };
+}
+
+export { ShowModal, CloseModal, ShowModal2, CloseModal2 };
