@@ -21,12 +21,17 @@ const ProfileSettingsContainer = styled.div`
     margin-right: 0;
     border-radius: 0;
     width: 96%;
-    top: 4rem;
+    top: 3rem;
   }
 
   @media screen and (max-width: 550px) {
     width: 92%;
   }
+`;
+const ProfieHeaderCntr = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const ProfileStttingsHeader = styled.div`
@@ -54,6 +59,19 @@ const ProfileOption = styled.h6`
   margin: 0;
 `;
 
+const HeaderCloseCntr = styled.div`
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+`;
+
+const CloseIcon = styled.img`
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: white;
+  border-radius: 50%;
+`;
 const FeedBackContainer = styled.div`
   display: flex;
   align-self: center;
@@ -127,10 +145,13 @@ const RightImgContainer = styled.div`
 export {
   ProfileSettingsContainer,
   ProfileStttingsHeader,
+  ProfieHeaderCntr,
   ProfilePicContainer,
   ProfileNameContainer,
   ProfileName,
   ProfileOption,
+  HeaderCloseCntr,
+  CloseIcon,
   FeedBackContainer,
   FeedBackImgCtr,
   FeedBackIMage,

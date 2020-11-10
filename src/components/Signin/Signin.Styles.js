@@ -30,9 +30,11 @@ const SignInContent = styled.div`
 `;
 
 const SignInTxtContr = styled.div`
+color: #3e3c3c;
   width: 30%;
 `;
-const SignInText1 = styled.h1``;
+const SignInText1 = styled.h1`
+`;
 
 const SignInText2 = styled.h2`
   @media screen and (max-width: 800px) {

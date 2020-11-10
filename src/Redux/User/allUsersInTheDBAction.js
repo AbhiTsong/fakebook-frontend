@@ -1,9 +1,6 @@
 import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
-import { ShowModal } from "../Modal/ModalAction";
-import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
-// import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
 
 function getAllUserStart() {
   return {

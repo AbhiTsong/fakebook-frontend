@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import config from "../../../config/config.json";
 
 // Styled Imports
 import {
@@ -20,8 +19,6 @@ import UserProfilePic from "../UserProfilePic/UserProfilePic";
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
 
-// Default Profile Pic
-import Default from "../../../Assets/images/default.png";
 
 function AddComment({ id }) {
   const dispatch = useDispatch();

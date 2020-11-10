@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 
@@ -21,6 +21,7 @@ import Videos from "../../LeftSideNav/Videos/Videos";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 // Image Import
+import Close from "../../../Assets/images/close.png"
 import Feedback from "../../../Assets/images/feedback.png";
 import Right from "../../../Assets/images/rightArrow.png";
 import Settings from "../../../Assets/images/settings.png";
@@ -33,11 +34,14 @@ import Sun from "../../../Assets/images/sun.png";
 // Styled Imports
 import {
   ProfileSettingsContainer,
+  ProfieHeaderCntr,
   ProfileStttingsHeader,
   ProfilePicContainer,
   ProfileNameContainer,
   ProfileName,
   ProfileOption,
+  HeaderCloseCntr,
+  CloseIcon,
   FeedBackContainer,
   FeedBackImgCtr,
   FeedBackIMage,
@@ -54,7 +58,6 @@ import {
 } from "./SeeProfile.Styles";
 
 function SeeProfile(props) {
-  const [theme, setTheme] = useState(false);
   const currUsr = useSelector(signInSelector);
   const { light } = useSelector(themeSelector);
   const { show } = useSelector(toggleState);
@@ -66,7 +69,7 @@ function SeeProfile(props) {
 
   // Dark Mode And Light Mode Toggle
   function selectThemeFunc() {
-    setTheme(!theme);
+    // setTheme(!theme);
     dispatch(selectTheme());
   }
 
@@ -90,9 +93,14 @@ function SeeProfile(props) {
   function closeDrop() {
     dispatch(toggleHamburger(!show));
   }
+  
+  function handleCloseProfile(){
+    dispatch(toggleHamburger(!show));
+  }
 
   return (
     <ProfileSettingsContainer light={light}>
+      <ProfieHeaderCntr>
       <Link to="/profile">
         <ProfileStttingsHeader>
           <ProfilePicContainer>
@@ -106,6 +114,10 @@ function SeeProfile(props) {
           </ProfileNameContainer>
         </ProfileStttingsHeader>
       </Link>
+      <HeaderCloseCntr onClick={handleCloseProfile}>
+        <CloseIcon src={Close}/>
+      </HeaderCloseCntr>
+      </ProfieHeaderCntr>
       <HorizontalLine />
       <FeedBackContainer onClick={staticToast}>
         <FeedBackImgCtr>

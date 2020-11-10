@@ -25,7 +25,7 @@ function FriendRequestImages({ id }) {
 
   useEffect(() => {
     isProfileFunc(id);
-  }, []);
+  }, [id]);
 
   return (
     <FriendRedImgCtr>

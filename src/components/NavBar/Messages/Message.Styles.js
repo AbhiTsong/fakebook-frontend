@@ -12,6 +12,19 @@ const Parent = styled.div`
   background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
   box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
     rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
+
+
+  @media screen and (max-width: 800px) {
+    border-top: 1px solid gray;
+    margin-right: 0;
+    border-radius: 0;
+    width: 96%;
+    top: 3rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 92%;
+  }
 `;
 
 const MessageHeader = styled.div`
@@ -38,10 +51,13 @@ const HeaderClose = styled.div`
   height: 1rem;
   cursor: pointer;
 `;
+
 const CloseIcon = styled.img`
   display: block;
   max-width: 100%;
   max-height: 100%;
+  background-color: white;
+  border-radius: 50%;
 `;
 
 const MessageContainer = styled.div`

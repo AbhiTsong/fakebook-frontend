@@ -74,7 +74,7 @@ function NavBarComponent() {
             </NavLink>
           </NavbarLinkCntr>
           <NavbarLinkCntr>
-            <NavLink activeClassName="active" to="/contact">
+            <NavLink activeClassName="active" to="/home">
               <IconsContainer>
                 <NavIcons src={Group} alt="Fakebook Logo" />
               </IconsContainer>
@@ -89,7 +89,7 @@ function NavBarComponent() {
             </NavLink>
           </NavbarProfileCntr>
           <NavbarLinkCntr>
-            <NavLink activeClassName="active" to="/contact">
+            <NavLink activeClassName="active" to="/profile">
               <IconsContainer>
                 <NavIcons src={Box} alt="Fakebook Logo" />
               </IconsContainer>

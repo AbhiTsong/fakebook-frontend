@@ -1,8 +1,6 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 import { getToken } from "../token";
-import { SignOutAction } from "../Auth/SignOut/SignOut.Actions";
-import { ShowModal } from "../Modal/ModalAction";
 
 function fetchPostStart() {
   return {
@@ -33,17 +31,10 @@ function fetchAllPosts({ skip, limit }) {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
-        // params: { page: page, limit: limit },
       });
       dispatch(fetchPostSuccess(allPosts));
     } catch (error) {
       if (error.response) {
-        // if (error.response.data.Error === "Please Authenticate") {
-
-        //   dispatch(SignOutAction())
-        //   localStorage.clear();
-
-        // }
         dispatch(fetchPostFail(error.response.data));
       }
     }

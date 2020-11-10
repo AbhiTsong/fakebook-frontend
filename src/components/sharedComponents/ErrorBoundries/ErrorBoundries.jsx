@@ -6,7 +6,7 @@ import {
   ErrorImageText2
 } from "./ErrorBoundries.styles";
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };

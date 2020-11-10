@@ -47,54 +47,50 @@ function ProfileNavigation() {
   let width = useCalcInnerWidth(window.innerWidth);
   const dispatch = useDispatch();
   const userState = useSelector(signInSelector);
-  const [messageState, setMessage] = useState(false);
-  const [noticeState, setNotice] = useState(false);
   const [settingsState, setSettings] = useState(false);
   // Selectors
+  const { showNotification } = useSelector(noticeSelector);
   const { showMessage } = useSelector(messageSelector);
   const { show } = useSelector(toggleState);
   let { light } = useSelector(themeSelector);
 
   useEffect(() => {
     function closeSettings(event) {
-      if (show && ref.current && !ref.current.contains(event.target)) {
-        dispatch(toggleHamburger(!show));
+      if (
+        (show || showNotification || showMessage) &&
+        ref.current &&
+        !ref.current.contains(event.target)
+      ) {
+        show && dispatch(toggleHamburger(!show));
+        showNotification && dispatch(notificationAction(!showNotification));
+        showMessage && dispatch(messageAction(!showMessage));
       }
     }
-    function closeNotification(event) {
-      if (noticeState && ref.current && !ref.current.contains(event.target)) {
-        setNotice((pvSt) => !pvSt);
-        // dispatch(toggleHamburger(!show));
-      }
-    }
-    function closeMessage(event) {
-      if (messageState && ref.current && !ref.current.contains(event.target)) {
-        setMessage((pvSt) => !pvSt);
-      }
-    }
+
     window.addEventListener("click", closeSettings, true);
-    window.addEventListener("click", closeNotification, true);
-    window.addEventListener("click", closeMessage, true);
+
     return () => {
-      window.removeEventListener("click", closeNotification, true);
       window.removeEventListener("click", closeSettings, true);
-      window.removeEventListener("click", closeMessage, true);
     };
-  }, [dispatch, messageState, noticeState, ref, show]);
+  }, [dispatch, ref, show, showMessage, showNotification]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleMessage() {
-    setMessage((pvSt) => !pvSt);
+    console.log("i got clicked");
+    // setMessage((pvSt) => !pvSt);
+    dispatch(messageAction(!showMessage));
   }
 
   function handleNotification() {
-    setNotice((pvSt) => !pvSt);
+    // setNotice((pvSt) => !pvSt);
+    dispatch(notificationAction(!showNotification));
   }
 
-  function handleShowProfile() {
+  const handleShowProfile = () => {
     setSettings(!settingsState);
     dispatch(toggleHamburger(!show));
-  }
+  };
+
 
   return (
     <>
@@ -140,11 +136,11 @@ function ProfileNavigation() {
           </IconsContainer>
         </NavBarContainer>
       )}
-      <div ref={ref}>
+      <span ref={ref}>
         {show && <SeeProfile user={userState.user} />}
-        {noticeState && <Notification />}
-        {messageState && <Messages />}
-      </div>
+        {showNotification && <Notification />}
+        {showMessage && <Messages />}
+      </span>
     </>
   );
 }

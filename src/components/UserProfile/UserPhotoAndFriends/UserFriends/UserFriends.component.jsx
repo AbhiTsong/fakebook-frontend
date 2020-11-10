@@ -26,7 +26,7 @@ function UserFriends() {
 
   useEffect(() => {
     dispatch(FetchRandomUsers());
-  }, []);
+  }, [dispatch]);
 
   return (
     <UserFriendsPhotoCntr light={light}>

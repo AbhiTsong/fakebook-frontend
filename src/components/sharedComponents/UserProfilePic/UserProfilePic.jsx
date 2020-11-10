@@ -1,5 +1,4 @@
 import React, { memo, useEffect } from "react";
-import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import config from "../../../config/config.json";
 import Default from "../../../Assets/images/default.png";

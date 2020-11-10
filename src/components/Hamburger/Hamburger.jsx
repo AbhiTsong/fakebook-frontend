@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Icon import
@@ -24,7 +24,7 @@ function Hamburger() {
   return (
       <>
         <HamBurgerCutr>
-          <HamIcon onClick={toggleBtn} src={show ? CloseIcn : HamburgerIcn} />
+          <HamIcon onClick={toggleBtn}  src={show ? CloseIcn : HamburgerIcn} />
         </HamBurgerCutr>
       
     </>

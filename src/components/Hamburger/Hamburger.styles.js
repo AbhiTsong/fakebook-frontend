@@ -5,7 +5,7 @@ const HamBurgerCutr = styled.div`
   margin-left: 5rem;
   cursor: pointer;
 
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 450px){
   margin-left: 2rem;
 
   }

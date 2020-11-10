@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { staticData } from "../../../statics/statics";
 
+// Img Import 
+import Close from "../../../Assets/images/close.png"
+
 // Redux Imports
+import { notificationAction } from "../../../Redux/Notification/Notification.action";
 import { showToster } from "../../../Redux/toster/toster.action";
 
 import ContactsSkeleton from "../../Skeleton/ContactsSkeleton/ContactsSkeleton";
@@ -13,7 +17,8 @@ import {
   Parent,
   MessageHeader,
   HeaderText,
-  HeaderDots,
+  HeaderClose,
+  CloseIcon,
   MessageContainer,
   MessageImageAndText,
   MessageImageContainer,
@@ -51,13 +56,19 @@ function Notification() {
     );
   }
 
+  function closeMessage(){
+    dispatch(notificationAction(false))
+  }
+
   return (
     <Parent>
       <MessageHeader>
         <HeaderText className="Notification_Header_Text">
           Notifications
         </HeaderText>
-        <HeaderDots className="Notification_Dots">...</HeaderDots>
+        <HeaderClose onClick={closeMessage}>
+          <CloseIcon src={Close} />
+        </HeaderClose>
       </MessageHeader>
       <MessageContainer>
         {showSkeleton

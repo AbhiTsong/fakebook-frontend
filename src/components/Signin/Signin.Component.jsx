@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 // Styled Imports
 import {
@@ -19,7 +20,6 @@ import {
 import { useForm } from "../../hooks/useFormInput";
 
 // Redux Imports
-import { useDispatch, useSelector } from "react-redux";
 import { ShowModal } from "../../Redux/Modal/ModalAction";
 import { signInSelector } from "../../Redux/Auth/SignIn/SignIn.Selector";
 import { SignInUser } from "../../Redux/Auth/SignIn/SignIn.Action";
@@ -41,11 +41,6 @@ function SignInComponent(props) {
   const [values, handleValues, clearState] = useForm(INITIAL_STATE);
   const userSelector = useSelector(signInSelector);
   const modalState = useSelector(modalSelector);
-
-  useEffect(() => {
-    sessionStorage.clear();
-    localStorage.clear();
-  }, []);
 
   // Checking If The User Is Authenticated And Has Token
   useEffect(() => {

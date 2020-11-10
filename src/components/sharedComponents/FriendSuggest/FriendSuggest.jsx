@@ -34,7 +34,7 @@ function FriendSuggest() {
   
   useEffect(() => {
     dispatch(getAllUsersAction());
-  }, []);
+  }, [dispatch]);
 
   if (users.loading) {
     return <Skeleton />;

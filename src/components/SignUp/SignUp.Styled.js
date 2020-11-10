@@ -127,8 +127,8 @@ const StyledEmailPassInput = styled(FormInput)`
   font-size: medium;
   background-color: lavender;
   padding: 0.5rem;
-  color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
-  background-color: ${({ light }) => (light ? "whitesmoke" : "black")};
+  color: #3e3c3c;
+  background-color: whitesmoke;
 `;
 
 const DateOFBirth = styled.h5`

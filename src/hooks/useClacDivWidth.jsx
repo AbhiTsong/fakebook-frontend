@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 function useCalcDivWidth(width) {
-  let onLoadWidth = () => width.current.offsetWidth;
-
+  
   const [container, setContainer] = useState(0);
-
+  
   useEffect(() => {
+    let onLoadWidth = () => width.current.offsetWidth;
     function handleDivWidth() {
       setContainer(onLoadWidth());
     }
