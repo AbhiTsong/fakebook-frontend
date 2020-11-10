@@ -75,7 +75,9 @@ export function Modal2() {
 
   return (
     <ModalContainer light={light}>
-      <div ref={ref}>{content === "SIGN_UP_USER" && <SignUpComponent />}</div>
+      <div ref={ref}>
+        {content === "SIGN_UP_USER" && <SignUpComponent />}
+        </div>
     </ModalContainer>
   );
 }

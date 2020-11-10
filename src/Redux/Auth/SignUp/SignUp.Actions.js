@@ -22,6 +22,12 @@ const SignUpUserFail = (error) => {
   };
 };
 
+export const ClearSignUpState = () => {
+  return {
+    type: SignUpActionTypes.CLEAR_SIGNED_UP,
+  };
+};
+
 // Function For Signing Up Yhe User
 export function SignUpUser({
   date,

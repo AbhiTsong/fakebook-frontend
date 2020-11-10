@@ -35,7 +35,10 @@ import { useForm } from "../../hooks/useFormInput";
 
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
-import { SignUpUser } from "../../Redux/Auth/SignUp/SignUp.Actions";
+import {
+  SignUpUser,
+  ClearSignUpState,
+} from "../../Redux/Auth/SignUp/SignUp.Actions";
 import { signUpSelector } from "../../Redux/Auth/SignUp/SignUp.Selector";
 
 // Utility Function
@@ -77,6 +80,7 @@ function SignUpComponent(props) {
 
   useEffect(() => {
     if (!signUpState.loading && signUpState.isSignedUp) {
+      dispatch(ClearSignUpState());
       dispatch(CloseModal2());
     }
   }, [dispatch, signUpState.isSignedUp, signUpState.loading]);

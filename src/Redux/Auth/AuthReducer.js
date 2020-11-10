@@ -78,6 +78,12 @@ export function authReducer(state = INITIAL_STATE, action) {
         signingOut: false,
       };
 
+    case SignUpActionTypes.CLEAR_SIGNED_UP:
+      return {
+        ...state,
+        isSignedUp: false,
+      };
+
     default:
       return state;
   }
