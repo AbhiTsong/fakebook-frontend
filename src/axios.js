@@ -1,5 +1,5 @@
 import axios from "axios";
-import config from "./config/config.json";
+import config from "./config/config";
 
 let token = JSON.parse(localStorage.getItem("fakeTkn"));
 

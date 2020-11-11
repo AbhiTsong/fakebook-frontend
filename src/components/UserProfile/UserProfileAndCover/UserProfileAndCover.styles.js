@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ReactGif from "../../../Assets/gifs/react.gif";
-import config from "../../../config/config.json";
+import config from "../../../config/config";
 
 const ProfileAndCover = styled.div`
   position: relative;

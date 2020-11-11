@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import config from "../../../config/config.json";
+import config from "../../../config/config";
 import Default from "../../../Assets/images/default.png";
 
 // Styled Import
