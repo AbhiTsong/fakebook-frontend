@@ -21,7 +21,7 @@ import Videos from "../../LeftSideNav/Videos/Videos";
 import UserProfilePic from "../../sharedComponents/UserProfilePic/UserProfilePic";
 
 // Image Import
-import Close from "../../../Assets/images/close.png"
+import Close from "../../../Assets/images/close.png";
 import Feedback from "../../../Assets/images/feedback.png";
 import Right from "../../../Assets/images/rightArrow.png";
 import Settings from "../../../Assets/images/settings.png";
@@ -69,7 +69,6 @@ function SeeProfile(props) {
 
   // Dark Mode And Light Mode Toggle
   function selectThemeFunc() {
-    // setTheme(!theme);
     dispatch(selectTheme());
   }
 
@@ -84,6 +83,7 @@ function SeeProfile(props) {
 
   // Hnadeleing The Logout Function
   function handleLogout() {
+    dispatch(toggleHamburger(!show));
     dispatch(SignOutAction());
     props.history.push("/auth");
     localStorage.removeItem("fakeTkn");
@@ -93,30 +93,30 @@ function SeeProfile(props) {
   function closeDrop() {
     dispatch(toggleHamburger(!show));
   }
-  
-  function handleCloseProfile(){
+
+  function handleCloseProfile() {
     dispatch(toggleHamburger(!show));
   }
 
   return (
     <ProfileSettingsContainer light={light}>
       <ProfieHeaderCntr>
-      <Link to="/profile">
-        <ProfileStttingsHeader>
-          <ProfilePicContainer>
-            <UserProfilePic />
-          </ProfilePicContainer>
-          <ProfileNameContainer light={light}>
-            <ProfileName className="Profile_Name">{`${currUsr.user.firstName} ${currUsr.user.lastName}`}</ProfileName>
-            <ProfileOption className="Profile_Utility">
-              See Your Profile
-            </ProfileOption>
-          </ProfileNameContainer>
-        </ProfileStttingsHeader>
-      </Link>
-      <HeaderCloseCntr onClick={handleCloseProfile}>
-        <CloseIcon src={Close}/>
-      </HeaderCloseCntr>
+        <Link to="/profile">
+          <ProfileStttingsHeader>
+            <ProfilePicContainer>
+              <UserProfilePic />
+            </ProfilePicContainer>
+            <ProfileNameContainer light={light}>
+              <ProfileName className="Profile_Name">{`${currUsr.user.firstName} ${currUsr.user.lastName}`}</ProfileName>
+              <ProfileOption className="Profile_Utility">
+                See Your Profile
+              </ProfileOption>
+            </ProfileNameContainer>
+          </ProfileStttingsHeader>
+        </Link>
+        <HeaderCloseCntr onClick={handleCloseProfile}>
+          <CloseIcon src={Close} />
+        </HeaderCloseCntr>
       </ProfieHeaderCntr>
       <HorizontalLine />
       <FeedBackContainer onClick={staticToast}>

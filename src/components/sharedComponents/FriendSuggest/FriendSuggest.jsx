@@ -29,9 +29,9 @@ import Skeleton from "../../Skeleton/AllPostsSkeleton/Skeleton";
 function FriendSuggest() {
   const dispatch = useDispatch();
   const users = useSelector(userSelector);
-  const {light} = useSelector(themeSelector)
+  const { light } = useSelector(themeSelector);
   let width = useCalcInnerWidth(window.innerWidth);
-  
+
   useEffect(() => {
     dispatch(getAllUsersAction());
   }, [dispatch]);
@@ -61,7 +61,7 @@ function FriendSuggest() {
               .reverse()
           ) : (
             <NoFriendSuggestion>
-              You Have Literally Sent Friend Request To All Users.
+              No Suggstions At The Moment.
             </NoFriendSuggestion>
           )}
         </Carousel>

@@ -61,7 +61,7 @@ function CoverPicPreview() {
     <CoverPreviewContainer light={light}>
       <CoverPreviewHeader>
         <CoverPreviewContent>
-          <h4>Update Profile Pic</h4>
+          <h4>Update Cover</h4>
         </CoverPreviewContent>
         <CoverPreviewCloseContr>
           <CloseModalIcon />

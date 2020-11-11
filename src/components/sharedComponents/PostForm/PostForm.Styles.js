@@ -96,7 +96,7 @@ const IconText = styled.h5`
 
 const IconTextCamera = styled.h5`
   margin-top: 0.6rem;
-  margin-left: -8rem;
+  margin-left: -7rem;
 
   @media screen and (max-width: 800px) {
     display: none;

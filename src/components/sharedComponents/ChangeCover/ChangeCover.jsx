@@ -14,9 +14,9 @@ import { ShowModal } from "../../../Redux/Modal/ModalAction";
 import { getCoverPath } from "../../../Redux/User/getCoverPath";
 
 // Image Icon Import
-import File from "../../../Assets/images/add.png";
+// import File from "../../../Assets/images/add.png"x;
 
-function ChangeCover() {
+function ChangeCover({File}) {
   const dispatch = useDispatch();
   let fileInput = useRef(null);
   let [file, setFile] = useState("");

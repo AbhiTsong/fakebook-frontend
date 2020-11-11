@@ -7,7 +7,7 @@ const LeftProfiePicContainer = styled.div`
   height: 3rem;
   &:hover {
     background-color: ${({ light }) =>
-      light ? "rgb(194, 194, 207)" : "#3e3c3c"};
+      light ? "rgb(188, 188, 207)" : "#3e3c3c"};
     border-radius: 10px;
   }
 `;

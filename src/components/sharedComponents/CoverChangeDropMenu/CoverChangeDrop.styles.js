@@ -48,12 +48,12 @@ const SelectText = styled.h6`
 const UploadPhoto = styled.div`
   display: flex;
   align-items: center;
-  // justify-content: center;
   margin: 0;
 `;
 
 const UploadText = styled.h6`
   margin: 0;
+  cursor: pointer;
   padding-left: 1rem;
   font-weight: 400;
 `;

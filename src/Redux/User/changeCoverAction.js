@@ -2,6 +2,7 @@ import { userActionTypes } from "./User.Types";
 import axios from "../../axios";
 import { getToken } from "../token";
 import { newCoverAdded } from "../Auth/SignIn/SignIn.Action";
+import { showToster } from "../toster/toster.action";
 
 function changeCoverStart() {
   return {
@@ -34,9 +35,11 @@ function changeCoverAction(props) {
       });
       dispatch(newCoverAdded());
       dispatch(changeCoverSuccess(cover));
+      dispatch(showToster("Cover Successfully Changed"));
     } catch (error) {
       if (error.resposne) {
         dispatch(changeCoverFail(error.resposne.data));
+        dispatch(showToster("Error While Changing The Cover"));
       }
     }
   };

@@ -8,43 +8,45 @@ import {
   TimelineCntr,
   TimelineContent,
   TimelineNavigation,
+  TimelineText,
 } from "./UserTimeline.styles";
 
 function UserTimeline() {
   let { light } = useSelector(themeSelector);
+
   // User Profie Pic Should Appear
   return (
     <TimelineCntr light={light}>
       <TimelineContent>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          Timeline
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>Timeline</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          About
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>About</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          Freinds
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>Freinds</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          Photo
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>Photo</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          Archive
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>Archive</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          More
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>More</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          <span>Edit Profile</span>
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>Edit Profile</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          <span>I</span>
+        <TimelineNavigation to="/">
+          <TimelineText light={light}> I</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          <span>Search</span>
+        <TimelineNavigation to="/">
+          <TimelineText light={light}> Search</TimelineText>
         </TimelineNavigation>
-        <TimelineNavigation light={light ? "true" : "false"} to="/">
-          <span>...</span>
+        <TimelineNavigation to="/">
+          <TimelineText light={light}>...</TimelineText>
         </TimelineNavigation>
       </TimelineContent>
     </TimelineCntr>

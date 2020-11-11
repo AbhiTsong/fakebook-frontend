@@ -17,8 +17,7 @@ const TimelineCntr = styled.div`
   margin: 0;
   max-width: 98%;
   color: ${({ light }) => (light ? "#3e3c3c" : `white`)};
-  background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
-
+  background-color: ${({ light }) => (light ? "whitesmoke" : "#3e3c3c")};
 
   @media screen and (max-width: 550px) {
     display: none;
@@ -35,7 +34,9 @@ const TimelineContent = styled.div`
 
 const TimelineNavigation = styled(Link)`
   padding: 0.5rem;
+`;
+const TimelineText = styled.span`
   color: ${({ light }) => (light ? "#3e3c3c" : "aliceblue")};
 `;
 
-export { TimelineCntr, TimelineContent, TimelineNavigation };
+export { TimelineCntr, TimelineContent, TimelineNavigation, TimelineText };

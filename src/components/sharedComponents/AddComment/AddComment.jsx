@@ -18,7 +18,7 @@ import UserProfilePic from "../UserProfilePic/UserProfilePic";
 
 // Custom Hook
 import { useForm } from "../../../hooks/useFormInput";
-
+import { showToster } from "../../../Redux/toster/toster.action";
 
 function AddComment({ id }) {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function AddComment({ id }) {
 
   function handleKeyPress(e) {
     if (e.charCode === 13 && values.comment.length < 3) {
-      alert("You can't add a blank comment");
+      dispatch(showToster("You can't add a blank comment"));
     }
 
     if (values.comment.length > 3 && e.charCode === 13) {

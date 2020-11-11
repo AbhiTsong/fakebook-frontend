@@ -22,7 +22,6 @@ import darkTheme from "./theme/dark";
 import Container from "./theme/components/container";
 import { getToken } from "./Redux/token";
 
-
 // Lazy Imports
 const HomePage = lazy(() => import("./pages/home.page.jsx"));
 const SigninSignupPage = lazy(() => import("./pages/signin-signup.page"));
@@ -61,7 +60,6 @@ function App() {
   const postState = useSelector(postSelector);
   const dispatch = useDispatch();
 
-
   // Effect For Anth And Protected Routes
   useEffect(() => {
     if (postState.error.Error === "Please Authenticate") {
@@ -89,11 +87,7 @@ function App() {
                 }
               />
               <Route exact path="/videos" component={VideosPage} />
-              <Route
-                //  exact
-                path="/profile"
-                component={UserProfilePage}
-              />
+              <Route exact path="/profile" component={UserProfilePage} />
               <Redirect from="/" to="/home" />
             </Suspense>
           </ErrorBoundary>

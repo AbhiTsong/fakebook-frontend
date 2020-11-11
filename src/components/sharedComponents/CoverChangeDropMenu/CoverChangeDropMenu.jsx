@@ -13,6 +13,12 @@ import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine
 import ChangeCover from "../ChangeCover/ChangeCover";
 
 // Icons Import
+import File from "../../../Assets/images/file.png";
+import Update from "../../../Assets/images/update.png";
+import Upload from "../../../Assets/images/upload.png";
+import Create from "../../../Assets/images/edit.png";
+
+// Redux Import
 import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function CoverChangeDropMenu() {
@@ -20,23 +26,23 @@ function CoverChangeDropMenu() {
   return (
     <CoverDropContainer light={light}>
       <UploadPhoto>
-        <ChangeCover />
+        <ChangeCover File={File} />
         <SelectText>Select Photo</SelectText>
       </UploadPhoto>
 
       <UploadPhoto>
-        <ChangeCover />
+        <ChangeCover File={Update} />
         <SelectText>Upload Photo</SelectText>
       </UploadPhoto>
 
       <UploadPhoto>
-        <ChangeCover />
+        <ChangeCover File={Upload} />
         <SelectText>Add Photo</SelectText>
       </UploadPhoto>
 
       <HorizontalLine />
       <UploadPhoto>
-        <ChangeCover />
+        <ChangeCover File={Create} />
         <SelectText>Create Cover</SelectText>
       </UploadPhoto>
     </CoverDropContainer>

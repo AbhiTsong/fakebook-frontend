@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ScrollStyles } from "../../../theme/components/container";
 
 const Parent = styled.div`
   position: absolute;
@@ -12,7 +13,6 @@ const Parent = styled.div`
   background-color: ${({ light }) => (light ? "whitesmoke" : "#343232")};
   box-shadow: rgba(43, 44, 44, 0.2) 0px 4px 8px 0px,
     rgba(43, 44, 44, 0.19) 0px 6px 20px 0px;
-
 
   @media screen and (max-width: 800px) {
     border-top: 1px solid gray;
@@ -64,6 +64,8 @@ const MessageContainer = styled.div`
   padding: 0 1rem;
   overflow-y: scroll;
   height: 80vh;
+  overflow-y: scroll;
+  ${ScrollStyles}
 `;
 
 const MessageImageAndText = styled.div`

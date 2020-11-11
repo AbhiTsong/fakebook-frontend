@@ -21,7 +21,7 @@ function NavProfilePic() {
   const user = useSelector(signInSelector);
 
   return (
-    <LeftProfiePicContainer>
+    <LeftProfiePicContainer light={light}>
       <LeftPofileContent>
         <Link to="/profile">
           <UserProfilePic />

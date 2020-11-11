@@ -33,6 +33,7 @@ function createUserAvatarAction(props) {
           Authorization: `Bearer ${getToken()}`,
         },
       });
+      sessionStorage.clear();
       dispatch(newAvatarAdded());
       dispatch(createUserAvatarSuccess(props));
     } catch (error) {

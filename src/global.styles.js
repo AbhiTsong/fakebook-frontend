@@ -13,10 +13,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  &::-webkit-scrollbar{
-    width: 0;
-   }
 }
 
 a {

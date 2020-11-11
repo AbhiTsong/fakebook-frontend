@@ -1,6 +1,7 @@
 import { PostActionTypes } from "./post.types";
 import axios from "../../axios";
 import { getToken } from "../token";
+import { showToster } from "../toster/toster.action";
 
 function addCommentStart() {
   return {
@@ -36,6 +37,7 @@ function addCommentAction({ comment, id, userId, name }) {
         }
       );
       dispatch(addCommentSuccess(newComment));
+      dispatch(showToster("Comment Successfully Added"));
     } catch (error) {
       if (error.response) {
         dispatch(addCommentFail(error.response.data));

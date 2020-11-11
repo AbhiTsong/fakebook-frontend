@@ -19,7 +19,7 @@ function CommentsContainer({ comments }) {
     <div>
       {comments.length === 0 ? "" : <p>{comments.length} comments</p>}
       {comments.map((comment, idx) => (
-        <IndiCommentContr>
+        <IndiCommentContr key={idx + comment}>
           <CommentCntr>
             <UserProfilePIc
               src={

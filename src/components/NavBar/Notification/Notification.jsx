@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 // import "./Notification.styles.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { staticData } from "../../../statics/statics";
 
-// Img Import 
-import Close from "../../../Assets/images/close.png"
+// Img Import
+import Close from "../../../Assets/images/close.png";
 
 // Redux Imports
 import { notificationAction } from "../../../Redux/Notification/Notification.action";
@@ -34,8 +34,10 @@ import {
   AcceptButton,
   DeclineButton,
 } from "./Notification.Styles";
+import { themeSelector } from "../../../Redux/theme/theme.selector";
 
 function Notification() {
+  const { light } = useSelector(themeSelector);
   const [showSkeleton, setSkeleton] = useState(true);
   const dispatch = useDispatch();
 
@@ -56,12 +58,12 @@ function Notification() {
     );
   }
 
-  function closeMessage(){
-    dispatch(notificationAction(false))
+  function closeMessage() {
+    dispatch(notificationAction(false));
   }
 
   return (
-    <Parent>
+    <Parent light={light}>
       <MessageHeader>
         <HeaderText className="Notification_Header_Text">
           Notifications
