@@ -27,9 +27,3 @@ function FriendSuggestImage({ id, avatar }) {
 }
 
 export default React.memo(FriendSuggestImage);
-
-// REACT_APP_BACK_END=http://localhost:3000
-// # BACK_END_URL=https://fakebook-db.herokuapp.com/
-// # JWT_SECRET=zyiGVlAU0r2xS7d76STl8
-
-  // "private": true,
