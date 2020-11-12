@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar/NavBar.Component";
 
 // With Auth Hoc
 import withAuth from "../hoc/withAuth";
-// import { browserRefresh } from "../utility/windowReload";
+import { browserRefresh } from "../utility/windowReload";
 
 let UserProfielContainer = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ let UserProfileContainer = styled.div`
 `;
 
 function UserProfilePage(props) {
-  // browserRefresh();
+  browserRefresh();
   return (
     <UserProfielContainer>
       <NavBar />

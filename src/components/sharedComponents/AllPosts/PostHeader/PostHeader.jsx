@@ -1,5 +1,4 @@
 import React from "react";
-import config from "../../../../config/config";
 import { useSelector } from "react-redux";
 
 // Styled Import
@@ -49,8 +48,8 @@ function PostHeader({ post }) {
             ? post.owner === loggedUser.user._id
               ? random
                 ? random
-                : `${config.serverURL}/users/${post.owner}/avatar`
-              : `${config.serverURL}/users/${post.owner}/avatar`
+                : `${process.env.REACT_APP_BACK_END}/users/${post.owner}/avatar`
+              : `${process.env.REACT_APP_BACK_END}/users/${post.owner}/avatar`
             : Default
         }
         alt="Creator Profile Pic"

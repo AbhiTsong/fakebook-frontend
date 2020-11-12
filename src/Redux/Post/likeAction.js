@@ -24,7 +24,6 @@ function likeCommentFail(error) {
 }
 
 function likeCommentAction({ like, id, userId }) {
-  console.log("likelikelikelikelikelike", like);
   return async function (dispatch) {
     try {
       dispatch(likeCommentStart());

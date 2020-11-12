@@ -4,7 +4,6 @@ const PosDescription = styled.h5`
   width: 100%;
   text-align: left;
   margin: 5px 0;
-  padding-left: 1rem;
   font-weight: lighter;
 `;
 

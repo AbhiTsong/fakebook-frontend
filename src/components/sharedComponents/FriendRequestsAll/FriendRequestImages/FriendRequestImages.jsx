@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../../axios";
-import config from "../../../../config/config.json";
 
 import Default from "../../../../Assets/images/default.png";
 
@@ -30,7 +29,7 @@ function FriendRequestImages({ id }) {
   return (
     <FriendRedImgCtr>
       <ReqImg
-        src={!isProfile ? Default : `${config.serverURL}/users/${id}/avatar`}
+        src={!isProfile ? Default : `${process.env.REACT_APP_BACK_END}/users/${id}/avatar`}
       />
     </FriendRedImgCtr>
   );

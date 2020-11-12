@@ -76,8 +76,6 @@ function ProfileNavigation() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleMessage() {
-    console.log("i got clicked");
-    // setMessage((pvSt) => !pvSt);
     dispatch(messageAction(!showMessage));
   }
 

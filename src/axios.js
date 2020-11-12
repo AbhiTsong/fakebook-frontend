@@ -1,10 +1,9 @@
 import axios from "axios";
-import config from "./config/config";
 
 let token = JSON.parse(localStorage.getItem("fakeTkn"));
 
 var instance = axios.create({
-  baseURL: config.serverURL,
+  baseURL: process.env.REACT_APP_BACK_END,
 });
 
 instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;

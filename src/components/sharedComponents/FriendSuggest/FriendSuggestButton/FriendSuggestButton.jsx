@@ -22,7 +22,6 @@ function FriendSuggestButton({ id }) {
     dispatch(sendFriendRequestAction(id));
   }
 
-  // console.log("friendsSelector --- >>>", friendState);
   if (friendState.loading) {
     return "Loading";
   }

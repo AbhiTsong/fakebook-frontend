@@ -28,7 +28,6 @@ function Messanger() {
     dispatch(notificationAction(false));
   }
 
-  console.log("Messanger here")
   return (
     <LeftMessageContainer light={light} onClick={handleMessage}>
       <LeftLogoContaner>

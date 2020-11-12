@@ -23,7 +23,7 @@ import HorizontalLine from "../../sharedComponents/HorizontalLine/HorizontalLine
 // Custom hook
 import { useForm } from "../../../hooks/useFormInput";
 
-// Shared Compoent
+// Shared Component
 import CreateImagePost from "./Create_Image_Post/Create_Image_Post";
 import CreateTextPost from "./Create_Text_Post/Create_Text_Post";
 import CreatePostIcons from "./CreatePostIcons/CreatePostIcons.Component";

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import ReactGif from "../../../Assets/gifs/react.gif";
-import config from "../../../config/config";
 
 const ProfileAndCover = styled.div`
   position: relative;
   width: 100%;
   background-image: ${(props) =>
     props.hasCover
-      ? `url(${config.serverURL}/users/${props.id}/cover)`
+      ? `url(${process.env.REACT_APP_BACK_END}/users/${props.id}/cover)`
       : `url(${ReactGif})`};
   background-size: cover;
   height: 20rem;

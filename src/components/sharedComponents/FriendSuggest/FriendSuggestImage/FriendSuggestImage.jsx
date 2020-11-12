@@ -1,6 +1,5 @@
 import React from "react";
 // import "./FriendSuggestImage.styles.scss";
-import config from "../../../../config/config.json";
 
 // Styled Imports
 import {
@@ -14,13 +13,23 @@ import Default from "../../../../Assets/images/default.png";
 // import useCheckProfilePic from "../../../../hooks/useCheckProfilePic";
 
 function FriendSuggestImage({ id, avatar }) {
+
+  console.log("env bro",process.env)
   return (
     <FriendSuggesImgCtr>
       <FriendSuggestImg
-        src={avatar ? `${config.serverURL}/users/${id}/avatar` : Default}
+        src={
+          avatar ? `${process.env.REACT_APP_BACK_END}/users/${id}/avatar` : Default
+        }
       />
     </FriendSuggesImgCtr>
   );
 }
 
 export default React.memo(FriendSuggestImage);
+
+// REACT_APP_BACK_END=http://localhost:3000
+// # BACK_END_URL=https://fakebook-db.herokuapp.com/
+// # JWT_SECRET=zyiGVlAU0r2xS7d76STl8
+
+  // "private": true,

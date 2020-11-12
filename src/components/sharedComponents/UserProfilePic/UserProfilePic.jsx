@@ -1,6 +1,5 @@
 import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import config from "../../../config/config";
 import Default from "../../../Assets/images/default.png";
 
 // Styled Import
@@ -35,7 +34,7 @@ function UserProfilePic(props) {
         random
           ? random
           : userState.user.hasAvatar || userState.newAvatar
-          ? `${config.serverURL}/users/${userState.user._id}/avatar`
+          ? `${process.env.REACT_APP_BACK_END}/users/${userState.user._id}/avatar`
           : Default
       }
       alt="User Pic"

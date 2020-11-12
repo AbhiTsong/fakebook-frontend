@@ -36,7 +36,6 @@ function SignOutAction() {
       window.location.reload();
     } catch (error) {
       if (error.response) {
-        console.log("logges out fail");
         dispatch(SignOutFail(error.response.data));
       }
     }

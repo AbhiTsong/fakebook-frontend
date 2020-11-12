@@ -49,7 +49,6 @@ export function SignInUser({ email, password }) {
         data: { user, token },
       } = signinUser;
 
-      console.log();
 
       dispatch(SignInSuccess(user));
       localStorage.setItem("fakeTkn", JSON.stringify(token));

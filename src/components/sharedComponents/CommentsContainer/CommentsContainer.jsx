@@ -1,5 +1,4 @@
 import React from "react";
-import config from "../../../config/config";
 
 // Styled Imports
 import {
@@ -24,7 +23,7 @@ function CommentsContainer({ comments }) {
             <UserProfilePIc
               src={
                 comment.hasAvatar
-                  ? `${config.serverURL}/users/${comment.owner}/avatar`
+                  ? `${process.env.REACT_APP_BACK_END}/users/${comment.owner}/avatar`
                   : Default
               }
               alt="Creator Profile Pic"
