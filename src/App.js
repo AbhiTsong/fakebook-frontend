@@ -35,6 +35,9 @@ const AppContainer = styled(Container)`
   justify-content: center;
   margin: auto;
   overflow-y: ${({ scroll }) => (scroll ? "hidden" : "")};
+  @media screen and (max-height: 450px) {
+    display: none;
+  }
 `;
 
 const OverPayOnLandScape = styled.div`
@@ -60,7 +63,7 @@ function App() {
   const postState = useSelector(postSelector);
   const dispatch = useDispatch();
 
-  // Effect For Anth And Protected Routes
+  // Effect For Auth And Protected Routes
   useEffect(() => {
     if (postState.error.Error === "Please Authenticate") {
       dispatch(SignOutAction());

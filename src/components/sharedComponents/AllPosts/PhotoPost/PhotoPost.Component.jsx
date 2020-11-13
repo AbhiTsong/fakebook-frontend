@@ -10,14 +10,19 @@ import {
 
 // Utility Imports
 import { bufferToBase64 } from "../../../../utility/bufferToBase64";
+import { useSelector } from "react-redux";
+
+// Redux Import
+import { themeSelector } from "../../../../Redux/theme/theme.selector";
 
 function PhotoPost(props) {
   let { post } = props;
+  let { light } = useSelector(themeSelector);
 
   return (
     <>
       {post.description ? (
-        <PosDescription>{post.description}</PosDescription>
+        <PosDescription light={light}>{post.description}</PosDescription>
       ) : null}
       <CenterPostPic>
         <CenterPostPicBack

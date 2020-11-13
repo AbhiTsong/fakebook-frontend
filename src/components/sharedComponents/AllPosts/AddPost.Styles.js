@@ -79,6 +79,9 @@ const SinglrPostText = styled.p`
   padding: 1rem;
   line-height: 2.5rem;
   color: ${({ light }) => (light ? "" : "aliceblue")};
+  @media screen and (max-width: 800px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const CommentContainer = styled.div`

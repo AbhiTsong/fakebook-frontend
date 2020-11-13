@@ -5,6 +5,7 @@ const PosDescription = styled.h5`
   text-align: left;
   margin: 5px 0;
   font-weight: lighter;
+  color: ${({ light }) => (light ? "black" : "aliceblue")};
 `;
 
 const CenterPostPic = styled.div`
