@@ -33,7 +33,6 @@ import HorizontalLine from "../sharedComponents/HorizontalLine/HorizontalLine";
 
 // Utility Function
 import { validation } from "../../utility/validation";
-import { showToster } from "../../Redux/toster/toster.action";
 
 const INITIAL_STATE = { email: "", password: "" };
 

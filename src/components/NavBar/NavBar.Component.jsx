@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileNavigation from "./ProfileNavigation/ProfileNavigation";
@@ -102,4 +102,4 @@ function NavBarComponent() {
   );
 }
 
-export default NavBarComponent;
+export default memo(NavBarComponent);
