@@ -14,7 +14,6 @@ import Default from "../../../../Assets/images/default.png";
 
 function FriendSuggestImage({ id, avatar }) {
 
-  console.log("env bro",process.env)
   return (
     <FriendSuggesImgCtr>
       <FriendSuggestImg
